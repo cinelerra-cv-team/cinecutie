@@ -1,0 +1,26 @@
+#! /bin/sh
+# Ubuntu Configure script for cinecutie by Rampino Paolo under GNU Public License
+
+set -e
+
+#DEBHELPER#
+# Define
+IC=cinecutiestart
+SCRIPT=/etc/init.d/$IC
+
+# start configure 
+if [ "$1" = "configure" ]; then
+
+# set shmmax
+echo "echo \"0x7fffffff\" > /proc/sys/kernel/shmmax" >> $SCRIPT
+chmod 755 $SCRIPT
+/usr/sbin/update-rc.d -f $IC defaults
+
+# do set shmmax
+echo "0x7fffffff" > /proc/sys/kernel/shmmax
+
+fi
+
+exit 0
+
+

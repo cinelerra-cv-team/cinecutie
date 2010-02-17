@@ -1,0 +1,25 @@
+cinecutie (1.0.0-004betarelease) karmic; urgency=low
+
+  * merge png patch, fixed /usr/local issue.
+
+ -- Paolo Rampino <akir4d@gmail.com>  Sun, 07 Feb 2010 00:42:33 +0100
+
+cinecutie (1.0.0-003betarelease) karmic; urgency=low
+
+  * fixed cpu limit - added xt version.
+
+ -- Paolo Rampino <akir4d@gmail.com>  Sun, 07 Feb 2010 00:42:33 +0100
+
+cinecutie (1.0.0-002testrelease) karmic; urgency=low
+
+  * fixed a crash on i386 package, added some author on aboutpref code.
+
+ -- Paolo Rampino <akir4d@gmail.com>  Sun, 07 Feb 2010 00:42:33 +0100
+ 
+cinecutie (1.0.0-001testrelease) karmic; urgency=low
+
+  * test release
+
+ -- Paolo Rampino <akir4d@gmail.com>  Wed, 03 Feb 2010 23:20:27 +0100
+
+

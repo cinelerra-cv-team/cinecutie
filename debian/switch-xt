@@ -1,0 +1,26 @@
+#!/bin/bash
+
+rm debian/*.install \
+   debian/*.manpages \
+   debian/*.postinst \
+   debian/*.postrm \
+   debian/*.docs \
+   debian/*.menu
+
+if [ "$1" = "yes" ] 
+	then
+	  cp debian/control.d/control debian/control
+	  sed -i /Package/s/cinecutie/cinecutie-xt/g debian/control
+	  sed -i /Depends/s/cinecutie/cinecutie-xt/g debian/control
+	  sed -i /Conflicts/s/cinecutie-xt/cinecutie/g debian/control
+	  sed -i /Replaces/s/cinecutie-xt/cinecutie/g debian/control
+	  for i in `ls debian/control.d/ | grep -v control`
+	  	do
+	  	echo $i
+	  	target=$(echo $i | sed -e s/cinecutie/cinecutie-xt/g)
+	  	cp debian/control.d/$i debian/$target
+	  	done
+	else
+	cp debian/control.d/* debian/
+fi
+	

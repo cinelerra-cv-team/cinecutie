@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Cinecutie 
+Name[ja]=Cinecutie
+Name[sl]=Cinecutie
+Name[fr]=Cinecutie
+Name[es]=Cinecutie
+Comment=Video Editor
+Categories=Application;AudioVideo;Multimedia;
+Encoding=UTF-8
+Exec=cinecutie
+Icon=cinecutie.png
+Terminal=false
+Type=Application

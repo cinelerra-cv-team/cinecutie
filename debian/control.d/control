@@ -1,0 +1,76 @@
+Source: cinecutie
+Section: graphics
+Priority: optional
+Maintainer: Paolo Rampino <akir4d@gmail.com>
+Standards-Version: 3.5.9
+Build-depends: debhelper (>> 4), automake, autogen, libglu1-mesa-dev, libglut3-dev | libglut-dev, dpatch (>= 1.11),
+ libasound2-dev (>= 1.0.4), libdv4-dev (>= 1.0.0), 
+ libavcodeccvs51-dev | libavcodec-dev, 
+ libmp3lame-dev | liblame-dev, libvorbis-dev (>= 1.0.0),
+ libogg-dev (>= 1.1.2), libtool (>= 1.5), liba52-0.7.4-dev (>= 0.7.4), 
+ libtheora-dev (>=0.0.0.alpha4) | libtheora-mmx-dev (>=0.0.0.alpha4),
+ libpng12-dev (>= 1.2.5), libjpeg62-dev (>= 6b), libtiff4-dev (>= 3.6.0),
+ libesd0-dev (>= 0.2.28), libaudiofile-dev (>= 0.2.3), 
+ libraw1394-dev (>= 1.2.0), libavc1394-dev (>= 0.4.1),
+ libfreetype6-dev (>= 2.2.1), libfontconfig-dev, nasm, uuid-dev, 
+ docbook-to-man, libfaad2-dev | libfaad-dev, libmjpegtools-dev (>= 1.6.2), 
+ libopenexr-dev (>= 1.1.1), libxxf86vm-dev (>=6.8.2), fftw3-dev,
+ libsndfile1-dev, libiec61883-dev (>= 1.0.0), libx264-dev,
+ libfaac-dev (>= 1.24), libx11-dev, libxext-dev, libxft-dev,
+ libxv-dev, libxxf86vm-dev, fftw3-dev, libmp4v2-dev
+
+Package: cinecutie
+Section: video
+Architecture: any
+Depends: ${shlibs:Depends}, libcinecutie (= ${Source-Version})
+Conflicts: cinecutie-xt
+Replaces: cinecutie-xt
+Description: An audio/video authoring tool
+ Cinecutie is a Cinelerra mockup with some experiments (like utf8
+ fonts antialias and more).
+ .
+ Availabile in 2 flavours:
+ .
+ -cinecutie (normal processors)
+ .
+ -cinecutie-xt (extended processors features ex: sse3 on most recent x86 cpus)
+ .
+ Cinelerra is a complete audio and video authoring
+ tool. It understands a lot of multimedia formats
+ (quicktime, avi, ogg) and audio/video compression
+ codecs (divx, xvid, mpeg1/2, ...)
+ .
+ add also:
+ - /etc/init.d/cinecutiestart that set shmmax to 0x7fffffff 
+ ( you can edit this script to not do that )
+ 
+Package: libcinecutie
+Section: libs
+Conflicts: libcinecutie-xt
+Replaces: libcinecutie-xt
+Architecture: any
+Depends: ${shlibs:Depends} 
+Description: A toolkit library
+ libcinecutie is a toolkit library mainly used by Cinecutie.
+ 
+Package: libcinecutie-dev
+Section: libs
+Depends: libcinecutie (= ${Source-Version})
+Conflicts: libcinecutie-xt-dev
+Replaces: libcinecutie-xt-dev
+Architecture: any
+Description: devlib of cinecutie, if you not ensure not install.
+
+Package: cinecutie-optional
+Section: other
+Depends: ${shlibs:Depends}, libcinecutie (= ${Source-Version})
+Conflicts: cinecutie-xt-optional, mpeg3-utils
+Replaces: cinecutie-xt-optional
+Architecture: any
+Description: Optional packages for cinecutie that normally 
+ causes some conflicts with other packages, like:. 
+ .
+ mpeg3cat mpeg3dump mpeg3toc mplexlo.
+
+
+

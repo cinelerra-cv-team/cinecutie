@@ -1,0 +1,6465 @@
+# translation of sl.po to 
+# translation of sl.po to
+# translation of sl.po to
+# translation of sl.po to slovenian language
+# , 2003.
+# , 2003.
+# , 2003.
+# , 2003.
+# , 2003.
+# , 2003.
+# , 2003.
+# , 2003.
+# , 2003.
+# , 2003.
+# , 2003.
+# , 2003.
+# , 2003.
+# , 2003.
+# , 2003.
+# , 2003.
+# , 2003.
+# , 2003.
+# , 2003.
+# , 2003.
+# , 2003.
+# , 2003.
+# , 2003.
+# , 2003.
+# , 2003.
+# , 2003.
+# , 2003.
+# , 2003.
+# , 2003.
+# , 2003.
+msgid ""
+msgstr ""
+"Project-Id-Version: sl\n"
+"Report-Msgid-Bugs-To: cinecutie@skolelinux.no\n"
+"POT-Creation-Date: 2009-12-23 17:21+0100\n"
+"PO-Revision-Date: 2004-06-14 13:58+0100\n"
+"Last-Translator: Ana Pavli¹iè <ana.pavlisic@kiss.si>\n"
+"Language-Team:  <sl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-2\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: cinecutie/aboutprefs.C:59
+msgid "Cinelerra "
+msgstr "Cinelerra "
+
+#: cinecutie/aboutprefs.C:68
+#, fuzzy
+msgid ""
+"(C) 2006 Heroine Virtual Ltd.\n"
+"\n"
+msgstr ""
+"(c) 2003 Heroine Virtual Ltd.\n"
+"\n"
+
+#: cinecutie/aboutprefs.C:70
+#, fuzzy
+msgid ""
+"\n"
+"Build date: "
+msgstr "Datum izgradnje"
+
+#: cinecutie/aboutprefs.C:81
+#, fuzzy, c-format
+msgid ""
+"Quicktime version %d.%d.%d (%s)\n"
+"Libmpeg3 version %d.%d.%d\n"
+msgstr ""
+"Razlièica Quicktime %d.%d.%d\n"
+"Razlièica Libmpeg3 %d.%d.%d\n"
+
+#: cinecutie/aboutprefs.C:140
+#, c-format
+msgid ""
+"This program is free software; you can redistribute it and/or modify it "
+"under the terms\n"
+"of the GNU General Public License as published by the Free Software "
+"Foundation; either version\n"
+"2 of the License, or (at your option) any later version.\n"
+"\n"
+"This program is distributed in the hope that it will be useful, but WITHOUT "
+"ANY WARRANTY;\n"
+"without even the implied warranty of MERCHANTABILITY or FITNESS FOR A "
+"PARTICULAR\n"
+"PURPOSE.  See the GNU General Public License for more details.\n"
+"\n"
+msgstr ""
+"Ta program je prosto programje; lahko ga raz¹irjate in/ali spreminjate pod "
+"pogoji \n"
+"GNU Splo¹ne javne licence, kot jo je objavila Free Software Foundation,\n"
+"ali (na va¹o ¾eljo) keterokoli novej¹o razlièico te licence\n"
+"\n"
+"Program je na voljo v upanju, da je uporaben, a BREZ KAKR©NIHKOLI JAMSTEV;\n"
+" jamèeno ni niti za njegovo UPORABNOST ali PRIMERNOST ZA DOLOÈENO RABO. \n"
+"Za nadaljne podrobnosti glejte GNU Splo¹no javno licenco.\n"
+
+#: cinecutie/adeviceprefs.C:266 cinecutie/vdeviceprefs.C:245
+#: cinecutie/vdeviceprefs.C:268 cinecutie/vdeviceprefs.C:390
+#: cinecutie/vdeviceprefs.C:401 cinecutie/vdeviceprefs.C:413
+msgid "Device path:"
+msgstr "Pot naprave:"
+
+#: cinecutie/adeviceprefs.C:288 cinecutie/adeviceprefs.C:362
+#: cinecutie/assetedit.C:318 cinecutie/fileformat.C:85
+msgid "Bits:"
+msgstr "Biti:"
+
+#: cinecutie/adeviceprefs.C:340
+msgid "Device:"
+msgstr "Naprava:"
+
+#: cinecutie/adeviceprefs.C:383
+msgid "Stop playback locks up."
+msgstr ""
+
+#: cinecutie/adeviceprefs.C:411
+msgid "Server:"
+msgstr "Stre¾nik:"
+
+#: cinecutie/adeviceprefs.C:427 cinecutie/adeviceprefs.C:478
+#: cinecutie/performanceprefs.C:157 cinecutie/vdeviceprefs.C:221
+#: cinecutie/vdeviceprefs.C:336
+msgid "Port:"
+msgstr "Vrata:"
+
+#: cinecutie/adeviceprefs.C:457 cinecutie/vdeviceprefs.C:318
+msgid "Device Path:"
+msgstr "Pot naprave:"
+
+#: cinecutie/adeviceprefs.C:496 cinecutie/channeledit.C:1038
+#: cinecutie/vdeviceprefs.C:354
+msgid "Channel:"
+msgstr "Kanal:"
+
+#: cinecutie/adeviceprefs.C:519 cinecutie/vdeviceprefs.C:377
+msgid "Syt Offset:"
+msgstr "Odmik syt:"
+
+#: cinecutie/amodule.C:237 cinecutie/amodule.C:316
+#, c-format
+msgid "VirtualAConsole::load_track Couldn't open %s.\n"
+msgstr "VirtualAConsole::load_track Ne morem odpreti %s.\n"
+
+#: cinecutie/apatchgui.C:250 cinecutie/vpatchgui.C:212
+msgid "fade"
+msgstr "zabris"
+
+#: cinecutie/apatchgui.C:326
+msgid "pan"
+msgstr "premik kamere"
+
+#: cinecutie/assetedit.C:210
+msgid "Select a file for this asset:"
+msgstr "Izberi datoteko za to sredstvo:"
+
+#: cinecutie/assetedit.C:213
+msgid "File format:"
+msgstr "Format datoteke:"
+
+#: cinecutie/assetedit.C:231
+msgid "Bytes:"
+msgstr "Bajti:"
+
+#: cinecutie/assetedit.C:250
+#, fuzzy
+msgid "Bitrate (bits/sec):"
+msgstr "Toleranca bit. hitr.:"
+
+#: cinecutie/assetedit.C:264 cinecutie/formattools.C:169
+msgid "Audio:"
+msgstr "Zvok:"
+
+#: cinecutie/assetedit.C:270 cinecutie/assetedit.C:409
+#: cinecutie/filemov.C:1449 cinecutie/filemov.C:1740
+#: cinecutie/filesndfile.C:398 cinecutie/filetga.C:931
+msgid "Compression:"
+msgstr "Kompresija:"
+
+#: cinecutie/assetedit.C:281 cinecutie/fileformat.C:73 cinecutie/new.C:277
+#: cinecutie/setformat.C:363 plugins/livevideo/livevideo.C:230
+msgid "Channels:"
+msgstr "Kanali:"
+
+#: cinecutie/assetedit.C:298 cinecutie/fileformat.C:79
+msgid "Sample rate:"
+msgstr "Ferkvenca vzorèenja:"
+
+#: cinecutie/assetedit.C:339 cinecutie/fileformat.C:98
+msgid "Header length:"
+msgstr "Dol¾ina glave:"
+
+#: cinecutie/assetedit.C:351 cinecutie/fileformat.C:105
+#: cinecutie/filesndfile.C:417
+msgid "Byte order:"
+msgstr "Zapis bajtov:"
+
+#: cinecutie/assetedit.C:372 cinecutie/assetedit.C:777
+msgid "Lo-Hi"
+msgstr "Ni-Vi"
+
+#: cinecutie/assetedit.C:374 cinecutie/assetedit.C:794
+msgid "Hi-Lo"
+msgstr "Vi-Ni"
+
+#: cinecutie/assetedit.C:388
+msgid "Values are unsigned"
+msgstr "Vrednosti so nepredznaèene"
+
+#: cinecutie/assetedit.C:390 cinecutie/assetedit.C:811
+#: cinecutie/fileformat.C:188
+msgid "Values are signed"
+msgstr "Vrednosti so predznaèene"
+
+#: cinecutie/assetedit.C:402 cinecutie/formattools.C:201
+msgid "Video:"
+msgstr "Video:"
+
+#: cinecutie/assetedit.C:420 cinecutie/setformat.C:403
+msgid "Frame rate:"
+msgstr "Frekv. slik:"
+
+#: cinecutie/assetedit.C:430 cinecutie/setformat.C:418
+#: plugins/freeverb/freeverb.C:348
+msgid "Width:"
+msgstr "©irina:"
+
+#: cinecutie/assetedit.C:437 cinecutie/setformat.C:425
+msgid "Height:"
+msgstr "Vi¹ina:"
+
+#: cinecutie/assetedit.C:446
+#, fuzzy
+msgid "Subtitle tracks:"
+msgstr "Skupne steze:"
+
+#: cinecutie/assetedit.C:454
+msgid "Fix interlacing:"
+msgstr ""
+
+#: cinecutie/assetedit.C:459
+msgid "Asset's interlacing:"
+msgstr ""
+
+#: cinecutie/assetedit.C:473
+#, fuzzy
+msgid "Interlace correction:"
+msgstr "Smer perspektive:"
+
+#: cinecutie/assetedit.C:487 cinecutie/loadfile.C:485
+#, fuzzy
+msgid "Reel Name:"
+msgstr "Ponastavi kamero"
+
+#: cinecutie/assetedit.C:493 cinecutie/loadfile.C:499
+msgid "Reel Number:"
+msgstr ""
+
+#: cinecutie/assetedit.C:499
+#, fuzzy
+msgid "Time Code Start:"
+msgstr " odmik:"
+
+#: cinecutie/assetedit.C:593
+msgid "Automatically Fix Interlacing"
+msgstr ""
+
+#: cinecutie/assetedit.h:92
+#, fuzzy
+msgid " Path"
+msgstr "Pot"
+
+#: cinecutie/assetedit.h:93
+msgid "Select a file"
+msgstr "Izberi datoteko"
+
+#: cinecutie/assetpopup.C:124
+msgid "Info..."
+msgstr "Podatki..."
+
+#: cinecutie/assetpopup.C:166
+msgid "Rebuild index"
+msgstr "Znova zgradi kazalo"
+
+#: cinecutie/assetpopup.C:190 cinecutie/awindowmenu.C:108
+msgid "Sort items"
+msgstr "Razvrsti predmete"
+
+#: cinecutie/assetpopup.C:213 cinecutie/mainmenu.C:191
+msgid "View"
+msgstr "Pogled"
+
+#: cinecutie/assetpopup.C:246 cinecutie/mainmenu.C:726
+msgid "Paste"
+msgstr "Prilepi"
+
+#: cinecutie/assetpopup.C:270
+msgid "Match project size"
+msgstr "Prilagodi velikost projekta"
+
+#: cinecutie/assetpopup.C:290
+#, fuzzy
+msgid "Match frame rate"
+msgstr "Frekv. slik:"
+
+#: cinecutie/assetpopup.C:316
+msgid "Remove from project"
+msgstr "Odstrani iz projekta"
+
+#: cinecutie/assetpopup.C:338
+msgid "Remove from disk"
+msgstr "Odtrani z diska "
+
+#: cinecutie/assetremove.C:46
+msgid "Permanently remove from disk?"
+msgstr "Zaèasno odtrani z diska?"
+
+#: cinecutie/atrack.C:140
+#, c-format
+msgid "Audio %d"
+msgstr "Zvok %d"
+
+#: cinecutie/avc1394transport.C:175 cinecutie/playtransport.C:416
+msgid "Rewind ( Home )"
+msgstr "Previj ( tipka Home )"
+
+#: cinecutie/avc1394transport.C:200
+#, fuzzy
+msgid "Fast Reverse ( + )"
+msgstr "Hitro previjanje nazaj ( + )"
+
+#: cinecutie/avc1394transport.C:224
+#, fuzzy
+msgid "Reverse Play ( 6 )"
+msgstr "Normalno predvajanje nazaj ( 6 )"
+
+#: cinecutie/avc1394transport.C:256 cinecutie/playtransport.C:532
+msgid "Stop ( 0 )"
+msgstr "Ustavi ( 0 )"
+
+#: cinecutie/avc1394transport.C:281
+#, fuzzy
+msgid "Play ( 3 )"
+msgstr "Prilepi ( v )"
+
+#: cinecutie/avc1394transport.C:314
+#, fuzzy
+msgid "Pause"
+msgstr "Prilepi"
+
+#: cinecutie/avc1394transport.C:337
+#, fuzzy
+msgid "Fast Forward ( Enter )"
+msgstr "Hitro previjanje naprej ( Enter )"
+
+#: cinecutie/avc1394transport.C:365 cinecutie/playtransport.C:519
+msgid "Jump to end ( End )"
+msgstr "Skoèi na konec ( tipka End )"
+
+#: cinecutie/awindowgui.C:376 cinecutie/awindowgui.C:973
+#: cinecutie/awindowgui.C:1000 plugins/titler/title.C:1070
+msgid "Title"
+msgstr "Naslov"
+
+#: cinecutie/awindowgui.C:377 cinecutie/awindowgui.C:974
+msgid "Comments"
+msgstr "Komentarji"
+
+#: cinecutie/awindowgui.C:999
+#, fuzzy
+msgid "Time Stamps"
+msgstr "Ka¾i vzorce"
+
+#: cinecutie/awindowgui.C:1508
+msgid "New bin"
+msgstr "Nov ko¹"
+
+#: cinecutie/awindowgui.C:1522
+msgid "Delete bin"
+msgstr "Zbri¹i ko¹"
+
+#: cinecutie/awindowgui.C:1540
+msgid "Rename bin"
+msgstr "Preimenuj ko¹"
+
+#: cinecutie/awindowgui.C:1553
+msgid "Delete asset from disk"
+msgstr "Zbri¹i sredstva iz diska"
+
+#: cinecutie/awindowgui.C:1566
+msgid "Delete asset from project"
+msgstr "Zbri¹i sredstva iz projekta"
+
+#: cinecutie/awindowgui.C:1579
+msgid "Edit information on asset"
+msgstr "Uredi informacije na sredstvu"
+
+#: cinecutie/awindowgui.C:1593
+msgid "Redraw index"
+msgstr "Znova nari¹i kazalo"
+
+#: cinecutie/awindowgui.C:1606
+msgid "Paste asset on recordable tracks"
+msgstr "Prilepi sredstvo na snemalne steze"
+
+#: cinecutie/awindowgui.C:1619
+msgid "Append asset in new tracks"
+msgstr "Pripni sredstvo na novo stezo"
+
+#: cinecutie/awindowgui.C:1632
+msgid "View asset"
+msgstr "Poglej sredstvo"
+
+#: cinecutie/awindowgui.C:1666 cinecutie/channeledit.C:612
+msgid "Edit..."
+msgstr "Uredi..."
+
+#: cinecutie/awindowmenu.C:77 cinecutie/awindowmenu.C:148
+#: guicast/bcfilebox.C:352
+msgid "Display icons"
+msgstr "Ka¾i ikone"
+
+#: cinecutie/awindowmenu.C:77 cinecutie/awindowmenu.C:148
+#: guicast/bcfilebox.C:339
+msgid "Display text"
+msgstr "Ka¾i besedilo"
+
+#: cinecutie/batch.C:107
+#, fuzzy, c-format
+msgid "Open"
+msgstr "Vkljuèeno"
+
+#: cinecutie/batch.C:116
+#, c-format
+msgid "File exists"
+msgstr ""
+
+#: cinecutie/batch.C:120 cinecutie/preferencesthread.C:551
+#: cinecutie/record.C:705
+#, c-format
+msgid "OK"
+msgstr "V redu"
+
+#: cinecutie/batch.C:171 cinecutie/recordgui.C:1365
+msgid "Untimed"
+msgstr "Ne merjen èas"
+
+#: cinecutie/batch.C:174 cinecutie/recordgui.C:1366
+msgid "Timed"
+msgstr "Merjen èas"
+
+#: cinecutie/batch.C:183 cinecutie/batchrender.C:889 cinecutie/file.C:1334
+#: cinecutie/filemov.C:1245 cinecutie/loadmode.C:84
+#: plugins/timefront/timefront.C:430
+msgid "Unknown"
+msgstr "Neznan"
+
+#: cinecutie/batchrender.C:52 plugins/freezeframe/freezeframe.C:103
+#: plugins/reverseaudio/reverseaudio.C:153
+#: plugins/reversevideo/reversevideo.C:151
+msgid "Enabled"
+msgstr "Omogoèeno"
+
+#: cinecutie/batchrender.C:53 plugins/compressor/compressor.C:1068
+msgid "Output"
+msgstr "Izhod"
+
+#: cinecutie/batchrender.C:54
+msgid "EDL"
+msgstr "EDL"
+
+#: cinecutie/batchrender.C:55
+msgid "Elapsed"
+msgstr "Preteèen"
+
+#: cinecutie/batchrender.C:67
+msgid "Batch Render..."
+msgstr "Serijsko upodabljanje..."
+
+#: cinecutie/batchrender.C:418
+#, c-format
+msgid "EDL %s not found.\n"
+msgstr "EDL %s ni bil najden.\n"
+
+#: cinecutie/batchrender.C:683
+msgid "Output path:"
+msgstr "Pot izhoda:"
+
+#: cinecutie/batchrender.C:710
+msgid "EDL Path:"
+msgstr "Pot EDL:"
+
+#: cinecutie/batchrender.C:727
+msgid "Input EDL"
+msgstr "Vhod EDL"
+
+#: cinecutie/batchrender.C:728
+msgid "Select an EDL to load:"
+msgstr "Izberi EDL za odprtje:"
+
+#: cinecutie/batchrender.C:757
+msgid "Batches to render:"
+msgstr "Posli za upodobit:"
+
+#: cinecutie/batchrender.C:770 cinecutie/batchrender.C:1315
+#: cinecutie/recordgui.C:1057
+msgid "Stop"
+msgstr "Ustavi"
+
+#: cinecutie/batchrender.C:775 cinecutie/batchrender.C:1334
+#: cinecutie/tipwindow.C:269
+msgid "Close"
+msgstr "Zapri"
+
+#: cinecutie/batchrender.C:998 cinecutie/new.C:122 cinecutie/recordgui.C:1011
+msgid "New"
+msgstr "Nova"
+
+#: cinecutie/batchrender.C:1012 cinecutie/channeledit.C:599
+#: cinecutie/cwindowtool.C:1469 cinecutie/recordgui.C:1026
+#: plugins/synthesizer/synthesizer.C:909
+msgid "Delete"
+msgstr "Zbri¹i"
+
+#: cinecutie/batchrender.C:1028
+#, fuzzy
+msgid "Save List"
+msgstr "Shrani kot..."
+
+#: cinecutie/batchrender.C:1031
+#, fuzzy
+msgid "Save a Batch Render List"
+msgstr "Serijsko upodabljanje..."
+
+#: cinecutie/batchrender.C:1076
+#, fuzzy
+msgid "Save Batch Render List"
+msgstr "Serijsko upodabljanje..."
+
+#: cinecutie/batchrender.C:1077
+#, fuzzy
+msgid "Enter a Batch Render filename to save as:"
+msgstr "Vpi¹i ime datoteke za shranitev"
+
+#: cinecutie/batchrender.C:1114
+#, fuzzy
+msgid "Load List"
+msgstr "Odpri datoteke..."
+
+#: cinecutie/batchrender.C:1118
+msgid "Load a previously saved Batch Render List"
+msgstr ""
+
+#: cinecutie/batchrender.C:1163
+#, fuzzy
+msgid "Load Batch Render List"
+msgstr "Serijsko upodabljanje..."
+
+#: cinecutie/batchrender.C:1164
+#, fuzzy
+msgid "Enter a Batch Render filename to load from:"
+msgstr "Izberi reverb datoteko za odprtje"
+
+#: cinecutie/batchrender.C:1299 cinecutie/recordgui.C:1041
+msgid "Start"
+msgstr "Zaèni"
+
+#: cinecutie/brender.C:154
+msgid "BRender::fork_background: can't open /proc/self/cmdline.\n"
+msgstr "BRender::fork_background: ne morem odpreti /proc/self/cmdline.\n"
+
+#: cinecutie/brender.C:264
+#, c-format
+msgid "BRender::set_video_map called to set NOT_SCANNED\n"
+msgstr "BRender::set_video_map je bila poklicana za nastavitev NOT_SCANNED\n"
+
+#: cinecutie/brender.C:281
+#, c-format
+msgid "BRender::set_video_map %d: attempt to set beyond end of map %d.\n"
+msgstr "BRender::set_video_map %d: poskus nastavitve za koncem katre%d.\n"
+
+#: cinecutie/browsebutton.C:52
+msgid "Look for file"
+msgstr "Poglej za datoteko"
+
+#: cinecutie/canvas.C:1053
+#, fuzzy
+msgid "Windowed"
+msgstr "Okno"
+
+#: cinecutie/canvas.C:1091
+msgid "Zoom 25%"
+msgstr "25% poveèava"
+
+#: cinecutie/canvas.C:1092
+#, fuzzy
+msgid "Zoom 33%"
+msgstr "25% poveèava"
+
+#: cinecutie/canvas.C:1093
+msgid "Zoom 50%"
+msgstr "50% poveèava"
+
+#: cinecutie/canvas.C:1094
+#, fuzzy
+msgid "Zoom 75%"
+msgstr "25% poveèava"
+
+#: cinecutie/canvas.C:1095 cinecutie/recordmonitor.C:797
+msgid "Zoom 100%"
+msgstr "100% poveèava"
+
+#: cinecutie/canvas.C:1096
+#, fuzzy
+msgid "Zoom 150%"
+msgstr "50% poveèava"
+
+#: cinecutie/canvas.C:1097
+msgid "Zoom 200%"
+msgstr "200% poveèava"
+
+#: cinecutie/canvas.C:1098
+#, fuzzy
+msgid "Zoom 300%"
+msgstr "100% poveèava"
+
+#: cinecutie/canvas.C:1099
+#, fuzzy
+msgid "Zoom 400%"
+msgstr "100% poveèava"
+
+#: cinecutie/canvas.C:1121
+#, fuzzy
+msgid "Zoom Auto"
+msgstr "Poveèava mehèanja"
+
+#: cinecutie/canvas.C:1151
+msgid "Reset camera"
+msgstr "Ponastavi kamero"
+
+#: cinecutie/canvas.C:1164
+msgid "Reset projector"
+msgstr "Ponastavi projektor"
+
+#: cinecutie/canvas.C:1177
+msgid "Reset translation"
+msgstr "Ponastavi premik"
+
+#: cinecutie/canvas.C:1204
+msgid "Show controls"
+msgstr "Ka¾i kontrole"
+
+#: cinecutie/canvas.C:1206
+msgid "Hide controls"
+msgstr "Skrij kontrole"
+
+#: cinecutie/canvas.C:1216
+msgid "Fullscreen"
+msgstr ""
+
+#: cinecutie/canvas.C:1237
+msgid "Close source"
+msgstr "Zapri izvor"
+
+#: cinecutie/channeledit.C:128
+msgid "NTSC_BCAST"
+msgstr "NTSC_BCAST"
+
+#: cinecutie/channeledit.C:131
+msgid "NTSC_CABLE"
+msgstr "NTSC_CABLE"
+
+#: cinecutie/channeledit.C:134
+msgid "NTSC_HRC"
+msgstr "NTSC_HRC"
+
+#: cinecutie/channeledit.C:137
+msgid "NTSC_BCAST_JP"
+msgstr "NTSC_BCAST_JP"
+
+#: cinecutie/channeledit.C:140
+msgid "NTSC_CABLE_JP"
+msgstr "NTSC_CABLE_JP"
+
+#: cinecutie/channeledit.C:143
+msgid "PAL_AUSTRALIA"
+msgstr "PAL_AUSTRALIA"
+
+#: cinecutie/channeledit.C:146
+msgid "PAL_EUROPE"
+msgstr "PAL_EUROPE"
+
+#: cinecutie/channeledit.C:149
+msgid "PAL_E_EUROPE"
+msgstr "PAL_E_EUROPE"
+
+#: cinecutie/channeledit.C:152
+msgid "PAL_ITALY"
+msgstr "PAL_ITALY"
+
+#: cinecutie/channeledit.C:155
+msgid "PAL_IRELAND"
+msgstr "PAL_IRELAND"
+
+#: cinecutie/channeledit.C:158
+msgid "PAL_NEWZEALAND"
+msgstr "PAL_NEWZEALAND"
+
+#: cinecutie/channeledit.C:168 cinecutie/formatpresets.C:63
+#: plugins/videoscope/videoscope.C:743
+msgid "NTSC"
+msgstr "NTSC"
+
+#: cinecutie/channeledit.C:171 cinecutie/formatpresets.C:106
+msgid "PAL"
+msgstr "PAL"
+
+#: cinecutie/channeledit.C:174
+msgid "SECAM"
+msgstr "SECAM"
+
+#: cinecutie/channeledit.C:184 cinecutie/plugindialog.C:279
+#: cinecutie/record.C:356 cinecutie/recordgui.C:344
+#: cinecutie/sharedlocation.C:127 cinecutie/sharedlocation.C:132
+#: cinecutie/sharedlocation.C:145 cinecutie/vwindowgui.C:231
+#: plugins/parametric/parametric.C:278
+#, c-format
+msgid "None"
+msgstr "Brez"
+
+#: cinecutie/channeledit.C:503
+msgid "Select"
+msgstr "Izberi"
+
+#: cinecutie/channeledit.C:516
+msgid "Add..."
+msgstr "Dodaj..."
+
+#: cinecutie/channeledit.C:547 cinecutie/editpopup.C:115
+#: cinecutie/pluginpopup.C:228
+msgid "Move up"
+msgstr "Prestavi gor"
+
+#: cinecutie/channeledit.C:562 cinecutie/editpopup.C:132
+#: cinecutie/pluginpopup.C:243
+msgid "Move down"
+msgstr "Prestavi dol"
+
+#: cinecutie/channeledit.C:577
+#, fuzzy
+msgid "Sort"
+msgstr "Vrata"
+
+#: cinecutie/channeledit.C:589
+#, fuzzy
+msgid "Scan"
+msgstr "Skaliraj"
+
+#: cinecutie/channeledit.C:625
+msgid "Picture..."
+msgstr "Slika..."
+
+#: cinecutie/channeledit.C:671
+msgid "Set parameters for channel scanning."
+msgstr ""
+
+#: cinecutie/channeledit.C:675 cinecutie/channeledit.C:1044
+msgid "Frequency table:"
+msgstr "Tabela frekvenc:"
+
+#: cinecutie/channeledit.C:678 cinecutie/channeledit.C:1065
+msgid "Norm:"
+msgstr "Standard:"
+
+#: cinecutie/channeledit.C:681 cinecutie/channeledit.C:1079
+msgid "Input:"
+msgstr "Vhod:"
+
+#: cinecutie/channeledit.C:1030 cinecutie/clipedit.C:207
+msgid "Title:"
+msgstr "Naslov:"
+
+#: cinecutie/channeledit.C:1057
+msgid "Fine:"
+msgstr "Precizno:"
+
+#: cinecutie/channeledit.C:1487 plugins/brightness/brightnesswindow.C:55
+msgid "Brightness:"
+msgstr "Svetlost:"
+
+#: cinecutie/channeledit.C:1497 plugins/brightness/brightnesswindow.C:62
+msgid "Contrast:"
+msgstr "Kontrast:"
+
+#: cinecutie/channeledit.C:1506 plugins/chromakey/chromakey.C:133
+#: plugins/chromakeyhsv/chromakey.C:183
+msgid "Color:"
+msgstr "Barva:"
+
+#: cinecutie/channeledit.C:1515 plugins/huesaturation/huesaturation.C:330
+msgid "Hue:"
+msgstr "Odtenek:"
+
+#: cinecutie/channeledit.C:1524
+msgid "Whiteness:"
+msgstr "Belina:"
+
+#: cinecutie/channelpicker.C:518
+msgid "Channel"
+msgstr "Kanal"
+
+#: cinecutie/channelpicker.C:553
+msgid "Edit channels"
+msgstr "Uredi kanale:"
+
+#: cinecutie/clipedit.C:123
+msgid "A clip with that name already exists."
+msgstr ""
+
+#: cinecutie/clipedit.C:215
+msgid "Comments:"
+msgstr "Komentarji:"
+
+#: cinecutie/confirmquit.C:53
+msgid "( Answering No will destroy changes )"
+msgstr "( Odgovor \"Ne\" bo unièil spremembe ) "
+
+#: cinecutie/confirmquit.C:65 cinecutie/question.C:60
+msgid "Yes"
+msgstr "Da"
+
+#: cinecutie/confirmquit.C:84 cinecutie/confirmquit.C:86
+#: cinecutie/question.C:78
+msgid "No"
+msgstr "Ne"
+
+#: cinecutie/confirmquit.C:105 cinecutie/confirmquit.C:107
+#: cinecutie/preferencesthread.C:575 cinecutie/preferencesthread.C:577
+msgid "Cancel"
+msgstr "Preklièi"
+
+#: cinecutie/confirmsave.C:129
+msgid "The following files exist.  Overwrite them?"
+msgstr "Sledeèe datoteke obstajajo. Ali jih prepi¹em?"
+
+#: cinecutie/cpanel.C:130
+msgid "Protect video from changes"
+msgstr "Za¹èiti video pred spremembami"
+
+#: cinecutie/cpanel.C:154
+msgid "Edit mask"
+msgstr "Uredi masko"
+
+#: cinecutie/cpanel.C:174
+msgid "Zoom view"
+msgstr "Poveèava pogleda"
+
+#: cinecutie/cpanel.C:194
+msgid "Adjust camera automation"
+msgstr "Prilagodi samodejnost kamere"
+
+#: cinecutie/cpanel.C:214
+msgid "Adjust projector automation"
+msgstr "Prilagodi samodejnost projektorja"
+
+#: cinecutie/cpanel.C:234
+msgid "Crop a layer or output"
+msgstr "Obre¾i plast ali izhod"
+
+#: cinecutie/cpanel.C:258
+#, fuzzy
+msgid "Get color"
+msgstr "Notranje barva"
+
+#: cinecutie/cpanel.C:282
+msgid "Show tool info"
+msgstr "Poka¾i podatke orodja"
+
+#: cinecutie/cpanel.C:313
+msgid "Show safe regions"
+msgstr "Poka¾i varna podroèja"
+
+#: cinecutie/cwindowgui.C:600
+msgid "insert assets"
+msgstr "vstavi sredstva"
+
+#: cinecutie/cwindowgui.C:1530 cinecutie/cwindowgui.C:2749
+msgid "mask point"
+msgstr "maskiraj toèko"
+
+#: cinecutie/cwindowgui.C:2738
+#, fuzzy
+msgid "camera"
+msgstr "Ponastavi kamero"
+
+#: cinecutie/cwindowgui.C:2742
+#, fuzzy
+msgid "projector"
+msgstr "Ponastavi projektor"
+
+#: cinecutie/cwindowtool.C:321
+msgid "Do it"
+msgstr "Naredi"
+
+#: cinecutie/cwindowtool.C:372
+msgid "X1:"
+msgstr "X1:"
+
+#: cinecutie/cwindowtool.C:375
+#, fuzzy
+msgid "W:"
+msgstr ":"
+
+#: cinecutie/cwindowtool.C:396
+msgid "Y1:"
+msgstr "Y1:"
+
+#: cinecutie/cwindowtool.C:399
+#, fuzzy
+msgid "H:"
+msgstr "Odtenek:"
+
+#: cinecutie/cwindowtool.C:553 cinecutie/cwindowtool.C:993
+#: cinecutie/cwindowtool.C:1826 cinecutie/zoombar.C:487
+#: plugins/radialblur/radialblur.C:282 plugins/titler/titlewindow.C:224
+#: plugins/zoomblur/zoomblur.C:297
+msgid "X:"
+msgstr "X:"
+
+#: cinecutie/cwindowtool.C:562 cinecutie/cwindowtool.C:1002
+#: cinecutie/cwindowtool.C:1834 cinecutie/zoombar.C:489
+#: plugins/perspective/perspective.C:158 plugins/radialblur/radialblur.C:286
+#: plugins/titler/titlewindow.C:229 plugins/yuv/yuv.C:193
+#: plugins/zoomblur/zoomblur.C:301
+msgid "Y:"
+msgstr "Y:"
+
+#: cinecutie/cwindowtool.C:571 cinecutie/cwindowtool.C:1011
+msgid "Z:"
+msgstr "Z:"
+
+#: cinecutie/cwindowtool.C:716 cinecutie/cwindowtool.C:1190
+msgid "Left justify"
+msgstr "Leva poravnava"
+
+#: cinecutie/cwindowtool.C:762 cinecutie/cwindowtool.C:1225
+msgid "Center horizontal"
+msgstr "Vodoravno centriranje"
+
+#: cinecutie/cwindowtool.C:789 cinecutie/cwindowtool.C:1252
+msgid "Right justify"
+msgstr "Desna poravnava"
+
+#: cinecutie/cwindowtool.C:834 cinecutie/cwindowtool.C:1288
+msgid "Top justify"
+msgstr "Zgornja poravnava"
+
+#: cinecutie/cwindowtool.C:879 cinecutie/cwindowtool.C:1324
+msgid "Center vertical"
+msgstr "Navpièno centriranje"
+
+#: cinecutie/cwindowtool.C:905 cinecutie/cwindowtool.C:1350
+msgid "Bottom justify"
+msgstr "Spodnja poravnava"
+
+#: cinecutie/cwindowtool.C:1413 cinecutie/cwindowtool.C:1426
+msgid "Multiply alpha"
+msgstr "Zmno¾i alfo"
+
+#: cinecutie/cwindowtool.C:1417 cinecutie/cwindowtool.C:1421
+#: cinecutie/cwindowtool.C:1429
+msgid "Subtract alpha"
+msgstr "Od¹tej alfo"
+
+#: cinecutie/cwindowtool.C:1556
+msgid "Cycle next"
+msgstr "Kro¾i naprej"
+
+#: cinecutie/cwindowtool.C:1598
+msgid "Cycle prev"
+msgstr "Kro¾i nazaj"
+
+#: cinecutie/cwindowtool.C:1743
+msgid "Apply mask before plugins"
+msgstr ""
+
+#: cinecutie/cwindowtool.C:1799 cinecutie/recordgui.C:178
+#: plugins/denoisemjpeg/denoisemjpeg.C:413 plugins/overlay/overlay.C:267
+msgid "Mode:"
+msgstr "Naèin:"
+
+#: cinecutie/cwindowtool.C:1807 cinecutie/fileavi.C:941
+#: plugins/huesaturation/huesaturation.C:336
+msgid "Value:"
+msgstr "Vrednost:"
+
+#: cinecutie/cwindowtool.C:1812
+msgid "Mask number:"
+msgstr "©tevilka maske:"
+
+#: cinecutie/cwindowtool.C:1819
+msgid "Feather:"
+msgstr "Mehèanje:"
+
+#: cinecutie/dcoffset.C:61
+msgid "DC Offset"
+msgstr "Odmik DC"
+
+#: cinecutie/deleteallindexes.C:38
+msgid "Delete existing indexes"
+msgstr "Zbri¹i obstojeèa kazala"
+
+#: cinecutie/deleteallindexes.C:72
+#, c-format
+msgid "Delete all indexes in %s?"
+msgstr "Zbri¹i vsa kazala v %s?"
+
+#: cinecutie/editpanel.C:523
+msgid "In point ( [ )"
+msgstr "Vhodna toèka ( [ )"
+
+#: cinecutie/editpanel.C:548
+msgid "Out point ( ] )"
+msgstr "Izhodna toèka ( ] )"
+
+#: cinecutie/editpanel.C:579
+msgid "Next label ( ctrl -> )"
+msgstr "Naslednja oznaka ( ctrl -> )"
+
+#: cinecutie/editpanel.C:606
+msgid "Previous label ( ctrl <- )"
+msgstr "Prej¹nja oznaka ( ctrl <- )"
+
+#: cinecutie/editpanel.C:628
+msgid "Lift"
+msgstr "Dvigni"
+
+#: cinecutie/editpanel.C:643
+msgid "Overwrite ( b )"
+msgstr "Pi¹i preko ( b ) "
+
+#: cinecutie/editpanel.C:668
+msgid "Extract"
+msgstr "Izloèi"
+
+#: cinecutie/editpanel.C:684
+#, fuzzy
+msgid "To clip ( i )"
+msgstr "V odsek"
+
+#: cinecutie/editpanel.C:711
+msgid "Manual goto ( g )"
+msgstr ""
+
+#: cinecutie/editpanel.C:739
+msgid "Splice ( v )"
+msgstr "Zdru¾i ( v )"
+
+#: cinecutie/editpanel.C:764
+msgid "Cut ( x )"
+msgstr "Izre¾i ( x )"
+
+#: cinecutie/editpanel.C:789
+msgid "Copy ( c )"
+msgstr "Kopiraj ( c )"
+
+#: cinecutie/editpanel.C:812
+msgid "Append to end of track"
+msgstr "Pripni na konec steze"
+
+#: cinecutie/editpanel.C:830
+msgid "Insert before beginning of track"
+msgstr "Vstavi pred zaèetkom steze"
+
+#: cinecutie/editpanel.C:849
+msgid "Paste ( v )"
+msgstr "Prilepi ( v )"
+
+#: cinecutie/editpanel.C:876
+msgid "Set transition"
+msgstr "Nastavi prehod"
+
+#: cinecutie/editpanel.C:891
+msgid "Set presentation up to current position"
+msgstr "Nastavi predstavitev na trenutni polo¾aj"
+
+#: cinecutie/editpanel.C:906
+msgid "Undo ( z )"
+msgstr "Razveljavi ( z )"
+
+#: cinecutie/editpanel.C:928
+msgid "Redo ( shift Z )"
+msgstr "Obnovi ( shift Z )"
+
+#: cinecutie/editpanel.C:954
+msgid "Toggle label at current position ( l )"
+msgstr "Preklopi oznako na trenutnem polo¾aju ( l )"
+
+#: cinecutie/editpanel.C:983
+msgid "Fit selection to display ( f )"
+msgstr "Izbiro prilagodi zaslonu ( f )"
+
+#: cinecutie/editpanel.C:1016
+#, fuzzy
+msgid "Fit all autos to display ( Alt + f )"
+msgstr "Izbiro prilagodi zaslonu ( f )"
+
+#: cinecutie/editpanel.C:1065
+msgid "Drag and drop editing mode"
+msgstr "Naèin urejanja povleci in spusti"
+
+#: cinecutie/editpanel.C:1090
+msgid "Cut and paste editing mode"
+msgstr "Naèin urejanja izreèi in prilepi"
+
+#: cinecutie/editpanel.C:1113
+msgid "Generate keyframes while tweeking"
+msgstr "Ustvarjaj kljuène slike med prilagajanjem"
+
+#: cinecutie/editpanel.C:1134
+msgid "Lock labels from moving"
+msgstr ""
+
+#: cinecutie/editpopup.C:93
+msgid "Attach effect..."
+msgstr "Pripni uèinek..."
+
+#: cinecutie/editpopup.C:150
+msgid "Resize track..."
+msgstr "Spremeni velikost steze..."
+
+#: cinecutie/editpopup.C:174
+msgid "Match output size"
+msgstr "Prilagodi izhodni velikosti"
+
+#: cinecutie/editpopup.C:196 cinecutie/mainmenu.C:838 cinecutie/mainmenu.C:906
+msgid "Delete track"
+msgstr "Zbri¹i stezo"
+
+#: cinecutie/editpopup.C:213 cinecutie/mainmenu.C:826 cinecutie/mainmenu.C:892
+msgid "Add track"
+msgstr "Dodaj stezo"
+
+#: cinecutie/editpopup.C:234
+msgid "User title..."
+msgstr ""
+
+#: cinecutie/editpopup.C:311
+#, fuzzy
+msgid "User title"
+msgstr "Brez naslova"
+
+#: cinecutie/exportedl.C:108
+#, c-format
+msgid "Warning: chopping the reel name to eight characters!\n"
+msgstr ""
+
+#: cinecutie/exportedl.C:255
+msgid "Export EDL..."
+msgstr ""
+
+#: cinecutie/exportedl.C:356
+#, fuzzy
+msgid "No."
+msgstr "Ne"
+
+#: cinecutie/exportedl.C:357
+#, fuzzy
+msgid "Track name"
+msgstr "Steza/Sledi"
+
+#: cinecutie/exportedl.C:396
+#, fuzzy
+msgid "Select a file to export to:"
+msgstr "Izberi datoteko za snemanje:"
+
+#: cinecutie/exportedl.C:415 cinecutie/formattools.C:139
+msgid "Output to file"
+msgstr "Izhod v datoteko"
+
+#: cinecutie/exportedl.C:416 cinecutie/formattools.C:140
+msgid "Select a file to write to:"
+msgstr "Izberi datoteko v katero naj se pi¹e:"
+
+#: cinecutie/exportedl.C:421
+#, fuzzy
+msgid "Select track to be exported:"
+msgstr "Izberi datoteko za upodaljanje:"
+
+#: cinecutie/exportedl.C:451
+msgid "Currently only CMX 3600 format is supported"
+msgstr ""
+
+#: cinecutie/file.C:272
+msgid "This format doesn't support audio."
+msgstr "Ta format ne podpira zvoka."
+
+#: cinecutie/file.C:275
+msgid "This format doesn't support video."
+msgstr "Ta format ne podpira videa."
+
+#: cinecutie/file.C:1390 cinecutie/file.C:1396 cinecutie/fileformat.C:160
+#: cinecutie/filesndfile.C:449
+msgid "Lo Hi"
+msgstr "Ni¾-Vi¹"
+
+#: cinecutie/file.C:1397 cinecutie/fileformat.C:174
+#: cinecutie/filesndfile.C:434
+msgid "Hi Lo"
+msgstr "Vi¹-Ni¾"
+
+#: cinecutie/file.inc:106
+msgid "AC3"
+msgstr "AC3"
+
+#: cinecutie/file.inc:107
+msgid "Apple/SGI AIFF"
+msgstr "Apple/SGI AIFF"
+
+#: cinecutie/file.inc:108
+msgid "MPEG Audio"
+msgstr "Zvok MPEG"
+
+#: cinecutie/file.inc:109
+msgid "Sun/NeXT AU"
+msgstr "Sun/NeXT AU"
+
+#: cinecutie/file.inc:110
+msgid "Microsoft AVI"
+msgstr "Microsoft AVI"
+
+#: cinecutie/file.inc:111
+msgid "Microsoft WAV"
+msgstr "Microsoft WAV"
+
+#: cinecutie/file.inc:112
+msgid "AVI Arne Type 1"
+msgstr "AVI Arne Vrsta 1"
+
+#: cinecutie/file.inc:113
+msgid "AVI DV Type 2"
+msgstr "AVI DV Vrsta 2"
+
+#: cinecutie/file.inc:114
+msgid "AVI Avifile"
+msgstr "AVI Datoteka Avi"
+
+#: cinecutie/file.inc:115
+msgid "AVI Lavtools"
+msgstr "AVI Lavtools"
+
+#: cinecutie/file.inc:116
+#, fuzzy
+msgid "Raw DV"
+msgstr "Surov PCM"
+
+#: cinecutie/file.inc:117
+msgid "JPEG Sequence"
+msgstr "Zaporedje JPEG"
+
+#: cinecutie/file.inc:118
+msgid "JPEG"
+msgstr "JPEG"
+
+#: cinecutie/file.inc:119
+msgid "Quicktime for Linux"
+msgstr "Quicktime za Linux"
+
+#: cinecutie/file.inc:120 plugins/videoscope/videoscope.C:727
+msgid "MPEG"
+msgstr "MPEG"
+
+#: cinecutie/file.inc:121
+msgid "Raw PCM"
+msgstr "Surov PCM"
+
+#: cinecutie/file.inc:122
+msgid "PNG Sequence"
+msgstr "Zaporedje PNG"
+
+#: cinecutie/file.inc:123 cinecutie/filemov.C:49
+msgid "PNG"
+msgstr "PNG"
+
+#: cinecutie/file.inc:124
+msgid "Unknown sound"
+msgstr "Neznan zvok"
+
+#: cinecutie/file.inc:125
+msgid "TGA Sequence"
+msgstr "Zaporedje TGA"
+
+#: cinecutie/file.inc:126
+msgid "TGA"
+msgstr "TGA"
+
+#: cinecutie/file.inc:127
+msgid "TIFF"
+msgstr "TIFF"
+
+#: cinecutie/file.inc:128
+msgid "TIFF Sequence"
+msgstr "Zaporedje TIFF"
+
+#: cinecutie/file.inc:129
+msgid "MPEG Video"
+msgstr "Video MPEG"
+
+#: cinecutie/file.inc:130 cinecutie/file.inc:134
+#, fuzzy
+msgid "OGG Theora/Vorbis"
+msgstr "OGG Vorbis"
+
+#: cinecutie/file.inc:131
+msgid "OGG Vorbis"
+msgstr "OGG Vorbis"
+
+#: cinecutie/file.inc:132
+msgid "EXR"
+msgstr ""
+
+#: cinecutie/file.inc:133
+#, fuzzy
+msgid "EXR Sequence"
+msgstr "Zaporedje JPEG"
+
+#: cinecutie/file.inc:180
+msgid "8 Bit Linear"
+msgstr "Linearno 8 bitno"
+
+#: cinecutie/file.inc:181
+msgid "16 Bit Linear"
+msgstr "Linearno 16 bitno"
+
+#: cinecutie/file.inc:182
+msgid "24 Bit Linear"
+msgstr "Linearno 24 bitno"
+
+#: cinecutie/file.inc:183
+msgid "32 Bit Linear"
+msgstr "Linearno 32 bitno"
+
+#: cinecutie/file.inc:184
+msgid "u Law"
+msgstr "u Law"
+
+#: cinecutie/file.inc:185
+msgid "IMA 4"
+msgstr "IMA 4"
+
+#: cinecutie/file.inc:186
+msgid "ADPCM"
+msgstr "ADPCM"
+
+#: cinecutie/file.inc:187
+msgid "Float"
+msgstr "Plavajoèa vejica"
+
+#: cinecutie/file.inc:190
+msgid "RGB ALPHA"
+msgstr "RGB ALPHA"
+
+#: cinecutie/file.inc:191
+msgid "PNG ALPHA"
+msgstr "PNG ALPHA"
+
+#: cinecutie/fileavi.C:788 cinecutie/fileavi.C:932
+msgid "Codec: "
+msgstr "Kodek:"
+
+#: cinecutie/fileavi.C:797
+msgid "Compressor: 16 bit PCM"
+msgstr "Kompresija: 16 bit PCM"
+
+#: cinecutie/fileavi.C:937
+msgid "Attributes:"
+msgstr "Atributi:"
+
+#: cinecutie/fileavi.C:948
+msgid "Compressor: Consumer DV"
+msgstr "Kompresija: Consumer DV"
+
+#: cinecutie/fileformat.C:70
+msgid "Assuming raw PCM:"
+msgstr "Predpostavljen surov PCM:"
+
+#: cinecutie/filejpeg.C:301 cinecutie/filemov.C:2007 cinecutie/filemov.C:2017
+msgid "Quality:"
+msgstr "Kvaliteta:"
+
+#: cinecutie/filemov.C:42
+msgid "MPEG-4"
+msgstr "MPEG-4"
+
+#: cinecutie/filemov.C:43
+msgid "Dual H.264"
+msgstr ""
+
+#: cinecutie/filemov.C:44
+#, fuzzy
+msgid "Dual MPEG-4"
+msgstr "MPEG-4"
+
+#: cinecutie/filemov.C:45
+msgid "H.264"
+msgstr ""
+
+#: cinecutie/filemov.C:46
+msgid "H.263"
+msgstr ""
+
+#: cinecutie/filemov.C:47
+msgid "Microsoft MPEG-4"
+msgstr "Microsoft MPEG-4"
+
+#: cinecutie/filemov.C:48
+msgid "DV"
+msgstr "DV"
+
+#: cinecutie/filemov.C:50
+msgid "PNG with Alpha"
+msgstr "PNG z alfo"
+
+#: cinecutie/filemov.C:51
+msgid "Uncompressed RGB"
+msgstr "Nekompresiran RGB"
+
+#: cinecutie/filemov.C:52
+msgid "Uncompressed RGBA"
+msgstr "Nekompresiran RGBA"
+
+#: cinecutie/filemov.C:53
+msgid "YUV 4:2:0 Planar"
+msgstr "Planaren YUV 4:2:0"
+
+#: cinecutie/filemov.C:54
+#, fuzzy
+msgid "Component Y'CbCr 8-bit 4:2:2 (yuv2)"
+msgstr "Komponentni Y'CbCr 8-bit 4:4:4"
+
+#: cinecutie/filemov.C:55
+#, fuzzy
+msgid "Component Y'CbCr 8-bit 4:2:2 (2vuy)"
+msgstr "Komponentni Y'CbCr 8-bit 4:4:4"
+
+#: cinecutie/filemov.C:56
+msgid "YUV 4:1:1 Packed"
+msgstr "Pakiran YUV 4:1:1"
+
+#: cinecutie/filemov.C:57
+msgid "Component Y'CbCr 8-bit 4:4:4"
+msgstr "Komponentni Y'CbCr 8-bit 4:4:4"
+
+#: cinecutie/filemov.C:58
+msgid "Component Y'CbCrA 8-bit 4:4:4:4"
+msgstr "Komponentni Y'CbCrA 8-bit 4:4:4:4"
+
+#: cinecutie/filemov.C:59
+msgid "Component Y'CbCr 10-bit 4:4:4"
+msgstr "Komponentni Y'CbCr 10-bit 4:4:4"
+
+#: cinecutie/filemov.C:60
+msgid "JPEG Photo"
+msgstr "Slika JPEG"
+
+#: cinecutie/filemov.C:61
+msgid "Motion JPEG A"
+msgstr "Motion JPEG A"
+
+#: cinecutie/filemov.C:64
+msgid "Twos complement"
+msgstr "Dvoji¹ki komplement"
+
+#: cinecutie/filemov.C:65
+msgid "Unsigned"
+msgstr "Nepredznaèen"
+
+#: cinecutie/filemov.C:66
+msgid "IMA-4"
+msgstr "IMA-4"
+
+#: cinecutie/filemov.C:67
+msgid "U-Law"
+msgstr "U-Law"
+
+#: cinecutie/filemov.C:68
+msgid "Vorbis"
+msgstr "Vorbis"
+
+#: cinecutie/filemov.C:69
+msgid "MP3"
+msgstr "MP3"
+
+#: cinecutie/filemov.C:70
+#, fuzzy
+msgid "MPEG-4 Audio"
+msgstr "Zvok MPEG"
+
+#: cinecutie/filemov.C:299
+msgid "Made with Cinelerra for Linux"
+msgstr "Narejeno s Cinellero za Linux"
+
+#: cinecutie/filemov.C:1481
+msgid "Bits per channel:"
+msgstr "Bitov na kanal:"
+
+#: cinecutie/filemov.C:1493 cinecutie/filesndfile.C:411
+msgid "Dither"
+msgstr "Razpr¹evanje"
+
+#: cinecutie/filemov.C:1503 cinecutie/filemov.C:1554 cinecutie/filemov.C:1851
+#: cinecutie/filemov.C:1884 cinecutie/filemov.C:1938 cinecutie/filempeg.C:1754
+msgid "Bitrate:"
+msgstr "Bitna hitrost:"
+
+#: cinecutie/filemov.C:1518 cinecutie/filevorbis.C:625
+msgid "Variable bitrate"
+msgstr "Spremenljiva bitna hitrost"
+
+#: cinecutie/filemov.C:1524 cinecutie/filevorbis.C:582
+msgid "Min bitrate:"
+msgstr "Najmanj¹a bit. hitr.:"
+
+#: cinecutie/filemov.C:1531 cinecutie/filevorbis.C:586
+msgid "Avg bitrate:"
+msgstr "Povpreèna bit. hitr.:"
+
+#: cinecutie/filemov.C:1538 cinecutie/filevorbis.C:591
+msgid "Max bitrate:"
+msgstr "Najveèja bit. hitr.:"
+
+#: cinecutie/filemov.C:1563
+#, fuzzy
+msgid "Quantization Quality (%):"
+msgstr "Kvantizacija:"
+
+#: cinecutie/filemov.C:1863 cinecutie/filemov.C:1904 cinecutie/filempeg.C:1760
+msgid "Quantization:"
+msgstr "Kvantizacija:"
+
+#: cinecutie/filemov.C:1897
+msgid "Bitrate tolerance:"
+msgstr "Toleranca bit. hitr.:"
+
+#: cinecutie/filemov.C:1918 plugins/denoisemjpeg/denoisemjpeg.C:300
+msgid "Interlaced"
+msgstr "Prepleten"
+
+#: cinecutie/filemov.C:1924
+msgid "Keyframe interval:"
+msgstr "Interval kljuè. slik:"
+
+#: cinecutie/filemov.C:1951
+msgid "Quantizer:"
+msgstr "Kvantizator:"
+
+#: cinecutie/filemov.C:1965
+msgid "RC Period:"
+msgstr "Perioda RC:"
+
+#: cinecutie/filemov.C:1972
+msgid "Reaction Ratio:"
+msgstr "Razmerje reakcije:"
+
+#: cinecutie/filemov.C:1979
+msgid "Reaction Period:"
+msgstr "Perioda reakcije:"
+
+#: cinecutie/filemov.C:1986
+msgid "Max Key Interval:"
+msgstr "Najv. int. med klj.:"
+
+#: cinecutie/filemov.C:1993
+msgid "Max Quantizer:"
+msgstr "Najveèji kvantizer:"
+
+#: cinecutie/filemov.C:2000
+msgid "Min Quantizer:"
+msgstr "Najmanj¹i kvantiz.:"
+
+#: cinecutie/filemov.C:2121
+msgid "Fix bitrate"
+msgstr "Zakleni bit. hitrost"
+
+#: cinecutie/filemov.C:2146
+msgid "Fix quantization"
+msgstr "Zakleni kvantizac."
+
+#: cinecutie/filempeg.C:484
+#, c-format
+msgid "encode: lame_init_params returned %d\n"
+msgstr "encode: lame_init_params je vrnil/a %d\n"
+
+#: cinecutie/filempeg.C:1476 cinecutie/filempeg.C:1671
+msgid "No options for MPEG transport stream."
+msgstr ""
+
+#: cinecutie/filempeg.C:1481
+msgid "Layer:"
+msgstr "Plast:"
+
+#: cinecutie/filempeg.C:1486
+msgid "Kbits per second:"
+msgstr "Kbitov na sekundo:"
+
+#: cinecutie/filempeg.C:1543 cinecutie/filempeg.C:1551
+msgid "II"
+msgstr "ll"
+
+#: cinecutie/filempeg.C:1547
+msgid "III"
+msgstr "lll"
+
+#: cinecutie/filempeg.C:1675 cinecutie/new.C:374 cinecutie/setformat.C:466
+msgid "Color model:"
+msgstr "Barvni naèin:"
+
+#: cinecutie/filempeg.C:1741
+#, fuzzy
+msgid "Format Preset:"
+msgstr "Obl. zapisa:"
+
+#: cinecutie/filempeg.C:1748
+msgid "Derivative:"
+msgstr "Derivat:"
+
+#: cinecutie/filempeg.C:1767
+msgid "I frame distance:"
+msgstr "Razd. med slik. I:"
+
+#: cinecutie/filempeg.C:1775
+#, fuzzy
+msgid "P frame distance:"
+msgstr "Razd. med slik. I:"
+
+#: cinecutie/filempeg.C:1781 plugins/deinterlace/deinterwindow.C:118
+#: plugins/deinterlace/deinterwindow.C:124 plugins/fieldframe/fieldframe.C:246
+#: plugins/framefield/framefield.C:268
+msgid "Bottom field first"
+msgstr "Najprej spodnje polje"
+
+#: cinecutie/filempeg.C:1785
+msgid "Progressive frames"
+msgstr "Progresivne slike"
+
+#: cinecutie/filempeg.C:1787 plugins/denoise/denoise.C:138
+msgid "Denoise"
+msgstr "Odstranitev ¹uma"
+
+#: cinecutie/filempeg.C:1789
+msgid "Sequence start codes in every GOP"
+msgstr "Zaèetne kode zaporedij GOP"
+
+#: cinecutie/filempeg.C:1838 cinecutie/filempeg.C:1846
+msgid "MPEG-1"
+msgstr "MPEG-1"
+
+#: cinecutie/filempeg.C:1842
+msgid "MPEG-2"
+msgstr "MPEG-2"
+
+#: cinecutie/filempeg.C:1895 cinecutie/filempeg.C:1905
+#, fuzzy
+msgid "Generic MPEG-1"
+msgstr "MPEG-1"
+
+#: cinecutie/filempeg.C:1896
+msgid "standard VCD"
+msgstr ""
+
+#: cinecutie/filempeg.C:1897
+msgid "user VCD"
+msgstr ""
+
+#: cinecutie/filempeg.C:1898
+#, fuzzy
+msgid "Generic MPEG-2"
+msgstr "MPEG-2"
+
+#: cinecutie/filempeg.C:1899
+msgid "standard SVCD"
+msgstr ""
+
+#: cinecutie/filempeg.C:1900
+msgid "user SVCD"
+msgstr ""
+
+#: cinecutie/filempeg.C:1901
+#, fuzzy
+msgid "VCD Still sequence"
+msgstr "Zaporedje PNG"
+
+#: cinecutie/filempeg.C:1902
+msgid "SVCD Still sequence"
+msgstr ""
+
+#: cinecutie/filempeg.C:1903
+msgid "DVD NAV"
+msgstr ""
+
+#: cinecutie/filempeg.C:1904
+#, fuzzy
+msgid "DVD"
+msgstr "DV"
+
+#: cinecutie/filempeg.C:1955 cinecutie/filevorbis.C:613
+msgid "Fixed bitrate"
+msgstr "Stalna bit. hitr."
+
+#: cinecutie/filempeg.C:1969
+msgid "Fixed quantization"
+msgstr "Stalna kvantizacija"
+
+#: cinecutie/filempeg.C:2072 cinecutie/filempeg.C:2080
+msgid "YUV 4:2:0"
+msgstr "YUV 4:2:0"
+
+#: cinecutie/filempeg.C:2076
+msgid "YUV 4:2:2"
+msgstr "YUV 4:2:2"
+
+#: cinecutie/filepng.C:470
+msgid "Use alpha"
+msgstr "Uporabi alfo"
+
+#: cinecutie/filesndfile.C:415
+msgid "Signed"
+msgstr "Predznaèen"
+
+#: cinecutie/filetga.C:117
+msgid "RGB compressed"
+msgstr "Kompresiran RGB"
+
+#: cinecutie/filetga.C:118
+msgid "RGBA compressed"
+msgstr "Kompresiran RGBA"
+
+#: cinecutie/filetga.C:119
+msgid "RGB uncompressed"
+msgstr "Nekompresiran RGB"
+
+#: cinecutie/filetga.C:120
+msgid "RGBA uncompressed"
+msgstr "Nekompresiran RGBA"
+
+#: cinecutie/fileyuv.C:397
+#, fuzzy
+msgid "Output Path:"
+msgstr "Pot izhoda:"
+
+#: cinecutie/fileyuv.C:405
+#, fuzzy
+msgid "Use Pipe:"
+msgstr "Ka¾i vzorce"
+
+#: cinecutie/fileyuv.C:416
+#, fuzzy
+msgid "Stream Header:"
+msgstr "Skupno glav:"
+
+#: cinecutie/fileyuv.C:420
+#, fuzzy
+msgid "Interlacing:"
+msgstr "Prepleteno"
+
+#: cinecutie/fileyuv.C:427
+#, fuzzy
+msgid "Pipe Presets:"
+msgstr "Prednastavitve:"
+
+#: cinecutie/formatcheck.C:52
+msgid "The format you selected doesn't support video."
+msgstr "Izbrana oblika zapisa en podpira videa."
+
+#: cinecutie/formatcheck.C:63
+msgid "The format you selected doesn't support audio."
+msgstr "Izbrana oblika zapisa ne podpira zvoka."
+
+#: cinecutie/formatcheck.C:71
+msgid "IMA4 compression is only available in Quicktime movies."
+msgstr "Kompresija IMA4 je na voljo le v filmih Quicktime."
+
+#: cinecutie/formatcheck.C:81
+msgid ""
+"ULAW compression is only available in\n"
+"Quicktime Movies and PCM files."
+msgstr ""
+"Kompresija ULAW je na voljo le v \n"
+"filmih Quicktime in datotekah PCM."
+
+#: cinecutie/formatpopup.C:48
+msgid "Change file format"
+msgstr "Spremeni format datoteke"
+
+#: cinecutie/formatpresets.C:60
+msgid "User Defined"
+msgstr "Poljuben"
+
+#: cinecutie/formatpresets.C:77
+#, fuzzy
+msgid "NTSC Half"
+msgstr "NTSC"
+
+#: cinecutie/formatpresets.C:91
+#, fuzzy
+msgid "NTSC Progressive"
+msgstr "Progresiven"
+
+#: cinecutie/formatpresets.C:122
+msgid "PAL Half"
+msgstr ""
+
+#: cinecutie/formatpresets.C:138
+#, fuzzy
+msgid "PAL Progressive"
+msgstr "Progresiven"
+
+#: cinecutie/formatpresets.C:153
+#, fuzzy
+msgid "1080P/60"
+msgstr "1080P"
+
+#: cinecutie/formatpresets.C:169
+#, fuzzy
+msgid "1080P/24"
+msgstr "1080P"
+
+#: cinecutie/formatpresets.C:185
+msgid "1080I"
+msgstr "1080I"
+
+#: cinecutie/formatpresets.C:201
+#, fuzzy
+msgid "720P/60"
+msgstr "720P"
+
+#: cinecutie/formatpresets.C:218
+msgid "Internet"
+msgstr "Internet"
+
+#: cinecutie/formatpresets.C:232
+msgid "CD Audio"
+msgstr "Zvoèni CD"
+
+#: cinecutie/formatpresets.C:246
+msgid "DAT Audio"
+msgstr "Zvok DAT"
+
+#: cinecutie/formatpresets.C:262
+msgid "Presets:"
+msgstr "Prednastavitve:"
+
+#: cinecutie/formattools.C:152 cinecutie/recordprefs.C:65
+msgid "File Format:"
+msgstr "Obl. zapisa:"
+
+#: cinecutie/formattools.C:252
+msgid "MPEG transport stream"
+msgstr ""
+
+#: cinecutie/formattools.C:491
+msgid "Configure audio compression"
+msgstr "Nastavi kompresijo zvoka"
+
+#: cinecutie/formattools.C:505
+msgid "Configure video compression"
+msgstr "Nastavi kompresijo videa"
+
+#: cinecutie/formattools.C:574
+msgid "Record audio tracks"
+msgstr "Snemaj zvoène steze"
+
+#: cinecutie/formattools.C:574
+msgid "Render audio tracks"
+msgstr "Upodobi zvoène steze"
+
+#: cinecutie/formattools.C:589
+msgid "Record video tracks"
+msgstr "Snemaj video steze"
+
+#: cinecutie/formattools.C:589
+msgid "Render video tracks"
+msgstr "Upodobi video steze"
+
+#: cinecutie/formattools.C:651
+msgid "Overwrite project with output"
+msgstr "Z izhodom pi¹i preko projekta"
+
+#: cinecutie/formattools.C:669
+msgid "Create new file at each label"
+msgstr "Ob vsaki oznaki naredi novo datoteko"
+
+#: cinecutie/indexfile.C:304
+#, c-format
+msgid "Creating %s."
+msgstr "Ustvarjam %s."
+
+#: cinecutie/indexfile.C:424
+#, c-format
+msgid "IndexFile::draw_index: index has 0 zoom\n"
+msgstr "IndexFile::draw_index: kazalo ima poveèavo 0\n"
+
+#: cinecutie/interfaceprefs.C:33
+msgid "Drag all following edits"
+msgstr "Vleci vsa sledeèa urejanja"
+
+#: cinecutie/interfaceprefs.C:34
+msgid "Drag only one edit"
+msgstr "Vleci le eno urejanje"
+
+#: cinecutie/interfaceprefs.C:35
+msgid "Drag source only"
+msgstr "Vleci le izvor"
+
+#: cinecutie/interfaceprefs.C:36
+msgid "No effect"
+msgstr "Brez uèinka"
+
+#: cinecutie/interfaceprefs.C:59
+#, fuzzy
+msgid "Time Format"
+msgstr "Obl. zapisa:"
+
+#: cinecutie/interfaceprefs.C:101
+msgid "frames per foot"
+msgstr "Slik na èevelj"
+
+#: cinecutie/interfaceprefs.C:122
+msgid "Index files"
+msgstr "Datoteke kazala"
+
+#: cinecutie/interfaceprefs.C:128
+msgid "Index files go here:"
+msgstr "Mesto datotek kazal:"
+
+#: cinecutie/interfaceprefs.C:139
+msgid "Index Path"
+msgstr "Pot kazala"
+
+#: cinecutie/interfaceprefs.C:140
+msgid "Select the directory for index files"
+msgstr "Izberi imenik za datoteke kazala"
+
+#: cinecutie/interfaceprefs.C:146
+msgid "Size of index file:"
+msgstr "Velikost datoteke kazala:"
+
+#: cinecutie/interfaceprefs.C:152
+msgid "Number of index files to keep:"
+msgstr "©tevilo hranjenih datotek kazal:"
+
+#: cinecutie/interfaceprefs.C:165
+msgid "Editing"
+msgstr "Urejanje"
+
+#: cinecutie/interfaceprefs.C:172
+msgid "Dragging edit boundaries does what:"
+msgstr ""
+
+#: cinecutie/interfaceprefs.C:174
+msgid "Button 1:"
+msgstr "Gumb 1:"
+
+#: cinecutie/interfaceprefs.C:184
+msgid "Button 2:"
+msgstr "Gumb 2:"
+
+#: cinecutie/interfaceprefs.C:192
+msgid "Button 3:"
+msgstr "Gumb 3:"
+
+#: cinecutie/interfaceprefs.C:203
+msgid "Min DB for meter:"
+msgstr "Najmanj DB na mer.:"
+
+#: cinecutie/interfaceprefs.C:209
+#, fuzzy
+msgid "Max DB:"
+msgstr "Najv.:"
+
+#: cinecutie/interfaceprefs.C:217
+msgid "Theme:"
+msgstr "Tema:"
+
+#: cinecutie/interfaceprefs.C:365
+msgid "Use Hours:Minutes:Seconds.xxx"
+msgstr "Ka¾i Ure:Minute:Sekunde.xxx"
+
+#: cinecutie/interfaceprefs.C:375
+msgid "Use Hours:Minutes:Seconds:Frames"
+msgstr "Ka¾i Ure:Minute:Sekunde:Slike"
+
+#: cinecutie/interfaceprefs.C:384
+msgid "Use Samples"
+msgstr "Ka¾i vzorce"
+
+#: cinecutie/interfaceprefs.C:393
+msgid "Use Frames"
+msgstr "Ka¾i slike"
+
+#: cinecutie/interfaceprefs.C:402
+msgid "Use Hex Samples"
+msgstr "Ka¾i vzorce v ¹estnajsti¹kem zapisu"
+
+#: cinecutie/interfaceprefs.C:411
+#, fuzzy
+msgid "Use Seconds"
+msgstr "Sekunde:"
+
+#: cinecutie/interfaceprefs.C:423
+msgid "Use Feet-frames"
+msgstr "Ka¾i èevlje slik"
+
+#: cinecutie/interfaceprefs.C:611
+msgid "Use thumbnails in resource window"
+msgstr "Uporabi slièice v oknu virov"
+
+#: cinecutie/interfaceprefs.C:628
+#, fuzzy
+msgid "Show tip of the day"
+msgstr "Ka¾i nazive"
+
+#: cinecutie/keyframepopup.C:102
+#, fuzzy
+msgid "Delete keyframe"
+msgstr "Kljuène slike ti¹ine"
+
+#: cinecutie/keyframepopup.C:116
+#, fuzzy
+msgid "delete keyframe"
+msgstr "Kljuène slike zabrisov"
+
+#: cinecutie/keyframepopup.C:133
+#, fuzzy
+msgid "Show keyframe settings"
+msgstr "Shranjene nastavitve."
+
+#: cinecutie/keyframepopup.C:252
+#, fuzzy
+msgid "Copy keyframe"
+msgstr "Kopiraj kljuène slike"
+
+#: cinecutie/labelnavigate.C:64
+msgid "Previous label"
+msgstr "Prej¹nja oznaka"
+
+#: cinecutie/labelnavigate.C:82
+msgid "Next label"
+msgstr "Naslednja oznaka"
+
+#: cinecutie/loadfile.C:45
+msgid "Load files..."
+msgstr "Odpri datoteke..."
+
+#: cinecutie/loadfile.C:203
+msgid "Select files to load:"
+msgstr "Oznaèi datoteke za odprtje:"
+
+#: cinecutie/loadfile.C:251
+msgid "Replace current project."
+msgstr "Nadomesti trenutni projekt."
+
+#: cinecutie/loadfile.C:268
+msgid "Replace current project and concatenate tracks."
+msgstr "Nadomesti trenutni projekt in spoji steze."
+
+#: cinecutie/loadfile.C:285
+msgid "Append in new tracks."
+msgstr "Dodaj v nove steze."
+
+#: cinecutie/loadfile.C:302
+msgid "Concatenate to existing tracks."
+msgstr "Spoji k obstojeèim stezam."
+
+#: cinecutie/loadfile.C:319
+msgid "Create new resources only."
+msgstr "Ustvari le nove vire."
+
+#: cinecutie/loadfile.C:384
+msgid "load previous"
+msgstr "odpri prej¹njo"
+
+#: cinecutie/loadfile.C:414
+msgid "Load backup"
+msgstr "Odpri varnostno kopijo"
+
+#: cinecutie/loadfile.C:438
+msgid "load backup"
+msgstr "odpri varnostno kopijo"
+
+#: cinecutie/loadfile.C:452
+msgid "Please enter the reel name and number"
+msgstr ""
+
+#: cinecutie/loadfile.C:533
+msgid "Use default or previous name and number"
+msgstr ""
+
+#: cinecutie/loadmode.C:54
+msgid "Insert nothing"
+msgstr "Ne vstavi nièesar"
+
+#: cinecutie/loadmode.C:55
+msgid "Replace current project"
+msgstr "Zamenjaj trenutni projekt"
+
+#: cinecutie/loadmode.C:56
+msgid "Replace current project and concatenate tracks"
+msgstr "Zamenjaj trenutni projekt in spoji steze"
+
+#: cinecutie/loadmode.C:57
+msgid "Append in new tracks"
+msgstr "Pripni v nove steze"
+
+#: cinecutie/loadmode.C:58
+msgid "Concatenate to existing tracks"
+msgstr "Spoji k obstojeèim stezam"
+
+#: cinecutie/loadmode.C:59
+msgid "Paste at insertion point"
+msgstr "Prilepi na toèki vstavljanja"
+
+#: cinecutie/loadmode.C:60
+msgid "Create new resources only"
+msgstr "Ustvari le nove vire"
+
+#: cinecutie/loadmode.C:93
+msgid "Insertion strategy:"
+msgstr "Strategija vstavljanja:"
+
+#: cinecutie/main.C:191
+#, c-format
+msgid ""
+"\n"
+"Usage:\n"
+msgstr ""
+"\n"
+"Uporaba:\n"
+
+#: cinecutie/main.C:192
+#, c-format
+msgid ""
+"%s [-f] [-c configuration] [-d port] [-n nice] [-r batch file] [filenames]\n"
+"\n"
+msgstr ""
+"%s [-f] [-c nastavitve] [-d vrata] [-n nice] [-r serijska datoteka] "
+"[datoteke]\n"
+"\n"
+
+#: cinecutie/main.C:193
+#, c-format
+msgid ""
+"-d = Run in the background as renderfarm client.  The port (400) is "
+"optional.\n"
+msgstr ""
+"-d = Po¾eni v ozadju kot farmni odjemalec. Izbira vrat (400) je neobvezna.\n"
+
+#: cinecutie/main.C:194
+#, c-format
+msgid "-f = Run in the foreground as renderfarm client.  Substitute for -d.\n"
+msgstr "-f = Po¾eni v ospredju kot farmni odjemalec. Nadomestek za -d\n"
+
+#: cinecutie/main.C:195
+#, c-format
+msgid "-n = Nice value if running as renderfarm client. (20)\n"
+msgstr "-n = èe teèe kot farmni odjemalec, nastavi ni¾jo prioriteto.(20)\n"
+
+#: cinecutie/main.C:196
+#, c-format
+msgid "-c = Configuration file to use instead of %s%s.\n"
+msgstr "-c = Uporaba nastavitvene datoteke namesto %s%s.\n"
+
+#: cinecutie/main.C:199
+#, c-format
+msgid ""
+"-r = batch render the contents of the batch file (%s%s) with no GUI.  batch "
+"file is optional.\n"
+msgstr ""
+"-r = serijsko upodabljanje vsebine serijske datoteke (%s%s) brez grafiènega "
+"vmesnika. ime serijske datoteke je neobvezno\n"
+
+#: cinecutie/main.C:202
+#, c-format
+msgid ""
+"filenames = files to load\n"
+"\n"
+"\n"
+msgstr ""
+"filenames = datoteke za odprtje\n"
+"\n"
+"\n"
+
+#: cinecutie/mainindexes.C:228 cinecutie/threadindexer.C:136
+msgid "Building Indexes..."
+msgstr "Ustvarjam kazala..."
+
+#: cinecutie/mainmenu.C:90 plugins/reverb/reverbwindow.C:250
+msgid "File"
+msgstr "Datoteka"
+
+#: cinecutie/mainmenu.C:121 plugins/svg/svgwin.C:282
+msgid "Edit"
+msgstr "Uredi"
+
+#: cinecutie/mainmenu.C:137
+msgid "Keyframes"
+msgstr "Kljuène slike"
+
+#: cinecutie/mainmenu.C:150 cinecutie/new.C:265 cinecutie/setformat.C:345
+msgid "Audio"
+msgstr "Zvok"
+
+#: cinecutie/mainmenu.C:157 cinecutie/new.C:293 cinecutie/setformat.C:397
+msgid "Video"
+msgstr "Video"
+
+#: cinecutie/mainmenu.C:162
+msgid "Tracks"
+msgstr "Steze"
+
+#: cinecutie/mainmenu.C:169
+msgid "Settings"
+msgstr "Nastavitve"
+
+#: cinecutie/mainmenu.C:195
+#, fuzzy
+msgid "Fade"
+msgstr "zabris"
+
+#: cinecutie/mainmenu.C:196
+#, fuzzy
+msgid "Mute"
+msgstr "ti¹ina"
+
+#: cinecutie/mainmenu.C:197 cinecutie/recordgui.C:98
+#: plugins/parametric/parametric.C:383
+msgid "Mode"
+msgstr "Naèin"
+
+#: cinecutie/mainmenu.C:198
+#, fuzzy
+msgid "Pan"
+msgstr "premik kamere"
+
+#: cinecutie/mainmenu.C:200 plugins/denoiseseltempavg/seltempavgwindow.C:71
+msgid "Mask"
+msgstr ""
+
+#: cinecutie/mainmenu.C:201
+#, fuzzy
+msgid "Camera X"
+msgstr "Poveèava kamere"
+
+#: cinecutie/mainmenu.C:202
+#, fuzzy
+msgid "Camera Y"
+msgstr "Poveèava kamere"
+
+#: cinecutie/mainmenu.C:203
+#, fuzzy
+msgid "Camera Z"
+msgstr "Poveèava kamere"
+
+#: cinecutie/mainmenu.C:204
+#, fuzzy
+msgid "Projector X"
+msgstr "Poveèava projektorja"
+
+#: cinecutie/mainmenu.C:205
+#, fuzzy
+msgid "Projector Y"
+msgstr "Poveèava projektorja"
+
+#: cinecutie/mainmenu.C:206
+#, fuzzy
+msgid "Projector Z"
+msgstr "Poveèava projektorja"
+
+#: cinecutie/mainmenu.C:209
+msgid "Window"
+msgstr "Okno"
+
+#: cinecutie/mainmenu.C:495
+msgid "Dump CICache"
+msgstr "Izpi¹i CICache"
+
+#: cinecutie/mainmenu.C:504
+msgid "Dump EDL"
+msgstr "Izpi¹i EDL"
+
+#: cinecutie/mainmenu.C:518
+msgid "Dump Plugins"
+msgstr "Izpi¹i vtiènike"
+
+#: cinecutie/mainmenu.C:533
+msgid "Dump Assets"
+msgstr "Izpi¹i sredstva"
+
+#: cinecutie/mainmenu.C:543
+msgid "Undo"
+msgstr "Razveljavi"
+
+#: cinecutie/mainmenu.C:555
+#, c-format
+msgid "Undo %s"
+msgstr "Razveljavi %s"
+
+#: cinecutie/mainmenu.C:560
+msgid "Redo"
+msgstr "Obnovi"
+
+#: cinecutie/mainmenu.C:575
+#, c-format
+msgid "Redo %s"
+msgstr "Obnovi %s"
+
+#: cinecutie/mainmenu.C:580
+msgid "Cut keyframes"
+msgstr "Izre¾i kljuène slike"
+
+#: cinecutie/mainmenu.C:592
+msgid "Copy keyframes"
+msgstr "Kopiraj kljuène slike"
+
+#: cinecutie/mainmenu.C:605
+msgid "Paste keyframes"
+msgstr "Prilepi kljuène slike"
+
+#: cinecutie/mainmenu.C:617
+msgid "Clear keyframes"
+msgstr "Poèisti kljuène slike"
+
+#: cinecutie/mainmenu.C:631
+msgid "Straighten curves"
+msgstr ""
+
+#: cinecutie/mainmenu.C:650
+msgid "Cut default keyframe"
+msgstr "Izre¾i privzeto kljuèno sliko"
+
+#: cinecutie/mainmenu.C:663
+msgid "Copy default keyframe"
+msgstr "Kopiraj privzeto kljuèno sliko  "
+
+#: cinecutie/mainmenu.C:676
+msgid "Paste default keyframe"
+msgstr "Prilepi privzeto kljuèno sliko"
+
+#: cinecutie/mainmenu.C:689
+msgid "Clear default keyframe"
+msgstr "Poèisti privzeto kljuèno sliko"
+
+#: cinecutie/mainmenu.C:702
+msgid "Cut"
+msgstr "Izre¾i"
+
+#: cinecutie/mainmenu.C:714
+msgid "Copy"
+msgstr "Kopiraj"
+
+#: cinecutie/mainmenu.C:738 plugins/compressor/compressor.C:1406
+#: plugins/synthesizer/synthesizer.C:980
+msgid "Clear"
+msgstr "Poèisti"
+
+#: cinecutie/mainmenu.C:752
+msgid "Paste silence"
+msgstr "Prilepi ti¹ino"
+
+#: cinecutie/mainmenu.C:765
+msgid "Select All"
+msgstr "Izberi vse"
+
+#: cinecutie/mainmenu.C:776
+msgid "Clear labels"
+msgstr "Poèisti oznake"
+
+#: cinecutie/mainmenu.C:788
+msgid "Mute Region"
+msgstr "Uti¹aj izbrano"
+
+#: cinecutie/mainmenu.C:801
+msgid "Trim Selection"
+msgstr "Od¾agaj na izbrano"
+
+#: cinecutie/mainmenu.C:849 cinecutie/mainmenu.C:932
+msgid "Default Transition"
+msgstr "Privzet prehod"
+
+#: cinecutie/mainmenu.C:862
+msgid "Map 1:1"
+msgstr ""
+
+#: cinecutie/mainmenu.C:874
+msgid "Map 5.1:2"
+msgstr ""
+
+#: cinecutie/mainmenu.C:919
+msgid "Reset Translation"
+msgstr "Ponastavi prehod"
+
+#: cinecutie/mainmenu.C:960
+msgid "Delete tracks"
+msgstr "Zbri¹i steze"
+
+#: cinecutie/mainmenu.C:972
+msgid "Delete last track"
+msgstr "Zbri¹i zadnjo stezo"
+
+#: cinecutie/mainmenu.C:984
+msgid "Move tracks up"
+msgstr "Premakni steze navzgor"
+
+#: cinecutie/mainmenu.C:996
+msgid "Move tracks down"
+msgstr "Premakni steze navzdol"
+
+#: cinecutie/mainmenu.C:1011
+msgid "Concatenate tracks"
+msgstr "Zaporedno zdru¾i steze"
+
+#: cinecutie/mainmenu.C:1028
+msgid "Loop Playback"
+msgstr "Kro¾no predvajanje"
+
+#: cinecutie/mainmenu.C:1047
+msgid "Set background render"
+msgstr "Nastavi preraèunavanje v ozadju"
+
+#: cinecutie/mainmenu.C:1065
+msgid "Edit labels"
+msgstr "Uredi oznake"
+
+#: cinecutie/mainmenu.C:1081
+msgid "Edit effects"
+msgstr "Uredi uèinke"
+
+#: cinecutie/mainmenu.C:1097
+msgid "Autos follow edits"
+msgstr "Samodejnosti sledijo urejanjem"
+
+#: cinecutie/mainmenu.C:1111
+msgid "Align cursor on frames"
+msgstr "Postavi kazalec na slike"
+
+#: cinecutie/mainmenu.C:1124 cinecutie/mainmenu.C:1134
+msgid "Slow Shuttle"
+msgstr "Poèasno premikanje"
+
+#: cinecutie/mainmenu.C:1139
+msgid "Fast Shuttle"
+msgstr "Hitro premikanje"
+
+#: cinecutie/mainmenu.C:1143
+msgid "Save settings now"
+msgstr "Shrani nastaviteve zdaj"
+
+#: cinecutie/mainmenu.C:1152
+msgid "Saved settings."
+msgstr "Shranjene nastavitve."
+
+#: cinecutie/mainmenu.C:1165
+msgid "Show Viewer"
+msgstr "Ka¾i pregledovalnik"
+
+#: cinecutie/mainmenu.C:1177
+msgid "Show Resources"
+msgstr "Ka¾i vire"
+
+#: cinecutie/mainmenu.C:1189
+msgid "Show Compositor"
+msgstr "Ka¾i skladatelja"
+
+#: cinecutie/mainmenu.C:1202
+#, fuzzy
+msgid "Show Overlays"
+msgstr "Ka¾i nivoje"
+
+#: cinecutie/mainmenu.C:1215
+msgid "Show Levels"
+msgstr "Ka¾i nivoje"
+
+#: cinecutie/mainmenu.C:1227
+msgid "Default positions"
+msgstr "Privzeti polo¾aji"
+
+#: cinecutie/mainprogress.C:163
+#, c-format
+msgid "%s ETA: %s"
+msgstr "%s Èas do zakljuèka: %s"
+
+#: cinecutie/manualgoto.C:251
+msgid "hour  min     sec     msec"
+msgstr ""
+
+#: cinecutie/menueffects.C:56
+msgid "Render effect..."
+msgstr "Upodobi uèinek..."
+
+#: cinecutie/menueffects.C:132
+#, c-format
+msgid "No recordable tracks specified."
+msgstr "Doloèena ni nobena snemalna steza."
+
+#: cinecutie/menueffects.C:143
+#, c-format
+msgid "No plugins available."
+msgstr "Na voljo ni noben vtiènik."
+
+#: cinecutie/menueffects.C:245
+msgid "No output file specified."
+msgstr "Izhodna datoteka ni navedena."
+
+#: cinecutie/menueffects.C:253
+msgid "No effect selected."
+msgstr "Izbran ni noben uèinek."
+
+#: cinecutie/menueffects.C:295
+msgid "No selected range to process."
+msgstr "Ni izbranega obmoèja za procesiranje."
+
+#: cinecutie/menueffects.C:454 cinecutie/packagerenderer.C:175
+#: cinecutie/savefile.C:103
+#, c-format
+msgid "Couldn't open %s"
+msgstr "Ni bilo mogoèe odpreti %s"
+
+#: cinecutie/menueffects.C:603
+msgid "Select an effect"
+msgstr "Izberi uèinek"
+
+#: cinecutie/menueffects.C:615 cinecutie/render.C:1136
+msgid "Select the first file to render to:"
+msgstr "Izberi prvo datoteko za upodabljanje:"
+
+#: cinecutie/menueffects.C:616 cinecutie/render.C:1137
+msgid "Select a file to render to:"
+msgstr "Izberi datoteko za upodaljanje:"
+
+#: cinecutie/menueffects.C:744
+msgid "Set up effect panel and hit \"OK\""
+msgstr "Nastavi uèinek in pritisni \"V redu\""
+
+#: cinecutie/messages.C:69 cinecutie/messages.C:85 cinecutie/messages.C:106
+#, c-format
+msgid "recieve message failed\n"
+msgstr "prejemanje sporoèila je bilo neuspe¹no\n"
+
+#: cinecutie/messages.C:177 cinecutie/messages.C:185 cinecutie/messages.C:194
+#, c-format
+msgid "send message failed\n"
+msgstr "po¹iljanje sporoèila je bilo neuspe¹no\n"
+
+#: cinecutie/messages.C:202 cinecutie/messages.C:210
+msgid "Messages::write_message"
+msgstr "Messages::write_message"
+
+#: cinecutie/meterpanel.C:274
+msgid "Show meters"
+msgstr "Poka¾i merilec"
+
+#: cinecutie/mwindow.C:334 cinecutie/mwindow.C:372
+#, c-format
+msgid "MWindow::init_plugins: couldn't open %s directory\n"
+msgstr "MWindow::init_plugins: ni ibl omogoèe odpreti direktorija %s\n"
+
+#: cinecutie/mwindow.C:608
+#, c-format
+msgid "MWindow::init_theme: theme %s not found.\n"
+msgstr "MWindow::init_theme: Tema %s ni bila najdena.\n"
+
+#: cinecutie/mwindow.C:940
+#, c-format
+msgid "Failed to open %s"
+msgstr "Ni bilo mogoèe odpreti %s"
+
+#: cinecutie/mwindow.C:988
+msgid "'s format couldn't be determined."
+msgstr "ni bilo mogoèe ugotoviti obl. zapisa."
+
+#: cinecutie/mwindow.C:1169
+msgid "load"
+msgstr "odpri"
+
+#: cinecutie/mwindow.C:1313
+msgid "Initializing GUI"
+msgstr "Inicializiram grafièni uporabni¹ki vmesnik (GUI)"
+
+#: cinecutie/mwindow.C:1951
+#, c-format
+msgid "Couldn't open %s for writing."
+msgstr "%s ni bilo mogoèe odpreti za pisanje."
+
+#: cinecutie/mwindow.C:2040
+msgid "remove assets"
+msgstr "odstrani sredstva"
+
+#: cinecutie/mwindow.C:2198
+#, c-format
+msgid "Using %s."
+msgstr "Uporabljam %s."
+
+#: cinecutie/mwindowedit.C:89 cinecutie/mwindowedit.C:107
+msgid "add track"
+msgstr "dodaj stezo"
+
+#: cinecutie/mwindowedit.C:164 cinecutie/preferencesthread.C:205
+#: cinecutie/setformat.C:187
+msgid ""
+"This project's dimensions are not multiples of 4 so\n"
+"it can't be rendered by OpenGL."
+msgstr ""
+
+#: cinecutie/mwindowedit.C:180
+msgid "asset to size"
+msgstr "sredstvo na velikost"
+
+#: cinecutie/mwindowedit.C:200
+#, fuzzy
+msgid "asset to rate"
+msgstr "sredstvo na velikost"
+
+#: cinecutie/mwindowedit.C:221
+msgid "clear"
+msgstr "poèisti"
+
+#: cinecutie/mwindowedit.C:252
+msgid "straighten curves"
+msgstr ""
+
+#: cinecutie/mwindowedit.C:268
+msgid "clear keyframes"
+msgstr "poèisti kljuène slike"
+
+#: cinecutie/mwindowedit.C:283
+msgid "clear default keyframe"
+msgstr "poèisti privzete kljuène slike"
+
+#: cinecutie/mwindowedit.C:299
+#, fuzzy
+msgid "clear labels"
+msgstr "Poèisti oznake"
+
+#: cinecutie/mwindowedit.C:316
+msgid "concatenate tracks"
+msgstr "spoji steze"
+
+#: cinecutie/mwindowedit.C:430
+msgid "crop"
+msgstr "obre¾i"
+
+#: cinecutie/mwindowedit.C:455
+msgid "cut"
+msgstr "izre¾i"
+
+#: cinecutie/mwindowedit.C:474
+msgid "cut keyframes"
+msgstr "izre¾i kljuène slike"
+
+#: cinecutie/mwindowedit.C:492
+msgid "cut default keyframe"
+msgstr "izre¾i privzeto kljuèno sliko"
+
+#: cinecutie/mwindowedit.C:527
+msgid "delete tracks"
+msgstr "izbri¹i steze"
+
+#: cinecutie/mwindowedit.C:542
+msgid "delete track"
+msgstr "izbri¹i stezo"
+
+#: cinecutie/mwindowedit.C:560
+msgid "detach transition"
+msgstr "odpni prehod"
+
+#: cinecutie/mwindowedit.C:645 cinecutie/mwindowedit.C:682
+msgid "insert effect"
+msgstr "vstavi uèinek"
+
+#: cinecutie/mwindowedit.C:802
+msgid "drag handle"
+msgstr "vleci roèico"
+
+#: cinecutie/mwindowedit.C:815
+msgid "match output size"
+msgstr "prilagodi izhodni velikosti"
+
+#: cinecutie/mwindowedit.C:836
+msgid "move edit"
+msgstr "premakni urejanje"
+
+#: cinecutie/mwindowedit.C:866
+msgid "move effect"
+msgstr "premakni uèinek"
+
+#: cinecutie/mwindowedit.C:890
+msgid "move effect up"
+msgstr "premakni uèinek gor"
+
+#: cinecutie/mwindowedit.C:908
+msgid "move effect down"
+msgstr "premakni uèinek dol"
+
+#: cinecutie/mwindowedit.C:924
+msgid "move track down"
+msgstr "premakni stezo dol"
+
+#: cinecutie/mwindowedit.C:936
+msgid "move tracks down"
+msgstr "premakni stezo dol"
+
+#: cinecutie/mwindowedit.C:948
+msgid "move track up"
+msgstr "premakni stezo gor"
+
+#: cinecutie/mwindowedit.C:959
+msgid "move tracks up"
+msgstr "premakni steze gor"
+
+#: cinecutie/mwindowedit.C:980
+msgid "mute"
+msgstr "ti¹ina"
+
+#: cinecutie/mwindowedit.C:1040
+msgid "overwrite"
+msgstr "pi¹i preko"
+
+#: cinecutie/mwindowedit.C:1107
+msgid "paste"
+msgstr "prilepi"
+
+#: cinecutie/mwindowedit.C:1153
+msgid "paste assets"
+msgstr "prilepi sredstvo"
+
+#: cinecutie/mwindowedit.C:1234
+msgid "paste keyframes"
+msgstr "prilepi kljuène slike"
+
+#: cinecutie/mwindowedit.C:1263
+msgid "paste default keyframe"
+msgstr "prilepi privzeto kljuèno sliko"
+
+#: cinecutie/mwindowedit.C:1649
+msgid "silence"
+msgstr "ti¹ina"
+
+#: cinecutie/mwindowedit.C:1672 cinecutie/mwindowedit.C:1683
+#: cinecutie/mwindowedit.C:1703 cinecutie/mwindowedit.C:1724
+msgid "transition"
+msgstr "prehod"
+
+#: cinecutie/mwindowedit.C:1696 cinecutie/mwindowedit.C:1716
+#, c-format
+msgid "No default transition %s found."
+msgstr "Privzeti prehod %s ni nil najden."
+
+#: cinecutie/mwindowedit.C:1785
+msgid "resize track"
+msgstr "spremeni velikost steze"
+
+#: cinecutie/mwindowedit.C:1808
+msgid "in point"
+msgstr "vhodna toèka"
+
+#: cinecutie/mwindowedit.C:1877
+msgid "out point"
+msgstr "izhodna toèka"
+
+#: cinecutie/mwindowedit.C:1968
+msgid "splice"
+msgstr "zdru¾i"
+
+#: cinecutie/mwindowedit.C:2004 cinecutie/vwindowgui.C:653
+#, fuzzy, c-format
+msgid "Clip %d"
+msgstr "Odsek %d\n"
+
+#: cinecutie/mwindowedit.C:2013
+#, c-format
+msgid ""
+"%s\n"
+"Created from main window"
+msgstr ""
+
+#: cinecutie/mwindowedit.C:2037
+msgid "label"
+msgstr "oznaka"
+
+#: cinecutie/mwindowedit.C:2115
+msgid "trim selection"
+msgstr "od¾agaj na izbrano"
+
+#: cinecutie/mwindowedit.C:2183
+msgid "new folder"
+msgstr "nova mapa"
+
+#: cinecutie/mwindowedit.C:2275
+msgid "map 1:1"
+msgstr ""
+
+#: cinecutie/new.C:57
+msgid "New..."
+msgstr "Nova..."
+
+#: cinecutie/new.C:217
+msgid "Cinelerra: New Project"
+msgstr "Cinelerra: Nov projekt"
+
+#: cinecutie/new.C:221
+msgid ": New Project"
+msgstr ": Nov projekt"
+
+#: cinecutie/new.C:250
+msgid "Parameters for the new project:"
+msgstr "Parametri novega projekta:"
+
+#: cinecutie/new.C:269 cinecutie/new.C:296
+msgid "Tracks:"
+msgstr "Steze:"
+
+#: cinecutie/new.C:285 cinecutie/recordgui.C:245 cinecutie/setformat.C:351
+msgid "Samplerate:"
+msgstr "Frek. vzorè.:"
+
+#: cinecutie/new.C:311 cinecutie/recordgui.C:258
+msgid "Framerate:"
+msgstr "Frekv. slik:"
+
+#: cinecutie/new.C:337 cinecutie/setformat.C:415
+msgid "Canvas size:"
+msgstr "Platno:"
+
+#: cinecutie/new.C:356 cinecutie/setformat.C:483
+msgid "Aspect ratio:"
+msgstr "Razmerje:"
+
+#: cinecutie/new.C:384 cinecutie/setformat.C:510
+#, fuzzy
+msgid "Interlace mode:"
+msgstr "Prepleten"
+
+#: cinecutie/new.C:901
+msgid "Auto aspect ratio"
+msgstr "Samodejno razmerje"
+
+#: cinecutie/newfolder.C:60
+msgid "Enter the name of the folder:"
+msgstr "Vpi¹i ime mape:"
+
+#: cinecutie/newfolder.C:62 cinecutie/pluginclient.C:135
+msgid "Untitled"
+msgstr "Brez naslova"
+
+#: cinecutie/patchbay.C:325 cinecutie/patchgui.C:615
+#: cinecutie/trackcanvas.C:4394
+msgid "keyframe"
+msgstr "kljuèna slika"
+
+#: cinecutie/patchgui.C:300
+#, fuzzy
+msgid "play patch"
+msgstr "Predvajaj stezo"
+
+#: cinecutie/patchgui.C:308
+#, fuzzy
+msgid "mute patch"
+msgstr "Pot izhoda:"
+
+#: cinecutie/patchgui.C:314
+#, fuzzy
+msgid "record patch"
+msgstr "Praskanje"
+
+#: cinecutie/patchgui.C:318
+msgid "gang patch"
+msgstr ""
+
+#: cinecutie/patchgui.C:322
+msgid "draw patch"
+msgstr ""
+
+#: cinecutie/patchgui.C:327
+msgid "expand patch"
+msgstr ""
+
+#: cinecutie/patchgui.C:391
+msgid "Play track"
+msgstr "Predvajaj stezo"
+
+#: cinecutie/patchgui.C:442
+msgid "Arm track"
+msgstr "Nabij stezo"
+
+#: cinecutie/patchgui.C:492
+msgid "Gang faders"
+msgstr "Skupinski zabris"
+
+#: cinecutie/patchgui.C:542
+msgid "Draw media"
+msgstr "Ri¹i medij"
+
+#: cinecutie/patchgui.C:591
+msgid "Don't send to output"
+msgstr "Ne po¹lji v izhod"
+
+#: cinecutie/patchgui.C:722
+msgid "track title"
+msgstr ""
+
+#: cinecutie/patchgui.C:747
+msgid "Nudge"
+msgstr "Zamik"
+
+#: cinecutie/performanceprefs.C:74
+msgid "Cache size (MB):"
+msgstr "Velikost predpomnilka (MB):"
+
+#: cinecutie/performanceprefs.C:82
+msgid "Seconds to preroll renders:"
+msgstr "©t. sekund previtja upodabljanja:"
+
+#: cinecutie/performanceprefs.C:101
+#, fuzzy
+msgid "Background Rendering (Video only)"
+msgstr "Upodabljanje v ozadju"
+
+#: cinecutie/performanceprefs.C:109
+msgid "Frames per background rendering job:"
+msgstr "©tevilo slik na posel upodabljanja v ozadju:"
+
+#: cinecutie/performanceprefs.C:115
+msgid "Frames to preroll background:"
+msgstr "Za koliko slik previti ozadje:"
+
+#: cinecutie/performanceprefs.C:124
+msgid "Output for background rendering:"
+msgstr "Izhod upodabljanja v ozadju:"
+
+#: cinecutie/performanceprefs.C:150
+msgid "Render Farm"
+msgstr "Upodobljalna farma"
+
+#: cinecutie/performanceprefs.C:154
+msgid "Nodes:"
+msgstr "Vozli¹èa:"
+
+#: cinecutie/performanceprefs.C:156
+msgid "Hostname:"
+msgstr "Ime gostitelja:"
+
+#: cinecutie/performanceprefs.C:163
+#, c-format
+msgid "Master node framerate: %0.3f"
+msgstr "Hitrost slik glavnega vozli¹èa: %0.3f"
+
+#: cinecutie/performanceprefs.C:209
+msgid "Total jobs to create:"
+msgstr "Skupno ¹tevilo poslov za ustvarit:"
+
+#: cinecutie/performanceprefs.C:212
+msgid "(overridden if new file at each label is checked)"
+msgstr "(prezrto, èe je vklop. 'Nova datoteka pri vsaki oznaki')"
+
+#: cinecutie/performanceprefs.C:268 cinecutie/pluginpopup.C:207
+#: cinecutie/recordgui.C:92 cinecutie/transitionpopup.C:232
+msgid "On"
+msgstr "Vkljuèeno"
+
+#: cinecutie/performanceprefs.C:269
+msgid "Hostname"
+msgstr "Ime gostitelja"
+
+#: cinecutie/performanceprefs.C:270
+msgid "Port"
+msgstr "Vrata"
+
+#: cinecutie/performanceprefs.C:271
+msgid "Framerate"
+msgstr "Frekvenca slik"
+
+#: cinecutie/performanceprefs.C:302
+msgid "Use background rendering"
+msgstr "Uporabi upodabljanje v ozadju"
+
+#: cinecutie/performanceprefs.C:435
+msgid "Use render farm"
+msgstr "Uporabi upodobljalno farmo"
+
+#: cinecutie/performanceprefs.C:455
+msgid "Force single processor use"
+msgstr "Prisilno uporabi le en procesor"
+
+#: cinecutie/performanceprefs.C:478
+msgid "Consolidate output files on completion"
+msgstr "Zdru¾i izhodne datoteke ob konèanju"
+
+#: cinecutie/performanceprefs.C:606
+msgid "Add Node"
+msgstr "Dodaj vozli¹èe"
+
+#: cinecutie/performanceprefs.C:634
+msgid "Apply Changes"
+msgstr "Uveljavi spremembe"
+
+#: cinecutie/performanceprefs.C:661
+msgid "Delete Node"
+msgstr "Zbri¹i vozli¹èe"
+
+#: cinecutie/performanceprefs.C:689
+msgid "Sort nodes"
+msgstr "Razvrsti vozli¹èa"
+
+#: cinecutie/performanceprefs.C:716
+msgid "Reset rates"
+msgstr "Ponastavi produktivnost"
+
+#: cinecutie/performanceprefs.C:797
+msgid "Use virtual filesystem"
+msgstr "Uporabi navidezni datoteèni sistem"
+
+#: cinecutie/playbackprefs.C:69
+msgid "Audio Out"
+msgstr "Zvoèni izhod"
+
+#: cinecutie/playbackprefs.C:78
+msgid "Playback buffer size:"
+msgstr ""
+
+#: cinecutie/playbackprefs.C:101
+#, fuzzy
+msgid "Audio offset (sec):"
+msgstr "Zabris (sek):"
+
+#: cinecutie/playbackprefs.C:117
+msgid "Audio Driver:"
+msgstr "Gonilnik:"
+
+#: cinecutie/playbackprefs.C:139
+msgid "Video Out"
+msgstr "Video izhod"
+
+#: cinecutie/playbackprefs.C:145
+msgid "Framerate achieved:"
+msgstr "Dose¾ena frekv. slik:"
+
+#: cinecutie/playbackprefs.C:146 cinecutie/zoombar.C:118
+#: cinecutie/zoombar.C:120
+msgid "--"
+msgstr "--"
+
+#: cinecutie/playbackprefs.C:154
+msgid "Scaling equation:"
+msgstr "Enaèba poveèave:"
+
+#: cinecutie/playbackprefs.C:176
+msgid "Preload buffer for Quicktime:"
+msgstr "Predpomnilnik za Quicktime:"
+
+#: cinecutie/playbackprefs.C:182
+msgid "DVD Subtitle to display:"
+msgstr ""
+
+#: cinecutie/playbackprefs.C:220
+msgid "Timecode offset:"
+msgstr " odmik:"
+
+#: cinecutie/playbackprefs.C:223 cinecutie/playbackprefs.C:226
+#: cinecutie/playbackprefs.C:229 cinecutie/setformat.C:491
+msgid ":"
+msgstr ":"
+
+#: cinecutie/playbackprefs.C:234
+msgid "Video Driver:"
+msgstr "Gonilnik:"
+
+#: cinecutie/playbackprefs.C:328
+msgid "View follows playback"
+msgstr "Pogled sledi predvajanu"
+
+#: cinecutie/playbackprefs.C:343 cinecutie/recordprefs.C:407
+msgid "Use software for positioning information"
+msgstr "Programsko ugotavljaj trenutno mesto predvajanja"
+
+#: cinecutie/playbackprefs.C:358
+msgid "Audio playback in real time priority (root only)"
+msgstr "Predvajaj zvok z realno èasovno prioriteto (le administrator)"
+
+#: cinecutie/playbackprefs.C:376
+msgid "Nearest neighbor enlarge and reduce"
+msgstr "Pri poveèavah in pomanj¹avah najbli¾ji sosed"
+
+#: cinecutie/playbackprefs.C:392
+msgid "Bicubic enlarge and reduce"
+msgstr "Bikubièno poveèanje in pomanj¹anje"
+
+#: cinecutie/playbackprefs.C:407
+msgid "Bicubic enlarge and bilinear reduce"
+msgstr "Bikubièno poveèanje in bilinearno pomanj¹anje"
+
+#: cinecutie/playbackprefs.C:424
+msgid "Bilinear enlarge and bilinear reduce"
+msgstr "Bilinearno poveèanje in bilinearno pomanj¹anje"
+
+#: cinecutie/playbackprefs.C:462
+#, fuzzy
+msgid "Interpolate CR2 images"
+msgstr "Interpoliranje"
+
+#: cinecutie/playbackprefs.C:496
+msgid "White balance CR2 images"
+msgstr ""
+
+#: cinecutie/playbackprefs.C:519
+msgid "Decode frames asynchronously"
+msgstr ""
+
+#: cinecutie/playbackprefs.C:539
+msgid "Play every frame"
+msgstr "Predvajaj vsako sliko"
+
+#: cinecutie/playbackprefs.C:574
+msgid "Enable subtitles"
+msgstr ""
+
+#: cinecutie/playtransport.C:429
+msgid "Fast reverse ( + )"
+msgstr "Hitro previjanje nazaj ( + )"
+
+#: cinecutie/playtransport.C:444
+msgid "Normal reverse ( 6 )"
+msgstr "Normalno predvajanje nazaj ( 6 )"
+
+#: cinecutie/playtransport.C:459
+msgid "Frame reverse ( 4 )"
+msgstr "Slika nazaj ( 4 )"
+
+#: cinecutie/playtransport.C:474
+msgid "Normal forward ( 3 )"
+msgstr "Normalno predvajanje naprej (3 )"
+
+#: cinecutie/playtransport.C:491
+msgid "Frame forward ( 1 )"
+msgstr "Slika naprej ( 1 )"
+
+#: cinecutie/playtransport.C:506
+msgid "Fast forward ( Enter )"
+msgstr "Hitro previjanje naprej ( Enter )"
+
+#: cinecutie/pluginaclientlad.C:479
+#, c-format
+msgid "Author: %s"
+msgstr "Avtor: %s"
+
+#: cinecutie/pluginaclientlad.C:482
+#, c-format
+msgid "License: %s"
+msgstr "Licenca: %s"
+
+#: cinecutie/pluginarray.C:189
+#, c-format
+msgid "%s..."
+msgstr "%s..."
+
+#: cinecutie/pluginarray.C:215
+#, c-format
+msgid "%s took %s"
+msgstr "%s je vzelo %s"
+
+#: cinecutie/pluginclient.C:189
+#, c-format
+msgid "No processing defined for this plugin.\n"
+msgstr "Za ta vtiènik ni doloèeno nobeno obdelovanje.\n"
+
+#: cinecutie/plugindialog.C:183
+msgid "attach effect"
+msgstr "pripni uèinek"
+
+#: cinecutie/plugindialog.C:340
+msgid "Plugins:"
+msgstr "Vtièniki:"
+
+#: cinecutie/plugindialog.C:368
+msgid "Shared effects:"
+msgstr "Skupni uèinki:"
+
+#: cinecutie/plugindialog.C:396
+msgid "Shared tracks:"
+msgstr "Skupne steze:"
+
+#: cinecutie/pluginpopup.C:81
+#, fuzzy
+msgid "Change..."
+msgstr "Nalagam..."
+
+#: cinecutie/pluginpopup.C:108 cinecutie/transitionpopup.C:214
+msgid "Detach"
+msgstr "Odpni"
+
+#: cinecutie/pluginpopup.C:123
+msgid "detach effect"
+msgstr "odpni uèinek"
+
+#: cinecutie/pluginpopup.C:143
+msgid "Send"
+msgstr "Po¹lji"
+
+#: cinecutie/pluginpopup.C:165
+msgid "Receive"
+msgstr "Sprejmi"
+
+#: cinecutie/pluginpopup.C:187 cinecutie/transitionpopup.C:255
+msgid "Show"
+msgstr "Ka¾i"
+
+#: cinecutie/preferencesthread.C:66
+msgid "Preferences..."
+msgstr "Nastavitve..."
+
+#: cinecutie/preferencesthread.C:285
+msgid "Playback"
+msgstr "Predvajanje"
+
+#: cinecutie/preferencesthread.C:288
+msgid "Recording"
+msgstr "Snemanje"
+
+#: cinecutie/preferencesthread.C:291
+msgid "Performance"
+msgstr "Zmogljivost"
+
+#: cinecutie/preferencesthread.C:294
+msgid "Interface"
+msgstr "Vmesnik"
+
+#: cinecutie/preferencesthread.C:297
+msgid "About"
+msgstr "O programu"
+
+#: cinecutie/preferencesthread.C:531 cinecutie/preferencesthread.C:533
+#: cinecutie/setformat.C:916
+msgid "Apply"
+msgstr "Uveljavi"
+
+#: cinecutie/quit.C:43
+msgid "Quit"
+msgstr "Konec"
+
+#: cinecutie/quit.C:84
+msgid "Can't quit while a recording is in progress."
+msgstr "Ne morem konèati dokler traja snemanje."
+
+#: cinecutie/quit.C:94
+msgid "Can't quit while a render is in progress."
+msgstr "Ne morem konèati dokler traja upodabljanje."
+
+#: cinecutie/quit.C:107
+msgid "Save edit list before exiting?"
+msgstr "Pred izhodom shrani seznam urejanj?"
+
+#: cinecutie/recconfirmdelete.C:49
+#, c-format
+msgid "Delete this file and %s?"
+msgstr "To datoteko zbri¹i in %s?"
+
+#: cinecutie/record.C:75
+msgid "Record..."
+msgstr "Snemanje..."
+
+#: cinecutie/record.C:588
+#, fuzzy
+msgid "record"
+msgstr "Snemanje"
+
+#: cinecutie/record.C:696
+#, c-format
+msgid "Deleting"
+msgstr "Bri¹em"
+
+#: cinecutie/recordaudio.C:269 cinecutie/recordvideo.C:371
+msgid "No space left on disk."
+msgstr "Na disku ni veè prostora."
+
+#: cinecutie/recordgui.C:93
+msgid "Path"
+msgstr "Pot"
+
+#: cinecutie/recordgui.C:94
+msgid "News"
+msgstr "Novice"
+
+#: cinecutie/recordgui.C:95
+msgid "Start time"
+msgstr "Zaèetni èas"
+
+#: cinecutie/recordgui.C:96
+msgid "Duration"
+msgstr "Trajanje"
+
+#: cinecutie/recordgui.C:97
+msgid "Source"
+msgstr "Izvor"
+
+#: cinecutie/recordgui.C:166
+msgid "Path:"
+msgstr "Pot:"
+
+#: cinecutie/recordgui.C:169
+msgid "Start time:"
+msgstr "Zaèetni èas:"
+
+#: cinecutie/recordgui.C:172
+msgid "Duration time:"
+msgstr "Èas trajanja:"
+
+#: cinecutie/recordgui.C:175
+msgid "Source:"
+msgstr "Izvor:"
+
+#: cinecutie/recordgui.C:181
+msgid "Transport:"
+msgstr "Prenos:"
+
+#: cinecutie/recordgui.C:200 cinecutie/recordwindow.C:62
+msgid "Select a file to record to:"
+msgstr "Izberi datoteko za snemanje:"
+
+#: cinecutie/recordgui.C:236 plugins/titler/titlewindow.C:307
+msgid "Format:"
+msgstr "Obl. zapisa:"
+
+#: cinecutie/recordgui.C:242
+msgid "Audio compression:"
+msgstr "Kompresija zvoka:"
+
+#: cinecutie/recordgui.C:248
+msgid "Clipped samples:"
+msgstr "Odsekani vzorci:"
+
+#: cinecutie/recordgui.C:255
+msgid "Video compression:"
+msgstr "Kompresija videa:"
+
+#: cinecutie/recordgui.C:261
+msgid "Frames behind:"
+msgstr "Slik v zaostanku:"
+
+#: cinecutie/recordgui.C:266
+msgid "Position:"
+msgstr "Mesto:"
+
+#: cinecutie/recordgui.C:269
+msgid "Prev label:"
+msgstr "Prej¹nja oznaka:"
+
+#: cinecutie/recordgui.C:365
+#, fuzzy
+msgid "Batches:"
+msgstr "Bajti:"
+
+#: cinecutie/recordgui.C:718
+msgid "Save the recording and quit."
+msgstr "Shrani posnetek in konèaj"
+
+#: cinecutie/recordgui.C:744
+msgid "Quit without pasting into project."
+msgstr "Konèaj brez prilepljenja v projekt."
+
+#: cinecutie/recordgui.C:774
+#, fuzzy
+msgid "Quit and paste into project."
+msgstr "Konèaj brez prilepljenja v projekt."
+
+#: cinecutie/recordgui.C:793
+msgid "Start Over"
+msgstr "Zaèni znova"
+
+#: cinecutie/recordgui.C:795
+msgid "Rewind the current file and erase."
+msgstr "Previj trenutno datoteko in zbri¹i."
+
+#: cinecutie/recordgui.C:811
+msgid "Fill frames"
+msgstr "Polni slike"
+
+#: cinecutie/recordgui.C:815
+msgid "Write extra frames when behind."
+msgstr "Ob zaostajanju vstavi dodatne slike."
+
+#: cinecutie/recordgui.C:826
+msgid "Monitor video"
+msgstr "Glej video"
+
+#: cinecutie/recordgui.C:855
+msgid "Monitor audio"
+msgstr "Poslu¹aj zvok"
+
+#: cinecutie/recordgui.C:915
+msgid "Offset"
+msgstr "Odmik"
+
+#: cinecutie/recordgui.C:1015
+msgid "Create new clip."
+msgstr "Ustvari nov odsek."
+
+#: cinecutie/recordgui.C:1030
+msgid "Delete clip."
+msgstr "Zbri¹i odsek."
+
+#: cinecutie/recordgui.C:1045
+msgid ""
+"Start batch recording\n"
+"from the current position."
+msgstr ""
+"Zaèni paketno senmanje \n"
+"od tega polo¾aja."
+
+#: cinecutie/recordgui.C:1069
+msgid "Activate"
+msgstr "Aktiviraj"
+
+#: cinecutie/recordgui.C:1073
+msgid ""
+"Make the highlighted\n"
+"clip active."
+msgstr ""
+"Naredi poudarjen \n"
+"odsek aktiven."
+
+#: cinecutie/recordgui.C:1083
+msgid "Label"
+msgstr "Oznaka"
+
+#: cinecutie/recordgui.C:1163
+#, fuzzy
+msgid "Interrupt recording in progress?"
+msgstr "Ne morem konèati dokler traja snemanje."
+
+#: cinecutie/recordgui.C:1190
+msgid "Rewind batch and overwrite?"
+msgstr "Previj paket in pi¹i preko?"
+
+#: cinecutie/recordmonitor.C:310
+msgid "00:00:00:00"
+msgstr "00:00:00:00"
+
+#: cinecutie/recordmonitor.C:639 cinecutie/vdeviceprefs.C:276
+msgid "Swap fields"
+msgstr "Zamenjaj polja"
+
+#: cinecutie/recordprefs.C:98
+msgid "Audio In"
+msgstr "Zvoèni vhod"
+
+#: cinecutie/recordprefs.C:104 cinecutie/recordprefs.C:160
+msgid "Record Driver:"
+msgstr "Gonilnik:"
+
+#: cinecutie/recordprefs.C:118
+msgid "Samples to write to disk at a time:"
+msgstr "©tevilo hkrati na disk zapisanih vzorcev:"
+
+#: cinecutie/recordprefs.C:119
+msgid "Sample rate for recording:"
+msgstr "Snemalna frekv. vzorèenja:"
+
+#: cinecutie/recordprefs.C:120
+#, fuzzy
+msgid "Channels to record:"
+msgstr "©tevilo zvoènih kanalov za snemanje:"
+
+#: cinecutie/recordprefs.C:155
+msgid "Video In"
+msgstr "Video vhod"
+
+#: cinecutie/recordprefs.C:176
+msgid "Frames to record to disk at a time:"
+msgstr "©tevilo hkrati na disk zapisanih slik:"
+
+#: cinecutie/recordprefs.C:181
+msgid "Frames to buffer in device:"
+msgstr "©tevilo v napravi pomnjenih slik:"
+
+#: cinecutie/recordprefs.C:196
+msgid "Size of captured frame:"
+msgstr "Velikost zajete slik:"
+
+#: cinecutie/recordprefs.C:212
+msgid "Frame rate for recording:"
+msgstr "Snemalna frekvenca slik:"
+
+#: cinecutie/recordprefs.C:220
+msgid "Images"
+msgstr ""
+
+#: cinecutie/recordprefs.C:231
+#, fuzzy
+msgid "Seconds"
+msgstr "Sekunde:"
+
+#: cinecutie/recordprefs.C:260
+msgid "Record in realtime priority (root only)"
+msgstr "Snemaj zvok z realno èasovno prioriteto (le administrator)"
+
+#: cinecutie/recordprefs.C:421
+msgid "Sync drives automatically"
+msgstr "Samodejno uskladi pogone"
+
+#: cinecutie/recordprefs.C:433
+msgid "Import images with a duration of"
+msgstr ""
+
+#: cinecutie/recordtransport.C:156
+msgid ""
+"Start interactive recording\n"
+"from current position"
+msgstr ""
+"Zaèni interaktivno snemanje\n"
+"od trenutnega mesta"
+
+#: cinecutie/recordtransport.C:180
+msgid "Record single frame"
+msgstr "Posnami eno samo sliko"
+
+#: cinecutie/recordtransport.C:204
+msgid "Preview recording"
+msgstr "Predogled snemanja"
+
+#: cinecutie/recordtransport.C:229
+msgid "Stop operation"
+msgstr "Ustavi dejanje"
+
+#: cinecutie/recordtransport.C:255
+#, fuzzy
+msgid "Start over"
+msgstr "Zaèni znova"
+
+#: cinecutie/recordtransport.C:280
+msgid "Fast rewind"
+msgstr "Hitro previjanje nazaj"
+
+#: cinecutie/recordtransport.C:343
+msgid "Fast forward"
+msgstr "Hitro previjanje naprej"
+
+#: cinecutie/recordtransport.C:403
+msgid "Seek to end of recording"
+msgstr "Pojdi na konec snemanja"
+
+#: cinecutie/render.C:81
+msgid "Render..."
+msgstr "Upodabljanje..."
+
+#: cinecutie/render.C:553
+#, c-format
+msgid "Rendering %s..."
+msgstr "Upodabljam %s..."
+
+#: cinecutie/render.C:556
+msgid "Rendering..."
+msgstr "Upodabljam..."
+
+#: cinecutie/render.C:574
+#, c-format
+msgid "Rendering took %s"
+msgstr "Upodabljanje je trajalo %s"
+
+#: cinecutie/render.C:722
+msgid "Starting render farm"
+msgstr "Zaganjam upodabljalno farmo"
+
+#: cinecutie/render.C:750
+msgid "Failed to start render farm"
+msgstr "Nisem uspel pognati upodabljalne farme"
+
+#: cinecutie/render.C:852
+msgid "Error rendering data."
+msgstr "Napaka pri upodabljanju podatkov."
+
+#: cinecutie/render.C:900
+msgid "render"
+msgstr "upodabljanje"
+
+#: cinecutie/render.C:1157
+#, fuzzy
+msgid "Render range:"
+msgstr "Upodobljalna farma"
+
+#: cinecutie/render.C:1201
+#, fuzzy
+msgid "Project"
+msgstr ": Nov projekt"
+
+#: cinecutie/render.C:1212
+#, fuzzy
+msgid "Selection"
+msgstr "Izberi"
+
+#: cinecutie/render.C:1224
+#, fuzzy
+msgid "In/Out Points"
+msgstr "izhodna toèka"
+
+#: cinecutie/renderfarm.C:170
+msgid "RenderFarmServerThread::start_loop: socket\n"
+msgstr "RenderFarmServerThread::start_loop: vtiè\n"
+
+#: cinecutie/renderfarm.C:194 cinecutie/renderfarm.C:235
+#, fuzzy, c-format
+msgid "RenderFarmServerThread::open_client: %s: %s\n"
+msgstr "RenderFarmServerThread::start_loop: %s: %s\n"
+
+#: cinecutie/renderfarm.C:212
+msgid "RenderFarmServerThread::start_loop: socket"
+msgstr "RenderFarmServerThread::start_loop: vtiè"
+
+#: cinecutie/renderfarm.C:225
+#, fuzzy, c-format
+msgid "RenderFarmServerThread::open_client: unknown host %s.\n"
+msgstr "RenderFarmServerThread::start_loop: neznan gostitelj %s.\n"
+
+#: cinecutie/renderfarm.C:463
+#, c-format
+msgid "RenderFarmServerThread::run: unknown request %02x\n"
+msgstr "RenderFarmServerThread::run: neznana zahteva %02x\n"
+
+#: cinecutie/renderfarmclient.C:109 cinecutie/renderfarmclient.C:134
+msgid "RenderFarmClient::main_loop: socket"
+msgstr "RenderFarmClient::main_loop: vtiè"
+
+#: cinecutie/renderfarmclient.C:118
+#, c-format
+msgid "RenderFarmClient::main_loop: bind port %d: %s"
+msgstr "RenderFarmClient::main_loop: povezana vrata %d: %s"
+
+#: cinecutie/renderfarmclient.C:143
+#, c-format
+msgid "RenderFarmClient::main_loop: bind path %s: %s\n"
+msgstr "RenderFarmClient::main_loop: povezana pot %s: %s\n"
+
+#: cinecutie/renderfarmclient.C:156
+msgid "RenderFarmClient::main_loop: listen"
+msgstr "RenderFarmClient::main_loop: poslu¹aj"
+
+#: cinecutie/renderfarmclient.C:172 cinecutie/renderfarmclient.C:191
+msgid "RenderFarmClient::main_loop: accept"
+msgstr "RenderFarmClient::main_loop: sprejmi"
+
+#: cinecutie/renderfarmclient.C:719
+#, c-format
+msgid "RenderFarmClientThread::run: Session finished.\n"
+msgstr "RenderFarmClientThread::run: Seja zakljuèena.\n"
+
+#: cinecutie/renderprofiles.C:92
+msgid "RenderProfile:"
+msgstr ""
+
+#: cinecutie/renderprofiles.C:96
+#, fuzzy
+msgid "Render profile:"
+msgstr "Datoteke kazala"
+
+#: cinecutie/renderprofiles.C:248
+#, fuzzy
+msgid "Save profile"
+msgstr "Shrani reverb"
+
+#: cinecutie/renderprofiles.C:287
+#, fuzzy
+msgid "Delete profile"
+msgstr "Zbri¹i vozli¹èe"
+
+#: cinecutie/resizetrackthread.C:98
+msgid ""
+"This track's dimensions are not multiples of 4 so\n"
+"it can't be rendered by OpenGL."
+msgstr ""
+
+#: cinecutie/resizetrackthread.C:133 plugins/titler/titlewindow.C:196
+msgid "Size:"
+msgstr "Velikost:"
+
+#: cinecutie/resizetrackthread.C:140 cinecutie/resizetrackthread.C:166
+#: plugins/compressor/compressor.C:939
+msgid "x"
+msgstr "x"
+
+#: cinecutie/resizetrackthread.C:159 plugins/pitch/pitch.C:401
+#: plugins/timestretch/timestretch.C:517
+msgid "Scale:"
+msgstr "Razmerje:"
+
+#: cinecutie/resourcepixmap.C:514
+#, c-format
+msgid ""
+"ResourcePixmap::draw_audio_source: failed to check out %s for drawing.\n"
+msgstr "ResourcePixmap::draw_audio_source: nisem uspel dobiti %s za risanje.\n"
+
+#: cinecutie/savefile.C:49
+msgid "Save backup"
+msgstr "Shrani varnostno kopijo?"
+
+#: cinecutie/savefile.C:56
+msgid "Saved backup."
+msgstr "Varnostna kopija shranjena."
+
+#: cinecutie/savefile.C:70
+msgid "Save"
+msgstr "Shrani"
+
+#: cinecutie/savefile.C:115 cinecutie/savefile.C:217
+#, c-format
+msgid "\"%s\" %dC written"
+msgstr "\"%s\" %dC napisal"
+
+#: cinecutie/savefile.C:134
+msgid "Save as..."
+msgstr "Shrani kot..."
+
+#: cinecutie/savefile.C:205 plugins/reverb/reverb.C:419
+#, c-format
+msgid "Couldn't open %s."
+msgstr "Ne morem odpreti %s."
+
+#: cinecutie/savefile.C:244
+msgid "Enter a filename to save as"
+msgstr "Vpi¹i ime datoteke za shranitev"
+
+#: cinecutie/setformat.C:50
+msgid "Format..."
+msgstr "Oblika..."
+
+#: cinecutie/setformat.C:147
+msgid "set format"
+msgstr "nastavi obliko"
+
+#: cinecutie/setformat.C:376
+msgid "Channel positions:"
+msgstr "Mesta kanalov:"
+
+#: cinecutie/setformat.C:448
+msgid "W Ratio:"
+msgstr "Razm. ¹irine:"
+
+#: cinecutie/setformat.C:457
+msgid "H Ratio:"
+msgstr "Razm. vi¹ine:"
+
+#: cinecutie/setformat.C:701
+#, c-format
+msgid "%d degrees"
+msgstr "%d stopinj"
+
+#: cinecutie/setformat.C:879
+msgid "Auto"
+msgstr "Samod."
+
+#: cinecutie/splashgui.C:69
+msgid "Loading..."
+msgstr "Nalagam..."
+
+#: cinecutie/statusbar.C:112
+msgid "Welcome to Cinelerra."
+msgstr "Dobrodo¹li v Cinelerri."
+
+#: cinecutie/statusbar.C:120
+msgid "Cancel operation"
+msgstr "Preklièi dejanje"
+
+#: cinecutie/threadindexer.C:90
+#, c-format
+msgid "Where is %s?"
+msgstr "Kje je %s?"
+
+#: cinecutie/tipwindow.C:37
+msgid ""
+"When configuring slow effects, disable playback for the track.  After "
+"configuring it,\n"
+"re-enable playback to process a single frame."
+msgstr ""
+
+#: cinecutie/tipwindow.C:40
+msgid ""
+"Ctrl + any transport command causes playback to only cover\n"
+"the region defined by the in/out points."
+msgstr ""
+
+#: cinecutie/tipwindow.C:43
+msgid ""
+"Shift + clicking a patch causes all other patches except the\n"
+"selected one to toggle."
+msgstr ""
+
+#: cinecutie/tipwindow.C:46
+msgid ""
+"Clicking on a patch and dragging across other tracks causes\n"
+"the other patches to match the first one."
+msgstr ""
+
+#: cinecutie/tipwindow.C:49
+msgid ""
+"Shift + clicking on an effect boundary causes dragging to affect\n"
+"just the one effect."
+msgstr ""
+
+#: cinecutie/tipwindow.C:52
+msgid ""
+"Load multiple files by clicking on one file and shift + clicking on\n"
+"another file.  Ctrl + clicking toggles individual files."
+msgstr ""
+
+#: cinecutie/tipwindow.C:55
+msgid ""
+"Ctrl + left clicking on the time bar cycles forward a time format.\n"
+"Ctrl + middle clicking on the time bar cycles backward a time format."
+msgstr ""
+
+#: cinecutie/tipwindow.C:58
+msgid "Use the +/- keys in the Compositor window to zoom in and out.\n"
+msgstr ""
+
+#: cinecutie/tipwindow.C:60
+msgid ""
+"Pressing Alt while clicking in the cropping window causes translation of\n"
+"all 4 points.\n"
+msgstr ""
+
+#: cinecutie/tipwindow.C:63
+msgid ""
+"Pressing Tab over a track toggles the Record status.\n"
+"Pressing Shift-Tab over a track toggles the Record status of all the other "
+"tracks.\n"
+msgstr ""
+
+#: cinecutie/tipwindow.C:66
+msgid ""
+"Audio->Map 1:1 maps each recordable audio track to a different channel.\n"
+"Map 5.1:1 maps 6 recordable AC3 tracks to 2 channels.\n"
+msgstr ""
+
+#: cinecutie/tipwindow.C:69
+msgid ""
+"Alt + left moves to the previous edit handle.\n"
+"Alt + right moves to the next edit handle.\n"
+msgstr ""
+
+#: cinecutie/tipwindow.C:199
+msgid "Show tip of the day."
+msgstr ""
+
+#: cinecutie/tipwindow.C:220
+msgid "Next tip"
+msgstr ""
+
+#: cinecutie/tipwindow.C:243
+#, fuzzy
+msgid "Previous tip"
+msgstr "Prej¹nja oznaka"
+
+#: cinecutie/trackcanvas.C:4411
+#, fuzzy
+msgid "select"
+msgstr "Izberi"
+
+#: cinecutie/transitionpopup.C:82
+msgid "Seconds:"
+msgstr "Sekunde:"
+
+#: cinecutie/transitionpopup.C:182
+#, c-format
+msgid "Length: %2.2f sec"
+msgstr "Dol¾ina: %2.2f sek."
+
+#: cinecutie/transitionpopup.C:192
+msgid "Attach..."
+msgstr "Pripni..."
+
+#: cinecutie/transitionpopup.C:279
+msgid "Length"
+msgstr "Dol¾ina:"
+
+#: cinecutie/vdeviceprefs.C:218
+#, fuzzy
+msgid "Host:"
+msgstr "Ime gostitelja:"
+
+#: cinecutie/vdeviceprefs.C:225
+#, fuzzy
+msgid "Adaptor:"
+msgstr "Prilagodljiv"
+
+#: cinecutie/vdeviceprefs.C:281
+msgid "Output channel:"
+msgstr "Izhodni kanal:"
+
+#: cinecutie/vdeviceprefs.C:427
+msgid "Display:"
+msgstr "Zaslon:"
+
+#: cinecutie/vdeviceprefs.C:438
+msgid "Display for compositor:"
+msgstr "Zaslon skladatelja:"
+
+#: cinecutie/viewmenu.C:39
+#, fuzzy
+msgid "Show assets"
+msgstr "Ka¾i urejanja"
+
+#: cinecutie/viewmenu.C:66
+msgid "Show titles"
+msgstr "Ka¾i nazive"
+
+#: cinecutie/viewmenu.C:92
+msgid "Show transitions"
+msgstr "Ka¾i prehode"
+
+#: cinecutie/viewmenu.C:146
+#, fuzzy
+msgid "Plugin Autos"
+msgstr "Vtièniki:"
+
+#: cinecutie/vpatchgui.C:302
+msgid "mode"
+msgstr "naèin"
+
+#: cinecutie/vpatchgui.C:357 cinecutie/vpatchgui.C:385
+msgid "Normal"
+msgstr "Obièajno"
+
+#: cinecutie/vpatchgui.C:361
+msgid "Replace"
+msgstr "Zamenjava"
+
+#: cinecutie/vpatchgui.C:365
+msgid "Addition"
+msgstr "Pri¹tevanje"
+
+#: cinecutie/vpatchgui.C:369
+msgid "Subtract"
+msgstr "Od¹tevanje"
+
+#: cinecutie/vpatchgui.C:373
+msgid "Multiply"
+msgstr "Mno¾enje"
+
+#: cinecutie/vpatchgui.C:377
+msgid "Divide"
+msgstr "Deljenje"
+
+#: cinecutie/vpatchgui.C:381
+#, fuzzy
+msgid "Max"
+msgstr "Najv.:"
+
+#: cinecutie/vtrack.C:119
+#, c-format
+msgid "Video %d"
+msgstr "Video %d"
+
+#: cinecutie/vwindow.C:217 cinecutie/vwindow.C:224
+msgid "Viewer"
+msgstr "Pregledovalnik"
+
+#: cinecutie/vwindowgui.C:662
+#, c-format
+msgid ""
+"%s\n"
+" Created from:\n"
+"%s"
+msgstr ""
+
+#: cinecutie/zoombar.C:72 cinecutie/zoombar.C:73
+msgid "Duration visible in the timeline"
+msgstr ""
+
+#: cinecutie/zoombar.C:79 cinecutie/zoombar.C:80
+msgid "Audio waveform scale"
+msgstr ""
+
+#: cinecutie/zoombar.C:86 cinecutie/zoombar.C:87
+msgid "Height of tracks in the timeline"
+msgstr ""
+
+#: cinecutie/zoombar.C:430
+msgid "Automation range maximum"
+msgstr ""
+
+#: cinecutie/zoombar.C:432
+msgid "Automation range minimum"
+msgstr ""
+
+#: cinecutie/zoombar.C:464
+#, fuzzy
+msgid "Automation Type"
+msgstr "Samodejna IVTC"
+
+#: cinecutie/zoombar.C:481
+#, fuzzy
+msgid "Audio Fade:"
+msgstr "Zvok %d"
+
+#: cinecutie/zoombar.C:483
+#, fuzzy
+msgid "Video Fade:"
+msgstr "Video %d"
+
+#: cinecutie/zoombar.C:485
+#, fuzzy
+msgid "Zoom:"
+msgstr "25% poveèava"
+
+#: cinecutie/zoombar.C:491
+msgid "??"
+msgstr ""
+
+#: cinecutie/zoombar.C:521
+#, fuzzy
+msgid "Automation range"
+msgstr "Samodejno"
+
+#: cinecutie/zoombar.C:581
+#, fuzzy
+msgid "Selection start time"
+msgstr "Izberi datoteko"
+
+#: cinecutie/zoombar.C:619
+#, fuzzy
+msgid "Selection length"
+msgstr "Izberi uèinek"
+
+#: cinecutie/zoombar.C:653
+#, fuzzy
+msgid "Selection end time"
+msgstr "Izberi datoteko"
+
+#: guicast/bccapture.C:65
+#, c-format
+msgid "cannot connect to X server.\n"
+msgstr "Ne morem se povezati s stre¾nikom X.\n"
+
+#: guicast/bccapture.C:67
+#, c-format
+msgid "'DISPLAY' environment variable not set.\n"
+msgstr "Okoljska spremenljivka 'DISPLAY' ni nastavljena.\n"
+
+#: guicast/bcfilebox.C:237
+msgid "Change the filter"
+msgstr "Spremeni filter"
+
+#: guicast/bcfilebox.C:262
+msgid "Cancel the operation"
+msgstr "Preklièi dejanje"
+
+#: guicast/bcfilebox.C:290
+msgid "Submit the directory"
+msgstr "Po¹lji imenik"
+
+#: guicast/bcfilebox.C:315
+#, fuzzy
+msgid "Descend directory"
+msgstr "Imenik navzgor"
+
+#: guicast/bcfilebox.C:317
+msgid "Submit the file"
+msgstr "Po¹lji datoteko"
+
+#: guicast/bcfilebox.C:365
+msgid "Create new folder"
+msgstr "Ustvari novo mapo"
+
+#: guicast/bcfilebox.C:377
+msgid "Up a directory"
+msgstr "Imenik navzgor"
+
+#: guicast/bcfilebox.C:382
+#, c-format
+msgid ".."
+msgstr ".."
+
+#: guicast/bcfilebox.C:391
+#, fuzzy
+msgid "Delete files"
+msgstr "Zbri¹i ko¹"
+
+#: guicast/bcfilebox.C:405
+#, fuzzy
+msgid "Refresh"
+msgstr "Znova prerazporedi slike"
+
+#: guicast/bcfilebox.C:1189
+msgid ": New folder"
+msgstr ": Nova mapa"
+
+#: guicast/bcfilebox.C:1204
+#, fuzzy
+msgid ": Delete"
+msgstr "Zbri¹i"
+
+#: guicast/bcresources.C:64
+msgid "-*-helvetica-medium-r-normal-*-10-*"
+msgstr "-*-helvetica-bold-r-normal-*-10-*-*-*-*-*-iso8859-2"
+
+#: guicast/bcresources.C:65
+#, fuzzy
+msgid "-*-helvetica-medium-r-normal-*-11-*"
+msgstr "-*-helvetica-bold-r-normal-*-10-*-*-*-*-*-iso8859-2"
+
+#: guicast/bcresources.C:66 guicast/bcresources.C:67
+msgid "-*-helvetica-bold-r-normal-*-14-*"
+msgstr "-*-helvetica-bold-r-normal-*-14-*-*-*-*-*-iso8859-2"
+
+#: guicast/bcresources.C:68
+msgid "-*-helvetica-bold-r-normal-*-18-*"
+msgstr "-*-helvetica-bold-r-normal-*-18-*-*-*-*-*-iso8859-2"
+
+#: guicast/bcresources.C:69
+#, fuzzy
+msgid "-*-helvetica-bold-r-normal-*-20-*"
+msgstr "-*-helvetica-bold-r-normal-*-14-*-*-*-*-*-iso8859-2"
+
+#: guicast/bcresources.C:75
+#, fuzzy
+msgid "-*-luxi sans-*-r-*-*-12-*-*-*-*-*-*-*"
+msgstr "-microsoft-verdana-*-*-*-*-*-*-*-*-*-*-*-*"
+
+#: guicast/bcresources.C:76 guicast/bcresources.C:78 guicast/bcresources.C:80
+msgid "-microsoft-verdana-*-*-*-*-*-*-*-*-*-*-*-*"
+msgstr "-microsoft-verdana-*-*-*-*-*-*-*-*-*-*-*-*"
+
+#: guicast/bcresources.C:77
+#, fuzzy
+msgid "-*-luxi sans-*-r-*-*-16-*-*-*-*-*-*-*"
+msgstr "-microsoft-verdana-*-*-*-*-*-*-*-*-*-*-*-*"
+
+#: guicast/bcresources.C:79
+#, fuzzy
+msgid "-*-luxi sans-bold-r-*-*-20-*-*-*-*-*-*-*"
+msgstr "-microsoft-verdana-*-*-*-*-*-*-*-*-*-*-*-*"
+
+#: guicast/bctheme.C:470
+#, c-format
+msgid "Theme::get_image: %s not found.\n"
+msgstr "Theme::get_image: %s ni bila najdena.\n"
+
+#: guicast/bctheme.C:484
+#, c-format
+msgid "BC_Theme::check_used: Images aren't used.\n"
+msgstr "BC_Theme::check_used: Slike niso uporabljene.\n"
+
+#: plugins/1080to540/1080to540.C:99 plugins/720to480/720to480.C:77
+#: plugins/ivtc/ivtcwindow.C:128
+msgid "Odd field first"
+msgstr "Najprej liha polja"
+
+#: plugins/1080to540/1080to540.C:101 plugins/720to480/720to480.C:79
+msgid "Even field first"
+msgstr "Najprej soda polja"
+
+#: plugins/1080to540/1080to540.C:172
+#, fuzzy
+msgid "1080 to 540"
+msgstr "1080 na 480"
+
+#: plugins/720to480/720to480.C:195
+msgid "720 to 480"
+msgstr "720 na 480"
+
+#: plugins/aging/aging.C:80
+msgid "AgingTV"
+msgstr "Postarana televizija"
+
+#: plugins/aging/agingwindow.C:60
+msgid ""
+"Film aging from EffectTV\n"
+"Copyright (C) 2001 FUKUCHI Kentarou"
+msgstr ""
+"Postaranje filma iz EffectTV\n"
+"Avtorske pravice pridr¾ane (C) \n"
+"2001 FUKUCHI Kentarou"
+
+#: plugins/aging/agingwindow.C:93
+msgid "Grain"
+msgstr "Ojaèanje"
+
+#: plugins/aging/agingwindow.C:108
+msgid "Scratch"
+msgstr "Praskanje"
+
+#: plugins/aging/agingwindow.C:150
+msgid "Pits"
+msgstr "Navpiène èrte"
+
+#: plugins/aging/agingwindow.C:192
+msgid "Dust"
+msgstr "Prah"
+
+#: plugins/bandslide/bandslide.C:78 plugins/bandwipe/bandwipe.C:78
+#: plugins/irissquare/irissquare.C:50 plugins/slide/slide.C:97
+msgid "In"
+msgstr "Vhod"
+
+#: plugins/bandslide/bandslide.C:100 plugins/bandwipe/bandwipe.C:100
+#: plugins/irissquare/irissquare.C:72 plugins/slide/slide.C:119
+msgid "Out"
+msgstr "Izhod"
+
+#: plugins/bandslide/bandslide.C:147 plugins/bandwipe/bandwipe.C:146
+msgid "Bands:"
+msgstr "Pasovi:"
+
+#: plugins/bandslide/bandslide.C:157 plugins/irissquare/irissquare.C:119
+#: plugins/shapewipe/shapewipe.C:206 plugins/slide/slide.C:166
+#: plugins/slide/slide.C:180 plugins/wipe/wipe.C:119
+msgid "Direction:"
+msgstr "Smer:"
+
+#: plugins/bandslide/bandslide.C:196
+msgid "BandSlide"
+msgstr "Copyright"
+
+#: plugins/bandwipe/bandwipe.C:194
+msgid "BandWipe"
+msgstr "Pasovni prehod"
+
+#: plugins/blur/blur.C:129 plugins/blur/blurwindow.C:60
+msgid "Blur"
+msgstr "Zmehèaj"
+
+#: plugins/blur/blurwindow.C:67 plugins/whirl/whirl.C:260
+msgid "Radius"
+msgstr "Polmer"
+
+#: plugins/blur/blurwindow.C:112 plugins/downsample/downsample.C:294
+#: plugins/flip/flipwindow.C:62
+msgid "Vertical"
+msgstr "Navpièno"
+
+#: plugins/blur/blurwindow.C:130 plugins/downsample/downsample.C:276
+#: plugins/flip/flipwindow.C:68
+msgid "Horizontal"
+msgstr "Vodoravno "
+
+#: plugins/blur/blurwindow.C:148
+msgid "Blur alpha"
+msgstr "Zmehèaj alfo"
+
+#: plugins/blur/blurwindow.C:160
+msgid "Blur red"
+msgstr "Zmehèaj rdeèo"
+
+#: plugins/blur/blurwindow.C:172
+msgid "Blur green"
+msgstr "Zmehèaj zeleno"
+
+#: plugins/blur/blurwindow.C:184
+msgid "Blur blue"
+msgstr "Zmehèaj modro"
+
+#: plugins/blurzoom/blurzoom.C:80
+msgid "RadioacTV"
+msgstr ""
+
+#: plugins/blurzoom/blurzoomwindow.C:88
+#, fuzzy
+msgid ""
+"RadioacTV from EffectTV\n"
+"Copyright (C) 2001 FUKUCHI Kentarou"
+msgstr ""
+"Pikèasta TV je iz  EffectTV\n"
+"Avtorske pravice pridr¾ane (C)\n"
+"2001 FUKUCHI Kentarou"
+
+#: plugins/brightness/brightness.C:98 plugins/brightness/brightnesswindow.C:53
+msgid "Brightness/Contrast"
+msgstr "Svetlost/Kontrast"
+
+#: plugins/brightness/brightnesswindow.C:136
+msgid "Boost luminance only"
+msgstr "Okrepi le svetilnost"
+
+#: plugins/burn/burn.C:80
+msgid "BurningTV"
+msgstr "Goreèa TV"
+
+#: plugins/burn/burnwindow.C:59
+msgid ""
+"BurningTV from EffectTV\n"
+"Copyright (C) 2001 FUKUCHI Kentarou"
+msgstr ""
+"Goreèa TV iz EffectTV\n"
+"Avtorske pravice pridr¾ane (C) \n"
+"2001 FUKUCHI Kentarou"
+
+#: plugins/cdripper/cdripper.C:58
+msgid "CD Ripper"
+msgstr "Zajemalnik CD-jev"
+
+#: plugins/cdripper/cdripper.C:135
+msgid "Can't open cdrom drive."
+msgstr "Ne morem odpreti pogona cdrom."
+
+#: plugins/cdripper/cdripper.C:167
+msgid "Can't get total from table of contents."
+msgstr "Ne morem dobiti vsote iz kazala."
+
+#: plugins/cdripper/cdripper.C:183
+msgid "Can't get table of contents entry."
+msgstr "Ne morem dobiti vnosa kazala."
+
+#: plugins/cdripper/cdripper.C:199
+msgid "Can't get table of contents leadout."
+msgstr "Ne morem dobiti konca kazala."
+
+#: plugins/cdripper/cdripper.C:214
+msgid "Start track is out of range."
+msgstr "Zaèetna steza je izven dovoljenega obmoèja."
+
+#: plugins/cdripper/cdripper.C:232
+msgid "End track is out of range."
+msgstr "Konèna steza je izven dovoljenega obmoèja."
+
+#: plugins/cdripper/cdripper.C:244
+msgid "End position is out of range."
+msgstr "Konèni polo¾aj je izven dovoljenega obmoèja."
+
+#: plugins/cdripper/cdripwindow.C:54
+msgid "Select the range to transfer:"
+msgstr "Izberi obmoèje za prenos:"
+
+#: plugins/cdripper/cdripwindow.C:55 plugins/cdripper/cdripwindow.C:59
+msgid "Track"
+msgstr "Steza/Sledi"
+
+#: plugins/cdripper/cdripwindow.C:56 plugins/cdripper/cdripwindow.C:60
+msgid "Min"
+msgstr "Najmanj¹i"
+
+#: plugins/cdripper/cdripwindow.C:57 plugins/cdripper/cdripwindow.C:61
+msgid "Sec"
+msgstr "Sek"
+
+#: plugins/cdripper/cdripwindow.C:78
+msgid "From"
+msgstr "Od"
+
+#: plugins/cdripper/cdripwindow.C:80
+msgid "To"
+msgstr "Do"
+
+#: plugins/cdripper/cdripwindow.C:83
+msgid "CD Device:"
+msgstr "Naprava CD:"
+
+#: plugins/chromakey/chromakey.C:141 plugins/diffkey/diffkey.C:307
+msgid "Slope:"
+msgstr "Naklon:"
+
+#: plugins/chromakey/chromakey.C:145 plugins/denoisevideo/denoisevideo.C:196
+#: plugins/diffkey/diffkey.C:302 plugins/histogram/histogramwindow.C:199
+#: plugins/unsharp/unsharpwindow.C:71
+msgid "Threshold:"
+msgstr "Prag:"
+
+#: plugins/chromakey/chromakey.C:192 plugins/chromakeyhsv/chromakey.C:300
+#: plugins/titler/titlewindow.C:606
+msgid "Color..."
+msgstr "Barva..."
+
+#: plugins/chromakey/chromakey.C:252
+msgid "Use value"
+msgstr "Uporabi vrednost"
+
+#: plugins/chromakey/chromakey.C:268 plugins/chromakeyhsv/chromakey.C:472
+#, fuzzy
+msgid "Use color picker"
+msgstr "Barvna pipeta"
+
+#: plugins/chromakey/chromakey.C:288 plugins/chromakeyhsv/chromakey.C:531
+#: plugins/gradient/gradient.C:509
+msgid "Inner color"
+msgstr "Notranje barva"
+
+#: plugins/chromakey/chromakey.C:582
+msgid "Chroma key"
+msgstr "Barvni kljuè"
+
+#: plugins/chromakeyhsv/chromakey.C:200
+#, fuzzy
+msgid "Key parameters:"
+msgstr "Zakleni parametre"
+
+#: plugins/chromakeyhsv/chromakey.C:202
+#, fuzzy
+msgid "Hue Tolerance:"
+msgstr "Toleranca bit. hitr.:"
+
+#: plugins/chromakeyhsv/chromakey.C:205
+#, fuzzy
+msgid "Min. Brightness:"
+msgstr "Svetlost:"
+
+#: plugins/chromakeyhsv/chromakey.C:208
+#, fuzzy
+msgid "Max. Brightness:"
+msgstr "Svetlost:"
+
+#: plugins/chromakeyhsv/chromakey.C:211
+#, fuzzy
+msgid "Saturation Offset:"
+msgstr "Nasièenost:"
+
+#: plugins/chromakeyhsv/chromakey.C:214
+#, fuzzy
+msgid "Min Saturation:"
+msgstr "Nasièenost:"
+
+#: plugins/chromakeyhsv/chromakey.C:220
+msgid "Mask tweaking:"
+msgstr ""
+
+#: plugins/chromakeyhsv/chromakey.C:222
+#, fuzzy
+msgid "In Slope:"
+msgstr "Naklon:"
+
+#: plugins/chromakeyhsv/chromakey.C:225
+#, fuzzy
+msgid "Out Slope:"
+msgstr "Naklon:"
+
+#: plugins/chromakeyhsv/chromakey.C:228
+#, fuzzy
+msgid "Alpha Offset:"
+msgstr "Odmik syt:"
+
+#: plugins/chromakeyhsv/chromakey.C:236
+#, fuzzy
+msgid "Spill light control:"
+msgstr "Ka¾i kontrole"
+
+#: plugins/chromakeyhsv/chromakey.C:238
+#, fuzzy
+msgid "Spill Threshold:"
+msgstr "Prag:"
+
+#: plugins/chromakeyhsv/chromakey.C:241
+#, fuzzy
+msgid "Spill Compensation:"
+msgstr "Ustavi dejanje"
+
+#: plugins/chromakeyhsv/chromakey.C:456
+#, fuzzy
+msgid "Show Mask"
+msgstr "Ka¾i urejanja"
+
+#: plugins/chromakeyhsv/chromakey.C:909
+#, fuzzy
+msgid "Chroma key (HSV)"
+msgstr "Barvni kljuè"
+
+#: plugins/colorbalance/colorbalance.C:375
+#: plugins/colorbalance/colorbalancewindow.C:57
+msgid "Color Balance"
+msgstr "Barvno ravnovesje"
+
+#: plugins/colorbalance/colorbalancewindow.C:59
+msgid "Cyan"
+msgstr "Sinja"
+
+#: plugins/colorbalance/colorbalancewindow.C:61
+#: plugins/colors/colorpicker.C:191 plugins/denoisevideo/denoisevideo.C:200
+#: plugins/downsample/downsample.C:316 plugins/histogram/histogramwindow.C:82
+#: plugins/linearblur/linearblur.C:303 plugins/radialblur/radialblur.C:298
+#: plugins/swapchannels/swapchannels.C:450
+#: plugins/swapchannels/swapchannels.C:475 plugins/zoomblur/zoomblur.C:313
+msgid "Red"
+msgstr "Rdeèa"
+
+#: plugins/colorbalance/colorbalancewindow.C:63
+msgid "Magenta"
+msgstr "©krlatna"
+
+#: plugins/colorbalance/colorbalancewindow.C:65
+#: plugins/colors/colorpicker.C:197 plugins/denoisevideo/denoisevideo.C:202
+#: plugins/downsample/downsample.C:322 plugins/histogram/histogramwindow.C:88
+#: plugins/linearblur/linearblur.C:305 plugins/radialblur/radialblur.C:300
+#: plugins/swapchannels/swapchannels.C:453
+#: plugins/swapchannels/swapchannels.C:476 plugins/zoomblur/zoomblur.C:315
+msgid "Green"
+msgstr "Zelena"
+
+#: plugins/colorbalance/colorbalancewindow.C:67
+msgid "Yellow"
+msgstr "Rumena"
+
+#: plugins/colorbalance/colorbalancewindow.C:69
+#: plugins/colors/colorpicker.C:203 plugins/denoisevideo/denoisevideo.C:204
+#: plugins/downsample/downsample.C:328 plugins/histogram/histogramwindow.C:94
+#: plugins/linearblur/linearblur.C:307 plugins/radialblur/radialblur.C:302
+#: plugins/swapchannels/swapchannels.C:456
+#: plugins/swapchannels/swapchannels.C:477 plugins/zoomblur/zoomblur.C:317
+msgid "Blue"
+msgstr "Modra"
+
+#: plugins/colorbalance/colorbalancewindow.C:136
+msgid "Preserve luminosity"
+msgstr "Ohrani svetilnost"
+
+#: plugins/colorbalance/colorbalancewindow.C:155
+msgid "Lock parameters"
+msgstr "Zakleni parametre"
+
+#: plugins/colorbalance/colorbalancewindow.C:175
+#, fuzzy
+msgid "White balance"
+msgstr "Belina:"
+
+#: plugins/colorbalance/colorbalancewindow.C:221
+#: plugins/histogram/histogramwindow.C:595
+#: plugins/perspective/perspective.C:529
+msgid "Reset"
+msgstr "Ponastavi"
+
+#: plugins/colors/colorpicker.C:87
+msgid "Color Picker"
+msgstr "Barvna pipeta"
+
+#: plugins/colors/colorpicker.C:173
+msgid "Hue"
+msgstr "Odtenek"
+
+#: plugins/colors/colorpicker.C:179
+msgid "Saturation"
+msgstr "Nasièenost"
+
+#: plugins/colors/colorpicker.C:185 plugins/histogram/histogramwindow.C:76
+msgid "Value"
+msgstr "Skupno"
+
+#: plugins/colors/colorpicker.C:211 plugins/denoisevideo/denoisevideo.C:206
+#: plugins/downsample/downsample.C:334 plugins/linearblur/linearblur.C:309
+#: plugins/radialblur/radialblur.C:304 plugins/swapchannels/swapchannels.C:459
+#: plugins/swapchannels/swapchannels.C:478 plugins/zoomblur/zoomblur.C:319
+msgid "Alpha"
+msgstr "Alfa"
+
+#: plugins/compressor/compressor.C:116
+msgid "Compressor"
+msgstr "Stiskalnik"
+
+#: plugins/compressor/compressor.C:912
+msgid "Reaction secs:"
+msgstr "Reakcija sek.:"
+
+#: plugins/compressor/compressor.C:916
+#, fuzzy
+msgid "Decay secs:"
+msgstr "Sekunde zakasnitve:"
+
+#: plugins/compressor/compressor.C:920
+#, fuzzy
+msgid "Trigger Type:"
+msgstr "Spro¾ilec:"
+
+#: plugins/compressor/compressor.C:925
+msgid "Trigger:"
+msgstr "Spro¾ilec:"
+
+#: plugins/compressor/compressor.C:935
+msgid "Point:"
+msgstr "Toèka:"
+
+#: plugins/compressor/compressor.C:1069
+#, fuzzy
+msgid "Input level"
+msgstr "Vhod EDL"
+
+#: plugins/compressor/compressor.C:1071
+#, fuzzy
+msgid "Input"
+msgstr "Vhod:"
+
+#: plugins/compressor/compressor.C:1423
+#, fuzzy
+msgid "Smooth only"
+msgstr "Le vodoravno"
+
+#: plugins/crossfade/crossfade.C:46
+msgid "Crossfade"
+msgstr "Kri¾no uti¹aj/ojaèaj"
+
+#: plugins/decimate/decimate.C:262
+#: plugins/interpolatevideo/interpolatevideo.C:217
+#, fuzzy
+msgid "Input frames per second:"
+msgstr "Kbitov na sekundo:"
+
+#: plugins/decimate/decimate.C:273
+msgid "Last frame dropped: "
+msgstr ""
+
+#: plugins/decimate/decimate.C:764
+#, fuzzy
+msgid "Decimate"
+msgstr "Derivat:"
+
+#: plugins/deinterlace/deinterlace.C:100
+#: plugins/denoisemjpeg/denoisemjpeg.C:259
+msgid "Deinterlace"
+msgstr "Odpleti"
+
+#: plugins/deinterlace/deinterwindow.C:62
+msgid "Select deinterlacing mode"
+msgstr ""
+
+#: plugins/deinterlace/deinterwindow.C:83
+#, c-format
+msgid "Changed rows: %d\n"
+msgstr "Spremenjene vrstice: %d\n"
+
+#: plugins/deinterlace/deinterwindow.C:104
+#, fuzzy
+msgid "Keep top field"
+msgstr "Slike v polja"
+
+#: plugins/deinterlace/deinterwindow.C:106
+#, fuzzy
+msgid "Keep bottom field"
+msgstr "Najprej spodnje polje"
+
+#: plugins/deinterlace/deinterwindow.C:110
+#, fuzzy
+msgid "Average top fields"
+msgstr "Slike v polja"
+
+#: plugins/deinterlace/deinterwindow.C:116
+#: plugins/deinterlace/deinterwindow.C:122 plugins/fieldframe/fieldframe.C:221
+#: plugins/framefield/framefield.C:243
+msgid "Top field first"
+msgstr "Najprej zgornje polje"
+
+#: plugins/deinterlace/deinterwindow.C:144 plugins/threshold/threshold.C:138
+#, fuzzy
+msgid "Threshold"
+msgstr "Prag:"
+
+#: plugins/deinterlace/deinterwindow.C:149
+#, fuzzy
+msgid "Bob Threshold"
+msgstr "Prag:"
+
+#: plugins/deinterlace/deinterwindow.C:192
+msgid "Adaptive"
+msgstr "Prilagodljiv"
+
+#: plugins/deinterlace/deinterwindow.C:278
+msgid "Duplicate one field"
+msgstr ""
+
+#: plugins/deinterlace/deinterwindow.C:280
+#, fuzzy
+msgid "Average one field"
+msgstr "Povpreèi lihe vrstice"
+
+#: plugins/deinterlace/deinterwindow.C:282
+#, fuzzy
+msgid "Average both fields"
+msgstr "Povpreèi lihe vrstice"
+
+#: plugins/deinterlace/deinterwindow.C:284
+msgid "Bob & Weave"
+msgstr ""
+
+#: plugins/deinterlace/deinterwindow.C:286
+#, fuzzy
+msgid "Spatial field swap"
+msgstr "Zamenjaj polja"
+
+#: plugins/deinterlace/deinterwindow.C:288
+msgid "Temporal field swap"
+msgstr ""
+
+#: plugins/deinterlace/deinterwindow.C:290 plugins/motion/motionwindow.C:883
+#: plugins/motion/motionwindow.C:903
+#, fuzzy
+msgid "Do Nothing"
+msgstr "Ne naredi nièesar"
+
+#: plugins/delayaudio/delayaudio.C:72
+msgid "Delay audio"
+msgstr "Zakasnitev zvoka"
+
+#: plugins/delayaudio/delayaudio.C:295 plugins/delayvideo/delayvideo.C:97
+msgid "Delay seconds:"
+msgstr "Sekunde zakasnitve:"
+
+#: plugins/delayvideo/delayvideo.C:254
+msgid "Delay Video"
+msgstr "Zakasnitev videa"
+
+#: plugins/denoise/denoise.C:806 plugins/gain/gainwindow.C:60
+#: plugins/spectrogram/spectrogram.C:120
+msgid "Level:"
+msgstr "Stopn.:"
+
+#: plugins/denoisefft/denoisefft.C:252
+msgid "Denoise power:"
+msgstr "Moè odstr. ¹uma:"
+
+#: plugins/denoisefft/denoisefft.C:255
+msgid "Number of samples for reference:"
+msgstr "©tevilo vzorcev za referenco:"
+
+#: plugins/denoisefft/denoisefft.C:257
+msgid "The keyframe is the start of the reference"
+msgstr "Kljuèni okvir je zaèetek reference"
+
+#: plugins/denoisefft/denoisefft.C:329
+msgid "DenoiseFFT"
+msgstr "Odstranitev ¹uma s FFT"
+
+#: plugins/denoisemjpeg/denoisemjpeg.C:281
+msgid "Progressive"
+msgstr "Progresiven"
+
+#: plugins/denoisemjpeg/denoisemjpeg.C:319
+msgid "Fast"
+msgstr "Hitro"
+
+#: plugins/denoisemjpeg/denoisemjpeg.C:385
+msgid "Search radius:"
+msgstr "I¹èi polmer:"
+
+#: plugins/denoisemjpeg/denoisemjpeg.C:389
+msgid "Pass 1 threshold:"
+msgstr "Prag 1. prehoda:"
+
+#: plugins/denoisemjpeg/denoisemjpeg.C:393
+msgid "Pass 2 threshold:"
+msgstr "Prag 2. prehoda:"
+
+#: plugins/denoisemjpeg/denoisemjpeg.C:397
+msgid "Sharpness:"
+msgstr "Ostrina:"
+
+#: plugins/denoisemjpeg/denoisemjpeg.C:401
+msgid "Luma contrast:"
+msgstr "Svetlobni kontrast:"
+
+#: plugins/denoisemjpeg/denoisemjpeg.C:405
+msgid "Chroma contrast:"
+msgstr "Barvni kontrast:"
+
+#: plugins/denoisemjpeg/denoisemjpeg.C:409
+msgid "Delay frames:"
+msgstr "Zakasnjene slike:"
+
+#: plugins/denoisemjpeg/denoisemjpeg.C:481
+msgid "Denoise video2"
+msgstr "Odstrani ¹um videa2"
+
+#: plugins/denoisevideo/denoisevideo.C:192
+msgid "Frames to accumulate:"
+msgstr "©tevilo akumuliranih slik:"
+
+#: plugins/denoisevideo/denoisevideo.C:345
+msgid "Denoise video"
+msgstr "Odstrani ¹um videa"
+
+#: plugins/denoiseseltempavg/seltempavg.C:121
+msgid "Selective Temporal Averaging"
+msgstr ""
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:55
+#: plugins/timeavg/timeavgwindow.C:54
+msgid "Frames to average"
+msgstr "©tevilo povpreèenih slik"
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:60
+msgid "Use Method:"
+msgstr ""
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:63
+#, fuzzy
+msgid "None "
+msgstr "Brez"
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:66
+msgid "Selective Temporal Averaging: "
+msgstr ""
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:69
+msgid "Av. Thres."
+msgstr ""
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:70
+msgid "S.D. Thres."
+msgstr ""
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:74
+msgid "R / Y"
+msgstr ""
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:80
+msgid "G / U"
+msgstr ""
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:86
+msgid "B / V"
+msgstr ""
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:92
+#: plugins/timeavg/timeavgwindow.C:137
+#, fuzzy
+msgid "Average"
+msgstr "Èasovno povpreèje"
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:94
+msgid "Standard Deviation"
+msgstr ""
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:97
+#, fuzzy
+msgid "First frame in average:"
+msgstr "©tevilo povpreèenih slik"
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:99
+#, fuzzy
+msgid "Fixed offset: "
+msgstr " odmik:"
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:103
+msgid "Restart marker system:"
+msgstr ""
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:111
+#, fuzzy
+msgid "Other Options:"
+msgstr "Mesta kanalov:"
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:117
+#: plugins/freeverb/freeverb.C:328
+msgid "Gain:"
+msgstr "Ojaèenje:"
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:292
+#: plugins/timeavg/timeavgwindow.C:179
+msgid "Reprocess frame again"
+msgstr ""
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:309
+#: plugins/timeavg/timeavgwindow.C:199
+#, fuzzy
+msgid "Disable subtraction"
+msgstr "Spremenljiva bitna hitrost"
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:354
+#, fuzzy
+msgid "This Frame is a start of a section"
+msgstr "Kljuèni okvir je zaèetek reference"
+
+#: plugins/despike/despike.C:57
+msgid "Despike"
+msgstr "Odstranitev ¹pic"
+
+#: plugins/despike/despikewindow.C:62
+msgid "Maximum level:"
+msgstr "Najveèja stopnja:"
+
+#: plugins/despike/despikewindow.C:66
+msgid "Maximum rate of change:"
+msgstr "Najveèja hitrost spremembe:"
+
+#: plugins/diffkey/diffkey.C:260
+#, fuzzy
+msgid "Use Value"
+msgstr "Uporabi vrednost"
+
+#: plugins/diffkey/diffkey.C:346
+msgid "Difference key"
+msgstr ""
+
+#: plugins/dissolve/dissolve.C:51
+msgid "Dissolve"
+msgstr "Odtemnitev/Zatemnitev"
+
+#: plugins/dot/dot.C:83
+msgid "DotTV"
+msgstr "Pikèasta TV"
+
+#: plugins/dot/dotwindow.C:57
+msgid ""
+"DotTV from EffectTV\n"
+"Copyright (C) 2001 FUKUCHI Kentarou"
+msgstr ""
+"Pikèasta TV je iz  EffectTV\n"
+"Avtorske pravice pridr¾ane (C)\n"
+"2001 FUKUCHI Kentarou"
+
+#: plugins/downsample/downsample.C:285
+msgid "Horizontal offset"
+msgstr "Vodoravni odmik"
+
+#: plugins/downsample/downsample.C:303
+msgid "Vertical offset"
+msgstr "Navpièni odmik"
+
+#: plugins/downsample/downsample.C:423 plugins/reframert/reframert.C:307
+msgid "Downsample"
+msgstr "Kockasto"
+
+#: plugins/fieldframe/fieldframe.C:345
+msgid "Fields to frames"
+msgstr "Polja v slike"
+
+#: plugins/flash/flash.C:49
+msgid "Flash"
+msgstr "Blisk"
+
+#: plugins/flip/flip.C:89
+msgid "Flip"
+msgstr "Obrni"
+
+#: plugins/framefield/framefield.C:581
+msgid "Frames to fields"
+msgstr "Slike v polja"
+
+#: plugins/freeverb/freeverb.C:287
+msgid "Freeze"
+msgstr "Zamrzni"
+
+#: plugins/freeverb/freeverb.C:332
+msgid "Roomsize:"
+msgstr "Prostornost:"
+
+#: plugins/freeverb/freeverb.C:336
+msgid "Damp:"
+msgstr "Vla¾nost:"
+
+#: plugins/freeverb/freeverb.C:340
+msgid "Wet:"
+msgstr "Mokrost:"
+
+#: plugins/freeverb/freeverb.C:344
+msgid "Dry:"
+msgstr "Suhost:"
+
+#: plugins/freeverb/freeverb.C:492
+msgid "Freeverb"
+msgstr "Freeverb"
+
+#: plugins/freezeframe/freezeframe.C:173
+msgid "Freeze Frame"
+msgstr "Zamrzni sliko"
+
+#: plugins/gain/gain.C:85
+msgid "Gain"
+msgstr "Ojaèenje"
+
+#: plugins/gradient/gradient.C:188 plugins/shapewipe/shapewipe.C:218
+#, fuzzy
+msgid "Shape:"
+msgstr "Izostritev"
+
+#: plugins/gradient/gradient.C:198 plugins/timefront/timefront.C:213
+#: plugins/timefront/timefront.C:256
+#, fuzzy
+msgid "Rate:"
+msgstr "Zavrti"
+
+#: plugins/gradient/gradient.C:204 plugins/timefront/timefront.C:219
+#: plugins/timefront/timefront.C:262
+msgid "Inner radius:"
+msgstr "Notranji polmer:"
+
+#: plugins/gradient/gradient.C:207 plugins/timefront/timefront.C:222
+#: plugins/timefront/timefront.C:265
+msgid "Outer radius:"
+msgstr "Zunanji polmer:"
+
+#: plugins/gradient/gradient.C:245 plugins/linearblur/linearblur.C:295
+#: plugins/polar/polar.C:225 plugins/radialblur/radialblur.C:290
+#: plugins/timefront/timefront.C:207
+msgid "Angle:"
+msgstr "Kot:"
+
+#: plugins/gradient/gradient.C:257 plugins/timefront/timefront.C:240
+#, fuzzy
+msgid "Center X:"
+msgstr "Sredina"
+
+#: plugins/gradient/gradient.C:262 plugins/timefront/timefront.C:245
+#, fuzzy
+msgid "Center Y:"
+msgstr "Sredina"
+
+#: plugins/gradient/gradient.C:320 plugins/gradient/gradient.C:409
+#: plugins/timefront/timefront.C:380 plugins/timefront/timefront.C:520
+#, fuzzy
+msgid "Linear"
+msgstr "Linearno mehèanje"
+
+#: plugins/gradient/gradient.C:322 plugins/timefront/timefront.C:386
+#, fuzzy
+msgid "Radial"
+msgstr "Radialno mehèanje"
+
+#: plugins/gradient/gradient.C:411 plugins/timefront/timefront.C:522
+msgid "Log"
+msgstr ""
+
+#: plugins/gradient/gradient.C:413 plugins/synthesizer/synthesizer.C:762
+#: plugins/synthesizer/synthesizer.C:1015 plugins/timefront/timefront.C:524
+#, c-format
+msgid "Square"
+msgstr "Kvadrat"
+
+#: plugins/gradient/gradient.C:475
+msgid "Inner color:"
+msgstr "Notr. barva:"
+
+#: plugins/gradient/gradient.C:491
+msgid "Outer color:"
+msgstr "Zun. barva:"
+
+#: plugins/gradient/gradient.C:541
+msgid "Outer color"
+msgstr "Zunanja barva"
+
+#: plugins/gradient/gradient.C:598
+msgid "Gradient"
+msgstr "Preliv"
+
+#: plugins/histogram/histogram.C:103
+msgid "Histogram"
+msgstr "Histogram"
+
+#: plugins/histogram/histogramwindow.C:104
+#, fuzzy
+msgid "Input X:"
+msgstr "Vhod:"
+
+#: plugins/histogram/histogramwindow.C:114
+#, fuzzy
+msgid "Input Y:"
+msgstr "Vhod:"
+
+#: plugins/histogram/histogramwindow.C:158
+msgid "Output min:"
+msgstr "Najm. izhod: "
+
+#: plugins/histogram/histogramwindow.C:167
+#, fuzzy
+msgid "Output Max:"
+msgstr "Pot izhoda:"
+
+#: plugins/histogram/histogramwindow.C:777 plugins/ivtc/ivtc.C:37
+#: plugins/ivtc/ivtcwindow.C:34
+msgid "Automatic"
+msgstr "Samodejno"
+
+#: plugins/histogram/histogramwindow.C:795
+#: plugins/threshold/thresholdwindow.C:102
+#, fuzzy
+msgid "Plot histogram"
+msgstr "Histogram"
+
+#: plugins/histogram/histogramwindow.C:813
+msgid "Split output"
+msgstr ""
+
+#: plugins/holo/holo.C:84
+msgid "HolographicTV"
+msgstr "Holografska TV"
+
+#: plugins/holo/holowindow.C:56
+msgid ""
+"HolographicTV from EffectTV\n"
+"Copyright (C) 2001 FUKUCHI Kentarou"
+msgstr ""
+"Holografska TV iz EffectTV\n"
+"Avtorske pravice pridr¾ane (C)\n"
+"2001 FUKUCHI Kentarou"
+
+#: plugins/huesaturation/huesaturation.C:333
+msgid "Saturation:"
+msgstr "Nasièenost:"
+
+#: plugins/huesaturation/huesaturation.C:593
+msgid "Hue saturation"
+msgstr "Odtenek in nasièenje"
+
+#: plugins/interpolate/interpolate.C:103
+#, fuzzy
+msgid "X Offset:"
+msgstr "Odmik syt:"
+
+#: plugins/interpolate/interpolate.C:109
+#, fuzzy
+msgid "Y Offset:"
+msgstr "Odmik syt:"
+
+#: plugins/interpolate/interpolate.C:179
+#, fuzzy
+msgid "Interpolate Pixels"
+msgstr "Interpoliranje"
+
+#: plugins/interpolatevideo/interpolatevideo.C:326
+#, fuzzy
+msgid "Use keyframes as input"
+msgstr "Prilepi kljuène slike"
+
+#: plugins/interpolatevideo/interpolatevideo.C:539
+#: plugins/interpolateall/interpolateall.C:97
+#: plugins/reframert/reframert.C:325
+msgid "Interpolate"
+msgstr "Interpoliranje"
+
+#: plugins/invertaudio/invert.C:48
+msgid "Invert Audio"
+msgstr "Obrnitev zvok"
+
+#: plugins/invertvideo/invert.C:191
+msgid "Invert R"
+msgstr "Obrni rdeèo"
+
+#: plugins/invertvideo/invert.C:193
+msgid "Invert G"
+msgstr "Obrni zeleno"
+
+#: plugins/invertvideo/invert.C:195
+msgid "Invert B"
+msgstr "Obrni modro"
+
+#: plugins/invertvideo/invert.C:197
+msgid "Invert A"
+msgstr "Obrni alfo"
+
+#: plugins/invertvideo/invert.C:226
+msgid "Invert Video"
+msgstr "Obrni barve"
+
+#: plugins/invertvideo/invertwindow.C:42
+#: plugins/synthesizer/synthesizer.C:1281
+#: plugins/synthesizer/synthesizer.C:1328
+msgid "Invert"
+msgstr "Obrni"
+
+#: plugins/irissquare/irissquare.C:156
+msgid "IrisSquare"
+msgstr "Kvadratna zaslonka"
+
+#: plugins/ivtc/ivtc.C:35 plugins/ivtc/ivtcwindow.C:32
+msgid "A  B  BC  CD  D"
+msgstr ""
+
+#: plugins/ivtc/ivtc.C:36 plugins/ivtc/ivtcwindow.C:33
+msgid "AB  BC  CD  DE  EF"
+msgstr ""
+
+#: plugins/ivtc/ivtc.C:75
+msgid "Inverse Telecine"
+msgstr "Inverzna telekineza"
+
+#: plugins/ivtc/ivtcwindow.C:68
+msgid "Pattern offset:"
+msgstr "Odmik vzorca:"
+
+#: plugins/ivtc/ivtcwindow.C:76
+msgid "Pattern:"
+msgstr "Vzorec:"
+
+#: plugins/ivtc/ivtcwindow.C:144
+msgid "Automatic IVTC"
+msgstr "Samodejna IVTC"
+
+#: plugins/level/leveleffect.C:135
+msgid "Duration (seconds):"
+msgstr "Trajanje (sekunde):"
+
+#: plugins/level/leveleffect.C:138
+msgid "Max soundlevel (dB):"
+msgstr "Najv. glasnost (dB):"
+
+#: plugins/level/leveleffect.C:141
+msgid "RMS soundlevel (dB):"
+msgstr "Glasnost RMS (dB):"
+
+#: plugins/level/leveleffect.C:207
+msgid "SoundLevel"
+msgstr "Glasnost"
+
+#: plugins/linearblur/linearblur.C:291 plugins/motionblur/motionblur.C:257
+msgid "Length:"
+msgstr "Dol¾ina zamika:"
+
+#: plugins/linearblur/linearblur.C:299 plugins/radialblur/radialblur.C:294
+#: plugins/zoomblur/zoomblur.C:309 plugins/motionblur/motionblur.C:261
+msgid "Steps:"
+msgstr "Koraki:"
+
+#: plugins/linearblur/linearblur.C:402
+msgid "Linear Blur"
+msgstr "Linearno mehèanje"
+
+#: plugins/loopaudio/loopaudio.C:129
+#, fuzzy
+msgid "Samples to loop:"
+msgstr "Ferkvenca vzorèenja:"
+
+#: plugins/loopaudio/loopaudio.C:189
+#, fuzzy
+msgid "Loop audio"
+msgstr "Poslu¹aj zvok"
+
+#: plugins/loopvideo/loopvideo.C:128
+#, fuzzy
+msgid "Frames to loop:"
+msgstr "Slike v polja"
+
+#: plugins/loopvideo/loopvideo.C:187
+#, fuzzy
+msgid "Loop video"
+msgstr "Glej video"
+
+#: plugins/motion/motion.C:270
+msgid "Motion"
+msgstr "Detekcija gibanja"
+
+#: plugins/motion/motionwindow.C:76
+msgid ""
+"Translation search radius:\n"
+"(W/H Percent of image)"
+msgstr ""
+
+#: plugins/motion/motionwindow.C:88
+msgid ""
+"Rotation search radius:\n"
+"(Degrees)"
+msgstr ""
+
+#: plugins/motion/motionwindow.C:96
+msgid ""
+"Translation block size:\n"
+"(W/H Percent of image)"
+msgstr ""
+
+#: plugins/motion/motionwindow.C:108
+msgid ""
+"Rotation block size:\n"
+"(W/H Percent of image)"
+msgstr ""
+
+#: plugins/motion/motionwindow.C:119
+msgid "Translation search steps:"
+msgstr ""
+
+#: plugins/motion/motionwindow.C:126
+#, fuzzy
+msgid "Rotation search steps:"
+msgstr "Reakcija sek.:"
+
+#: plugins/motion/motionwindow.C:134
+#, fuzzy
+msgid "Translation direction:"
+msgstr "Smer perspektive:"
+
+#: plugins/motion/motionwindow.C:142
+#, fuzzy
+msgid "Block X:"
+msgstr "Velikost bloka:"
+
+#: plugins/motion/motionwindow.C:153
+#, fuzzy
+msgid "Block Y:"
+msgstr "Velikost bloka:"
+
+#: plugins/motion/motionwindow.C:164
+msgid "Maximum absolute offset:"
+msgstr "Najveèji absolutni odmik:"
+
+#: plugins/motion/motionwindow.C:170
+#, fuzzy
+msgid "Settling speed:"
+msgstr "Nastavitve"
+
+#: plugins/motion/motionwindow.C:191
+#, fuzzy
+msgid "Frame number:"
+msgstr "©tevilka maske:"
+
+#: plugins/motion/motionwindow.C:216
+msgid "Master layer:"
+msgstr ""
+
+#: plugins/motion/motionwindow.C:225
+#, fuzzy
+msgid "Action:"
+msgstr "Smer:"
+
+#: plugins/motion/motionwindow.C:236
+#, fuzzy
+msgid "Calculation:"
+msgstr "Nasièenost:"
+
+#: plugins/motion/motionwindow.C:494
+msgid "Add (loaded) offset from tracked frame"
+msgstr ""
+
+#: plugins/motion/motionwindow.C:515
+#, fuzzy
+msgid "Track translation"
+msgstr "Ponastavi premik"
+
+#: plugins/motion/motionwindow.C:535
+#, fuzzy
+msgid "Track rotation"
+msgstr "Preklièi dejanje"
+
+#: plugins/motion/motionwindow.C:670
+msgid "Draw vectors"
+msgstr "Risanje vektorjev"
+
+#: plugins/motion/motionwindow.C:697
+#, fuzzy
+msgid "Track single frame"
+msgstr "Posnami eno samo sliko"
+
+#: plugins/motion/motionwindow.C:751
+#, fuzzy
+msgid "Track previous frame"
+msgstr "odpri prej¹njo"
+
+#: plugins/motion/motionwindow.C:780
+#, fuzzy
+msgid "Previous frame same block"
+msgstr "Prej¹nja oznaka"
+
+#: plugins/motion/motionwindow.C:827 plugins/motion/motionwindow.C:833
+#: plugins/overlay/overlay.C:229 plugins/titler/titlewindow.C:913
+msgid "Top"
+msgstr "Zgoraj"
+
+#: plugins/motion/motionwindow.C:833 plugins/overlay/overlay.C:230
+#: plugins/titler/titlewindow.C:941
+msgid "Bottom"
+msgstr "Spodaj"
+
+#: plugins/motion/motionwindow.C:879 plugins/motion/motionwindow.C:891
+msgid "Track Subpixel"
+msgstr ""
+
+#: plugins/motion/motionwindow.C:880 plugins/motion/motionwindow.C:894
+#, fuzzy
+msgid "Track Pixel"
+msgstr "Steza/Sledi"
+
+#: plugins/motion/motionwindow.C:881 plugins/motion/motionwindow.C:897
+#, fuzzy
+msgid "Stabilize Subpixel"
+msgstr "Stabilizacija"
+
+#: plugins/motion/motionwindow.C:882 plugins/motion/motionwindow.C:900
+#, fuzzy
+msgid "Stabilize Pixel"
+msgstr "Stabilizacija"
+
+#: plugins/motion/motionwindow.C:950 plugins/motion/motionwindow.C:961
+msgid "Don't Calculate"
+msgstr ""
+
+#: plugins/motion/motionwindow.C:951 plugins/motion/motionwindow.C:964
+msgid "Recalculate"
+msgstr ""
+
+#: plugins/motion/motionwindow.C:952 plugins/motion/motionwindow.C:967
+msgid "Save coords to /tmp"
+msgstr ""
+
+#: plugins/motion/motionwindow.C:953 plugins/motion/motionwindow.C:970
+msgid "Load coords from /tmp"
+msgstr ""
+
+#: plugins/motion/motionwindow.C:1028 plugins/quark/quarkwindow.C:156
+#: plugins/sharpen/sharpenwindow.C:130
+msgid "Horizontal only"
+msgstr "Le vodoravno"
+
+#: plugins/motion/motionwindow.C:1029
+#, fuzzy
+msgid "Vertical only"
+msgstr "Navpièno"
+
+#: plugins/motion/motionwindow.C:1030
+#, fuzzy
+msgid "Both"
+msgstr "Spodaj"
+
+#: plugins/normalize/normalize.C:58 plugins/synthesizer/synthesizer.C:1201
+msgid "Normalize"
+msgstr "Normaliziranje"
+
+#: plugins/normalize/normalizewindow.C:53
+msgid "Enter the DB to overload by:"
+msgstr "Vpi¹i novo jakost signala v DB:"
+
+#: plugins/normalize/normalizewindow.C:89
+msgid "Treat tracks independantly"
+msgstr "Neodvisno obravnavaj steze"
+
+#: plugins/oilpainting/oil.C:244
+msgid "Use intensity"
+msgstr "Uporabi intenzivnost"
+
+#: plugins/oilpainting/oil.C:283 plugins/unsharp/unsharpwindow.C:59
+#: plugins/zoomblur/zoomblur.C:305
+msgid "Radius:"
+msgstr "Polmer:"
+
+#: plugins/oilpainting/oil.C:324
+msgid "Oil painting"
+msgstr "Oljnata slika"
+
+#: plugins/overlay/overlay.C:219
+#, fuzzy
+msgid "Bottom first"
+msgstr "Najprej spodnje polje"
+
+#: plugins/overlay/overlay.C:220
+#, fuzzy
+msgid "Top first"
+msgstr "Najprej zgornje polje"
+
+#: plugins/overlay/overlay.C:274
+#, fuzzy
+msgid "Layer order:"
+msgstr "Zapis bajtov:"
+
+#: plugins/overlay/overlay.C:281
+#, fuzzy
+msgid "Output layer:"
+msgstr "Pot izhoda:"
+
+#: plugins/overlay/overlay.C:714
+msgid "Overlay"
+msgstr ""
+
+#: plugins/parametric/parametric.C:269
+msgid "Lowpass"
+msgstr "Nizkopasovni"
+
+#: plugins/parametric/parametric.C:272
+msgid "Highpass"
+msgstr "Visokopasovi"
+
+#: plugins/parametric/parametric.C:275
+msgid "Bandpass"
+msgstr "Srednjepasovni"
+
+#: plugins/parametric/parametric.C:380
+msgid "Freq"
+msgstr "Ferkv."
+
+#: plugins/parametric/parametric.C:381
+msgid "Qual"
+msgstr "Kval."
+
+#: plugins/parametric/parametric.C:382 plugins/synthesizer/synthesizer.C:579
+#: plugins/synthesizer/synthesizer.C:637
+msgid "Level"
+msgstr "Stop."
+
+#: plugins/parametric/parametric.C:392 plugins/synthesizer/synthesizer.C:628
+msgid "Wetness:"
+msgstr "Svetlost:"
+
+#: plugins/parametric/parametric.C:656
+msgid "EQ Parametric"
+msgstr "Paramatrièna izravnava"
+
+#: plugins/perspective/perspective.C:148
+msgid "Current X:"
+msgstr "Trenutni X:"
+
+#: plugins/perspective/perspective.C:175 plugins/perspective/perspective.C:625
+msgid "Perspective"
+msgstr "Perspektiva"
+
+#: plugins/perspective/perspective.C:181
+msgid "Sheer"
+msgstr "Paralelogram"
+
+#: plugins/perspective/perspective.C:188 plugins/reframert/reframert.C:288
+msgid "Stretch"
+msgstr "Razteg"
+
+#: plugins/perspective/perspective.C:192
+msgid "Perspective direction:"
+msgstr "Smer perspektive:"
+
+#: plugins/perspective/perspective.C:198
+msgid "Forward"
+msgstr "Naprej"
+
+#: plugins/perspective/perspective.C:204
+msgid "Reverse"
+msgstr "Nazaj"
+
+#: plugins/pitch/pitch.C:63
+msgid "Pitch shift"
+msgstr "Spremeni vi¹ino zvoka"
+
+#: plugins/polar/polar.C:222
+msgid "Depth:"
+msgstr "Glob.:"
+
+#: plugins/polar/polar.C:301
+msgid "Polar"
+msgstr "Polarnost"
+
+#: plugins/quark/quark.C:63
+#, fuzzy
+msgid "Quark"
+msgstr "Kval."
+
+#: plugins/quark/quarkwindow.C:87 plugins/sharpen/sharpenwindow.C:61
+msgid "Sharpness"
+msgstr "Ostrina:"
+
+#: plugins/quark/quarkwindow.C:138 plugins/sharpen/sharpenwindow.C:112
+msgid "Interlace"
+msgstr "Prepleteno"
+
+#: plugins/quark/quarkwindow.C:173 plugins/sharpen/sharpenwindow.C:147
+msgid "Luminance only"
+msgstr "Le svetilnost"
+
+#: plugins/radialblur/radialblur.C:390
+msgid "Radial Blur"
+msgstr "Radialno mehèanje"
+
+#: plugins/reframe/reframe.C:57
+msgid "Reframe"
+msgstr "Znova prerazporedi slike"
+
+#: plugins/reframe/reframe.C:193 plugins/resample/resample.C:77
+msgid "Scale factor:"
+msgstr "Faktor skaliranja:"
+
+#: plugins/reframert/reframert.C:224
+#, fuzzy
+msgid "Scale by amount:"
+msgstr "Faktor skaliranja:"
+
+#: plugins/reframert/reframert.C:354
+#, fuzzy
+msgid "ReframeRT"
+msgstr "Znova prerazporedi slike"
+
+#: plugins/resample/resample.C:106
+msgid "Resample"
+msgstr "Prevzorèi"
+
+#: plugins/reverb/reverb.C:99
+msgid "Heroine College Concert Hall"
+msgstr "Koncertna dvorana kolid¾a Heroine"
+
+#: plugins/reverb/reverb.C:453
+#, c-format
+msgid "Couldn't save %s."
+msgstr "Ne morem shraniti %s."
+
+#: plugins/reverb/reverbwindow.C:61
+msgid "Initial signal level:"
+msgstr "Zaèetni nivo signala:"
+
+#: plugins/reverb/reverbwindow.C:63
+msgid "ms before reflections:"
+msgstr "ms pred odbojem:"
+
+#: plugins/reverb/reverbwindow.C:65
+msgid "First reflection level:"
+msgstr "Prvi nivo odboja:"
+
+#: plugins/reverb/reverbwindow.C:67
+msgid "Last reflection level:"
+msgstr "Zadnji nivo odboja:"
+
+#: plugins/reverb/reverbwindow.C:69
+msgid "Number of reflections:"
+msgstr "©tevilo odbojev:"
+
+#: plugins/reverb/reverbwindow.C:71
+msgid "ms of reflections:"
+msgstr "ms odbojev:"
+
+#: plugins/reverb/reverbwindow.C:73
+msgid "Start band for lowpass:"
+msgstr "Frekv. spodnjega pasu:"
+
+#: plugins/reverb/reverbwindow.C:75
+msgid "End band for lowpass:"
+msgstr "Frekv. zgornjega pasu:"
+
+#: plugins/reverb/reverbwindow.C:347
+msgid "Load..."
+msgstr "Odpri..."
+
+#: plugins/reverb/reverbwindow.C:364
+msgid "Save..."
+msgstr "Shrani..."
+
+#: plugins/reverb/reverbwindow.C:381
+msgid "Set default"
+msgstr "Privzete nastavitve"
+
+#: plugins/reverb/reverbwindow.C:442
+msgid "Save reverb"
+msgstr "Shrani reverb"
+
+#: plugins/reverb/reverbwindow.C:443
+msgid "Select the reverb file to save as"
+msgstr "Izberi reverb datoteko za shranjenje"
+
+#: plugins/reverb/reverbwindow.C:525
+msgid "Load reverb"
+msgstr "Odpri reverb"
+
+#: plugins/reverb/reverbwindow.C:526
+msgid "Select the reverb file to load from"
+msgstr "Izberi reverb datoteko za odprtje"
+
+#: plugins/reverseaudio/reverseaudio.C:185
+msgid "Reverse audio"
+msgstr "Zvok previj nazaj"
+
+#: plugins/reversevideo/reversevideo.C:183
+msgid "Reverse video"
+msgstr "Video previj nazaj"
+
+#: plugins/rgb601/rgb601.C:55
+msgid "RGB - 601"
+msgstr "RGB - 601"
+
+#: plugins/rgb601/rgb601window.C:65
+#, fuzzy
+msgid "RGB -> 601 compression"
+msgstr "Kompresiran RGB"
+
+#: plugins/rgb601/rgb601window.C:72
+#, fuzzy
+msgid "601 -> RGB expansion"
+msgstr "601 -> RGB"
+
+#: plugins/rotate/rotate.C:323
+#, fuzzy
+msgid "Draw pivot"
+msgstr "Ri¹i izhod"
+
+#: plugins/rotate/rotate.C:476 plugins/rotate/rotate.C:629
+msgid "Rotate"
+msgstr "Zavrti"
+
+#: plugins/rotate/rotate.C:520
+#, fuzzy
+msgid "Degrees"
+msgstr "%d stopinj"
+
+#: plugins/rotate/rotate.C:527
+msgid "Pivot (x,y):"
+msgstr ""
+
+#: plugins/scale/scale.C:92
+msgid "Scale"
+msgstr "Skaliraj"
+
+#: plugins/scale/scalewin.C:63
+msgid "X Scale:"
+msgstr "Razmerje X:"
+
+#: plugins/scale/scalewin.C:68
+msgid "Y Scale:"
+msgstr "Razmerje Y:"
+
+#: plugins/scale/scalewin.C:163
+msgid "Constrain ratio"
+msgstr "Vezano razmerje"
+
+#: plugins/timeavg/timeavg.C:111
+msgid "Time Average"
+msgstr "Èasovno povpreèje"
+
+#: plugins/timeavg/timeavgwindow.C:114
+msgid "Accumulate"
+msgstr ""
+
+#: plugins/timeavg/timeavgwindow.C:158
+msgid "Inclusive Or"
+msgstr ""
+
+#: plugins/shapewipe/shapewipe.C:46
+msgid "White to Black"
+msgstr ""
+
+#: plugins/shapewipe/shapewipe.C:68
+msgid "Black to White"
+msgstr ""
+
+#: plugins/shapewipe/shapewipe.C:87
+#, fuzzy
+msgid "Anti-aliasing"
+msgstr "Inicializiram grafièni uporabni¹ki vmesnik (GUI)"
+
+#: plugins/shapewipe/shapewipe.C:104
+msgid "Preserve shape aspect ratio"
+msgstr ""
+
+#: plugins/shapewipe/shapewipe.C:144
+msgid "Browse..."
+msgstr ""
+
+#: plugins/shapewipe/shapewipe.C:176
+#, fuzzy
+msgid "Choose Shape"
+msgstr "Ka¾i vzorce"
+
+#: plugins/shapewipe/shapewipe.C:177
+msgid "Choose a Wipe Shape"
+msgstr ""
+
+#: plugins/shapewipe/shapewipe.C:273
+msgid "Shape Wipe"
+msgstr ""
+
+#: plugins/sharpen/sharpen.C:121
+msgid "Sharpen"
+msgstr "Izostritev"
+
+#: plugins/shiftinterlace/shiftinterlace.C:206
+msgid "Odd offset:"
+msgstr "Lih odmik:"
+
+#: plugins/shiftinterlace/shiftinterlace.C:209
+msgid "Even offset:"
+msgstr "Sod odmik:"
+
+#: plugins/shiftinterlace/shiftinterlace.C:284
+msgid "ShiftInterlace"
+msgstr "Prepleten zamik"
+
+#: plugins/slide/slide.C:53 plugins/titler/titlewindow.C:869
+#: plugins/wipe/wipe.C:50
+msgid "Left"
+msgstr "Levo"
+
+#: plugins/slide/slide.C:75 plugins/titler/titlewindow.C:897
+#: plugins/wipe/wipe.C:72
+msgid "Right"
+msgstr "Desno"
+
+#: plugins/slide/slide.C:219
+msgid "Slide"
+msgstr "Drsenje"
+
+#: plugins/spectrogram/spectrogram.C:223
+msgid "Spectrogram"
+msgstr "Spektogram"
+
+#: plugins/svg/svg.C:144
+msgid "SVG via Inkscape"
+msgstr ""
+
+#: plugins/svg/svg.C:281
+#, c-format
+msgid "Running command %s\n"
+msgstr "Izvajam ukaz %s\n"
+
+#: plugins/svg/svg.C:287
+#, c-format
+msgid "Export of %s to %s failed\n"
+msgstr "Izvoz %s v %s ni uspel\n"
+
+#: plugins/svg/svg.C:301
+#, c-format
+msgid ""
+"The file %s that was generated from %s is not in RAWC format. Try to delete "
+"all *.raw files.\n"
+msgstr ""
+"Datoteka %s ustvarjena iz %s ni v obliki RAWC. Poisku¹ajte zbrisati vse *."
+"raw datoteke.\n"
+
+#: plugins/svg/svg.C:308
+#, fuzzy, c-format
+msgid ""
+"Unsupported version of RAWC file %s. This means your Inkscape uses newer "
+"RAWC format than Cinelerra. Please upgrade Cinelerra.\n"
+msgstr ""
+"Nepodprta razlièica datoteke RAWC %s. To pomeni, da va¹ Sodipodi uporablja "
+"novej¹i zapis RAWC, kot Cinelerra. Prosimo, da si nadgradite Cinelerro.\n"
+
+#: plugins/svg/svgwin.C:106 plugins/translate/translatewin.C:94
+msgid "Out X:"
+msgstr "Izhod X:"
+
+#: plugins/svg/svgwin.C:112 plugins/translate/translatewin.C:100
+msgid "Out Y:"
+msgstr "Izhod Y:"
+
+#: plugins/svg/svgwin.C:180
+msgid "New/Open SVG..."
+msgstr "Nov/Odpri SVG..."
+
+#: plugins/svg/svgwin.C:360
+#, fuzzy, c-format
+msgid "Inkscape has exited\n"
+msgstr "Sodipodi se je zaprl\n"
+
+#: plugins/svg/svgwin.C:363
+#, c-format
+msgid "Plugin window has closed\n"
+msgstr "Okno vtiènikov se je zaprlo\n"
+
+#: plugins/svg/svgwin.C:400
+#, c-format
+msgid "Running external SVG editor: %s\n"
+msgstr "Poganjam zunanji urejevalnik SVG: %s\n"
+
+#: plugins/svg/svgwin.C:403
+#, c-format
+msgid "External SVG editor finished\n"
+msgstr "Zunanji urejevalnik SVG je konèal\n"
+
+#: plugins/svg/svgwin.C:420
+msgid "SVG Plugin: Pick SVG file"
+msgstr "Vtiènik SVG: Izberi datoteko SVG"
+
+#: plugins/svg/svgwin.C:421
+msgid "Open an existing SVG file or create a new one"
+msgstr "Odpri obstojeèo datoteko SVG ali ustvari novo"
+
+#: plugins/swapchannels/swapchannels.C:107
+#: plugins/swapchannels/swapchannels.C:217
+msgid "Swap channels"
+msgstr "Zamenjaj kanale"
+
+#: plugins/swapchannels/swapchannels.C:109
+msgid "-> Red"
+msgstr "-> Rdeèa"
+
+#: plugins/swapchannels/swapchannels.C:113
+msgid "-> Green"
+msgstr "-> Zelena"
+
+#: plugins/swapchannels/swapchannels.C:117
+msgid "-> Blue"
+msgstr "-> Modra"
+
+#: plugins/swapchannels/swapchannels.C:121
+msgid "-> Alpha"
+msgstr "-> Alfa"
+
+#: plugins/swapchannels/swapchannels.C:462
+#: plugins/swapchannels/swapchannels.C:479
+msgid "0%"
+msgstr "0%"
+
+#: plugins/swapchannels/swapchannels.C:465
+#: plugins/swapchannels/swapchannels.C:480
+msgid "100%"
+msgstr "100%"
+
+#: plugins/synthesizer/synthesizer.C:79
+msgid "Synthesizer"
+msgstr "Sintetizator"
+
+#: plugins/synthesizer/synthesizer.C:580 plugins/synthesizer/synthesizer.C:639
+msgid "Phase"
+msgstr "Faza"
+
+#: plugins/synthesizer/synthesizer.C:581 plugins/synthesizer/synthesizer.C:641
+msgid "Harmonic"
+msgstr "Harmon."
+
+#: plugins/synthesizer/synthesizer.C:602
+msgid "Waveform"
+msgstr "Zvoèni vzorec"
+
+#: plugins/synthesizer/synthesizer.C:604
+msgid "Wave Function"
+msgstr "Funk. zvoè. vzorca"
+
+#: plugins/synthesizer/synthesizer.C:619
+msgid "Base Frequency:"
+msgstr "Osnovna frekv.:"
+
+#: plugins/synthesizer/synthesizer.C:759
+#, c-format
+msgid "DC"
+msgstr "DC"
+
+#: plugins/synthesizer/synthesizer.C:760
+#: plugins/synthesizer/synthesizer.C:1013
+#: plugins/synthesizer/synthesizer.C:1302
+#: plugins/synthesizer/synthesizer.C:1369
+#, c-format
+msgid "Sine"
+msgstr "Sinus"
+
+#: plugins/synthesizer/synthesizer.C:761
+#: plugins/synthesizer/synthesizer.C:1014
+#, c-format
+msgid "Sawtooth"
+msgstr "®agast"
+
+#: plugins/synthesizer/synthesizer.C:763
+#: plugins/synthesizer/synthesizer.C:1016
+#, c-format
+msgid "Triangle"
+msgstr "Trikotnik"
+
+#: plugins/synthesizer/synthesizer.C:764
+#: plugins/synthesizer/synthesizer.C:1017
+#, c-format
+msgid "Pulse"
+msgstr "Pulz"
+
+#: plugins/synthesizer/synthesizer.C:765
+#: plugins/synthesizer/synthesizer.C:1018
+#, c-format
+msgid "Noise"
+msgstr "©um"
+
+#: plugins/synthesizer/synthesizer.C:888
+msgid "Add"
+msgstr "Dodaj"
+
+#: plugins/synthesizer/synthesizer.C:1160
+#: plugins/synthesizer/synthesizer.C:1349
+msgid "Zero"
+msgstr "Niè"
+
+#: plugins/synthesizer/synthesizer.C:1181
+msgid "Maximum"
+msgstr "Najveè"
+
+#: plugins/synthesizer/synthesizer.C:1237
+msgid "Slope"
+msgstr "Naklon"
+
+#: plugins/synthesizer/synthesizer.C:1260
+#: plugins/synthesizer/synthesizer.C:1392
+#: plugins/synthesizer/synthesizer.C:1417
+msgid "Random"
+msgstr "Nakljuèno"
+
+#: plugins/synthesizer/synthesizer.C:1438
+msgid "Enumerate"
+msgstr "O¹tevilèi"
+
+#: plugins/synthesizer/synthesizer.C:1458
+msgid "Even"
+msgstr "Sod"
+
+#: plugins/synthesizer/synthesizer.C:1481
+msgid "Odd"
+msgstr "Lih"
+
+#: plugins/synthesizer/synthesizer.C:1499
+msgid "Fibonnacci"
+msgstr "Fibonnacci"
+
+#: plugins/synthesizer/synthesizer.C:1523
+msgid "Prime"
+msgstr "Pra¹tevilo"
+
+#: plugins/threshold/thresholdwindow.C:310
+#, fuzzy
+msgid "Low Color"
+msgstr "Barva:"
+
+#: plugins/threshold/thresholdwindow.C:330
+#, fuzzy
+msgid "Mid Color"
+msgstr "Barva:"
+
+#: plugins/threshold/thresholdwindow.C:350
+#, fuzzy
+msgid "High Color"
+msgstr "Barva:"
+
+#: plugins/threshold/thresholdwindow.C:370
+#, fuzzy
+msgid "Low color"
+msgstr "Notranje barva"
+
+#: plugins/threshold/thresholdwindow.C:389
+#, fuzzy
+msgid "Mid color"
+msgstr "Notranje barva"
+
+#: plugins/threshold/thresholdwindow.C:408
+msgid "High color"
+msgstr ""
+
+#: plugins/threshold/thresholdwindow.C:482
+#, fuzzy
+msgid "Min:"
+msgstr "Najmanj¹i"
+
+#: plugins/threshold/thresholdwindow.C:495
+msgid "Max:"
+msgstr "Najv.:"
+
+#: plugins/timefront/timefront.C:161
+#, fuzzy
+msgid "Type:"
+msgstr "Besedilo:"
+
+#: plugins/timefront/timefront.C:171
+#, fuzzy
+msgid "Time range:"
+msgstr "Èasovno povpreèje"
+
+#: plugins/timefront/timefront.C:298
+msgid "As timefront use:"
+msgstr ""
+
+#: plugins/timefront/timefront.C:382
+msgid "Other track as timefront"
+msgstr ""
+
+#: plugins/timefront/timefront.C:384
+msgid "Alpha as timefront"
+msgstr ""
+
+#: plugins/timefront/timefront.C:426
+#, fuzzy
+msgid "Intensity"
+msgstr "Uporabi intenzivnost"
+
+#: plugins/timefront/timefront.C:428
+#, fuzzy
+msgid "Alpha mask"
+msgstr "Alfa"
+
+#: plugins/timefront/timefront.C:610
+#, fuzzy
+msgid "Inversion"
+msgstr "Obrnitev zvok"
+
+#: plugins/timefront/timefront.C:626
+msgid "Show grayscale (for tuning"
+msgstr ""
+
+#: plugins/timefront/timefront.C:659
+msgid "TimeFront"
+msgstr ""
+
+#: plugins/timestretch/timestretch.C:339
+msgid "Time stretch"
+msgstr "Raztegnjen èas"
+
+#: plugins/titler/title.C:81
+#, c-format
+msgid "hello world"
+msgstr "pozdravljen svet"
+
+#: plugins/titler/title.C:295
+#, c-format
+msgid "GlyphUnit::process_package FT_New_Face failed.\n"
+msgstr "GlyphUnit::process_package FT_New_Face neuspe¹no.\n"
+
+#: plugins/titler/title.C:314
+#, c-format
+msgid "GlyphUnit::process_package FT_Load_Char failed - char: %i.\n"
+msgstr "GlyphUnit::process_package FT_Load_Char failed - znak: %i.\n"
+
+#: plugins/titler/title.C:1385
+#, c-format
+msgid "TitleMain::load_freetype_face %s failed.\n"
+msgstr "TitleMain::load_freetype_face %s neuspe¹no.\n"
+
+#: plugins/titler/title.C:1506
+#, c-format
+msgid "Iconv conversion from %s to Unicode UCS-4 not available\n"
+msgstr "Pretvorba znakov Iconv iz %s v Unicode UCS-4 ni na voljo\n"
+
+#: plugins/titler/title.C:1947
+msgid "No motion"
+msgstr "Brez gibanja"
+
+#: plugins/titler/title.C:1948
+msgid "Bottom to top"
+msgstr "Od spodaj navzgor"
+
+#: plugins/titler/title.C:1949
+msgid "Top to bottom"
+msgstr "Od zgoraj navzdol"
+
+#: plugins/titler/title.C:1950
+msgid "Right to left"
+msgstr "Od desne proti levi"
+
+#: plugins/titler/title.C:1951
+msgid "Left to right"
+msgstr "Od leve proti desni"
+
+#: plugins/titler/titlewindow.C:189
+msgid "Font:"
+msgstr "Pisava:"
+
+#: plugins/titler/titlewindow.C:202
+msgid "Style:"
+msgstr "Slog:"
+
+#: plugins/titler/titlewindow.C:209
+msgid "Justify:"
+msgstr "Poravnava:"
+
+#: plugins/titler/titlewindow.C:234
+msgid "Motion type:"
+msgstr "Vrsta gibanja:"
+
+#: plugins/titler/titlewindow.C:246
+msgid "Drop shadow:"
+msgstr "Senca:"
+
+#: plugins/titler/titlewindow.C:251
+msgid "Fade in (sec):"
+msgstr "Odbris (sek):"
+
+#: plugins/titler/titlewindow.C:255
+msgid "Fade out (sec):"
+msgstr "Zabris (sek):"
+
+#: plugins/titler/titlewindow.C:259
+msgid "Speed:"
+msgstr "Hitrost:"
+
+#: plugins/titler/titlewindow.C:272
+msgid "Encoding:"
+msgstr "Kodiranje:"
+
+#: plugins/titler/titlewindow.C:278
+msgid "Outline width:"
+msgstr "Oris z:"
+
+#: plugins/titler/titlewindow.C:299
+msgid "Text:"
+msgstr "Besedilo:"
+
+#: plugins/titler/titlewindow.C:510
+msgid "Bold"
+msgstr "Krepko"
+
+#: plugins/titler/titlewindow.C:524
+msgid "Italic"
+msgstr "Le¾eèe"
+
+#: plugins/titler/titlewindow.C:537
+msgid "Outline"
+msgstr "Obroba"
+
+#: plugins/titler/titlewindow.C:618
+msgid "Outline color..."
+msgstr "Barva obrobe..."
+
+#: plugins/titler/titlewindow.C:651
+msgid "Loop"
+msgstr "Zanka"
+
+#: plugins/titler/titlewindow.C:663
+msgid "Stamp timecode"
+msgstr "Èasovna koda"
+
+#: plugins/titler/titlewindow.C:883
+msgid "Center"
+msgstr "Sredina"
+
+#: plugins/titler/titlewindow.C:927
+msgid "Mid"
+msgstr "Sredina"
+
+#: plugins/translate/translate.C:118
+msgid "Translate"
+msgstr "Prevod"
+
+#: plugins/translate/translatewin.C:67
+msgid "In X:"
+msgstr "Vhod X:"
+
+#: plugins/translate/translatewin.C:73
+msgid "In Y:"
+msgstr "Vhod Y:"
+
+#: plugins/translate/translatewin.C:79
+msgid "In W:"
+msgstr "Vhod W:"
+
+#: plugins/translate/translatewin.C:85
+msgid "In H:"
+msgstr "Vhod H:"
+
+#: plugins/translate/translatewin.C:106
+msgid "Out W:"
+msgstr "Izhod W:"
+
+#: plugins/translate/translatewin.C:112
+msgid "Out H:"
+msgstr "Izhod H:"
+
+#: plugins/unsharp/unsharp.C:105
+msgid "Unsharp"
+msgstr ""
+
+#: plugins/unsharp/unsharpwindow.C:65
+#, fuzzy
+msgid "Amount:"
+msgstr "O programu"
+
+#: plugins/videoscope/videoscope.C:711
+#, fuzzy
+msgid "HDTV"
+msgstr "DV"
+
+#: plugins/videoscope/videoscope.C:759
+#, fuzzy
+msgid "Inverse"
+msgstr "Obrni"
+
+#: plugins/videoscope/videoscope.C:811
+msgid "VideoScope"
+msgstr "Videoskop"
+
+#: plugins/wave/wave.C:276
+msgid "Smear"
+msgstr "Razpalamudi"
+
+#: plugins/wave/wave.C:293
+msgid "Blacken"
+msgstr "Poèrni"
+
+#: plugins/wave/wave.C:312
+msgid "Reflective"
+msgstr "Odbojen"
+
+#: plugins/wave/wave.C:421
+msgid "Amplitude:"
+msgstr "Amplituda:"
+
+#: plugins/wave/wave.C:424
+msgid "Phase:"
+msgstr "Faza:"
+
+#: plugins/wave/wave.C:427
+msgid "Wavelength:"
+msgstr "Valovna dol¾ina:"
+
+#: plugins/wave/wave.C:474
+msgid "Wave"
+msgstr "Valovanje"
+
+#: plugins/whirl/whirl.C:264
+msgid "Pinch"
+msgstr "Udarec"
+
+#: plugins/whirl/whirl.C:268
+msgid "Angle"
+msgstr "Kot"
+
+#: plugins/whirl/whirl.C:388
+msgid "Whirl"
+msgstr "Vrtinec"
+
+#: plugins/wipe/wipe.C:156
+msgid "Wipe"
+msgstr "Pobri¹i"
+
+#: plugins/yuv/yuv.C:196
+msgid "U:"
+msgstr "U:"
+
+#: plugins/yuv/yuv.C:199
+msgid "V:"
+msgstr "V:"
+
+#: plugins/yuv/yuv.C:234
+msgid "YUV"
+msgstr "YUV"
+
+#: plugins/zoomblur/zoomblur.C:417
+msgid "Zoom Blur"
+msgstr "Poveèava mehèanja"
+
+#: plugins/livevideo/livevideo.C:563
+#, fuzzy
+msgid "Live Video"
+msgstr "Obrni barve"
+
+#: plugins/motionblur/motionblur.C:322
+#, fuzzy
+msgid "Motion Blur"
+msgstr "Detekcija gibanja"
+
+#~ msgid "batch_render_start"
+#~ msgstr "zaèetek_serijskega_upodabljanja"
+
+#~ msgid "batch_render_stop"
+#~ msgstr "konec_serijskega_upodabljanja"
+
+#~ msgid "batch_render_cancel"
+#~ msgstr "prekinitev_serijskega_upodabljanja"
+
+#~ msgid "tweek"
+#~ msgstr "Prilagajanje"
+
+#~ msgid "X2:"
+#~ msgstr "X2:"
+
+#~ msgid "Y2:"
+#~ msgstr "Y2:"
+
+#~ msgid "Delete in point"
+#~ msgstr "Zbri¹i vhodno toèko"
+
+#~ msgid "Delete out point"
+#~ msgstr "Zbri¹i izhodno toèko"
+
+#~ msgid "Heroine 60"
+#~ msgstr "Heroine 60"
+
+#~ msgid "Component Video"
+#~ msgstr "Komponentni video"
+
+#~ msgid "FileMOV::open_file %s: No such file or directory\n"
+#~ msgstr "FileMOV::open_file %s: Datoteka ali imenik ne obstaja\n"
+
+#~ msgid "FileVorbis::open_file %s: invalid bitstream.\n"
+#~ msgstr "FileVorbis::open_file %s: neveljaven bitni tok.\n"
+
+#~ msgid "IndexThread::run() Couldn't write index file %s to disk.\n"
+#~ msgstr "IndexThread::run() Na disk ne morem pisati datoteke kazala %s.\n"
+
+#~ msgid "Clicking on in/out points does what:"
+#~ msgstr "Kaj se zgodi ob kliku na vhodne/izhodne toèke:"
+
+#~ msgid "paste transition"
+#~ msgstr "prilepi prehod"
+
+#~ msgid "480P"
+#~ msgstr "480P"
+
+#~ msgid "480I"
+#~ msgstr "480I"
+
+#~ msgid "Half D-1 NTSC"
+#~ msgstr "Polovièen D-1 NTSC"
+
+#~ msgid "Local Host"
+#~ msgstr "Lokalni gostitelj"
+
+#~ msgid "Multihead"
+#~ msgstr "Veèglavno"
+
+#~ msgid "Blond Symphony"
+#~ msgstr "Blond Symphony"
+
+#~ msgid "Samples to send to console at a time:"
+#~ msgstr "©t. hkrati na konzolo poslanih vzorcev:"
+
+#~ msgid "Head:"
+#~ msgstr "Glava:"
+
+#~ msgid "Attach"
+#~ msgstr "Pripni"
+
+#~ msgid "Thru"
+#~ msgstr "Skozi"
+
+#~ msgid "Quit without pasting into project?"
+#~ msgstr "Konèaj brez prilepljenja v projekt?"
+
+#~ msgid "Plugin keyframes"
+#~ msgstr "Kljuèna slika vtiènikov"
+
+#~ msgid "Play keyframes"
+#~ msgstr "Predvajalne kljuène slike"
+
+#~ msgid "Camera keyframes"
+#~ msgstr "Kljuène slike kamere"
+
+#~ msgid "Projector keyframes"
+#~ msgstr "Kljuène slike projektorja"
+
+#~ msgid "Pan keyframes"
+#~ msgstr "Kljuène slike panorame"
+
+#~ msgid "Mode keyframes"
+#~ msgstr "Kljuène slike naèina"
+
+#~ msgid "Mask keyframes"
+#~ msgstr "Kljuène slike maske"
+
+#~ msgid "Preview secs:"
+#~ msgstr "Predogled sek.:"
+
+#~ msgid "Select lines to keep"
+#~ msgstr "Izberi vrstice za ohranitev"
+
+#~ msgid "Odd lines"
+#~ msgstr "Lihe vrstice"
+
+#~ msgid "Even lines"
+#~ msgstr "Sode vrstice"
+
+#~ msgid "Average lines"
+#~ msgstr "Povpreèi vrstice"
+
+#~ msgid "Swap odd fields"
+#~ msgstr "Zamenjaj liha polja"
+
+#~ msgid "Swap even fields"
+#~ msgstr "Zamenjaj soda polja"
+
+#~ msgid "Average even lines"
+#~ msgstr "Povpreèi sode vrstice"
+
+#~ msgid "First frame is first field"
+#~ msgstr "Prvi okvir je prvo polje"
+
+#~ msgid "Second frame is first field"
+#~ msgstr "Drugi okvir je prvo polje"
+
+#~ msgid "Average empty rows"
+#~ msgstr "Povpreèi prazne vrstice"
+
+#~ msgid "Line double"
+#~ msgstr "Podvoji vrstice"
+
+#~ msgid "Input min:"
+#~ msgstr "Najm. vhod:"
+
+#~ msgid "Mid:"
+#~ msgstr "Sred.:"
+
+#~ msgid "Stabilizer settling time:"
+#~ msgstr "Èas umirjanja stabilizacije:"
+
+#~ msgid "RGB -> 601"
+#~ msgstr "RGB -> 601"
+
+#~ msgid "SVG via Sodipodi"
+#~ msgstr "SVG preko Sodipodija"
+
+#~ msgid "Use fast fourier transform"
+#~ msgstr "Uporabi hitro Fourierjevo transformacijo"
+
+#~ msgid "Use overlapping windows"
+#~ msgstr "Uporabi prekrivajoèa okna"
+
+#~ msgid "Fraction of original length:"
+#~ msgstr "Del izvorne dol¾ine:"

@@ -1,0 +1,12 @@
+389c389
+< 		png_voidp_NULL, png_error_ptr_NULL, png_error_ptr_NULL);
+---
+> 		NULL, NULL, NULL);
+402c402
+< 		png_destroy_read_struct(&png_ptr, png_infopp_NULL, png_infopp_NULL);
+---
+> 		png_destroy_read_struct(&png_ptr, NULL, NULL);
+409c409
+< 		png_destroy_read_struct(&png_ptr, &info_ptr, png_infopp_NULL);
+---
+> 		png_destroy_read_struct(&png_ptr, &info_ptr, NULL);

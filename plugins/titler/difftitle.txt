@@ -1,0 +1,155 @@
+63,64c63,67
+< 
+< 
+---
+> #ifdef X_HAVE_UTF8_STRING
+> // I needs a memory zone for all class, dirty but works// akirad
+> int tlen = 0;
+> FT_ULong * xchar;
+> #endif
+647a651,653
+> #ifdef X_HAVE_UTF8_STRING
+> 		pkg->c = plugin->xchar[i];
+> #else
+648a655
+> #endif
+1493a1501,1547
+> #ifdef X_HAVE_UTF8_STRING
+> // this is a little routine that convert 8 bit text to 32 bit text array // akirad
+> void TitleMain::convert_text()
+> {
+> 	int text_len = strlen(config.text);
+> 	int total_packages = 0;
+> 	tlen = 0;
+> 	for(int i = 0; i < text_len; i++)
+> 		{
+> 		tlen++;
+> 		int x = 1;  
+> 		int z = (unsigned char)config.text[i];
+> 		if ( z > 0x80 && z != 0xa )
+> 		    {
+> 		    while ((unsigned char)config.text[i + x] > 0x80 && (unsigned char)config.text[i + x] < 0xBF ) x++;
+> 	            i += (x - 1);
+> 		    }
+> 		}
+> 	xchar = new FT_ULong [tlen + 1];
+> 	FcChar32 exchar;
+> 	int count = 0;
+> 	for(int i = 0; i < text_len; i++)
+> 		{
+> 		int x = 1;  
+> 		int z = (unsigned char)config.text[i];
+> 		FcChar8 prechar[5];
+> 		if ( z > 0x80 && z != 0xa )
+> 		    {
+> 		    prechar[0] = config.text[i];
+> 		  while ((unsigned char)config.text[i + x] > 0x80 && (unsigned char)config.text[i + x] < 0xBF )
+> 			  {
+> 			  prechar[x] = config.text[i + x];
+> 			  x++;
+> 			  }
+> 			prechar[x] = 0;
+> 			i += (x - 1);
+> 		     } else {
+> 		     prechar[0] = z;
+> 		     prechar[1] = 0;
+> 		     }
+> 		     FcUtf8ToUcs4 (prechar, &exchar, 4);
+> 		     xchar[count] = (FT_ULong)exchar;
+> 		     //printf("\ntpak: %i textlen: %i excharcount: %llx\n", tlen, text_len, xchar[count]);
+> 		     count++;
+> 		     //delete prechar;
+> 		}
+> }
+1494a1549,1568
+> void TitleMain::draw_glyphs()
+> {
+> // Build table of all glyphs needed
+> 	int total_packages = 0;
+> 	// now convert text to FT_Ulong array
+> 	convert_text();
+> 	for(int i = 0; i < tlen; i++)
+> 	{
+> 		FT_ULong char_code;	
+> 		int c = xchar[i];
+> 		int exists = 0;
+> 		char_code = xchar[i];
+> 		for(int j = 0; j < glyphs.total; j++)
+> 		{
+> 			if(glyphs.values[j]->char_code == char_code)
+> 			{
+> 				exists = 1;
+> 				break;
+> 			}
+> 		}
+1495a1570,1591
+> 		if(!exists)
+> 		{
+> 			total_packages++;
+> //printf("TitleMain::draw_glyphs 1\n");
+> 			TitleGlyph *glyph = new TitleGlyph;
+> //printf("TitleMain::draw_glyphs 2\n");
+> 			glyphs.append(glyph);
+> 			glyph->c = c;
+> 			glyph->char_code = char_code;
+> 		}
+> 	}
+> 
+> 
+> 	if(!glyph_engine)
+> 		glyph_engine = new GlyphEngine(this, PluginClient::smp + 1);
+> 
+> 	glyph_engine->set_package_count(total_packages);
+> //printf("TitleMain::draw_glyphs 3 %d\n", glyphs.total);
+> 	glyph_engine->process_packages();
+> //printf("TitleMain::draw_glyphs 4\n");
+> }
+> #else
+1565c1661
+< 
+---
+> #endif
+1570a1667,1669
+> #ifdef X_HAVE_UTF8_STRING
+> 	text_len = tlen;
+> #else
+1571a1671
+> #endif
+1583a1684,1686
+> #ifdef X_HAVE_UTF8_STRING
+> 		if(xchar[i] == 0xa || i == text_len - 1)
+> #else
+1584a1688
+> #endif
+1596a1701,1703
+> #ifdef X_HAVE_UTF8_STRING
+> 		char_positions[i].w = get_char_advance(xchar[i], xchar[i + 1]);
+> #else
+1597a1705
+> #endif
+1600a1709,1711
+> #ifdef x_HAVE_UTF8_STRING
+> 			if(glyphs.values[j]->c == xchar[i])
+> #else
+1601a1713
+> #endif
+1612c1724,1728
+< // 	config.text[i], 
+---
+> //#ifdef x_HAVE_UTF8_STRING
+> // 	xchar[i], 
+> //#else
+> // 	config.text[i],
+> //#endif
+1617a1734,1736
+> #ifdef x_HAVE_UTF8_STRING
+> 		if(xchar[i] == 0xa || i == text_len - 1)
+> #else
+1618a1738
+> #endif
+1634a1755,1757
+> #ifdef x_HAVE_UTF8_STRING
+> 		if(xchar[i] == 0xa || i == text_len - 1)
+> #else
+1635a1759
+> #endif

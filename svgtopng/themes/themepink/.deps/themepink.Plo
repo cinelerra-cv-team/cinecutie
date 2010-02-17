@@ -1,0 +1,1026 @@
+suv.lo: suv.C ../../guicast/bcsignals.h ../../guicast/arraylist.h \
+ /usr/include/stdio.h /usr/include/features.h /usr/include/bits/predefs.h \
+ /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h \
+ /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.1/include/stddef.h \
+ /usr/include/bits/types.h /usr/include/bits/typesizes.h \
+ /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.1/include/stdarg.h \
+ /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h \
+ /usr/include/bits/stdio.h /usr/include/bits/stdio2.h \
+ /usr/include/stdlib.h /usr/include/bits/waitflags.h \
+ /usr/include/bits/waitstatus.h /usr/include/endian.h \
+ /usr/include/bits/endian.h /usr/include/bits/byteswap.h \
+ /usr/include/xlocale.h /usr/include/sys/types.h /usr/include/time.h \
+ /usr/include/sys/select.h /usr/include/bits/select.h \
+ /usr/include/bits/sigset.h /usr/include/bits/time.h \
+ /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h \
+ /usr/include/alloca.h /usr/include/bits/stdlib.h \
+ ../../guicast/bcsignals.inc /usr/include/pthread.h /usr/include/sched.h \
+ /usr/include/bits/sched.h /usr/include/signal.h \
+ /usr/include/bits/setjmp.h /usr/include/bits/signum.h \
+ /usr/include/bits/siginfo.h /usr/include/bits/sigaction.h \
+ /usr/include/bits/sigcontext.h /usr/include/bits/sigstack.h \
+ /usr/include/sys/ucontext.h /usr/include/bits/sigthread.h \
+ ../../guicast/clip.h ../../cinecutie/cwindowgui.h \
+ ../../cinecutie/auto.inc ../../cinecutie/canvas.h \
+ ../../cinecutie/edl.inc ../../guicast/guicast.h ../../guicast/bcbar.h \
+ ../../guicast/bcsubwindow.h ../../guicast/bcwindowbase.h ../../config.h \
+ ../../guicast/bcbar.inc ../../guicast/bcbitmap.inc \
+ ../../guicast/bcbutton.inc ../../guicast/bccapture.inc \
+ ../../guicast/bcclipboard.inc ../../guicast/bcdragwindow.inc \
+ ../../guicast/bcfilebox.inc ../../guicast/bclistbox.inc \
+ ../../guicast/bcmenubar.inc ../../guicast/bcmeter.inc \
+ ../../guicast/bcpan.inc ../../guicast/bcpbuffer.inc \
+ ../../guicast/bcpixmap.inc ../../guicast/bcpopup.inc \
+ ../../guicast/bcpopupmenu.inc ../../guicast/bcpot.inc \
+ ../../guicast/bcprogress.inc ../../guicast/bcrelocatablewidget.h \
+ ../../guicast/bcrepeater.inc ../../guicast/bcresources.inc \
+ ../../guicast/bcscrollbar.inc ../../guicast/bcslider.inc \
+ ../../guicast/bcsubwindow.inc ../../guicast/bcsynchronous.inc \
+ ../../guicast/bctextbox.inc ../../guicast/bctimer.inc \
+ ../../guicast/bctitle.inc ../../guicast/bctoggle.inc \
+ ../../guicast/bctumble.inc ../../guicast/bcwidgetgrid.inc \
+ ../../guicast/bcwindow.inc ../../guicast/bcwindowbase.inc \
+ ../../guicast/bcwindowevents.inc ../../guicast/condition.inc \
+ ../../guicast/bchash.inc ../../guicast/linklist.h \
+ ../../guicast/mutex.inc ../../guicast/vframe.inc /usr/include/stdint.h \
+ /usr/include/bits/wchar.h /usr/include/X11/Xatom.h \
+ /usr/include/X11/Xft/Xft.h /usr/include/ft2build.h \
+ /usr/include/freetype2/freetype/config/ftheader.h \
+ /usr/include/freetype2/freetype/freetype.h \
+ /usr/include/freetype2/freetype/config/ftconfig.h \
+ /usr/include/freetype2/freetype/config/ftoption.h \
+ /usr/include/freetype2/freetype/config/ftstdlib.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.1/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.1/include-fixed/syslimits.h \
+ /usr/include/limits.h /usr/include/bits/posix1_lim.h \
+ /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
+ /usr/include/bits/posix2_lim.h /usr/include/bits/xopen_lim.h \
+ /usr/include/string.h /usr/include/bits/string3.h /usr/include/setjmp.h \
+ /usr/include/freetype2/freetype/fterrors.h \
+ /usr/include/freetype2/freetype/ftmoderr.h \
+ /usr/include/freetype2/freetype/fterrdef.h \
+ /usr/include/freetype2/freetype/fttypes.h \
+ /usr/include/freetype2/freetype/ftsystem.h \
+ /usr/include/freetype2/freetype/ftimage.h \
+ /usr/include/fontconfig/fontconfig.h /usr/include/sys/stat.h \
+ /usr/include/bits/stat.h /usr/include/unistd.h \
+ /usr/include/bits/posix_opt.h /usr/include/bits/environments.h \
+ /usr/include/bits/confname.h /usr/include/getopt.h \
+ /usr/include/bits/unistd.h /usr/include/X11/extensions/Xrender.h \
+ /usr/include/X11/Xlib.h /usr/include/X11/X.h \
+ /usr/include/X11/Xfuncproto.h /usr/include/X11/Xosdefs.h \
+ /usr/include/X11/Xutil.h /usr/include/X11/keysym.h \
+ /usr/include/X11/keysymdef.h /usr/include/X11/extensions/render.h \
+ /usr/include/X11/Xft/XftCompat.h /usr/include/X11/cursorfont.h \
+ /usr/include/X11/extensions/xf86vmode.h /usr/include/X11/Xmd.h \
+ /usr/include/GL/glx.h /usr/include/GL/gl.h /usr/include/GL/glext.h \
+ /usr/include/inttypes.h /usr/include/GL/glxext.h \
+ ../../guicast/bcbitmap.h /usr/include/sys/ipc.h \
+ /usr/include/bits/ipctypes.h /usr/include/bits/ipc.h \
+ /usr/include/sys/shm.h /usr/include/bits/shm.h \
+ /usr/include/X11/extensions/XShm.h /usr/include/X11/extensions/Xvlib.h \
+ /usr/include/X11/extensions/Xv.h ../../guicast/colors.h \
+ ../../guicast/sizes.h ../../guicast/bcbutton.h \
+ ../../guicast/bcclipboard.h ../../guicast/thread.h \
+ ../../guicast/bcdragwindow.h ../../guicast/bcpopup.h \
+ ../../guicast/bclistboxitem.h ../../guicast/vframe.h \
+ ../../guicast/bctexture.inc ../../quicktime/colormodels.h \
+ ../../guicast/bcpan.h ../../guicast/rotateframe.inc \
+ ../../guicast/bcfilebox.h ../../guicast/bcdelete.inc \
+ ../../guicast/bclistboxitem.inc ../../guicast/bcnewfolder.inc \
+ ../../guicast/bctextbox.h ../../guicast/bclistbox.h \
+ ../../guicast/bcscrollbar.h ../../guicast/bctoggle.h \
+ ../../guicast/fonts.h ../../guicast/bctumble.h ../../guicast/bcwindow.h \
+ ../../guicast/filesystem.inc ../../guicast/bcmenu.h \
+ ../../guicast/bcmenuitem.inc ../../guicast/bcmenupopup.inc \
+ ../../guicast/bcmenubar.h ../../guicast/bcmenu.inc \
+ ../../guicast/bcmenuitem.h ../../guicast/bcmenupopup.h \
+ ../../guicast/bcmeter.h ../../guicast/units.h /usr/include/math.h \
+ /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h \
+ /usr/include/bits/huge_vall.h /usr/include/bits/inf.h \
+ /usr/include/bits/nan.h /usr/include/bits/mathdef.h \
+ /usr/include/bits/mathcalls.h /usr/include/bits/mathinline.h \
+ ../../guicast/bcpopupmenu.h ../../guicast/bcpot.h \
+ ../../guicast/bcpixmap.h ../../guicast/bcprogress.h \
+ ../../guicast/bcrecentlist.h ../../guicast/bcresources.h \
+ ../../guicast/bcdisplayinfo.inc ../../guicast/bcslider.h \
+ ../../guicast/bcsynchronous.h ../../guicast/bctexture.h \
+ ../../guicast/bctheme.h ../../guicast/bctitle.h ../../guicast/bctimer.h \
+ /usr/include/sys/time.h ../../guicast/error.h ../../guicast/debug.h \
+ ../../cinecutie/mwindow.inc ../../cinecutie/cpanel.inc \
+ ../../cinecutie/ctimebar.inc ../../cinecutie/cwindow.inc \
+ ../../cinecutie/cwindowtool.inc ../../cinecutie/editpanel.h \
+ ../../cinecutie/meterpanel.inc ../../cinecutie/manualgoto.inc \
+ ../../cinecutie/floatauto.inc ../../cinecutie/floatautos.inc \
+ ../../cinecutie/mainclock.inc ../../cinecutie/maskauto.inc \
+ ../../cinecutie/meterpanel.h ../../cinecutie/playtransport.h \
+ ../../cinecutie/playbackengine.inc ../../cinecutie/playtransport.inc \
+ ../../guicast/thread.h ../../cinecutie/track.inc \
+ ../../cinecutie/zoompanel.h suv.h ../../cinecutie/new.inc \
+ ../../cinecutie/plugintclient.h ../../cinecutie/pluginclient.h \
+ ../../guicast/arraylist.h ../../guicast/condition.h \
+ ../../cinecutie/edlsession.inc ../../cinecutie/keyframe.h \
+ ../../cinecutie/auto.h ../../cinecutie/filexml.inc \
+ ../../cinecutie/autos.inc ../../cinecutie/keyframes.inc \
+ ../../cinecutie/messages.inc ../../cinecutie/mainprogress.inc \
+ ../../cinecutie/maxbuffers.h ../../cinecutie/plugincommands.h \
+ ../../cinecutie/pluginserver.inc ../../cinecutie/theme.inc \
+ ../../guicast/vframe.h ../../cinecutie/preferencesthread.inc \
+ ../../cinecutie/statusbar.inc ../../cinecutie/theme.h \
+ ../../cinecutie/awindowgui.inc ../../cinecutie/batchrender.inc \
+ ../../guicast/bctheme.h ../../cinecutie/cwindowgui.inc \
+ ../../cinecutie/levelwindowgui.inc ../../cinecutie/mbuttons.inc \
+ ../../cinecutie/mwindowgui.inc ../../cinecutie/new.inc \
+ ../../cinecutie/overlayframe.inc ../../cinecutie/patchbay.inc \
+ ../../cinecutie/preferencesthread.inc ../../cinecutie/recordgui.inc \
+ ../../cinecutie/recordmonitor.inc ../../cinecutie/resourcepixmap.inc \
+ ../../cinecutie/timebar.inc ../../cinecutie/trackcanvas.inc \
+ ../../cinecutie/setformat.inc ../../cinecutie/statusbar.inc \
+ ../../guicast/vframe.inc ../../cinecutie/vwindowgui.inc \
+ ../../cinecutie/zoombar.inc ../../cinecutie/timebar.inc \
+ ../../cinecutie/edl.h ../../cinecutie/asset.inc \
+ ../../cinecutie/assets.inc ../../cinecutie/autoconf.inc \
+ ../../guicast/bchash.inc ../../cinecutie/edits.inc \
+ ../../cinecutie/labels.inc ../../cinecutie/localsession.inc \
+ ../../cinecutie/maxchannels.h ../../guicast/mutex.inc \
+ ../../cinecutie/playbackconfig.h ../../cinecutie/audiodevice.inc \
+ ../../guicast/bcwindowbase.inc ../../cinecutie/playbackconfig.inc \
+ ../../cinecutie/pluginserver.h ../../cinecutie/attachmentpoint.inc \
+ ../../cinecutie/keyframe.inc ../../cinecutie/ladspa.h \
+ ../../cinecutie/menueffects.inc ../../cinecutie/module.inc \
+ ../../cinecutie/plugin.inc ../../cinecutie/pluginaclientlad.inc \
+ ../../cinecutie/pluginclient.inc ../../cinecutie/preferences.inc \
+ ../../cinecutie/videodevice.inc ../../cinecutie/virtualnode.inc \
+ ../../cinecutie/recordlabel.inc ../../cinecutie/sharedlocation.inc \
+ ../../cinecutie/tracks.inc ../../cinecutie/edlsession.h \
+ ../../cinecutie/recordconfig.inc ../../cinecutie/mainmenu.h \
+ ../../cinecutie/loadfile.inc ../../cinecutie/menuaeffects.inc \
+ ../../cinecutie/menuveffects.inc ../../cinecutie/plugindialog.inc \
+ ../../cinecutie/quit.inc ../../cinecutie/record.inc \
+ ../../cinecutie/render.inc ../../cinecutie/threadloader.inc \
+ ../../cinecutie/viewmenu.inc ../../cinecutie/mainsession.h \
+ ../../cinecutie/edit.inc ../../cinecutie/mainsession.inc \
+ ../../cinecutie/pluginset.inc ../../cinecutie/mbuttons.h \
+ ../../cinecutie/labelnavigate.inc ../../cinecutie/meterpanel.h \
+ ../../cinecutie/mwindow.h ../../cinecutie/awindow.inc \
+ ../../cinecutie/brender.inc ../../cinecutie/cache.inc \
+ ../../cinecutie/channel.inc ../../cinecutie/channeldb.inc \
+ ../../cinecutie/devicedvbinput.inc ../../cinecutie/exportedl.inc \
+ ../../guicast/filesystem.inc ../../cinecutie/framecache.inc \
+ ../../cinecutie/gwindow.inc ../../cinecutie/levelwindow.inc \
+ ../../cinecutie/loadmode.inc ../../cinecutie/mainerror.inc \
+ ../../cinecutie/mainindexes.inc ../../cinecutie/mainundo.inc \
+ ../../cinecutie/playback3d.inc ../../cinecutie/removethread.inc \
+ ../../cinecutie/sighandler.inc ../../cinecutie/splashgui.inc \
+ ../../cinecutie/timebomb.h ../../cinecutie/tipwindow.inc \
+ ../../cinecutie/tracking.inc ../../cinecutie/transition.inc \
+ ../../cinecutie/transportque.inc ../../cinecutie/videowindow.inc \
+ ../../cinecutie/vwindow.inc ../../cinecutie/wavecache.inc \
+ ../../cinecutie/mwindowgui.h ../../cinecutie/editpopup.inc \
+ ../../cinecutie/keyframepopup.inc ../../cinecutie/maincursor.inc \
+ ../../cinecutie/mainmenu.inc ../../cinecutie/mtimebar.inc \
+ ../../cinecutie/pluginpopup.inc ../../cinecutie/samplescroll.inc \
+ ../../cinecutie/trackscroll.inc ../../cinecutie/transitionpopup.inc \
+ ../../cinecutie/new.h ../../cinecutie/file.inc ../../guicast/language.h \
+ /usr/include/libintl.h ../../cinecutie/formatpresets.h \
+ ../../cinecutie/formatpresets.inc ../../cinecutie/patchbay.h \
+ ../../cinecutie/patch.h ../../cinecutie/patch.inc \
+ ../../cinecutie/patchgui.inc ../../cinecutie/preferencesthread.h \
+ ../../cinecutie/recordgui.h ../../cinecutie/browsebutton.inc \
+ ../../guicast/condition.inc ../../cinecutie/question.inc \
+ ../../cinecutie/recordtransport.inc ../../cinecutie/timeentry.h \
+ ../../cinecutie/recordmonitor.h ../../cinecutie/channelpicker.inc \
+ ../../quicktime/libmjpeg.h /usr/include/jpeglib.h /usr/include/jconfig.h \
+ /usr/include/jmorecfg.h /usr/include/png.h /usr/include/zlib.h \
+ /usr/include/zconf.h /usr/include/zlibdefs.h /usr/include/pngconf.h \
+ ../../cinecutie/setformat.h ../../cinecutie/statusbar.h \
+ ../../cinecutie/timebar.h ../../cinecutie/labeledit.inc \
+ ../../cinecutie/testobject.h ../../cinecutie/trackcanvas.h \
+ ../../guicast/bctimer.inc ../../cinecutie/edithandles.inc \
+ ../../cinecutie/resourcethread.inc ../../cinecutie/plugintoggles.inc \
+ ../../cinecutie/transitionhandles.inc ../../cinecutie/vwindowgui.h \
+ ../../cinecutie/timebar.h ../../cinecutie/vtimebar.inc
+
+../../guicast/bcsignals.h:
+
+../../guicast/arraylist.h:
+
+/usr/include/stdio.h:
+
+/usr/include/features.h:
+
+/usr/include/bits/predefs.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/gnu/stubs-64.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.4.1/include/stddef.h:
+
+/usr/include/bits/types.h:
+
+/usr/include/bits/typesizes.h:
+
+/usr/include/libio.h:
+
+/usr/include/_G_config.h:
+
+/usr/include/wchar.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.4.1/include/stdarg.h:
+
+/usr/include/bits/stdio_lim.h:
+
+/usr/include/bits/sys_errlist.h:
+
+/usr/include/bits/stdio.h:
+
+/usr/include/bits/stdio2.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/bits/waitflags.h:
+
+/usr/include/bits/waitstatus.h:
+
+/usr/include/endian.h:
+
+/usr/include/bits/endian.h:
+
+/usr/include/bits/byteswap.h:
+
+/usr/include/xlocale.h:
+
+/usr/include/sys/types.h:
+
+/usr/include/time.h:
+
+/usr/include/sys/select.h:
+
+/usr/include/bits/select.h:
+
+/usr/include/bits/sigset.h:
+
+/usr/include/bits/time.h:
+
+/usr/include/sys/sysmacros.h:
+
+/usr/include/bits/pthreadtypes.h:
+
+/usr/include/alloca.h:
+
+/usr/include/bits/stdlib.h:
+
+../../guicast/bcsignals.inc:
+
+/usr/include/pthread.h:
+
+/usr/include/sched.h:
+
+/usr/include/bits/sched.h:
+
+/usr/include/signal.h:
+
+/usr/include/bits/setjmp.h:
+
+/usr/include/bits/signum.h:
+
+/usr/include/bits/siginfo.h:
+
+/usr/include/bits/sigaction.h:
+
+/usr/include/bits/sigcontext.h:
+
+/usr/include/bits/sigstack.h:
+
+/usr/include/sys/ucontext.h:
+
+/usr/include/bits/sigthread.h:
+
+../../guicast/clip.h:
+
+../../cinecutie/cwindowgui.h:
+
+../../cinecutie/auto.inc:
+
+../../cinecutie/canvas.h:
+
+../../cinecutie/edl.inc:
+
+../../guicast/guicast.h:
+
+../../guicast/bcbar.h:
+
+../../guicast/bcsubwindow.h:
+
+../../guicast/bcwindowbase.h:
+
+../../config.h:
+
+../../guicast/bcbar.inc:
+
+../../guicast/bcbitmap.inc:
+
+../../guicast/bcbutton.inc:
+
+../../guicast/bccapture.inc:
+
+../../guicast/bcclipboard.inc:
+
+../../guicast/bcdragwindow.inc:
+
+../../guicast/bcfilebox.inc:
+
+../../guicast/bclistbox.inc:
+
+../../guicast/bcmenubar.inc:
+
+../../guicast/bcmeter.inc:
+
+../../guicast/bcpan.inc:
+
+../../guicast/bcpbuffer.inc:
+
+../../guicast/bcpixmap.inc:
+
+../../guicast/bcpopup.inc:
+
+../../guicast/bcpopupmenu.inc:
+
+../../guicast/bcpot.inc:
+
+../../guicast/bcprogress.inc:
+
+../../guicast/bcrelocatablewidget.h:
+
+../../guicast/bcrepeater.inc:
+
+../../guicast/bcresources.inc:
+
+../../guicast/bcscrollbar.inc:
+
+../../guicast/bcslider.inc:
+
+../../guicast/bcsubwindow.inc:
+
+../../guicast/bcsynchronous.inc:
+
+../../guicast/bctextbox.inc:
+
+../../guicast/bctimer.inc:
+
+../../guicast/bctitle.inc:
+
+../../guicast/bctoggle.inc:
+
+../../guicast/bctumble.inc:
+
+../../guicast/bcwidgetgrid.inc:
+
+../../guicast/bcwindow.inc:
+
+../../guicast/bcwindowbase.inc:
+
+../../guicast/bcwindowevents.inc:
+
+../../guicast/condition.inc:
+
+../../guicast/bchash.inc:
+
+../../guicast/linklist.h:
+
+../../guicast/mutex.inc:
+
+../../guicast/vframe.inc:
+
+/usr/include/stdint.h:
+
+/usr/include/bits/wchar.h:
+
+/usr/include/X11/Xatom.h:
+
+/usr/include/X11/Xft/Xft.h:
+
+/usr/include/ft2build.h:
+
+/usr/include/freetype2/freetype/config/ftheader.h:
+
+/usr/include/freetype2/freetype/freetype.h:
+
+/usr/include/freetype2/freetype/config/ftconfig.h:
+
+/usr/include/freetype2/freetype/config/ftoption.h:
+
+/usr/include/freetype2/freetype/config/ftstdlib.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.4.1/include-fixed/limits.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.4.1/include-fixed/syslimits.h:
+
+/usr/include/limits.h:
+
+/usr/include/bits/posix1_lim.h:
+
+/usr/include/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/bits/posix2_lim.h:
+
+/usr/include/bits/xopen_lim.h:
+
+/usr/include/string.h:
+
+/usr/include/bits/string3.h:
+
+/usr/include/setjmp.h:
+
+/usr/include/freetype2/freetype/fterrors.h:
+
+/usr/include/freetype2/freetype/ftmoderr.h:
+
+/usr/include/freetype2/freetype/fterrdef.h:
+
+/usr/include/freetype2/freetype/fttypes.h:
+
+/usr/include/freetype2/freetype/ftsystem.h:
+
+/usr/include/freetype2/freetype/ftimage.h:
+
+/usr/include/fontconfig/fontconfig.h:
+
+/usr/include/sys/stat.h:
+
+/usr/include/bits/stat.h:
+
+/usr/include/unistd.h:
+
+/usr/include/bits/posix_opt.h:
+
+/usr/include/bits/environments.h:
+
+/usr/include/bits/confname.h:
+
+/usr/include/getopt.h:
+
+/usr/include/bits/unistd.h:
+
+/usr/include/X11/extensions/Xrender.h:
+
+/usr/include/X11/Xlib.h:
+
+/usr/include/X11/X.h:
+
+/usr/include/X11/Xfuncproto.h:
+
+/usr/include/X11/Xosdefs.h:
+
+/usr/include/X11/Xutil.h:
+
+/usr/include/X11/keysym.h:
+
+/usr/include/X11/keysymdef.h:
+
+/usr/include/X11/extensions/render.h:
+
+/usr/include/X11/Xft/XftCompat.h:
+
+/usr/include/X11/cursorfont.h:
+
+/usr/include/X11/extensions/xf86vmode.h:
+
+/usr/include/X11/Xmd.h:
+
+/usr/include/GL/glx.h:
+
+/usr/include/GL/gl.h:
+
+/usr/include/GL/glext.h:
+
+/usr/include/inttypes.h:
+
+/usr/include/GL/glxext.h:
+
+../../guicast/bcbitmap.h:
+
+/usr/include/sys/ipc.h:
+
+/usr/include/bits/ipctypes.h:
+
+/usr/include/bits/ipc.h:
+
+/usr/include/sys/shm.h:
+
+/usr/include/bits/shm.h:
+
+/usr/include/X11/extensions/XShm.h:
+
+/usr/include/X11/extensions/Xvlib.h:
+
+/usr/include/X11/extensions/Xv.h:
+
+../../guicast/colors.h:
+
+../../guicast/sizes.h:
+
+../../guicast/bcbutton.h:
+
+../../guicast/bcclipboard.h:
+
+../../guicast/thread.h:
+
+../../guicast/bcdragwindow.h:
+
+../../guicast/bcpopup.h:
+
+../../guicast/bclistboxitem.h:
+
+../../guicast/vframe.h:
+
+../../guicast/bctexture.inc:
+
+../../quicktime/colormodels.h:
+
+../../guicast/bcpan.h:
+
+../../guicast/rotateframe.inc:
+
+../../guicast/bcfilebox.h:
+
+../../guicast/bcdelete.inc:
+
+../../guicast/bclistboxitem.inc:
+
+../../guicast/bcnewfolder.inc:
+
+../../guicast/bctextbox.h:
+
+../../guicast/bclistbox.h:
+
+../../guicast/bcscrollbar.h:
+
+../../guicast/bctoggle.h:
+
+../../guicast/fonts.h:
+
+../../guicast/bctumble.h:
+
+../../guicast/bcwindow.h:
+
+../../guicast/filesystem.inc:
+
+../../guicast/bcmenu.h:
+
+../../guicast/bcmenuitem.inc:
+
+../../guicast/bcmenupopup.inc:
+
+../../guicast/bcmenubar.h:
+
+../../guicast/bcmenu.inc:
+
+../../guicast/bcmenuitem.h:
+
+../../guicast/bcmenupopup.h:
+
+../../guicast/bcmeter.h:
+
+../../guicast/units.h:
+
+/usr/include/math.h:
+
+/usr/include/bits/huge_val.h:
+
+/usr/include/bits/huge_valf.h:
+
+/usr/include/bits/huge_vall.h:
+
+/usr/include/bits/inf.h:
+
+/usr/include/bits/nan.h:
+
+/usr/include/bits/mathdef.h:
+
+/usr/include/bits/mathcalls.h:
+
+/usr/include/bits/mathinline.h:
+
+../../guicast/bcpopupmenu.h:
+
+../../guicast/bcpot.h:
+
+../../guicast/bcpixmap.h:
+
+../../guicast/bcprogress.h:
+
+../../guicast/bcrecentlist.h:
+
+../../guicast/bcresources.h:
+
+../../guicast/bcdisplayinfo.inc:
+
+../../guicast/bcslider.h:
+
+../../guicast/bcsynchronous.h:
+
+../../guicast/bctexture.h:
+
+../../guicast/bctheme.h:
+
+../../guicast/bctitle.h:
+
+../../guicast/bctimer.h:
+
+/usr/include/sys/time.h:
+
+../../guicast/error.h:
+
+../../guicast/debug.h:
+
+../../cinecutie/mwindow.inc:
+
+../../cinecutie/cpanel.inc:
+
+../../cinecutie/ctimebar.inc:
+
+../../cinecutie/cwindow.inc:
+
+../../cinecutie/cwindowtool.inc:
+
+../../cinecutie/editpanel.h:
+
+../../cinecutie/meterpanel.inc:
+
+../../cinecutie/manualgoto.inc:
+
+../../cinecutie/floatauto.inc:
+
+../../cinecutie/floatautos.inc:
+
+../../cinecutie/mainclock.inc:
+
+../../cinecutie/maskauto.inc:
+
+../../cinecutie/meterpanel.h:
+
+../../cinecutie/playtransport.h:
+
+../../cinecutie/playbackengine.inc:
+
+../../cinecutie/playtransport.inc:
+
+../../guicast/thread.h:
+
+../../cinecutie/track.inc:
+
+../../cinecutie/zoompanel.h:
+
+suv.h:
+
+../../cinecutie/new.inc:
+
+../../cinecutie/plugintclient.h:
+
+../../cinecutie/pluginclient.h:
+
+../../guicast/arraylist.h:
+
+../../guicast/condition.h:
+
+../../cinecutie/edlsession.inc:
+
+../../cinecutie/keyframe.h:
+
+../../cinecutie/auto.h:
+
+../../cinecutie/filexml.inc:
+
+../../cinecutie/autos.inc:
+
+../../cinecutie/keyframes.inc:
+
+../../cinecutie/messages.inc:
+
+../../cinecutie/mainprogress.inc:
+
+../../cinecutie/maxbuffers.h:
+
+../../cinecutie/plugincommands.h:
+
+../../cinecutie/pluginserver.inc:
+
+../../cinecutie/theme.inc:
+
+../../guicast/vframe.h:
+
+../../cinecutie/preferencesthread.inc:
+
+../../cinecutie/statusbar.inc:
+
+../../cinecutie/theme.h:
+
+../../cinecutie/awindowgui.inc:
+
+../../cinecutie/batchrender.inc:
+
+../../guicast/bctheme.h:
+
+../../cinecutie/cwindowgui.inc:
+
+../../cinecutie/levelwindowgui.inc:
+
+../../cinecutie/mbuttons.inc:
+
+../../cinecutie/mwindowgui.inc:
+
+../../cinecutie/new.inc:
+
+../../cinecutie/overlayframe.inc:
+
+../../cinecutie/patchbay.inc:
+
+../../cinecutie/preferencesthread.inc:
+
+../../cinecutie/recordgui.inc:
+
+../../cinecutie/recordmonitor.inc:
+
+../../cinecutie/resourcepixmap.inc:
+
+../../cinecutie/timebar.inc:
+
+../../cinecutie/trackcanvas.inc:
+
+../../cinecutie/setformat.inc:
+
+../../cinecutie/statusbar.inc:
+
+../../guicast/vframe.inc:
+
+../../cinecutie/vwindowgui.inc:
+
+../../cinecutie/zoombar.inc:
+
+../../cinecutie/timebar.inc:
+
+../../cinecutie/edl.h:
+
+../../cinecutie/asset.inc:
+
+../../cinecutie/assets.inc:
+
+../../cinecutie/autoconf.inc:
+
+../../guicast/bchash.inc:
+
+../../cinecutie/edits.inc:
+
+../../cinecutie/labels.inc:
+
+../../cinecutie/localsession.inc:
+
+../../cinecutie/maxchannels.h:
+
+../../guicast/mutex.inc:
+
+../../cinecutie/playbackconfig.h:
+
+../../cinecutie/audiodevice.inc:
+
+../../guicast/bcwindowbase.inc:
+
+../../cinecutie/playbackconfig.inc:
+
+../../cinecutie/pluginserver.h:
+
+../../cinecutie/attachmentpoint.inc:
+
+../../cinecutie/keyframe.inc:
+
+../../cinecutie/ladspa.h:
+
+../../cinecutie/menueffects.inc:
+
+../../cinecutie/module.inc:
+
+../../cinecutie/plugin.inc:
+
+../../cinecutie/pluginaclientlad.inc:
+
+../../cinecutie/pluginclient.inc:
+
+../../cinecutie/preferences.inc:
+
+../../cinecutie/videodevice.inc:
+
+../../cinecutie/virtualnode.inc:
+
+../../cinecutie/recordlabel.inc:
+
+../../cinecutie/sharedlocation.inc:
+
+../../cinecutie/tracks.inc:
+
+../../cinecutie/edlsession.h:
+
+../../cinecutie/recordconfig.inc:
+
+../../cinecutie/mainmenu.h:
+
+../../cinecutie/loadfile.inc:
+
+../../cinecutie/menuaeffects.inc:
+
+../../cinecutie/menuveffects.inc:
+
+../../cinecutie/plugindialog.inc:
+
+../../cinecutie/quit.inc:
+
+../../cinecutie/record.inc:
+
+../../cinecutie/render.inc:
+
+../../cinecutie/threadloader.inc:
+
+../../cinecutie/viewmenu.inc:
+
+../../cinecutie/mainsession.h:
+
+../../cinecutie/edit.inc:
+
+../../cinecutie/mainsession.inc:
+
+../../cinecutie/pluginset.inc:
+
+../../cinecutie/mbuttons.h:
+
+../../cinecutie/labelnavigate.inc:
+
+../../cinecutie/meterpanel.h:
+
+../../cinecutie/mwindow.h:
+
+../../cinecutie/awindow.inc:
+
+../../cinecutie/brender.inc:
+
+../../cinecutie/cache.inc:
+
+../../cinecutie/channel.inc:
+
+../../cinecutie/channeldb.inc:
+
+../../cinecutie/devicedvbinput.inc:
+
+../../cinecutie/exportedl.inc:
+
+../../guicast/filesystem.inc:
+
+../../cinecutie/framecache.inc:
+
+../../cinecutie/gwindow.inc:
+
+../../cinecutie/levelwindow.inc:
+
+../../cinecutie/loadmode.inc:
+
+../../cinecutie/mainerror.inc:
+
+../../cinecutie/mainindexes.inc:
+
+../../cinecutie/mainundo.inc:
+
+../../cinecutie/playback3d.inc:
+
+../../cinecutie/removethread.inc:
+
+../../cinecutie/sighandler.inc:
+
+../../cinecutie/splashgui.inc:
+
+../../cinecutie/timebomb.h:
+
+../../cinecutie/tipwindow.inc:
+
+../../cinecutie/tracking.inc:
+
+../../cinecutie/transition.inc:
+
+../../cinecutie/transportque.inc:
+
+../../cinecutie/videowindow.inc:
+
+../../cinecutie/vwindow.inc:
+
+../../cinecutie/wavecache.inc:
+
+../../cinecutie/mwindowgui.h:
+
+../../cinecutie/editpopup.inc:
+
+../../cinecutie/keyframepopup.inc:
+
+../../cinecutie/maincursor.inc:
+
+../../cinecutie/mainmenu.inc:
+
+../../cinecutie/mtimebar.inc:
+
+../../cinecutie/pluginpopup.inc:
+
+../../cinecutie/samplescroll.inc:
+
+../../cinecutie/trackscroll.inc:
+
+../../cinecutie/transitionpopup.inc:
+
+../../cinecutie/new.h:
+
+../../cinecutie/file.inc:
+
+../../guicast/language.h:
+
+/usr/include/libintl.h:
+
+../../cinecutie/formatpresets.h:
+
+../../cinecutie/formatpresets.inc:
+
+../../cinecutie/patchbay.h:
+
+../../cinecutie/patch.h:
+
+../../cinecutie/patch.inc:
+
+../../cinecutie/patchgui.inc:
+
+../../cinecutie/preferencesthread.h:
+
+../../cinecutie/recordgui.h:
+
+../../cinecutie/browsebutton.inc:
+
+../../guicast/condition.inc:
+
+../../cinecutie/question.inc:
+
+../../cinecutie/recordtransport.inc:
+
+../../cinecutie/timeentry.h:
+
+../../cinecutie/recordmonitor.h:
+
+../../cinecutie/channelpicker.inc:
+
+../../quicktime/libmjpeg.h:
+
+/usr/include/jpeglib.h:
+
+/usr/include/jconfig.h:
+
+/usr/include/jmorecfg.h:
+
+/usr/include/png.h:
+
+/usr/include/zlib.h:
+
+/usr/include/zconf.h:
+
+/usr/include/zlibdefs.h:
+
+/usr/include/pngconf.h:
+
+../../cinecutie/setformat.h:
+
+../../cinecutie/statusbar.h:
+
+../../cinecutie/timebar.h:
+
+../../cinecutie/labeledit.inc:
+
+../../cinecutie/testobject.h:
+
+../../cinecutie/trackcanvas.h:
+
+../../guicast/bctimer.inc:
+
+../../cinecutie/edithandles.inc:
+
+../../cinecutie/resourcethread.inc:
+
+../../cinecutie/plugintoggles.inc:
+
+../../cinecutie/transitionhandles.inc:
+
+../../cinecutie/vwindowgui.h:
+
+../../cinecutie/timebar.h:
+
+../../cinecutie/vtimebar.inc:

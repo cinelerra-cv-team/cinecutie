@@ -1,0 +1,4 @@
+usr/lib/lib*.la
+opt
+usr/include
+

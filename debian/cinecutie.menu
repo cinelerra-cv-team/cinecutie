@@ -1,0 +1,5 @@
+?package(cinecutie):needs="X11" section="Apps/Graphics"\
+  title="Cinecutie"\
+  icon="/usr/share/pixmaps/cinecutie.png"\
+  command="/usr/bin/cinecutie"\
+  hints="advanced,video"

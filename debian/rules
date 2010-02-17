@@ -1,0 +1,86 @@
+#!/usr/bin/make -f
+# Made with the aid of debmake, by Christoph Lameter,
+# based on the sample debian/rules file for GNU hello by Ian Jackson.
+include /usr/share/dpatch/dpatch.make
+package=hvirtual
+export DH_COMPAT=4
+
+CONFFLAGS=""
+CONFFLAGSXT=""
+arch		:= $(shell dpkg-architecture -qDEB_HOST_ARCH)
+#since we are building from .svn
++export DH_ALWAYS_EXCLUDE=.git
+
+
+
+ifneq (, $(findstring smp2,$(DEB_BUILD_OPTIONS)))
+	MAKEFLAGS=-j3
+endif
+
+include debian/rules.d/$(arch).mk
+
+config.status: clean
+	$(checkdir)
+	-sh debian/switch-xt no
+	@if [ ! -e configure ] ; then ./autogen.sh; fi
+	CFLAGS="$(CFLAGS)" CXXFLAGS="$(CXXFLAGS)" \
+					./configure --enable-opengl --enable-xft --prefix=/usr $(CONFFLAGS) 
+
+config.statusxt: clean
+	$(checkdir)
+	-sh debian/switch-xt yes
+	@if [ ! -e configure ] ; then ./autogen.sh; fi
+	CFLAGS="$(CFLAGSXT)" CXXFLAGS="$(CXXFLAGSXT)" \
+					./configure --enable-opengl --enable-xft --prefix=/usr $(CONFFLAGSXT)
+
+
+build: build-stamp build-stamp-xt
+
+build-stamp: config.status build-stamp-real binary-build
+	
+build-stamp-xt: config.statusxt build-stamp-real
+
+build-stamp-real:
+	$(checkdir)
+	$(MAKE) $(MAKEFLAGS)
+	docbook-to-man debian/cinecutie.sgml > debian/cinecutie.1
+	docbook-to-man debian/mplexhi.sgml > debian/mplexhi.1
+	docbook-to-man debian/mplexlo.sgml > debian/mplexlo.1
+	touch build-stamp
+
+clean: 
+	$(checkdir)
+	-$(MAKE) -i clean
+	-$(MAKE) -i distclean
+	-sh realclean
+	dh_clean -a
+	-rm -f debian/cinecutie.1
+	-rm -f debian/mplexhi.1
+	-rm -f debian/mplexlo.1
+	-rm -f build-stamp
+
+binary-arch-xt: build-stamp-xt binary-build
+
+#binary-arch: build-stamp binary-build	
+
+binary: binary-arch-xt
+
+binary-build:
+	$(MAKE) install DESTDIR=$(CURDIR)/debian/tmp
+	chmod -x debian/tmp/usr/lib/cinecutie/*
+	chmod +x debian/tmp/usr/lib/cinecutie/fonts
+	chmod -x debian/tmp/usr/lib/cinecutie/fonts/*
+	dh_install --sourcedir=debian/tmp --autodest
+	dh_installdocs -XCVS
+	dh_installchangelogs -a
+	dh_installman
+	dh_installmenu -n
+	dh_fixperms -a
+	dh_compress -a
+	dh_strip -a
+	dh_makeshlibs
+	-dh_shlibdeps
+	dh_installdeb
+	dh_gencontrol 
+	dh_builddeb 
+

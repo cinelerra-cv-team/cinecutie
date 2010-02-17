@@ -1,0 +1,4 @@
+59c59
+< 		if(png_check_sig((unsigned char*)test, 8))
+---
+> 		if(png_sig_cmp((unsigned char*)test, 0, 8))

@@ -1,0 +1,19 @@
+#! /bin/sh
+set -e
+
+#DEBHELPER#
+# Define
+IC=cinecutiestart
+SCRIPT=/etc/init.d/$IC
+
+if [ "$1" = "remove" ] ; then
+
+/usr/sbin/update-rc.d -f $IC remove
+rm $SCRIPT
+
+fi
+
+
+exit 0
+
+

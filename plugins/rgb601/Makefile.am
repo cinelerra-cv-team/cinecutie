@@ -1,0 +1,11 @@
+plugin_LTLIBRARIES = rgb601.la
+rgb601_la_LDFLAGS = -avoid-version -module -shared 
+rgb601_la_LIBADD = 
+rgb601_la_SOURCES = rgb601.C rgb601window.C 
+AM_CXXFLAGS = $(LARGEFILE_CFLAGS)
+
+INCLUDES = -I$(top_srcdir)/guicast -I$(top_srcdir)/cinecutie -I$(top_srcdir)/quicktime
+LIBTOOL = $(SHELL) $(top_builddir)/libtool $(LTCXX_FLAGS)
+
+noinst_HEADERS = picon_png.h rgb601.h rgb601window.h 
+EXTRA_DIST = picon.png

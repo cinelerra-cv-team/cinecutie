@@ -1,0 +1,6099 @@
+# translation of cinecutie_eu.po to Basque
+# Basque translation of cinecutie.
+# Copyright (C) 2003 Heroine Warrior Inc.
+# This file is distributed under the same license as the cinecutie package.
+#
+# Mesedez, itzulpen hau hobetzeko gai bazara, lagun iezadazu!
+#
+# Gustavo Iñiguez <ga@kutxa.homeunix.org>, 2006.
+# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2007.
+# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: cinecutie_eu\n"
+"Report-Msgid-Bugs-To: cinecutie@skolelinux.no\n"
+"POT-Creation-Date: 2009-12-23 17:21+0100\n"
+"PO-Revision-Date: 2007-12-13 15:27+0100\n"
+"Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@zundan.com>\n"
+"Language-Team: Basque <itzulpena@euskalgnu.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: cinecutie/aboutprefs.C:59
+msgid "Cinelerra "
+msgstr "Cinelerra "
+
+#: cinecutie/aboutprefs.C:68
+msgid ""
+"(C) 2006 Heroine Virtual Ltd.\n"
+"\n"
+msgstr ""
+"(c) 2006 Heroine Virtual Ltd.\n"
+"\n"
+
+#: cinecutie/aboutprefs.C:70
+msgid ""
+"\n"
+"Build date: "
+msgstr ""
+"\n"
+"Konpilazio-data: "
+
+#: cinecutie/aboutprefs.C:81
+#, c-format
+msgid ""
+"Quicktime version %d.%d.%d (%s)\n"
+"Libmpeg3 version %d.%d.%d\n"
+msgstr ""
+"Quicktime bertsioa: %d.%d.%d (%s)\n"
+"Libmpeg3 betsioa: %d.%d.%d\n"
+
+#: cinecutie/aboutprefs.C:140
+#, c-format
+msgid ""
+"This program is free software; you can redistribute it and/or modify it "
+"under the terms\n"
+"of the GNU General Public License as published by the Free Software "
+"Foundation; either version\n"
+"2 of the License, or (at your option) any later version.\n"
+"\n"
+"This program is distributed in the hope that it will be useful, but WITHOUT "
+"ANY WARRANTY;\n"
+"without even the implied warranty of MERCHANTABILITY or FITNESS FOR A "
+"PARTICULAR\n"
+"PURPOSE.  See the GNU General Public License for more details.\n"
+"\n"
+msgstr ""
+"Programa hau software librea da; birbana eta/edo alda dezakezu Software "
+"Foundation-ek argitaratutako\n"
+"GNU Lizentzia Publiko Orokorraren 2. bertsioan, edo (nahiago baduzu) beste "
+"berriago batean,\n"
+"jasotako baldintzak betez gero.\n"
+"\n"
+"Programa hau erabilgarria izango delakoan banatzen da, baina, INOLAKO "
+"BERMERIK GABE;\n"
+"era berean, ez da bermatzen beraren EGOKITASUNA MERKATURATZEKO edo HELBURU "
+"PARTIKULARRETARAKO ERABILTZEKO.\n"
+"Argibide gehiago nahi izanez gero, ikus GNU Lizentzia Publiko Orokorra.\n"
+"\n"
+
+#: cinecutie/adeviceprefs.C:266 cinecutie/vdeviceprefs.C:245
+#: cinecutie/vdeviceprefs.C:268 cinecutie/vdeviceprefs.C:390
+#: cinecutie/vdeviceprefs.C:401 cinecutie/vdeviceprefs.C:413
+msgid "Device path:"
+msgstr "Gailuaren bide-izena:"
+
+#: cinecutie/adeviceprefs.C:288 cinecutie/adeviceprefs.C:362
+#: cinecutie/assetedit.C:318 cinecutie/fileformat.C:85
+msgid "Bits:"
+msgstr "Bit-ak:"
+
+#: cinecutie/adeviceprefs.C:340
+msgid "Device:"
+msgstr "Gailua:"
+
+#: cinecutie/adeviceprefs.C:383
+msgid "Stop playback locks up."
+msgstr "Saihestu erreprodukzioa blokeatzea."
+
+#: cinecutie/adeviceprefs.C:411
+msgid "Server:"
+msgstr "Zerbitzaria:"
+
+#: cinecutie/adeviceprefs.C:427 cinecutie/adeviceprefs.C:478
+#: cinecutie/performanceprefs.C:157 cinecutie/vdeviceprefs.C:221
+#: cinecutie/vdeviceprefs.C:336
+msgid "Port:"
+msgstr "Ataka:"
+
+#: cinecutie/adeviceprefs.C:457 cinecutie/vdeviceprefs.C:318
+msgid "Device Path:"
+msgstr "Gailuaren bide-izena:"
+
+#: cinecutie/adeviceprefs.C:496 cinecutie/channeledit.C:1038
+#: cinecutie/vdeviceprefs.C:354
+msgid "Channel:"
+msgstr "Kanala:"
+
+#: cinecutie/adeviceprefs.C:519 cinecutie/vdeviceprefs.C:377
+msgid "Syt Offset:"
+msgstr "SYT desplazamendua:"
+
+#: cinecutie/amodule.C:237 cinecutie/amodule.C:316
+#, c-format
+msgid "VirtualAConsole::load_track Couldn't open %s.\n"
+msgstr "VirtualAConsole::load_track: ezin izan da %s ireki.\n"
+
+#: cinecutie/apatchgui.C:250 cinecutie/vpatchgui.C:212
+msgid "fade"
+msgstr "iraungitu"
+
+#: cinecutie/apatchgui.C:326
+msgid "pan"
+msgstr "panoramikoa"
+
+#: cinecutie/assetedit.C:210
+msgid "Select a file for this asset:"
+msgstr "Hautatu kliparen fitxategia:"
+
+#: cinecutie/assetedit.C:213
+msgid "File format:"
+msgstr "Formatua:"
+
+#: cinecutie/assetedit.C:231
+msgid "Bytes:"
+msgstr "Byteak:"
+
+#: cinecutie/assetedit.C:250
+msgid "Bitrate (bits/sec):"
+msgstr "Bit-tasa (bit/seg):"
+
+#: cinecutie/assetedit.C:264 cinecutie/formattools.C:169
+msgid "Audio:"
+msgstr "Audioa:"
+
+#: cinecutie/assetedit.C:270 cinecutie/assetedit.C:409
+#: cinecutie/filemov.C:1449 cinecutie/filemov.C:1740
+#: cinecutie/filesndfile.C:398 cinecutie/filetga.C:931
+msgid "Compression:"
+msgstr "Konpresioa:"
+
+#: cinecutie/assetedit.C:281 cinecutie/fileformat.C:73 cinecutie/new.C:277
+#: cinecutie/setformat.C:363 plugins/livevideo/livevideo.C:230
+msgid "Channels:"
+msgstr "Kanalak:"
+
+#: cinecutie/assetedit.C:298 cinecutie/fileformat.C:79
+msgid "Sample rate:"
+msgstr "Lagin-tasa:"
+
+#: cinecutie/assetedit.C:339 cinecutie/fileformat.C:98
+msgid "Header length:"
+msgstr "Goiburuaren luzera:"
+
+#: cinecutie/assetedit.C:351 cinecutie/fileformat.C:105
+#: cinecutie/filesndfile.C:417
+msgid "Byte order:"
+msgstr "Byte ordena:"
+
+#: cinecutie/assetedit.C:372 cinecutie/assetedit.C:777
+msgid "Lo-Hi"
+msgstr "Baxua-Altua"
+
+#: cinecutie/assetedit.C:374 cinecutie/assetedit.C:794
+msgid "Hi-Lo"
+msgstr "Altua-Baxua"
+
+#: cinecutie/assetedit.C:388
+msgid "Values are unsigned"
+msgstr "Balioak definitu gabe daude"
+
+#: cinecutie/assetedit.C:390 cinecutie/assetedit.C:811
+#: cinecutie/fileformat.C:188
+msgid "Values are signed"
+msgstr "Balioak definituta daude"
+
+#: cinecutie/assetedit.C:402 cinecutie/formattools.C:201
+msgid "Video:"
+msgstr "Bideoa:"
+
+#: cinecutie/assetedit.C:420 cinecutie/setformat.C:403
+msgid "Frame rate:"
+msgstr "Abiadura:"
+
+#: cinecutie/assetedit.C:430 cinecutie/setformat.C:418
+#: plugins/freeverb/freeverb.C:348
+msgid "Width:"
+msgstr "Zabalera:"
+
+#: cinecutie/assetedit.C:437 cinecutie/setformat.C:425
+msgid "Height:"
+msgstr "Altuera:"
+
+#: cinecutie/assetedit.C:446
+msgid "Subtitle tracks:"
+msgstr "Azpitituluen pistak:"
+
+#: cinecutie/assetedit.C:454
+msgid "Fix interlacing:"
+msgstr "Finkatu gurutzelarkatzea:"
+
+#: cinecutie/assetedit.C:459
+msgid "Asset's interlacing:"
+msgstr "Klipak gurutzelarkatzea:"
+
+#: cinecutie/assetedit.C:473
+msgid "Interlace correction:"
+msgstr "Gurutzelarkatze zuzenketa:"
+
+#: cinecutie/assetedit.C:487 cinecutie/loadfile.C:485
+msgid "Reel Name:"
+msgstr "Bobinaren izena:"
+
+#: cinecutie/assetedit.C:493 cinecutie/loadfile.C:499
+msgid "Reel Number:"
+msgstr "Bobinaren zenbakia:"
+
+#: cinecutie/assetedit.C:499
+msgid "Time Code Start:"
+msgstr "Hasierako denbora-kodea:"
+
+#: cinecutie/assetedit.C:593
+msgid "Automatically Fix Interlacing"
+msgstr "Doitu automatikoki gurutzelarkatzea"
+
+#: cinecutie/assetedit.h:92
+msgid " Path"
+msgstr " Bide-izena"
+
+#: cinecutie/assetedit.h:93
+msgid "Select a file"
+msgstr "Hautatu fitxategia"
+
+#: cinecutie/assetpopup.C:124
+msgid "Info..."
+msgstr "Informazioa..."
+
+#: cinecutie/assetpopup.C:166
+msgid "Rebuild index"
+msgstr "Berreraiki indizea"
+
+#: cinecutie/assetpopup.C:190 cinecutie/awindowmenu.C:108
+msgid "Sort items"
+msgstr "Ordenatu elementuak"
+
+#: cinecutie/assetpopup.C:213 cinecutie/mainmenu.C:191
+msgid "View"
+msgstr "Ikusi"
+
+#: cinecutie/assetpopup.C:246 cinecutie/mainmenu.C:726
+msgid "Paste"
+msgstr "Itsatsi"
+
+#: cinecutie/assetpopup.C:270
+msgid "Match project size"
+msgstr "Doitu proiektuaren tamaina"
+
+#: cinecutie/assetpopup.C:290
+msgid "Match frame rate"
+msgstr "Doitu fotograma-abiadura"
+
+#: cinecutie/assetpopup.C:316
+msgid "Remove from project"
+msgstr "Kendu proiektutik"
+
+#: cinecutie/assetpopup.C:338
+msgid "Remove from disk"
+msgstr "Kendu diskotik"
+
+#: cinecutie/assetremove.C:46
+msgid "Permanently remove from disk?"
+msgstr "Betirako ezabatu disko gogorretik?"
+
+#: cinecutie/atrack.C:140
+#, c-format
+msgid "Audio %d"
+msgstr "Audioa %d"
+
+#: cinecutie/avc1394transport.C:175 cinecutie/playtransport.C:416
+msgid "Rewind ( Home )"
+msgstr "Atzeratu (etxea)"
+
+#: cinecutie/avc1394transport.C:200
+msgid "Fast Reverse ( + )"
+msgstr "Atzeratze azkarra (+)"
+
+#: cinecutie/avc1394transport.C:224
+msgid "Reverse Play ( 6 )"
+msgstr "Atzeratu (6)"
+
+#: cinecutie/avc1394transport.C:256 cinecutie/playtransport.C:532
+msgid "Stop ( 0 )"
+msgstr "Gelditu (0)"
+
+#: cinecutie/avc1394transport.C:281
+msgid "Play ( 3 )"
+msgstr "Erreproduzitu (3)"
+
+#: cinecutie/avc1394transport.C:314
+msgid "Pause"
+msgstr "Gelditu"
+
+#: cinecutie/avc1394transport.C:337
+msgid "Fast Forward ( Enter )"
+msgstr "Aurreratze azkarra (Sartu)"
+
+#: cinecutie/avc1394transport.C:365 cinecutie/playtransport.C:519
+msgid "Jump to end ( End )"
+msgstr "Salto amaierara (Amaiera)"
+
+#: cinecutie/awindowgui.C:376 cinecutie/awindowgui.C:973
+#: cinecutie/awindowgui.C:1000 plugins/titler/title.C:1070
+msgid "Title"
+msgstr "Titulua"
+
+#: cinecutie/awindowgui.C:377 cinecutie/awindowgui.C:974
+msgid "Comments"
+msgstr "Iruzkinak"
+
+#: cinecutie/awindowgui.C:999
+msgid "Time Stamps"
+msgstr "Denbora-markak"
+
+#: cinecutie/awindowgui.C:1508
+msgid "New bin"
+msgstr "Bitar berria"
+
+#: cinecutie/awindowgui.C:1522
+msgid "Delete bin"
+msgstr "Ezabatu bitarra"
+
+#: cinecutie/awindowgui.C:1540
+msgid "Rename bin"
+msgstr "Aldatu bitarraren izena"
+
+#: cinecutie/awindowgui.C:1553
+msgid "Delete asset from disk"
+msgstr "Ezabatu klipa disko gogorretik"
+
+#: cinecutie/awindowgui.C:1566
+msgid "Delete asset from project"
+msgstr "Ezabatu klipa proiektutik"
+
+#: cinecutie/awindowgui.C:1579
+msgid "Edit information on asset"
+msgstr "Editatu kliparen informazioa"
+
+#: cinecutie/awindowgui.C:1593
+msgid "Redraw index"
+msgstr "Marraztu berriro indizea"
+
+#: cinecutie/awindowgui.C:1606
+msgid "Paste asset on recordable tracks"
+msgstr "Itsatsi klipa pista-grabagarrietan"
+
+#: cinecutie/awindowgui.C:1619
+msgid "Append asset in new tracks"
+msgstr "Erantsi klipa pista berrietan"
+
+#: cinecutie/awindowgui.C:1632
+msgid "View asset"
+msgstr "Ikusi klipa"
+
+#: cinecutie/awindowgui.C:1666 cinecutie/channeledit.C:612
+msgid "Edit..."
+msgstr "Editatu..."
+
+#: cinecutie/awindowmenu.C:77 cinecutie/awindowmenu.C:148
+#: guicast/bcfilebox.C:352
+msgid "Display icons"
+msgstr "Erakutsi ikonoak"
+
+#: cinecutie/awindowmenu.C:77 cinecutie/awindowmenu.C:148
+#: guicast/bcfilebox.C:339
+msgid "Display text"
+msgstr "Erakutsi testua"
+
+#: cinecutie/batch.C:107
+#, c-format
+msgid "Open"
+msgstr "Ireki"
+
+#: cinecutie/batch.C:116
+#, c-format
+msgid "File exists"
+msgstr "Fitxategia badago"
+
+#: cinecutie/batch.C:120 cinecutie/preferencesthread.C:551
+#: cinecutie/record.C:705
+#, c-format
+msgid "OK"
+msgstr "Ados"
+
+#: cinecutie/batch.C:171 cinecutie/recordgui.C:1365
+msgid "Untimed"
+msgstr "Kronometratu gabe"
+
+#: cinecutie/batch.C:174 cinecutie/recordgui.C:1366
+msgid "Timed"
+msgstr "Kronometratua"
+
+#: cinecutie/batch.C:183 cinecutie/batchrender.C:889 cinecutie/file.C:1334
+#: cinecutie/filemov.C:1245 cinecutie/loadmode.C:84
+#: plugins/timefront/timefront.C:430
+msgid "Unknown"
+msgstr "Ezezaguna"
+
+#: cinecutie/batchrender.C:52 plugins/freezeframe/freezeframe.C:103
+#: plugins/reverseaudio/reverseaudio.C:153
+#: plugins/reversevideo/reversevideo.C:151
+msgid "Enabled"
+msgstr "Gaituta"
+
+#: cinecutie/batchrender.C:53 plugins/compressor/compressor.C:1068
+msgid "Output"
+msgstr "Irteera"
+
+#: cinecutie/batchrender.C:54
+msgid "EDL"
+msgstr "EDL"
+
+#: cinecutie/batchrender.C:55
+msgid "Elapsed"
+msgstr "Igarotakoa"
+
+#: cinecutie/batchrender.C:67
+msgid "Batch Render..."
+msgstr "Batch-ekin errendatzea..."
+
+#: cinecutie/batchrender.C:418
+#, c-format
+msgid "EDL %s not found.\n"
+msgstr "Ez da %s EDL-rik aurkitu.\n"
+
+#: cinecutie/batchrender.C:683
+msgid "Output path:"
+msgstr "Irteerako bide-izena:"
+
+#: cinecutie/batchrender.C:710
+msgid "EDL Path:"
+msgstr "EDLren bide-izena:"
+
+#: cinecutie/batchrender.C:727
+msgid "Input EDL"
+msgstr "Sarrerako EDLa"
+
+#: cinecutie/batchrender.C:728
+msgid "Select an EDL to load:"
+msgstr "Hautatu EDLa kargatzeko:"
+
+#: cinecutie/batchrender.C:757
+msgid "Batches to render:"
+msgstr "Batch-ak errendatzeko:"
+
+#: cinecutie/batchrender.C:770 cinecutie/batchrender.C:1315
+#: cinecutie/recordgui.C:1057
+msgid "Stop"
+msgstr "Gelditu"
+
+#: cinecutie/batchrender.C:775 cinecutie/batchrender.C:1334
+#: cinecutie/tipwindow.C:269
+msgid "Close"
+msgstr "Itxi"
+
+#: cinecutie/batchrender.C:998 cinecutie/new.C:122 cinecutie/recordgui.C:1011
+msgid "New"
+msgstr "Berria"
+
+#: cinecutie/batchrender.C:1012 cinecutie/channeledit.C:599
+#: cinecutie/cwindowtool.C:1469 cinecutie/recordgui.C:1026
+#: plugins/synthesizer/synthesizer.C:909
+msgid "Delete"
+msgstr "Ezabatu"
+
+#: cinecutie/batchrender.C:1028
+msgid "Save List"
+msgstr "Gorde zerrenda"
+
+#: cinecutie/batchrender.C:1031
+msgid "Save a Batch Render List"
+msgstr "Gorde batch-en errendatzeko zerrenda"
+
+#: cinecutie/batchrender.C:1076
+msgid "Save Batch Render List"
+msgstr "Gorde batch-en errendatzeko zerrenda"
+
+#: cinecutie/batchrender.C:1077
+msgid "Enter a Batch Render filename to save as:"
+msgstr "Batch-en errendatzeko fitxategi-izena gordetzeko:"
+
+#: cinecutie/batchrender.C:1114
+msgid "Load List"
+msgstr "Kargatu zerrenda"
+
+#: cinecutie/batchrender.C:1118
+msgid "Load a previously saved Batch Render List"
+msgstr "Kargatu aurrez gordetako batch-en errendatzeko zerrenda"
+
+#: cinecutie/batchrender.C:1163
+msgid "Load Batch Render List"
+msgstr "Kargatu batch-en errendatzeko zerrenda"
+
+#: cinecutie/batchrender.C:1164
+msgid "Enter a Batch Render filename to load from:"
+msgstr "Sartu batch-en errendatzeko fitxategi-izena kargatzeko:"
+
+#: cinecutie/batchrender.C:1299 cinecutie/recordgui.C:1041
+msgid "Start"
+msgstr "Hasi"
+
+#: cinecutie/brender.C:154
+msgid "BRender::fork_background: can't open /proc/self/cmdline.\n"
+msgstr "BRender::fork_background: ezin da /proc/self/cmdline ireki.\n"
+
+#: cinecutie/brender.C:264
+#, c-format
+msgid "BRender::set_video_map called to set NOT_SCANNED\n"
+msgstr "BRender::set_video_map deitu da NOT_SCANNED ezartzeko\n"
+
+#: cinecutie/brender.C:281
+#, c-format
+msgid "BRender::set_video_map %d: attempt to set beyond end of map %d.\n"
+msgstr "BRender::set_video_map %d: %d. maparen kanpoan uzteko saiakera.\n"
+
+#: cinecutie/browsebutton.C:52
+msgid "Look for file"
+msgstr "Bilatu fitxategia"
+
+#: cinecutie/canvas.C:1053
+msgid "Windowed"
+msgstr "Lehioa"
+
+#: cinecutie/canvas.C:1091
+msgid "Zoom 25%"
+msgstr "Zooma: %25"
+
+#: cinecutie/canvas.C:1092
+msgid "Zoom 33%"
+msgstr "Zooma: %33"
+
+#: cinecutie/canvas.C:1093
+msgid "Zoom 50%"
+msgstr "Zooma: %50"
+
+#: cinecutie/canvas.C:1094
+msgid "Zoom 75%"
+msgstr "Zooma: %75"
+
+#: cinecutie/canvas.C:1095 cinecutie/recordmonitor.C:797
+msgid "Zoom 100%"
+msgstr "Zooma: %100"
+
+#: cinecutie/canvas.C:1096
+msgid "Zoom 150%"
+msgstr "Zooma: %150"
+
+#: cinecutie/canvas.C:1097
+msgid "Zoom 200%"
+msgstr "Zooma: %200"
+
+#: cinecutie/canvas.C:1098
+msgid "Zoom 300%"
+msgstr "Zooma: %300"
+
+#: cinecutie/canvas.C:1099
+msgid "Zoom 400%"
+msgstr "Zooma: %400"
+
+#: cinecutie/canvas.C:1121
+msgid "Zoom Auto"
+msgstr "Zooma automatikoa"
+
+#: cinecutie/canvas.C:1151
+msgid "Reset camera"
+msgstr "Berrezarri kamera"
+
+#: cinecutie/canvas.C:1164
+msgid "Reset projector"
+msgstr "Berrezarri proiektorea"
+
+#: cinecutie/canvas.C:1177
+msgid "Reset translation"
+msgstr "Berrezarri translazioa"
+
+#: cinecutie/canvas.C:1204
+msgid "Show controls"
+msgstr "Erakutsi kontrolak"
+
+#: cinecutie/canvas.C:1206
+msgid "Hide controls"
+msgstr "Ezkutatu kontrolak"
+
+#: cinecutie/canvas.C:1216
+msgid "Fullscreen"
+msgstr "Pantaila osoa "
+
+#: cinecutie/canvas.C:1237
+msgid "Close source"
+msgstr "Itxi iturburua"
+
+#: cinecutie/channeledit.C:128
+msgid "NTSC_BCAST"
+msgstr "NTSC_BCAST"
+
+#: cinecutie/channeledit.C:131
+msgid "NTSC_CABLE"
+msgstr "NTSC_CABLE"
+
+#: cinecutie/channeledit.C:134
+msgid "NTSC_HRC"
+msgstr "NTSC_HRC"
+
+#: cinecutie/channeledit.C:137
+msgid "NTSC_BCAST_JP"
+msgstr "NTSC_BCAST_JP"
+
+#: cinecutie/channeledit.C:140
+msgid "NTSC_CABLE_JP"
+msgstr "NTSC_CABLE_JP"
+
+#: cinecutie/channeledit.C:143
+msgid "PAL_AUSTRALIA"
+msgstr "PAL_AUSTRALIA"
+
+#: cinecutie/channeledit.C:146
+msgid "PAL_EUROPE"
+msgstr "PAL_EUROPA"
+
+#: cinecutie/channeledit.C:149
+msgid "PAL_E_EUROPE"
+msgstr "PAL_E_EUROPA"
+
+#: cinecutie/channeledit.C:152
+msgid "PAL_ITALY"
+msgstr "PAL_ITALIA"
+
+#: cinecutie/channeledit.C:155
+msgid "PAL_IRELAND"
+msgstr "PAL_IRLANDA"
+
+#: cinecutie/channeledit.C:158
+msgid "PAL_NEWZEALAND"
+msgstr "PAL_NEWZEALAND"
+
+#: cinecutie/channeledit.C:168 cinecutie/formatpresets.C:63
+#: plugins/videoscope/videoscope.C:743
+msgid "NTSC"
+msgstr "NTSC"
+
+#: cinecutie/channeledit.C:171 cinecutie/formatpresets.C:106
+msgid "PAL"
+msgstr "PAL"
+
+#: cinecutie/channeledit.C:174
+msgid "SECAM"
+msgstr "SECAM"
+
+#: cinecutie/channeledit.C:184 cinecutie/plugindialog.C:279
+#: cinecutie/record.C:356 cinecutie/recordgui.C:344
+#: cinecutie/sharedlocation.C:127 cinecutie/sharedlocation.C:132
+#: cinecutie/sharedlocation.C:145 cinecutie/vwindowgui.C:231
+#: plugins/parametric/parametric.C:278
+#, c-format
+msgid "None"
+msgstr "Bat ere ez"
+
+#: cinecutie/channeledit.C:503
+msgid "Select"
+msgstr "Hautatu"
+
+#: cinecutie/channeledit.C:516
+msgid "Add..."
+msgstr "Gehitu..."
+
+#: cinecutie/channeledit.C:547 cinecutie/editpopup.C:115
+#: cinecutie/pluginpopup.C:228
+msgid "Move up"
+msgstr "Eraman gora"
+
+#: cinecutie/channeledit.C:562 cinecutie/editpopup.C:132
+#: cinecutie/pluginpopup.C:243
+msgid "Move down"
+msgstr "Eraman behera"
+
+#: cinecutie/channeledit.C:577
+msgid "Sort"
+msgstr "Ordenatu"
+
+#: cinecutie/channeledit.C:589
+msgid "Scan"
+msgstr "Arakatu"
+
+#: cinecutie/channeledit.C:625
+msgid "Picture..."
+msgstr "Irudia..."
+
+#: cinecutie/channeledit.C:671
+msgid "Set parameters for channel scanning."
+msgstr "Ezarri parametroak kanala arakatzeko."
+
+#: cinecutie/channeledit.C:675 cinecutie/channeledit.C:1044
+msgid "Frequency table:"
+msgstr "Maiztasun-taula:"
+
+#: cinecutie/channeledit.C:678 cinecutie/channeledit.C:1065
+msgid "Norm:"
+msgstr "Araua:"
+
+#: cinecutie/channeledit.C:681 cinecutie/channeledit.C:1079
+msgid "Input:"
+msgstr "Sarrera:"
+
+#: cinecutie/channeledit.C:1030 cinecutie/clipedit.C:207
+msgid "Title:"
+msgstr "Titulua:"
+
+#: cinecutie/channeledit.C:1057
+msgid "Fine:"
+msgstr "Fina:"
+
+#: cinecutie/channeledit.C:1487 plugins/brightness/brightnesswindow.C:55
+msgid "Brightness:"
+msgstr "Distira:"
+
+#: cinecutie/channeledit.C:1497 plugins/brightness/brightnesswindow.C:62
+msgid "Contrast:"
+msgstr "Kontrastea:"
+
+#: cinecutie/channeledit.C:1506 plugins/chromakey/chromakey.C:133
+#: plugins/chromakeyhsv/chromakey.C:183
+msgid "Color:"
+msgstr "Kolorea:"
+
+#: cinecutie/channeledit.C:1515 plugins/huesaturation/huesaturation.C:330
+msgid "Hue:"
+msgstr "Ñabardura:"
+
+#: cinecutie/channeledit.C:1524
+msgid "Whiteness:"
+msgstr "Zuritasuna:"
+
+#: cinecutie/channelpicker.C:518
+msgid "Channel"
+msgstr "Kanala"
+
+#: cinecutie/channelpicker.C:553
+msgid "Edit channels"
+msgstr "Editatu kanalak"
+
+#: cinecutie/clipedit.C:123
+msgid "A clip with that name already exists."
+msgstr "Izen berdineko klip bat badago lehendik ere."
+
+#: cinecutie/clipedit.C:215
+msgid "Comments:"
+msgstr "Iruzkinak:"
+
+#: cinecutie/confirmquit.C:53
+msgid "( Answering No will destroy changes )"
+msgstr "('EZ' erantzutean aldaketak ezabatuko dira)"
+
+#: cinecutie/confirmquit.C:65 cinecutie/question.C:60
+msgid "Yes"
+msgstr "Bai"
+
+#: cinecutie/confirmquit.C:84 cinecutie/confirmquit.C:86
+#: cinecutie/question.C:78
+msgid "No"
+msgstr "Ez"
+
+#: cinecutie/confirmquit.C:105 cinecutie/confirmquit.C:107
+#: cinecutie/preferencesthread.C:575 cinecutie/preferencesthread.C:577
+msgid "Cancel"
+msgstr "Utzi"
+
+#: cinecutie/confirmsave.C:129
+msgid "The following files exist.  Overwrite them?"
+msgstr "Honako fitxategiak existitzen dira. Gainidatzi?"
+
+#: cinecutie/cpanel.C:130
+msgid "Protect video from changes"
+msgstr "Babestu bideoa aldaketetatik"
+
+#: cinecutie/cpanel.C:154
+msgid "Edit mask"
+msgstr "Editatu maskara"
+
+#: cinecutie/cpanel.C:174
+msgid "Zoom view"
+msgstr "Zoom-ikuspegia"
+
+#: cinecutie/cpanel.C:194
+msgid "Adjust camera automation"
+msgstr "Doitu kameraren automatizazioa"
+
+#: cinecutie/cpanel.C:214
+msgid "Adjust projector automation"
+msgstr "Doitu proiektorearen automatizazioa"
+
+#: cinecutie/cpanel.C:234
+msgid "Crop a layer or output"
+msgstr "Moztu geruza edo irteera"
+
+#: cinecutie/cpanel.C:258
+msgid "Get color"
+msgstr "Lortu kolorea"
+
+#: cinecutie/cpanel.C:282
+msgid "Show tool info"
+msgstr "Erakutsi tresnaren informazioa"
+
+#: cinecutie/cpanel.C:313
+msgid "Show safe regions"
+msgstr "Erakutsi eskualde seguruak"
+
+#: cinecutie/cwindowgui.C:600
+msgid "insert assets"
+msgstr "txertatu klipak"
+
+#: cinecutie/cwindowgui.C:1530 cinecutie/cwindowgui.C:2749
+msgid "mask point"
+msgstr "maskara-puntua"
+
+#: cinecutie/cwindowgui.C:2738
+msgid "camera"
+msgstr "kamera"
+
+#: cinecutie/cwindowgui.C:2742
+msgid "projector"
+msgstr "proiektorea"
+
+#: cinecutie/cwindowtool.C:321
+msgid "Do it"
+msgstr "Egin ezazu"
+
+#: cinecutie/cwindowtool.C:372
+msgid "X1:"
+msgstr "X1:"
+
+#: cinecutie/cwindowtool.C:375
+msgid "W:"
+msgstr "Z:"
+
+#: cinecutie/cwindowtool.C:396
+msgid "Y1:"
+msgstr "Y1:"
+
+#: cinecutie/cwindowtool.C:399
+msgid "H:"
+msgstr "A:"
+
+#: cinecutie/cwindowtool.C:553 cinecutie/cwindowtool.C:993
+#: cinecutie/cwindowtool.C:1826 cinecutie/zoombar.C:487
+#: plugins/radialblur/radialblur.C:282 plugins/titler/titlewindow.C:224
+#: plugins/zoomblur/zoomblur.C:297
+msgid "X:"
+msgstr "X:"
+
+#: cinecutie/cwindowtool.C:562 cinecutie/cwindowtool.C:1002
+#: cinecutie/cwindowtool.C:1834 cinecutie/zoombar.C:489
+#: plugins/perspective/perspective.C:158 plugins/radialblur/radialblur.C:286
+#: plugins/titler/titlewindow.C:229 plugins/yuv/yuv.C:193
+#: plugins/zoomblur/zoomblur.C:301
+msgid "Y:"
+msgstr "Y:"
+
+#: cinecutie/cwindowtool.C:571 cinecutie/cwindowtool.C:1011
+msgid "Z:"
+msgstr "Z:"
+
+#: cinecutie/cwindowtool.C:716 cinecutie/cwindowtool.C:1190
+msgid "Left justify"
+msgstr "Justifikatu ezkerrean"
+
+#: cinecutie/cwindowtool.C:762 cinecutie/cwindowtool.C:1225
+msgid "Center horizontal"
+msgstr "Zentratu horizontalki"
+
+#: cinecutie/cwindowtool.C:789 cinecutie/cwindowtool.C:1252
+msgid "Right justify"
+msgstr "Justifikatu eskuinean"
+
+#: cinecutie/cwindowtool.C:834 cinecutie/cwindowtool.C:1288
+msgid "Top justify"
+msgstr "Justifikatu goian"
+
+#: cinecutie/cwindowtool.C:879 cinecutie/cwindowtool.C:1324
+msgid "Center vertical"
+msgstr "Zentratu bertikalki"
+
+#: cinecutie/cwindowtool.C:905 cinecutie/cwindowtool.C:1350
+msgid "Bottom justify"
+msgstr "Justifikatu behean"
+
+#: cinecutie/cwindowtool.C:1413 cinecutie/cwindowtool.C:1426
+msgid "Multiply alpha"
+msgstr "Bidertu alfa"
+
+#: cinecutie/cwindowtool.C:1417 cinecutie/cwindowtool.C:1421
+#: cinecutie/cwindowtool.C:1429
+msgid "Subtract alpha"
+msgstr "Kendu alfa"
+
+#: cinecutie/cwindowtool.C:1556
+msgid "Cycle next"
+msgstr "Hurrengoa"
+
+#: cinecutie/cwindowtool.C:1598
+msgid "Cycle prev"
+msgstr "Aurrekoa"
+
+#: cinecutie/cwindowtool.C:1743
+msgid "Apply mask before plugins"
+msgstr "Aplikatu maskara plugin-en aurretik"
+
+#: cinecutie/cwindowtool.C:1799 cinecutie/recordgui.C:178
+#: plugins/denoisemjpeg/denoisemjpeg.C:413 plugins/overlay/overlay.C:267
+msgid "Mode:"
+msgstr "Modua:"
+
+#: cinecutie/cwindowtool.C:1807 cinecutie/fileavi.C:941
+#: plugins/huesaturation/huesaturation.C:336
+msgid "Value:"
+msgstr "Balioa:"
+
+#: cinecutie/cwindowtool.C:1812
+msgid "Mask number:"
+msgstr "Maskara-IDa:"
+
+#: cinecutie/cwindowtool.C:1819
+msgid "Feather:"
+msgstr "Difuminatu:"
+
+#: cinecutie/dcoffset.C:61
+msgid "DC Offset"
+msgstr "DC desplazamendua"
+
+#: cinecutie/deleteallindexes.C:38
+msgid "Delete existing indexes"
+msgstr "Ezabatu existitzen diren indizeak"
+
+#: cinecutie/deleteallindexes.C:72
+#, c-format
+msgid "Delete all indexes in %s?"
+msgstr "%s(e)ko indize guztiak ezabatu?"
+
+#: cinecutie/editpanel.C:523
+msgid "In point ( [ )"
+msgstr "Sarrera-puntua ([)"
+
+#: cinecutie/editpanel.C:548
+msgid "Out point ( ] )"
+msgstr "Irteera-puntua (])"
+
+#: cinecutie/editpanel.C:579
+msgid "Next label ( ctrl -> )"
+msgstr "Hurrengo etiketa (Ktrl ->)"
+
+#: cinecutie/editpanel.C:606
+msgid "Previous label ( ctrl <- )"
+msgstr "Aurreko etiketa (Ktrl <-)"
+
+#: cinecutie/editpanel.C:628
+msgid "Lift"
+msgstr "Altxatu"
+
+#: cinecutie/editpanel.C:643
+msgid "Overwrite ( b )"
+msgstr "Gainidatzi (b)"
+
+#: cinecutie/editpanel.C:668
+msgid "Extract"
+msgstr "Erauzi"
+
+#: cinecutie/editpanel.C:684
+msgid "To clip ( i )"
+msgstr "Klipara (i)"
+
+#: cinecutie/editpanel.C:711
+msgid "Manual goto ( g )"
+msgstr "Eskuzko 'Joan hona' (g)"
+
+#: cinecutie/editpanel.C:739
+msgid "Splice ( v )"
+msgstr "Lotu (v)"
+
+#: cinecutie/editpanel.C:764
+msgid "Cut ( x )"
+msgstr "Ebaki (x)"
+
+#: cinecutie/editpanel.C:789
+msgid "Copy ( c )"
+msgstr "Kopiatu (c)"
+
+#: cinecutie/editpanel.C:812
+msgid "Append to end of track"
+msgstr "Erantsi pistaren amaieran"
+
+#: cinecutie/editpanel.C:830
+msgid "Insert before beginning of track"
+msgstr "Txertatu pistaren aurretik"
+
+#: cinecutie/editpanel.C:849
+msgid "Paste ( v )"
+msgstr "Itsatsi (v)"
+
+#: cinecutie/editpanel.C:876
+msgid "Set transition"
+msgstr "Ezarri trantsizioa"
+
+#: cinecutie/editpanel.C:891
+msgid "Set presentation up to current position"
+msgstr "Ezarri aurkezpena uneko posizioan"
+
+#: cinecutie/editpanel.C:906
+msgid "Undo ( z )"
+msgstr "Desegin (z)"
+
+#: cinecutie/editpanel.C:928
+msgid "Redo ( shift Z )"
+msgstr "Berregin (Maius Z)"
+
+#: cinecutie/editpanel.C:954
+msgid "Toggle label at current position ( l )"
+msgstr "Txandakatu etiketa uneko posizioan (l)"
+
+#: cinecutie/editpanel.C:983
+msgid "Fit selection to display ( f )"
+msgstr "Doitu hautapena ikuspegiari (f)"
+
+#: cinecutie/editpanel.C:1016
+msgid "Fit all autos to display ( Alt + f )"
+msgstr "Doitu banda automatikoki ikuspegira (Alt+f)"
+
+#: cinecutie/editpanel.C:1065
+msgid "Drag and drop editing mode"
+msgstr "Arrastatu eta jaregin moduko edizioa"
+
+#: cinecutie/editpanel.C:1090
+msgid "Cut and paste editing mode"
+msgstr "Ebaki eta itsatsi moduko edizioa"
+
+#: cinecutie/editpanel.C:1113
+msgid "Generate keyframes while tweeking"
+msgstr "Sortu gako-fotogramak automatikoki"
+
+#: cinecutie/editpanel.C:1134
+msgid "Lock labels from moving"
+msgstr "Blokeatu etiketak mugitzea"
+
+#: cinecutie/editpopup.C:93
+msgid "Attach effect..."
+msgstr "Erantsi efektua..."
+
+#: cinecutie/editpopup.C:150
+msgid "Resize track..."
+msgstr "Aldatu pistaren tamaina..."
+
+#: cinecutie/editpopup.C:174
+msgid "Match output size"
+msgstr "Doitu irteeraren tamainara"
+
+#: cinecutie/editpopup.C:196 cinecutie/mainmenu.C:838 cinecutie/mainmenu.C:906
+msgid "Delete track"
+msgstr "Ezabatu pista"
+
+#: cinecutie/editpopup.C:213 cinecutie/mainmenu.C:826 cinecutie/mainmenu.C:892
+msgid "Add track"
+msgstr "Gehitu pista"
+
+#: cinecutie/editpopup.C:234
+msgid "User title..."
+msgstr "Erabiltzailearen titulua..."
+
+#: cinecutie/editpopup.C:311
+msgid "User title"
+msgstr "Erabiltzailearen titulua"
+
+#: cinecutie/exportedl.C:108
+#, c-format
+msgid "Warning: chopping the reel name to eight characters!\n"
+msgstr "Abisua: bobina-izena 8 karakteretara murrizten.\n"
+
+#: cinecutie/exportedl.C:255
+msgid "Export EDL..."
+msgstr "Esportatu EDLa..."
+
+#: cinecutie/exportedl.C:356
+msgid "No."
+msgstr "Ez"
+
+#: cinecutie/exportedl.C:357
+msgid "Track name"
+msgstr "Pista-izena"
+
+#: cinecutie/exportedl.C:396
+msgid "Select a file to export to:"
+msgstr "Hautatu fitxategia bertara esportatzeko:"
+
+#: cinecutie/exportedl.C:415 cinecutie/formattools.C:139
+msgid "Output to file"
+msgstr "Irteera fitxategira"
+
+#: cinecutie/exportedl.C:416 cinecutie/formattools.C:140
+msgid "Select a file to write to:"
+msgstr "Hautatu fitxategia bertan idazteko:"
+
+#: cinecutie/exportedl.C:421
+msgid "Select track to be exported:"
+msgstr "Hautatu pista esportatzeko:"
+
+#: cinecutie/exportedl.C:451
+msgid "Currently only CMX 3600 format is supported"
+msgstr "Unean CMX 3600 formatua soilik onartzen da"
+
+#: cinecutie/file.C:272
+msgid "This format doesn't support audio."
+msgstr "Formatu honek ez audiorik onartzen."
+
+#: cinecutie/file.C:275
+msgid "This format doesn't support video."
+msgstr "Formatu honek ez du bideorik onartzen."
+
+#: cinecutie/file.C:1390 cinecutie/file.C:1396 cinecutie/fileformat.C:160
+#: cinecutie/filesndfile.C:449
+msgid "Lo Hi"
+msgstr "Baxua-Altua"
+
+#: cinecutie/file.C:1397 cinecutie/fileformat.C:174
+#: cinecutie/filesndfile.C:434
+msgid "Hi Lo"
+msgstr "Altua-Baxua"
+
+#: cinecutie/file.inc:106
+msgid "AC3"
+msgstr "AC3"
+
+#: cinecutie/file.inc:107
+msgid "Apple/SGI AIFF"
+msgstr "Apple/SGI AIFF"
+
+#: cinecutie/file.inc:108
+msgid "MPEG Audio"
+msgstr "MPEG Audioa"
+
+#: cinecutie/file.inc:109
+msgid "Sun/NeXT AU"
+msgstr "Sun/NeXT AU"
+
+#: cinecutie/file.inc:110
+msgid "Microsoft AVI"
+msgstr "Microsoft AVI"
+
+#: cinecutie/file.inc:111
+msgid "Microsoft WAV"
+msgstr "Microsoft WAV"
+
+#: cinecutie/file.inc:112
+msgid "AVI Arne Type 1"
+msgstr "AVI Arne 1. mota"
+
+#: cinecutie/file.inc:113
+msgid "AVI DV Type 2"
+msgstr "AVI DV 2. mota"
+
+#: cinecutie/file.inc:114
+msgid "AVI Avifile"
+msgstr "AVI Avifile"
+
+#: cinecutie/file.inc:115
+msgid "AVI Lavtools"
+msgstr "AVI Lavtools"
+
+#: cinecutie/file.inc:116
+msgid "Raw DV"
+msgstr "DV gordina"
+
+#: cinecutie/file.inc:117
+msgid "JPEG Sequence"
+msgstr "JPEG sekuentzia"
+
+#: cinecutie/file.inc:118
+msgid "JPEG"
+msgstr "JPEG"
+
+#: cinecutie/file.inc:119
+msgid "Quicktime for Linux"
+msgstr "Quicktime Linux-entzako"
+
+#: cinecutie/file.inc:120 plugins/videoscope/videoscope.C:727
+msgid "MPEG"
+msgstr "MPEG"
+
+#: cinecutie/file.inc:121
+msgid "Raw PCM"
+msgstr "PCM gordina"
+
+#: cinecutie/file.inc:122
+msgid "PNG Sequence"
+msgstr "PNG sekuentzia"
+
+#: cinecutie/file.inc:123 cinecutie/filemov.C:49
+msgid "PNG"
+msgstr "PNG"
+
+#: cinecutie/file.inc:124
+msgid "Unknown sound"
+msgstr "Soinu ezezaguna"
+
+#: cinecutie/file.inc:125
+msgid "TGA Sequence"
+msgstr "TGA sekuentzia"
+
+#: cinecutie/file.inc:126
+msgid "TGA"
+msgstr "TGA"
+
+#: cinecutie/file.inc:127
+msgid "TIFF"
+msgstr "TIFF"
+
+#: cinecutie/file.inc:128
+msgid "TIFF Sequence"
+msgstr "TIFF sekuentzia"
+
+#: cinecutie/file.inc:129
+msgid "MPEG Video"
+msgstr "MPEG bideoa"
+
+#: cinecutie/file.inc:130 cinecutie/file.inc:134
+msgid "OGG Theora/Vorbis"
+msgstr "OGG Theora/Vorbis"
+
+#: cinecutie/file.inc:131
+msgid "OGG Vorbis"
+msgstr "OGG Vorbis"
+
+#: cinecutie/file.inc:132
+msgid "EXR"
+msgstr "EXR"
+
+#: cinecutie/file.inc:133
+msgid "EXR Sequence"
+msgstr "EXR sekuentzia"
+
+#: cinecutie/file.inc:180
+msgid "8 Bit Linear"
+msgstr "8 bit lineala"
+
+#: cinecutie/file.inc:181
+msgid "16 Bit Linear"
+msgstr "16 bit lineala"
+
+#: cinecutie/file.inc:182
+msgid "24 Bit Linear"
+msgstr "24 bit lineala"
+
+#: cinecutie/file.inc:183
+msgid "32 Bit Linear"
+msgstr "32 bit lineala"
+
+#: cinecutie/file.inc:184
+msgid "u Law"
+msgstr "U Law"
+
+#: cinecutie/file.inc:185
+msgid "IMA 4"
+msgstr "IMA 4"
+
+#: cinecutie/file.inc:186
+msgid "ADPCM"
+msgstr "ADPCM"
+
+#: cinecutie/file.inc:187
+msgid "Float"
+msgstr "Mugikorra"
+
+#: cinecutie/file.inc:190
+msgid "RGB ALPHA"
+msgstr "GBU Alfa"
+
+#: cinecutie/file.inc:191
+msgid "PNG ALPHA"
+msgstr "PNG Alfa"
+
+#: cinecutie/fileavi.C:788 cinecutie/fileavi.C:932
+msgid "Codec: "
+msgstr "Kodeka: "
+
+#: cinecutie/fileavi.C:797
+msgid "Compressor: 16 bit PCM"
+msgstr "Konpresorea: 16 bit PCM"
+
+#: cinecutie/fileavi.C:937
+msgid "Attributes:"
+msgstr "Atributuak:"
+
+#: cinecutie/fileavi.C:948
+msgid "Compressor: Consumer DV"
+msgstr "Konpresorea: DV publiko orokorra"
+
+#: cinecutie/fileformat.C:70
+msgid "Assuming raw PCM:"
+msgstr "PCM gordina:"
+
+#: cinecutie/filejpeg.C:301 cinecutie/filemov.C:2007 cinecutie/filemov.C:2017
+msgid "Quality:"
+msgstr "Kalitatea:"
+
+#: cinecutie/filemov.C:42
+msgid "MPEG-4"
+msgstr "MPEG-4"
+
+#: cinecutie/filemov.C:43
+msgid "Dual H.264"
+msgstr "H.264 bikoitza"
+
+#: cinecutie/filemov.C:44
+msgid "Dual MPEG-4"
+msgstr "MPEG-4 bikoitza"
+
+#: cinecutie/filemov.C:45
+msgid "H.264"
+msgstr "H.264"
+
+#: cinecutie/filemov.C:46
+msgid "H.263"
+msgstr "H.263"
+
+#: cinecutie/filemov.C:47
+msgid "Microsoft MPEG-4"
+msgstr "Microsoft MPEG-4"
+
+#: cinecutie/filemov.C:48
+msgid "DV"
+msgstr "DV"
+
+#: cinecutie/filemov.C:50
+msgid "PNG with Alpha"
+msgstr "PNG alfarekin"
+
+#: cinecutie/filemov.C:51
+msgid "Uncompressed RGB"
+msgstr "GBU konpresio gabea"
+
+#: cinecutie/filemov.C:52
+msgid "Uncompressed RGBA"
+msgstr "GBUA konpresio gabea"
+
+#: cinecutie/filemov.C:53
+msgid "YUV 4:2:0 Planar"
+msgstr "YUV 4:2:0 Planar"
+
+#: cinecutie/filemov.C:54
+msgid "Component Y'CbCr 8-bit 4:2:2 (yuv2)"
+msgstr "Y'CbCr 8-bit 4:4:4 osagaia"
+
+#: cinecutie/filemov.C:55
+msgid "Component Y'CbCr 8-bit 4:2:2 (2vuy)"
+msgstr "Y'CbCr 8-bit 4:4:4 osagaia"
+
+#: cinecutie/filemov.C:56
+msgid "YUV 4:1:1 Packed"
+msgstr "YUV 4:1:1 paketatua"
+
+#: cinecutie/filemov.C:57
+msgid "Component Y'CbCr 8-bit 4:4:4"
+msgstr "Y'CbCr 8-bit 4:4:4 osagaia"
+
+#: cinecutie/filemov.C:58
+msgid "Component Y'CbCrA 8-bit 4:4:4:4"
+msgstr "Y'CbCrA 8-bit 4:4:4:4 osagaia"
+
+#: cinecutie/filemov.C:59
+msgid "Component Y'CbCr 10-bit 4:4:4"
+msgstr "Y'CbCr 10-bit 4:4:4 osagaia"
+
+#: cinecutie/filemov.C:60
+msgid "JPEG Photo"
+msgstr "JPEG argazkia"
+
+#: cinecutie/filemov.C:61
+msgid "Motion JPEG A"
+msgstr "JPEG A mugimendua"
+
+#: cinecutie/filemov.C:64
+msgid "Twos complement"
+msgstr "Twos osagaia"
+
+#: cinecutie/filemov.C:65
+msgid "Unsigned"
+msgstr "Sinatu gabe"
+
+#: cinecutie/filemov.C:66
+msgid "IMA-4"
+msgstr "IMA-4"
+
+#: cinecutie/filemov.C:67
+msgid "U-Law"
+msgstr "U-Law"
+
+#: cinecutie/filemov.C:68
+msgid "Vorbis"
+msgstr "Vorbis"
+
+#: cinecutie/filemov.C:69
+msgid "MP3"
+msgstr "MP3"
+
+#: cinecutie/filemov.C:70
+msgid "MPEG-4 Audio"
+msgstr "MPEG-4 audioa"
+
+#: cinecutie/filemov.C:299
+msgid "Made with Cinelerra for Linux"
+msgstr "GNU/Linux-eko Cinelerrarekin sortua"
+
+#: cinecutie/filemov.C:1481
+msgid "Bits per channel:"
+msgstr "Bit kanaleko:"
+
+#: cinecutie/filemov.C:1493 cinecutie/filesndfile.C:411
+msgid "Dither"
+msgstr "Bilbatu"
+
+#: cinecutie/filemov.C:1503 cinecutie/filemov.C:1554 cinecutie/filemov.C:1851
+#: cinecutie/filemov.C:1884 cinecutie/filemov.C:1938 cinecutie/filempeg.C:1754
+msgid "Bitrate:"
+msgstr "Bit-tasa:"
+
+#: cinecutie/filemov.C:1518 cinecutie/filevorbis.C:625
+msgid "Variable bitrate"
+msgstr "Bit-tasa aldakorra"
+
+#: cinecutie/filemov.C:1524 cinecutie/filevorbis.C:582
+msgid "Min bitrate:"
+msgstr "Gutxiengo bit-tasa:"
+
+#: cinecutie/filemov.C:1531 cinecutie/filevorbis.C:586
+msgid "Avg bitrate:"
+msgstr "Batez besteko bit-tasa:"
+
+#: cinecutie/filemov.C:1538 cinecutie/filevorbis.C:591
+msgid "Max bitrate:"
+msgstr "Gehiengo bit-tasa:"
+
+#: cinecutie/filemov.C:1563
+msgid "Quantization Quality (%):"
+msgstr "Kalitate-kuantifikazioa (%):"
+
+#: cinecutie/filemov.C:1863 cinecutie/filemov.C:1904 cinecutie/filempeg.C:1760
+msgid "Quantization:"
+msgstr "Kuantifikazioa:"
+
+#: cinecutie/filemov.C:1897
+msgid "Bitrate tolerance:"
+msgstr "Bit-tasaren jasamena:"
+
+#: cinecutie/filemov.C:1918 plugins/denoisemjpeg/denoisemjpeg.C:300
+msgid "Interlaced"
+msgstr "Gurutzelarkatuta"
+
+#: cinecutie/filemov.C:1924
+msgid "Keyframe interval:"
+msgstr "Gako-fotogramen bitartea:"
+
+#: cinecutie/filemov.C:1951
+msgid "Quantizer:"
+msgstr "Eskala:"
+
+#: cinecutie/filemov.C:1965
+msgid "RC Period:"
+msgstr "RC aldia:"
+
+#: cinecutie/filemov.C:1972
+msgid "Reaction Ratio:"
+msgstr "Erreakzio-tasa:"
+
+#: cinecutie/filemov.C:1979
+msgid "Reaction Period:"
+msgstr "Erreakzio-aldia:"
+
+#: cinecutie/filemov.C:1986
+msgid "Max Key Interval:"
+msgstr "Gakoen gehiengo bitartea:"
+
+#: cinecutie/filemov.C:1993
+msgid "Max Quantizer:"
+msgstr "Gehi. eskala:"
+
+#: cinecutie/filemov.C:2000
+msgid "Min Quantizer:"
+msgstr "Gut. eskala:"
+
+#: cinecutie/filemov.C:2121
+msgid "Fix bitrate"
+msgstr "Finkatu bit-tasa"
+
+#: cinecutie/filemov.C:2146
+msgid "Fix quantization"
+msgstr "Finkatu kuantifikazioa"
+
+#: cinecutie/filempeg.C:484
+#, c-format
+msgid "encode: lame_init_params returned %d\n"
+msgstr "kodetu: lame_init_params-ek %d itzuli du\n"
+
+#: cinecutie/filempeg.C:1476 cinecutie/filempeg.C:1671
+msgid "No options for MPEG transport stream."
+msgstr "MPEG korronteak ez du aukerarik."
+
+#: cinecutie/filempeg.C:1481
+msgid "Layer:"
+msgstr "Geruza:"
+
+#: cinecutie/filempeg.C:1486
+msgid "Kbits per second:"
+msgstr "Kbit segundoko:"
+
+#: cinecutie/filempeg.C:1543 cinecutie/filempeg.C:1551
+msgid "II"
+msgstr "II"
+
+#: cinecutie/filempeg.C:1547
+msgid "III"
+msgstr "III"
+
+#: cinecutie/filempeg.C:1675 cinecutie/new.C:374 cinecutie/setformat.C:466
+msgid "Color model:"
+msgstr "Kolore-eredua:"
+
+#: cinecutie/filempeg.C:1741
+msgid "Format Preset:"
+msgstr "Formatuaren aurrehautaketa:"
+
+#: cinecutie/filempeg.C:1748
+msgid "Derivative:"
+msgstr "Eratorria:"
+
+#: cinecutie/filempeg.C:1767
+msgid "I frame distance:"
+msgstr "I fotograma-distantzia:"
+
+#: cinecutie/filempeg.C:1775
+msgid "P frame distance:"
+msgstr "P fotograma-distantzia:"
+
+#: cinecutie/filempeg.C:1781 plugins/deinterlace/deinterwindow.C:118
+#: plugins/deinterlace/deinterwindow.C:124 plugins/fieldframe/fieldframe.C:246
+#: plugins/framefield/framefield.C:268
+msgid "Bottom field first"
+msgstr "Beheko eremua aurrenik"
+
+#: cinecutie/filempeg.C:1785
+msgid "Progressive frames"
+msgstr "Fotograma progresiboak"
+
+#: cinecutie/filempeg.C:1787 plugins/denoise/denoise.C:138
+msgid "Denoise"
+msgstr "Kendu zarata"
+
+#: cinecutie/filempeg.C:1789
+msgid "Sequence start codes in every GOP"
+msgstr "Hasierako sekuentzi-kodea 'irudi-talde' bakoitzean"
+
+#: cinecutie/filempeg.C:1838 cinecutie/filempeg.C:1846
+msgid "MPEG-1"
+msgstr "MPEG-1"
+
+#: cinecutie/filempeg.C:1842
+msgid "MPEG-2"
+msgstr "MPEG-2"
+
+#: cinecutie/filempeg.C:1895 cinecutie/filempeg.C:1905
+msgid "Generic MPEG-1"
+msgstr "MPEG-1 orokorra"
+
+#: cinecutie/filempeg.C:1896
+msgid "standard VCD"
+msgstr "VCD estandarra"
+
+#: cinecutie/filempeg.C:1897
+msgid "user VCD"
+msgstr "Erabiltzailearen VCDa"
+
+#: cinecutie/filempeg.C:1898
+msgid "Generic MPEG-2"
+msgstr "MPEG-2 orokorra"
+
+#: cinecutie/filempeg.C:1899
+msgid "standard SVCD"
+msgstr "SVCD estandarra"
+
+#: cinecutie/filempeg.C:1900
+msgid "user SVCD"
+msgstr "Erabiltzailearen SVCDa"
+
+#: cinecutie/filempeg.C:1901
+msgid "VCD Still sequence"
+msgstr "VCD sekuentzia finkoa"
+
+#: cinecutie/filempeg.C:1902
+msgid "SVCD Still sequence"
+msgstr "SVCD sekuentzia finkoa"
+
+#: cinecutie/filempeg.C:1903
+msgid "DVD NAV"
+msgstr "DVD NAV"
+
+#: cinecutie/filempeg.C:1904
+msgid "DVD"
+msgstr "DVD"
+
+#: cinecutie/filempeg.C:1955 cinecutie/filevorbis.C:613
+msgid "Fixed bitrate"
+msgstr "Finkatutako bit-tasa"
+
+#: cinecutie/filempeg.C:1969
+msgid "Fixed quantization"
+msgstr "Finkatutako kuantifikazioa"
+
+#: cinecutie/filempeg.C:2072 cinecutie/filempeg.C:2080
+msgid "YUV 4:2:0"
+msgstr "YUV 4:2:0"
+
+#: cinecutie/filempeg.C:2076
+msgid "YUV 4:2:2"
+msgstr "YUV 4:2:2"
+
+#: cinecutie/filepng.C:470
+msgid "Use alpha"
+msgstr "Erabili alfa"
+
+#: cinecutie/filesndfile.C:415
+msgid "Signed"
+msgstr "Sinatuta"
+
+#: cinecutie/filetga.C:117
+msgid "RGB compressed"
+msgstr "GBU konprimitua"
+
+#: cinecutie/filetga.C:118
+msgid "RGBA compressed"
+msgstr "GBUA konprimitua"
+
+#: cinecutie/filetga.C:119
+msgid "RGB uncompressed"
+msgstr "GBU konprimitu gabe"
+
+#: cinecutie/filetga.C:120
+msgid "RGBA uncompressed"
+msgstr "GBUA konprimitu gabe"
+
+#: cinecutie/fileyuv.C:397
+msgid "Output Path:"
+msgstr "Irteerako bide-izena:"
+
+#: cinecutie/fileyuv.C:405
+msgid "Use Pipe:"
+msgstr "Erabili kanalizazioa:"
+
+#: cinecutie/fileyuv.C:416
+msgid "Stream Header:"
+msgstr "Korronte-goiburua:"
+
+#: cinecutie/fileyuv.C:420
+msgid "Interlacing:"
+msgstr "Gurutzelarkatua:"
+
+#: cinecutie/fileyuv.C:427
+msgid "Pipe Presets:"
+msgstr "Kanalizazioaren aurrehautaketa:"
+
+#: cinecutie/formatcheck.C:52
+msgid "The format you selected doesn't support video."
+msgstr "Hautatutako formatuak ez du bideoa onartzen."
+
+#: cinecutie/formatcheck.C:63
+msgid "The format you selected doesn't support audio."
+msgstr "Hautatutako formatuak ez du soinua onartzen."
+
+#: cinecutie/formatcheck.C:71
+msgid "IMA4 compression is only available in Quicktime movies."
+msgstr "IMA4 konpresioa Quicktime motako filmeetan soilik dago erabilgarri."
+
+#: cinecutie/formatcheck.C:81
+msgid ""
+"ULAW compression is only available in\n"
+"Quicktime Movies and PCM files."
+msgstr ""
+"ULAW konpresioa Quicktime filmeetan eta PCM \n"
+"fitxategietan soilik erabil daiteke."
+
+#: cinecutie/formatpopup.C:48
+msgid "Change file format"
+msgstr "Aldatu fitxategi-formatua"
+
+#: cinecutie/formatpresets.C:60
+msgid "User Defined"
+msgstr "Erabiltzaileak definitua"
+
+#: cinecutie/formatpresets.C:77
+msgid "NTSC Half"
+msgstr "NTSC erdia"
+
+#: cinecutie/formatpresets.C:91
+msgid "NTSC Progressive"
+msgstr "NTSC progresiboa"
+
+#: cinecutie/formatpresets.C:122
+msgid "PAL Half"
+msgstr "PAL erdia"
+
+#: cinecutie/formatpresets.C:138
+msgid "PAL Progressive"
+msgstr "PAL progresiboa"
+
+#: cinecutie/formatpresets.C:153
+msgid "1080P/60"
+msgstr "1080P/60"
+
+#: cinecutie/formatpresets.C:169
+msgid "1080P/24"
+msgstr "1080P/24"
+
+#: cinecutie/formatpresets.C:185
+msgid "1080I"
+msgstr "1080I"
+
+#: cinecutie/formatpresets.C:201
+msgid "720P/60"
+msgstr "720P/60"
+
+#: cinecutie/formatpresets.C:218
+msgid "Internet"
+msgstr "Internet"
+
+#: cinecutie/formatpresets.C:232
+msgid "CD Audio"
+msgstr "CD Audioa"
+
+#: cinecutie/formatpresets.C:246
+msgid "DAT Audio"
+msgstr "DAT Audioa"
+
+#: cinecutie/formatpresets.C:262
+msgid "Presets:"
+msgstr "Aurrehautaketak:"
+
+#: cinecutie/formattools.C:152 cinecutie/recordprefs.C:65
+msgid "File Format:"
+msgstr "Formatua:"
+
+#: cinecutie/formattools.C:252
+msgid "MPEG transport stream"
+msgstr "MPEG korrontea"
+
+#: cinecutie/formattools.C:491
+msgid "Configure audio compression"
+msgstr "Konfiguratu audioaren konpresioa"
+
+#: cinecutie/formattools.C:505
+msgid "Configure video compression"
+msgstr "Konfiguratu bideoaren konpresioa"
+
+#: cinecutie/formattools.C:574
+msgid "Record audio tracks"
+msgstr "Grabatu audioko pistak"
+
+#: cinecutie/formattools.C:574
+msgid "Render audio tracks"
+msgstr "Errendatu audioko pistak"
+
+#: cinecutie/formattools.C:589
+msgid "Record video tracks"
+msgstr "Grabatu bideoaren pistak"
+
+#: cinecutie/formattools.C:589
+msgid "Render video tracks"
+msgstr "Errendatu bideoaren pistak"
+
+#: cinecutie/formattools.C:651
+msgid "Overwrite project with output"
+msgstr "Gainidatzi proiektua irteerarekin"
+
+#: cinecutie/formattools.C:669
+msgid "Create new file at each label"
+msgstr "Etiketa bakoitzean fitxategi berria sortu"
+
+#: cinecutie/indexfile.C:304
+#, c-format
+msgid "Creating %s."
+msgstr "%s sortzen."
+
+#: cinecutie/indexfile.C:424
+#, c-format
+msgid "IndexFile::draw_index: index has 0 zoom\n"
+msgstr "IndexFile::draw_index: indizearen zoomak 0 du\n"
+
+#: cinecutie/interfaceprefs.C:33
+msgid "Drag all following edits"
+msgstr "Arrastatu hurrengo plano guztiak"
+
+#: cinecutie/interfaceprefs.C:34
+msgid "Drag only one edit"
+msgstr "Arrastatu plano bakarra"
+
+#: cinecutie/interfaceprefs.C:35
+msgid "Drag source only"
+msgstr "Arrastatu iturburua soilik"
+
+#: cinecutie/interfaceprefs.C:36
+msgid "No effect"
+msgstr "Efektu gabe"
+
+#: cinecutie/interfaceprefs.C:59
+msgid "Time Format"
+msgstr "Denbora-formatua:"
+
+#: cinecutie/interfaceprefs.C:101
+msgid "frames per foot"
+msgstr "fotograma oineko"
+
+#: cinecutie/interfaceprefs.C:122
+msgid "Index files"
+msgstr "Indizeen fitxategiak"
+
+#: cinecutie/interfaceprefs.C:128
+msgid "Index files go here:"
+msgstr "Indizeen fitxategiak:"
+
+#: cinecutie/interfaceprefs.C:139
+msgid "Index Path"
+msgstr "Indizeen bide-izena"
+
+#: cinecutie/interfaceprefs.C:140
+msgid "Select the directory for index files"
+msgstr "Hautatu direktorioa indizeen fitxategientzako"
+
+#: cinecutie/interfaceprefs.C:146
+msgid "Size of index file:"
+msgstr "Indizeen fitxategiaren tamaina:"
+
+#: cinecutie/interfaceprefs.C:152
+msgid "Number of index files to keep:"
+msgstr "Indizeen fitxategi kopurua:"
+
+#: cinecutie/interfaceprefs.C:165
+msgid "Editing"
+msgstr "Edizioa"
+
+#: cinecutie/interfaceprefs.C:172
+msgid "Dragging edit boundaries does what:"
+msgstr "Planoko mugak arrastatzearen ekintza:"
+
+#: cinecutie/interfaceprefs.C:174
+msgid "Button 1:"
+msgstr "1. botoia:"
+
+#: cinecutie/interfaceprefs.C:184
+msgid "Button 2:"
+msgstr "2. botoia:"
+
+#: cinecutie/interfaceprefs.C:192
+msgid "Button 3:"
+msgstr "3. botoia:"
+
+#: cinecutie/interfaceprefs.C:203
+msgid "Min DB for meter:"
+msgstr "Gutxiengo DBa neurtzeko:"
+
+#: cinecutie/interfaceprefs.C:209
+msgid "Max DB:"
+msgstr "Geh. DBa:"
+
+#: cinecutie/interfaceprefs.C:217
+msgid "Theme:"
+msgstr "Gaia:"
+
+#: cinecutie/interfaceprefs.C:365
+msgid "Use Hours:Minutes:Seconds.xxx"
+msgstr "Orduak:Minutuak:Segundoak.xxx"
+
+#: cinecutie/interfaceprefs.C:375
+msgid "Use Hours:Minutes:Seconds:Frames"
+msgstr "Orduak:Minutuak:Segundoak.fotogramak"
+
+#: cinecutie/interfaceprefs.C:384
+msgid "Use Samples"
+msgstr "Laginak"
+
+#: cinecutie/interfaceprefs.C:393
+msgid "Use Frames"
+msgstr "Fotogramak"
+
+#: cinecutie/interfaceprefs.C:402
+msgid "Use Hex Samples"
+msgstr "Lagin hamaseitarrak"
+
+#: cinecutie/interfaceprefs.C:411
+msgid "Use Seconds"
+msgstr "Segundoak"
+
+#: cinecutie/interfaceprefs.C:423
+msgid "Use Feet-frames"
+msgstr "Oin-fotogramak"
+
+#: cinecutie/interfaceprefs.C:611
+msgid "Use thumbnails in resource window"
+msgstr "Erabili koadro txikiak baliabideen leihoan"
+
+#: cinecutie/interfaceprefs.C:628
+msgid "Show tip of the day"
+msgstr "Erakutsi eguneko aholkua"
+
+#: cinecutie/keyframepopup.C:102
+msgid "Delete keyframe"
+msgstr "Ezabatu gako-fotograma"
+
+#: cinecutie/keyframepopup.C:116
+msgid "delete keyframe"
+msgstr "ezabatu gako-fotograma"
+
+#: cinecutie/keyframepopup.C:133
+msgid "Show keyframe settings"
+msgstr "Erakutsi gako-fotogramaren ezarpenak"
+
+#: cinecutie/keyframepopup.C:252
+msgid "Copy keyframe"
+msgstr "Kopiatu gako-fotograma"
+
+#: cinecutie/labelnavigate.C:64
+msgid "Previous label"
+msgstr "Aurreko etiketa"
+
+#: cinecutie/labelnavigate.C:82
+msgid "Next label"
+msgstr "Hurrengo etiketa"
+
+#: cinecutie/loadfile.C:45
+msgid "Load files..."
+msgstr "Kargatu fitxategiak..."
+
+#: cinecutie/loadfile.C:203
+msgid "Select files to load:"
+msgstr "Hautatu fitxategiak kargatzeko:"
+
+#: cinecutie/loadfile.C:251
+msgid "Replace current project."
+msgstr "Ordeztu uneko proiektua."
+
+#: cinecutie/loadfile.C:268
+msgid "Replace current project and concatenate tracks."
+msgstr "Ordeztu uneko proiektua eta kateatu pistak."
+
+#: cinecutie/loadfile.C:285
+msgid "Append in new tracks."
+msgstr "Erantsi pista berrietan."
+
+#: cinecutie/loadfile.C:302
+msgid "Concatenate to existing tracks."
+msgstr "Kateatu dauden pistei."
+
+#: cinecutie/loadfile.C:319
+msgid "Create new resources only."
+msgstr "Sortu baliabide berriak."
+
+#: cinecutie/loadfile.C:384
+msgid "load previous"
+msgstr "kargatu aurrekoa"
+
+#: cinecutie/loadfile.C:414
+msgid "Load backup"
+msgstr "Kargatu babeskopia"
+
+#: cinecutie/loadfile.C:438
+msgid "load backup"
+msgstr "kargatu babeskopia"
+
+#: cinecutie/loadfile.C:452
+msgid "Please enter the reel name and number"
+msgstr "Sartu bobinaren izena eta zenbakia"
+
+#: cinecutie/loadfile.C:533
+msgid "Use default or previous name and number"
+msgstr "Erabili izen eta zenbaki lehenetsia edo aurrekoa"
+
+#: cinecutie/loadmode.C:54
+msgid "Insert nothing"
+msgstr "Ezer ez txertatu"
+
+#: cinecutie/loadmode.C:55
+msgid "Replace current project"
+msgstr "Ordeztu uneko proiektua"
+
+#: cinecutie/loadmode.C:56
+msgid "Replace current project and concatenate tracks"
+msgstr "Ordeztu uneko proiektuak eta kateatu pistak"
+
+#: cinecutie/loadmode.C:57
+msgid "Append in new tracks"
+msgstr "Erantsi pista berrietan."
+
+#: cinecutie/loadmode.C:58
+msgid "Concatenate to existing tracks"
+msgstr "Kateatu dauden pistei."
+
+#: cinecutie/loadmode.C:59
+msgid "Paste at insertion point"
+msgstr "Itsatsi txertatzeko puntuan"
+
+#: cinecutie/loadmode.C:60
+msgid "Create new resources only"
+msgstr "Sortu baliabide berriak soilik."
+
+#: cinecutie/loadmode.C:93
+msgid "Insertion strategy:"
+msgstr "Txertatzeko estrategia:"
+
+#: cinecutie/main.C:191
+#, c-format
+msgid ""
+"\n"
+"Usage:\n"
+msgstr ""
+"\n"
+"Erabilera:\n"
+
+#: cinecutie/main.C:192
+#, c-format
+msgid ""
+"%s [-f] [-c configuration] [-d port] [-n nice] [-r batch file] [filenames]\n"
+"\n"
+msgstr ""
+"%s [-f] [-c konfigurazioa] [-d ataka] [-n lehentasuna] [-r batch_fitxategia] "
+"[fitxategi_izenak]\n"
+"\n"
+
+#: cinecutie/main.C:193
+#, c-format
+msgid ""
+"-d = Run in the background as renderfarm client.  The port (400) is "
+"optional.\n"
+msgstr ""
+"-d = atzeko planoan exekutatu errendategi baten bezero gisa. Ataka (400) "
+"aukerazkoa da.\n"
+
+#: cinecutie/main.C:194
+#, c-format
+msgid "-f = Run in the foreground as renderfarm client.  Substitute for -d.\n"
+msgstr ""
+"-f = exekutatu aurreko planoan errendategi baten bezero gisa. '-d'ren "
+"ordezkoa.\n"
+
+#: cinecutie/main.C:195
+#, c-format
+msgid "-n = Nice value if running as renderfarm client. (20)\n"
+msgstr "-n = NICE lehentasunaren balioa errendategiko bezeroa denean. (20)\n"
+
+#: cinecutie/main.C:196
+#, c-format
+msgid "-c = Configuration file to use instead of %s%s.\n"
+msgstr "-c = %s%s-(r)en ordez erabiliko den konfigurazio-fitxategia.\n"
+
+#: cinecutie/main.C:199
+#, c-format
+msgid ""
+"-r = batch render the contents of the batch file (%s%s) with no GUI.  batch "
+"file is optional.\n"
+msgstr ""
+"-r = batch fitxategiaren (%s%s) edukia errendizatzen du interfaze grafikorik "
+"gabe. Batch fitxategia aukerazkoa da.\n"
+
+#: cinecutie/main.C:202
+#, c-format
+msgid ""
+"filenames = files to load\n"
+"\n"
+"\n"
+msgstr ""
+"fitxategi-izenak = fitxategiak kargatzeko\n"
+"\n"
+"\n"
+
+#: cinecutie/mainindexes.C:228 cinecutie/threadindexer.C:136
+msgid "Building Indexes..."
+msgstr "Indizeak sortzen..."
+
+#: cinecutie/mainmenu.C:90 plugins/reverb/reverbwindow.C:250
+msgid "File"
+msgstr "Fitxategia"
+
+#: cinecutie/mainmenu.C:121 plugins/svg/svgwin.C:282
+msgid "Edit"
+msgstr "Editatu"
+
+#: cinecutie/mainmenu.C:137
+msgid "Keyframes"
+msgstr "Gako-fotogramak"
+
+#: cinecutie/mainmenu.C:150 cinecutie/new.C:265 cinecutie/setformat.C:345
+msgid "Audio"
+msgstr "Audioa"
+
+#: cinecutie/mainmenu.C:157 cinecutie/new.C:293 cinecutie/setformat.C:397
+msgid "Video"
+msgstr "Bideoa"
+
+#: cinecutie/mainmenu.C:162
+msgid "Tracks"
+msgstr "Pistak"
+
+#: cinecutie/mainmenu.C:169
+msgid "Settings"
+msgstr "Ezarpenak"
+
+#: cinecutie/mainmenu.C:195
+msgid "Fade"
+msgstr "Iraungitu"
+
+#: cinecutie/mainmenu.C:196
+msgid "Mute"
+msgstr "Mututu"
+
+#: cinecutie/mainmenu.C:197 cinecutie/recordgui.C:98
+#: plugins/parametric/parametric.C:383
+msgid "Mode"
+msgstr "Modua"
+
+#: cinecutie/mainmenu.C:198
+msgid "Pan"
+msgstr "Panoramikoa"
+
+#: cinecutie/mainmenu.C:200 plugins/denoiseseltempavg/seltempavgwindow.C:71
+msgid "Mask"
+msgstr "Maskara"
+
+#: cinecutie/mainmenu.C:201
+msgid "Camera X"
+msgstr "X kamera"
+
+#: cinecutie/mainmenu.C:202
+msgid "Camera Y"
+msgstr "Y kamera"
+
+#: cinecutie/mainmenu.C:203
+msgid "Camera Z"
+msgstr "Z kamera"
+
+#: cinecutie/mainmenu.C:204
+msgid "Projector X"
+msgstr "X proiektagailua"
+
+#: cinecutie/mainmenu.C:205
+msgid "Projector Y"
+msgstr "Y proiektagailua"
+
+#: cinecutie/mainmenu.C:206
+msgid "Projector Z"
+msgstr "Z proiektagailua"
+
+#: cinecutie/mainmenu.C:209
+msgid "Window"
+msgstr "Leihoa"
+
+#: cinecutie/mainmenu.C:495
+msgid "Dump CICache"
+msgstr "Irauli CICache"
+
+#: cinecutie/mainmenu.C:504
+msgid "Dump EDL"
+msgstr "Irauli EDL"
+
+#: cinecutie/mainmenu.C:518
+msgid "Dump Plugins"
+msgstr "Irauli plugin-ak"
+
+#: cinecutie/mainmenu.C:533
+msgid "Dump Assets"
+msgstr "Irauli klipak"
+
+#: cinecutie/mainmenu.C:543
+msgid "Undo"
+msgstr "Desegin"
+
+#: cinecutie/mainmenu.C:555
+#, c-format
+msgid "Undo %s"
+msgstr "Desegin %s"
+
+#: cinecutie/mainmenu.C:560
+msgid "Redo"
+msgstr "Berregin"
+
+#: cinecutie/mainmenu.C:575
+#, c-format
+msgid "Redo %s"
+msgstr "Berregin %s"
+
+#: cinecutie/mainmenu.C:580
+msgid "Cut keyframes"
+msgstr "Ebaki gako-fotogramak"
+
+#: cinecutie/mainmenu.C:592
+msgid "Copy keyframes"
+msgstr "Kopiatu gako-fotogramak"
+
+#: cinecutie/mainmenu.C:605
+msgid "Paste keyframes"
+msgstr "Itsatsi gako-fotogramak"
+
+#: cinecutie/mainmenu.C:617
+msgid "Clear keyframes"
+msgstr "Garbitu gako-fotogramak"
+
+#: cinecutie/mainmenu.C:631
+msgid "Straighten curves"
+msgstr "Zuzendu kurbak"
+
+#: cinecutie/mainmenu.C:650
+msgid "Cut default keyframe"
+msgstr "Ebaki gako-fotograma lehenetsia"
+
+#: cinecutie/mainmenu.C:663
+msgid "Copy default keyframe"
+msgstr "Kopiatu gako-fotograma lehenetsia"
+
+#: cinecutie/mainmenu.C:676
+msgid "Paste default keyframe"
+msgstr "Itsatsi gako-fotograma lehenetsia"
+
+#: cinecutie/mainmenu.C:689
+msgid "Clear default keyframe"
+msgstr "Garbitu gako-fotograma lehenetsia"
+
+#: cinecutie/mainmenu.C:702
+msgid "Cut"
+msgstr "Ebaki"
+
+#: cinecutie/mainmenu.C:714
+msgid "Copy"
+msgstr "Kopiatu"
+
+#: cinecutie/mainmenu.C:738 plugins/compressor/compressor.C:1406
+#: plugins/synthesizer/synthesizer.C:980
+msgid "Clear"
+msgstr "Garbitu"
+
+#: cinecutie/mainmenu.C:752
+msgid "Paste silence"
+msgstr "Itsatsi isiltasuna"
+
+#: cinecutie/mainmenu.C:765
+msgid "Select All"
+msgstr "Hautatu denak"
+
+#: cinecutie/mainmenu.C:776
+msgid "Clear labels"
+msgstr "Garbitu etiketak"
+
+#: cinecutie/mainmenu.C:788
+msgid "Mute Region"
+msgstr "Mututu eskualdea"
+
+#: cinecutie/mainmenu.C:801
+msgid "Trim Selection"
+msgstr "Doitu hautapena"
+
+#: cinecutie/mainmenu.C:849 cinecutie/mainmenu.C:932
+msgid "Default Transition"
+msgstr "Trantsizio lehenetsia"
+
+#: cinecutie/mainmenu.C:862
+msgid "Map 1:1"
+msgstr "1:1 erlazioa"
+
+#: cinecutie/mainmenu.C:874
+msgid "Map 5.1:2"
+msgstr "5.1:2 erlazioa"
+
+#: cinecutie/mainmenu.C:919
+msgid "Reset Translation"
+msgstr "Berrezarri translazioa"
+
+#: cinecutie/mainmenu.C:960
+msgid "Delete tracks"
+msgstr "Ezabatu pistak"
+
+#: cinecutie/mainmenu.C:972
+msgid "Delete last track"
+msgstr "Ezabatu azken pista"
+
+#: cinecutie/mainmenu.C:984
+msgid "Move tracks up"
+msgstr "Eraman pistak gora"
+
+#: cinecutie/mainmenu.C:996
+msgid "Move tracks down"
+msgstr "Eraman pistak behera"
+
+#: cinecutie/mainmenu.C:1011
+msgid "Concatenate tracks"
+msgstr "Kateatu pistak"
+
+#: cinecutie/mainmenu.C:1028
+msgid "Loop Playback"
+msgstr "Erreproduzitu begiztan"
+
+#: cinecutie/mainmenu.C:1047
+msgid "Set background render"
+msgstr "Ezarri atzeko planoan errendatzea"
+
+#: cinecutie/mainmenu.C:1065
+msgid "Edit labels"
+msgstr "Editatu etiketak"
+
+#: cinecutie/mainmenu.C:1081
+msgid "Edit effects"
+msgstr "Editatu efektuak"
+
+#: cinecutie/mainmenu.C:1097
+msgid "Autos follow edits"
+msgstr "Planoen jarraipen automatikoa"
+
+#: cinecutie/mainmenu.C:1111
+msgid "Align cursor on frames"
+msgstr "Lerrokatu kurtsorea fotogrametara"
+
+#: cinecutie/mainmenu.C:1124 cinecutie/mainmenu.C:1134
+msgid "Slow Shuttle"
+msgstr "Kurtsore motela"
+
+#: cinecutie/mainmenu.C:1139
+msgid "Fast Shuttle"
+msgstr "kurtsore azkarra"
+
+#: cinecutie/mainmenu.C:1143
+msgid "Save settings now"
+msgstr "Gorde ezarpenak orain"
+
+#: cinecutie/mainmenu.C:1152
+msgid "Saved settings."
+msgstr "Ezarpenak gordetak."
+
+#: cinecutie/mainmenu.C:1165
+msgid "Show Viewer"
+msgstr "Erakutsi ikustailea"
+
+#: cinecutie/mainmenu.C:1177
+msgid "Show Resources"
+msgstr "Erakutsi baliabideak"
+
+#: cinecutie/mainmenu.C:1189
+msgid "Show Compositor"
+msgstr "Erakutsi konposaketa-leihoa"
+
+#: cinecutie/mainmenu.C:1202
+msgid "Show Overlays"
+msgstr "Erakutsi gainjarpen-leihoa"
+
+#: cinecutie/mainmenu.C:1215
+msgid "Show Levels"
+msgstr "Erakutsi maila-leihoa"
+
+#: cinecutie/mainmenu.C:1227
+msgid "Default positions"
+msgstr "Posizio lehenetsiak"
+
+#: cinecutie/mainprogress.C:163
+#, c-format
+msgid "%s ETA: %s"
+msgstr "%s falta den denbora: %s"
+
+#: cinecutie/manualgoto.C:251
+msgid "hour  min     sec     msec"
+msgstr "ordu  min     seg     mseg"
+
+#: cinecutie/menueffects.C:56
+msgid "Render effect..."
+msgstr "Errendatu efektua..."
+
+#: cinecutie/menueffects.C:132
+#, c-format
+msgid "No recordable tracks specified."
+msgstr "Ez da pista grabagarririk zehaztu."
+
+#: cinecutie/menueffects.C:143
+#, c-format
+msgid "No plugins available."
+msgstr "Ez dago plugin erabilgarririk."
+
+#: cinecutie/menueffects.C:245
+msgid "No output file specified."
+msgstr "Ez da irteerako fitxategirik zehaztu."
+
+#: cinecutie/menueffects.C:253
+msgid "No effect selected."
+msgstr "Ez da efekturik hautatu."
+
+#: cinecutie/menueffects.C:295
+msgid "No selected range to process."
+msgstr "Ez da barrutirik hautatu prozesatzeko."
+
+#: cinecutie/menueffects.C:454 cinecutie/packagerenderer.C:175
+#: cinecutie/savefile.C:103
+#, c-format
+msgid "Couldn't open %s"
+msgstr "Ezin izan da %s ireki"
+
+#: cinecutie/menueffects.C:603
+msgid "Select an effect"
+msgstr "Hautatu efektu bat"
+
+#: cinecutie/menueffects.C:615 cinecutie/render.C:1136
+msgid "Select the first file to render to:"
+msgstr "Hautatu aurreneko fitxategia errendatzeko:"
+
+#: cinecutie/menueffects.C:616 cinecutie/render.C:1137
+msgid "Select a file to render to:"
+msgstr "Hautatu fitxategia errendatzeko:"
+
+#: cinecutie/menueffects.C:744
+msgid "Set up effect panel and hit \"OK\""
+msgstr "Konfiguratu efektuen panela eta sakatu \"Ados\""
+
+#: cinecutie/messages.C:69 cinecutie/messages.C:85 cinecutie/messages.C:106
+#, c-format
+msgid "recieve message failed\n"
+msgstr "huts egin du mezua jasotzean\n"
+
+#: cinecutie/messages.C:177 cinecutie/messages.C:185 cinecutie/messages.C:194
+#, c-format
+msgid "send message failed\n"
+msgstr "huts egin du mezua bidaltzean\n"
+
+#: cinecutie/messages.C:202 cinecutie/messages.C:210
+msgid "Messages::write_message"
+msgstr "Messages::write_message"
+
+#: cinecutie/meterpanel.C:274
+msgid "Show meters"
+msgstr "Erakutsi bolumena"
+
+#: cinecutie/mwindow.C:334 cinecutie/mwindow.C:372
+#, c-format
+msgid "MWindow::init_plugins: couldn't open %s directory\n"
+msgstr "MWindow::init_plugins: ezin izan da %s direktorioa ireki\n"
+
+#: cinecutie/mwindow.C:608
+#, c-format
+msgid "MWindow::init_theme: theme %s not found.\n"
+msgstr "MWindow::init_theme: ezin izan da %s gaia aurkitu.\n"
+
+#: cinecutie/mwindow.C:940
+#, c-format
+msgid "Failed to open %s"
+msgstr "Huts egin du %s irekitzean"
+
+#: cinecutie/mwindow.C:988
+msgid "'s format couldn't be determined."
+msgstr "-(r)en formatua ezin izan da zehaztu."
+
+#: cinecutie/mwindow.C:1169
+msgid "load"
+msgstr "kargatu"
+
+#: cinecutie/mwindow.C:1313
+msgid "Initializing GUI"
+msgstr "Interfazea hasieratzen"
+
+#: cinecutie/mwindow.C:1951
+#, c-format
+msgid "Couldn't open %s for writing."
+msgstr "Ezin izan da %s ireki idazteko."
+
+#: cinecutie/mwindow.C:2040
+msgid "remove assets"
+msgstr "kendu klipak"
+
+#: cinecutie/mwindow.C:2198
+#, c-format
+msgid "Using %s."
+msgstr "%s erabiltzen."
+
+#: cinecutie/mwindowedit.C:89 cinecutie/mwindowedit.C:107
+msgid "add track"
+msgstr "gehitu pista"
+
+#: cinecutie/mwindowedit.C:164 cinecutie/preferencesthread.C:205
+#: cinecutie/setformat.C:187
+msgid ""
+"This project's dimensions are not multiples of 4 so\n"
+"it can't be rendered by OpenGL."
+msgstr ""
+"Proiektu honen dimentsioak ez direnez 4-ren multiploak\n"
+"ezin izango da OpenGL-en errendatu."
+
+#: cinecutie/mwindowedit.C:180
+msgid "asset to size"
+msgstr "klipa tamainara"
+
+#: cinecutie/mwindowedit.C:200
+msgid "asset to rate"
+msgstr "klipa tasara"
+
+#: cinecutie/mwindowedit.C:221
+msgid "clear"
+msgstr "garbitu"
+
+#: cinecutie/mwindowedit.C:252
+msgid "straighten curves"
+msgstr "zuzendu kurbak"
+
+#: cinecutie/mwindowedit.C:268
+msgid "clear keyframes"
+msgstr "garbitu gako-fotogramak"
+
+#: cinecutie/mwindowedit.C:283
+msgid "clear default keyframe"
+msgstr "garbitu gako-fotograma lehenetsia"
+
+#: cinecutie/mwindowedit.C:299
+msgid "clear labels"
+msgstr "garbitu etiketak"
+
+#: cinecutie/mwindowedit.C:316
+msgid "concatenate tracks"
+msgstr "kateatu pistak"
+
+#: cinecutie/mwindowedit.C:430
+msgid "crop"
+msgstr "moztu"
+
+#: cinecutie/mwindowedit.C:455
+msgid "cut"
+msgstr "ebaki"
+
+#: cinecutie/mwindowedit.C:474
+msgid "cut keyframes"
+msgstr "ebaki gako-fotogramak"
+
+#: cinecutie/mwindowedit.C:492
+msgid "cut default keyframe"
+msgstr "ebaki gako-fotograma lehenetsia"
+
+#: cinecutie/mwindowedit.C:527
+msgid "delete tracks"
+msgstr "ezabatu pistak"
+
+#: cinecutie/mwindowedit.C:542
+msgid "delete track"
+msgstr "ezabatu pista"
+
+#: cinecutie/mwindowedit.C:560
+msgid "detach transition"
+msgstr "kendu trantsizioa"
+
+#: cinecutie/mwindowedit.C:645 cinecutie/mwindowedit.C:682
+msgid "insert effect"
+msgstr "txertatu efektua"
+
+#: cinecutie/mwindowedit.C:802
+msgid "drag handle"
+msgstr "arrastatze-heldulekua"
+
+#: cinecutie/mwindowedit.C:815
+msgid "match output size"
+msgstr "doitu irteerako tamainara"
+
+#: cinecutie/mwindowedit.C:836
+msgid "move edit"
+msgstr "aldatu planoa lekuz"
+
+#: cinecutie/mwindowedit.C:866
+msgid "move effect"
+msgstr "aldatu efektua lekuz"
+
+#: cinecutie/mwindowedit.C:890
+msgid "move effect up"
+msgstr "eraman efektua gora"
+
+#: cinecutie/mwindowedit.C:908
+msgid "move effect down"
+msgstr "eraman efektua behera"
+
+#: cinecutie/mwindowedit.C:924
+msgid "move track down"
+msgstr "eraman pista behera"
+
+#: cinecutie/mwindowedit.C:936
+msgid "move tracks down"
+msgstr "eraman pistak behera"
+
+#: cinecutie/mwindowedit.C:948
+msgid "move track up"
+msgstr "eraman pista gora"
+
+#: cinecutie/mwindowedit.C:959
+msgid "move tracks up"
+msgstr "eraman pistak gora"
+
+#: cinecutie/mwindowedit.C:980
+msgid "mute"
+msgstr "mututu"
+
+#: cinecutie/mwindowedit.C:1040
+msgid "overwrite"
+msgstr "gainidatzi"
+
+#: cinecutie/mwindowedit.C:1107
+msgid "paste"
+msgstr "itsatsi"
+
+#: cinecutie/mwindowedit.C:1153
+msgid "paste assets"
+msgstr "itsatsi klipak"
+
+#: cinecutie/mwindowedit.C:1234
+msgid "paste keyframes"
+msgstr "itsatsi gako-fotogramak"
+
+#: cinecutie/mwindowedit.C:1263
+msgid "paste default keyframe"
+msgstr "itsatsi gako-fotograma lehenetsia"
+
+#: cinecutie/mwindowedit.C:1649
+msgid "silence"
+msgstr "isiltasuna"
+
+#: cinecutie/mwindowedit.C:1672 cinecutie/mwindowedit.C:1683
+#: cinecutie/mwindowedit.C:1703 cinecutie/mwindowedit.C:1724
+msgid "transition"
+msgstr "trantsizioa"
+
+#: cinecutie/mwindowedit.C:1696 cinecutie/mwindowedit.C:1716
+#, c-format
+msgid "No default transition %s found."
+msgstr "Ez da %s trantsizio lehenetsia aurkitu."
+
+#: cinecutie/mwindowedit.C:1785
+msgid "resize track"
+msgstr "aldatu pista tamainaz"
+
+#: cinecutie/mwindowedit.C:1808
+msgid "in point"
+msgstr "sarrerako puntua"
+
+#: cinecutie/mwindowedit.C:1877
+msgid "out point"
+msgstr "irteerako puntua"
+
+#: cinecutie/mwindowedit.C:1968
+msgid "splice"
+msgstr "lotu"
+
+#: cinecutie/mwindowedit.C:2004 cinecutie/vwindowgui.C:653
+#, c-format
+msgid "Clip %d"
+msgstr "%d. klipa"
+
+#: cinecutie/mwindowedit.C:2013
+#, c-format
+msgid ""
+"%s\n"
+"Created from main window"
+msgstr ""
+"%s\n"
+"Leiho nagusitik sortua"
+
+#: cinecutie/mwindowedit.C:2037
+msgid "label"
+msgstr "etiketa"
+
+#: cinecutie/mwindowedit.C:2115
+msgid "trim selection"
+msgstr "doitu hautapena"
+
+#: cinecutie/mwindowedit.C:2183
+msgid "new folder"
+msgstr "karpeta berria"
+
+#: cinecutie/mwindowedit.C:2275
+msgid "map 1:1"
+msgstr "1:1 erlazioa"
+
+#: cinecutie/new.C:57
+msgid "New..."
+msgstr "Berria..."
+
+#: cinecutie/new.C:217
+msgid "Cinelerra: New Project"
+msgstr "Cinelerra: proiektu berria"
+
+#: cinecutie/new.C:221
+msgid ": New Project"
+msgstr ": proiektu berria"
+
+#: cinecutie/new.C:250
+msgid "Parameters for the new project:"
+msgstr "Proiektu berriaren parametroak:"
+
+#: cinecutie/new.C:269 cinecutie/new.C:296
+msgid "Tracks:"
+msgstr "Pistak:"
+
+#: cinecutie/new.C:285 cinecutie/recordgui.C:245 cinecutie/setformat.C:351
+msgid "Samplerate:"
+msgstr "Lagin-tasa:"
+
+#: cinecutie/new.C:311 cinecutie/recordgui.C:258
+msgid "Framerate:"
+msgstr "Fotog.-tasa:"
+
+#: cinecutie/new.C:337 cinecutie/setformat.C:415
+msgid "Canvas size:"
+msgstr "Oihal-tamaina:"
+
+#: cinecutie/new.C:356 cinecutie/setformat.C:483
+msgid "Aspect ratio:"
+msgstr "Erlazioa:"
+
+#: cinecutie/new.C:384 cinecutie/setformat.C:510
+msgid "Interlace mode:"
+msgstr "Gurutzelark.:"
+
+#: cinecutie/new.C:901
+msgid "Auto aspect ratio"
+msgstr "Aspektu-erlazio automatikoa"
+
+#: cinecutie/newfolder.C:60
+msgid "Enter the name of the folder:"
+msgstr "Idatzi karpetaren izena:"
+
+#: cinecutie/newfolder.C:62 cinecutie/pluginclient.C:135
+msgid "Untitled"
+msgstr "Izengabea"
+
+#: cinecutie/patchbay.C:325 cinecutie/patchgui.C:615
+#: cinecutie/trackcanvas.C:4394
+msgid "keyframe"
+msgstr "gako-fotograma"
+
+#: cinecutie/patchgui.C:300
+msgid "play patch"
+msgstr "erreproduzitu soinua"
+
+#: cinecutie/patchgui.C:308
+msgid "mute patch"
+msgstr "mututu soinua"
+
+#: cinecutie/patchgui.C:314
+msgid "record patch"
+msgstr "grabatu soinua"
+
+#: cinecutie/patchgui.C:318
+msgid "gang patch"
+msgstr "elkartu soinua"
+
+#: cinecutie/patchgui.C:322
+msgid "draw patch"
+msgstr "marraztu soinua"
+
+#: cinecutie/patchgui.C:327
+msgid "expand patch"
+msgstr "zabaldu soinua"
+
+#: cinecutie/patchgui.C:391
+msgid "Play track"
+msgstr "Erreproduzitu pista"
+
+#: cinecutie/patchgui.C:442
+msgid "Arm track"
+msgstr "Ainguratu pista"
+
+#: cinecutie/patchgui.C:492
+msgid "Gang faders"
+msgstr "Elkartu audio-maila"
+
+#: cinecutie/patchgui.C:542
+msgid "Draw media"
+msgstr "Marraztu multimedia"
+
+#: cinecutie/patchgui.C:591
+msgid "Don't send to output"
+msgstr "Ez bidali irteerara"
+
+#: cinecutie/patchgui.C:722
+msgid "track title"
+msgstr "pistaren titulua"
+
+#: cinecutie/patchgui.C:747
+msgid "Nudge"
+msgstr "Desplazatu"
+
+#: cinecutie/performanceprefs.C:74
+msgid "Cache size (MB):"
+msgstr "Cache-tamaina (MB):"
+
+#: cinecutie/performanceprefs.C:82
+msgid "Seconds to preroll renders:"
+msgstr "Errendatzeari aurrehartzeko seg.:"
+
+#: cinecutie/performanceprefs.C:101
+msgid "Background Rendering (Video only)"
+msgstr "Atzeko planoan errendatzea (bideoa soilik)"
+
+#: cinecutie/performanceprefs.C:109
+msgid "Frames per background rendering job:"
+msgstr "Fotogramak (atz.planoan errendatzeko):"
+
+#: cinecutie/performanceprefs.C:115
+msgid "Frames to preroll background:"
+msgstr "Fotogramak Atz.Pl-an aurrehartzeko:"
+
+#: cinecutie/performanceprefs.C:124
+msgid "Output for background rendering:"
+msgstr "Irteera atz.planoan errendatzeko:"
+
+#: cinecutie/performanceprefs.C:150
+msgid "Render Farm"
+msgstr "Errendategia"
+
+#: cinecutie/performanceprefs.C:154
+msgid "Nodes:"
+msgstr "Nodoak:"
+
+#: cinecutie/performanceprefs.C:156
+msgid "Hostname:"
+msgstr "Ostalari-izena:"
+
+#: cinecutie/performanceprefs.C:163
+#, c-format
+msgid "Master node framerate: %0.3f"
+msgstr "Nodo nagusiaren fotograma-tasa: %0.3f"
+
+#: cinecutie/performanceprefs.C:209
+msgid "Total jobs to create:"
+msgstr "Lan kopurua sortzeko:"
+
+#: cinecutie/performanceprefs.C:212
+msgid "(overridden if new file at each label is checked)"
+msgstr "(gainidatzi 'Etiketa bakoitzean fitxategi berria' gaituta egotean)"
+
+#: cinecutie/performanceprefs.C:268 cinecutie/pluginpopup.C:207
+#: cinecutie/recordgui.C:92 cinecutie/transitionpopup.C:232
+msgid "On"
+msgstr "Aktiboa"
+
+#: cinecutie/performanceprefs.C:269
+msgid "Hostname"
+msgstr "Ostalari-izena"
+
+#: cinecutie/performanceprefs.C:270
+msgid "Port"
+msgstr "Ataka"
+
+#: cinecutie/performanceprefs.C:271
+msgid "Framerate"
+msgstr "Fotograma-tasa:"
+
+#: cinecutie/performanceprefs.C:302
+msgid "Use background rendering"
+msgstr "Erabaili atz.planoan errendatzea"
+
+#: cinecutie/performanceprefs.C:435
+msgid "Use render farm"
+msgstr "Erabili errendategia"
+
+#: cinecutie/performanceprefs.C:455
+msgid "Force single processor use"
+msgstr "Derrigortu prozesadore bakarra erabiltzea"
+
+#: cinecutie/performanceprefs.C:478
+msgid "Consolidate output files on completion"
+msgstr "Bermatu irteerako fitxategiak burutzean"
+
+#: cinecutie/performanceprefs.C:606
+msgid "Add Node"
+msgstr "Gehitu nodoa"
+
+#: cinecutie/performanceprefs.C:634
+msgid "Apply Changes"
+msgstr "Aplikatu aldaketak"
+
+#: cinecutie/performanceprefs.C:661
+msgid "Delete Node"
+msgstr "Ezabatu nodoa"
+
+#: cinecutie/performanceprefs.C:689
+msgid "Sort nodes"
+msgstr "Ordenatu nodoak"
+
+#: cinecutie/performanceprefs.C:716
+msgid "Reset rates"
+msgstr "Berrezarri tasak"
+
+#: cinecutie/performanceprefs.C:797
+msgid "Use virtual filesystem"
+msgstr "Erabili fitxategi-sistema birtuala"
+
+#: cinecutie/playbackprefs.C:69
+msgid "Audio Out"
+msgstr "Audio-irteera"
+
+#: cinecutie/playbackprefs.C:78
+msgid "Playback buffer size:"
+msgstr "Erreproduzitzeko buffer-tamaina:"
+
+#: cinecutie/playbackprefs.C:101
+msgid "Audio offset (sec):"
+msgstr "Audioaren despl. (seg):"
+
+#: cinecutie/playbackprefs.C:117
+msgid "Audio Driver:"
+msgstr "Kontrolatzailea:"
+
+#: cinecutie/playbackprefs.C:139
+msgid "Video Out"
+msgstr "Bideo irteera"
+
+#: cinecutie/playbackprefs.C:145
+msgid "Framerate achieved:"
+msgstr "Fotograma-tasa:"
+
+#: cinecutie/playbackprefs.C:146 cinecutie/zoombar.C:118
+#: cinecutie/zoombar.C:120
+msgid "--"
+msgstr "--"
+
+#: cinecutie/playbackprefs.C:154
+msgid "Scaling equation:"
+msgstr "Eskalatze-ekuazioa:"
+
+#: cinecutie/playbackprefs.C:176
+msgid "Preload buffer for Quicktime:"
+msgstr "Quicktime-n bufferra:"
+
+#: cinecutie/playbackprefs.C:182
+msgid "DVD Subtitle to display:"
+msgstr "DVDaren azpititulua bistaratzeko:"
+
+#: cinecutie/playbackprefs.C:220
+msgid "Timecode offset:"
+msgstr "Denbora-despl.:"
+
+#: cinecutie/playbackprefs.C:223 cinecutie/playbackprefs.C:226
+#: cinecutie/playbackprefs.C:229 cinecutie/setformat.C:491
+msgid ":"
+msgstr ":"
+
+#: cinecutie/playbackprefs.C:234
+msgid "Video Driver:"
+msgstr "Bideo-kontrolatzailea:"
+
+#: cinecutie/playbackprefs.C:328
+msgid "View follows playback"
+msgstr "Erreprodukzioaren ikuspegia"
+
+#: cinecutie/playbackprefs.C:343 cinecutie/recordprefs.C:407
+msgid "Use software for positioning information"
+msgstr "Erabili softwarea posizioaren informazioan"
+
+#: cinecutie/playbackprefs.C:358
+msgid "Audio playback in real time priority (root only)"
+msgstr "Erreproduzitu audioa denbora errealean ('root' soilik)"
+
+#: cinecutie/playbackprefs.C:376
+msgid "Nearest neighbor enlarge and reduce"
+msgstr "\"Hurbilenaren arabera\" luzatzeko eta uzkurtzeko"
+
+#: cinecutie/playbackprefs.C:392
+msgid "Bicubic enlarge and reduce"
+msgstr "Bi-kubikoa luzatzeko eta uzkurtzeko"
+
+#: cinecutie/playbackprefs.C:407
+msgid "Bicubic enlarge and bilinear reduce"
+msgstr "Bi-kubikoa luzatzeko eta bilineala uzkurtzeko"
+
+#: cinecutie/playbackprefs.C:424
+msgid "Bilinear enlarge and bilinear reduce"
+msgstr "Bilineala luzatzeko eta uzkurtzeko"
+
+#: cinecutie/playbackprefs.C:462
+msgid "Interpolate CR2 images"
+msgstr "Interpolatu CR2 irudiak"
+
+#: cinecutie/playbackprefs.C:496
+msgid "White balance CR2 images"
+msgstr "CR2 irudien zuri-balantzea"
+
+#: cinecutie/playbackprefs.C:519
+msgid "Decode frames asynchronously"
+msgstr "Dekodetu fotogramak asinkronoki"
+
+#: cinecutie/playbackprefs.C:539
+msgid "Play every frame"
+msgstr "Erreprod. fotog. bakoitza"
+
+#: cinecutie/playbackprefs.C:574
+msgid "Enable subtitles"
+msgstr "Gaitu azpitituluak"
+
+#: cinecutie/playtransport.C:429
+msgid "Fast reverse ( + )"
+msgstr "Azkar atzerantz (+)"
+
+#: cinecutie/playtransport.C:444
+msgid "Normal reverse ( 6 )"
+msgstr "Atzeratu (6)"
+
+#: cinecutie/playtransport.C:459
+msgid "Frame reverse ( 4 )"
+msgstr "Atzeratu fotograma (4)"
+
+#: cinecutie/playtransport.C:474
+msgid "Normal forward ( 3 )"
+msgstr "Aurreratu ( 3 )"
+
+#: cinecutie/playtransport.C:491
+msgid "Frame forward ( 1 )"
+msgstr "Aurreratu fotograma (1)"
+
+#: cinecutie/playtransport.C:506
+msgid "Fast forward ( Enter )"
+msgstr "Azkar aurrerantz (Sartu)"
+
+#: cinecutie/pluginaclientlad.C:479
+#, c-format
+msgid "Author: %s"
+msgstr "Egilea: %s"
+
+#: cinecutie/pluginaclientlad.C:482
+#, c-format
+msgid "License: %s"
+msgstr "Lizentzia: %s"
+
+#: cinecutie/pluginarray.C:189
+#, c-format
+msgid "%s..."
+msgstr "%s..."
+
+#: cinecutie/pluginarray.C:215
+#, c-format
+msgid "%s took %s"
+msgstr "%s-(r)en iraupena: %s"
+
+#: cinecutie/pluginclient.C:189
+#, c-format
+msgid "No processing defined for this plugin.\n"
+msgstr "Plugin-ak ez du prozesurik definituta.\n"
+
+#: cinecutie/plugindialog.C:183
+msgid "attach effect"
+msgstr "erantsi efektua"
+
+#: cinecutie/plugindialog.C:340
+msgid "Plugins:"
+msgstr "Plugin-ak:"
+
+#: cinecutie/plugindialog.C:368
+msgid "Shared effects:"
+msgstr "Efektu partekatuak:"
+
+#: cinecutie/plugindialog.C:396
+msgid "Shared tracks:"
+msgstr "Pista partekatuak:"
+
+#: cinecutie/pluginpopup.C:81
+msgid "Change..."
+msgstr "Aldatu..."
+
+#: cinecutie/pluginpopup.C:108 cinecutie/transitionpopup.C:214
+msgid "Detach"
+msgstr "Kendu"
+
+#: cinecutie/pluginpopup.C:123
+msgid "detach effect"
+msgstr "kendu efektua"
+
+#: cinecutie/pluginpopup.C:143
+msgid "Send"
+msgstr "Bidali"
+
+#: cinecutie/pluginpopup.C:165
+msgid "Receive"
+msgstr "Hartu"
+
+#: cinecutie/pluginpopup.C:187 cinecutie/transitionpopup.C:255
+msgid "Show"
+msgstr "Erakutsi"
+
+#: cinecutie/preferencesthread.C:66
+msgid "Preferences..."
+msgstr "Hobespenak..."
+
+#: cinecutie/preferencesthread.C:285
+msgid "Playback"
+msgstr "Erreproduzitu"
+
+#: cinecutie/preferencesthread.C:288
+msgid "Recording"
+msgstr "Grabazioa"
+
+#: cinecutie/preferencesthread.C:291
+msgid "Performance"
+msgstr "Errendimendua"
+
+#: cinecutie/preferencesthread.C:294
+msgid "Interface"
+msgstr "Interfazea"
+
+#: cinecutie/preferencesthread.C:297
+msgid "About"
+msgstr "Honi buruz"
+
+#: cinecutie/preferencesthread.C:531 cinecutie/preferencesthread.C:533
+#: cinecutie/setformat.C:916
+msgid "Apply"
+msgstr "Aplikatu"
+
+#: cinecutie/quit.C:43
+msgid "Quit"
+msgstr "Irten"
+
+#: cinecutie/quit.C:84
+msgid "Can't quit while a recording is in progress."
+msgstr "Ezin da irten grabatzen ari den bitartean."
+
+#: cinecutie/quit.C:94
+msgid "Can't quit while a render is in progress."
+msgstr "Ezin da irten errendatzen ari den bitartean."
+
+#: cinecutie/quit.C:107
+msgid "Save edit list before exiting?"
+msgstr "Gorde muntai-zerrenda irten aurretik?"
+
+#: cinecutie/recconfirmdelete.C:49
+#, c-format
+msgid "Delete this file and %s?"
+msgstr "Ezabatu fitxategia eta %s?"
+
+#: cinecutie/record.C:75
+msgid "Record..."
+msgstr "Grabatu..."
+
+#: cinecutie/record.C:588
+msgid "record"
+msgstr "grabatu"
+
+#: cinecutie/record.C:696
+#, c-format
+msgid "Deleting"
+msgstr "Ezabatzen"
+
+#: cinecutie/recordaudio.C:269 cinecutie/recordvideo.C:371
+msgid "No space left on disk."
+msgstr "Ez dago lekurik disko gogorrean."
+
+#: cinecutie/recordgui.C:93
+msgid "Path"
+msgstr "Bide-izena"
+
+#: cinecutie/recordgui.C:94
+msgid "News"
+msgstr "Albisteak"
+
+#: cinecutie/recordgui.C:95
+msgid "Start time"
+msgstr "Hasiera-denbora"
+
+#: cinecutie/recordgui.C:96
+msgid "Duration"
+msgstr "Iraupena"
+
+#: cinecutie/recordgui.C:97
+msgid "Source"
+msgstr "Iturburua"
+
+#: cinecutie/recordgui.C:166
+msgid "Path:"
+msgstr "Bide-izena:"
+
+#: cinecutie/recordgui.C:169
+msgid "Start time:"
+msgstr "Hasiera:"
+
+#: cinecutie/recordgui.C:172
+msgid "Duration time:"
+msgstr "Iraupena:"
+
+#: cinecutie/recordgui.C:175
+msgid "Source:"
+msgstr "Iturburua:"
+
+#: cinecutie/recordgui.C:181
+msgid "Transport:"
+msgstr "Garraioa:"
+
+#: cinecutie/recordgui.C:200 cinecutie/recordwindow.C:62
+msgid "Select a file to record to:"
+msgstr "Hautatu fitxategia grabatzeko:"
+
+#: cinecutie/recordgui.C:236 plugins/titler/titlewindow.C:307
+msgid "Format:"
+msgstr "Formatua:"
+
+#: cinecutie/recordgui.C:242
+msgid "Audio compression:"
+msgstr "Audio-konpresioa:"
+
+#: cinecutie/recordgui.C:248
+msgid "Clipped samples:"
+msgstr "Moztutako laginak:"
+
+#: cinecutie/recordgui.C:255
+msgid "Video compression:"
+msgstr "Bideo-konpresioa:"
+
+#: cinecutie/recordgui.C:261
+msgid "Frames behind:"
+msgstr "Falta diren fotogramak:"
+
+#: cinecutie/recordgui.C:266
+msgid "Position:"
+msgstr "Posizioa:"
+
+#: cinecutie/recordgui.C:269
+msgid "Prev label:"
+msgstr "Aurreko etiketa:"
+
+#: cinecutie/recordgui.C:365
+msgid "Batches:"
+msgstr "Batch-ak:"
+
+#: cinecutie/recordgui.C:718
+msgid "Save the recording and quit."
+msgstr "Gorde grabazioa eta irten."
+
+#: cinecutie/recordgui.C:744
+msgid "Quit without pasting into project."
+msgstr "Irten proiektuan itsatsi gabe."
+
+#: cinecutie/recordgui.C:774
+msgid "Quit and paste into project."
+msgstr "Itsatsi proiektuan eta irten."
+
+#: cinecutie/recordgui.C:793
+msgid "Start Over"
+msgstr "Hasi berriro"
+
+#: cinecutie/recordgui.C:795
+msgid "Rewind the current file and erase."
+msgstr "Birbobinatu uneko fitxategia eta ezabatu."
+
+#: cinecutie/recordgui.C:811
+msgid "Fill frames"
+msgstr "Bete fotogramak"
+
+#: cinecutie/recordgui.C:815
+msgid "Write extra frames when behind."
+msgstr "Idatzi fotograma gehigarriak atzeratzean."
+
+#: cinecutie/recordgui.C:826
+msgid "Monitor video"
+msgstr "Monitorizatu bideoa"
+
+#: cinecutie/recordgui.C:855
+msgid "Monitor audio"
+msgstr "Monitorizatu audioa"
+
+#: cinecutie/recordgui.C:915
+msgid "Offset"
+msgstr "Desplazamendua"
+
+#: cinecutie/recordgui.C:1015
+msgid "Create new clip."
+msgstr "Sortu klip berria."
+
+#: cinecutie/recordgui.C:1030
+msgid "Delete clip."
+msgstr "Ezabatu klipa."
+
+#: cinecutie/recordgui.C:1045
+msgid ""
+"Start batch recording\n"
+"from the current position."
+msgstr ""
+"Hasi grabazioa batch moduan\n"
+"uneko posiziotik."
+
+#: cinecutie/recordgui.C:1069
+msgid "Activate"
+msgstr "Aktibatu"
+
+#: cinecutie/recordgui.C:1073
+msgid ""
+"Make the highlighted\n"
+"clip active."
+msgstr ""
+"Egin aktibo\n"
+"hautautako klipa."
+
+#: cinecutie/recordgui.C:1083
+msgid "Label"
+msgstr "Etiketa"
+
+#: cinecutie/recordgui.C:1163
+msgid "Interrupt recording in progress?"
+msgstr "Bertan behera utzi uneko grabazioa?"
+
+#: cinecutie/recordgui.C:1190
+msgid "Rewind batch and overwrite?"
+msgstr "Birbobinatu batch-a eta gainidatzi?"
+
+#: cinecutie/recordmonitor.C:310
+msgid "00:00:00:00"
+msgstr "00:00:00:00"
+
+#: cinecutie/recordmonitor.C:639 cinecutie/vdeviceprefs.C:276
+msgid "Swap fields"
+msgstr "Trukatu eremuak"
+
+#: cinecutie/recordprefs.C:98
+msgid "Audio In"
+msgstr "Audio-sarrera"
+
+#: cinecutie/recordprefs.C:104 cinecutie/recordprefs.C:160
+msgid "Record Driver:"
+msgstr "Kontrolatzailea:"
+
+#: cinecutie/recordprefs.C:118
+msgid "Samples to write to disk at a time:"
+msgstr "Laginak aldi berean diskoan idazteko:"
+
+#: cinecutie/recordprefs.C:119
+msgid "Sample rate for recording:"
+msgstr "Lagin-tasa grabatzeko:"
+
+#: cinecutie/recordprefs.C:120
+msgid "Channels to record:"
+msgstr "Kanalak grabatzeko:"
+
+#: cinecutie/recordprefs.C:155
+msgid "Video In"
+msgstr "Bideo-sarrera"
+
+#: cinecutie/recordprefs.C:176
+msgid "Frames to record to disk at a time:"
+msgstr "Fotogramak aldi berean diskoan grabatzeko:"
+
+#: cinecutie/recordprefs.C:181
+msgid "Frames to buffer in device:"
+msgstr "Gailuaren bufferreko fotogramak:"
+
+#: cinecutie/recordprefs.C:196
+msgid "Size of captured frame:"
+msgstr "Kapturaren tamaina:"
+
+#: cinecutie/recordprefs.C:212
+msgid "Frame rate for recording:"
+msgstr "Grabazio-tasa:"
+
+#: cinecutie/recordprefs.C:220
+msgid "Images"
+msgstr "Irudiak"
+
+#: cinecutie/recordprefs.C:231
+msgid "Seconds"
+msgstr "Segundoak"
+
+#: cinecutie/recordprefs.C:260
+msgid "Record in realtime priority (root only)"
+msgstr "Grabatu denbora errealean ('root' soilik)"
+
+#: cinecutie/recordprefs.C:421
+msgid "Sync drives automatically"
+msgstr "Sinkronizatu diskoak automatikoki"
+
+#: cinecutie/recordprefs.C:433
+msgid "Import images with a duration of"
+msgstr "Inportatutako irudien iraupena:"
+
+#: cinecutie/recordtransport.C:156
+msgid ""
+"Start interactive recording\n"
+"from current position"
+msgstr ""
+"Hasi grabazio interaktiboa\n"
+"uneko posiziotik"
+
+#: cinecutie/recordtransport.C:180
+msgid "Record single frame"
+msgstr "Grabatu fotograma bakarra"
+
+#: cinecutie/recordtransport.C:204
+msgid "Preview recording"
+msgstr "Aurrikusi grabazioa"
+
+#: cinecutie/recordtransport.C:229
+msgid "Stop operation"
+msgstr "Gelditu eragiketa"
+
+#: cinecutie/recordtransport.C:255
+msgid "Start over"
+msgstr "Hasi berriro"
+
+#: cinecutie/recordtransport.C:280
+msgid "Fast rewind"
+msgstr "Atzeratze azkarra"
+
+#: cinecutie/recordtransport.C:343
+msgid "Fast forward"
+msgstr "Aurreratze azkarra"
+
+#: cinecutie/recordtransport.C:403
+msgid "Seek to end of recording"
+msgstr "Kokatu grabazioaren amaieran"
+
+#: cinecutie/render.C:81
+msgid "Render..."
+msgstr "Errendatu..."
+
+#: cinecutie/render.C:553
+#, c-format
+msgid "Rendering %s..."
+msgstr "%s errendatzen..."
+
+#: cinecutie/render.C:556
+msgid "Rendering..."
+msgstr "Errendatzen..."
+
+#: cinecutie/render.C:574
+#, c-format
+msgid "Rendering took %s"
+msgstr "Errendatze-denbora: %s"
+
+#: cinecutie/render.C:722
+msgid "Starting render farm"
+msgstr "Hasi errendategia"
+
+#: cinecutie/render.C:750
+msgid "Failed to start render farm"
+msgstr "Huts egin du errendategia abiatzean"
+
+#: cinecutie/render.C:852
+msgid "Error rendering data."
+msgstr "Errorea datuak errendatzean."
+
+#: cinecutie/render.C:900
+msgid "render"
+msgstr "errendatu"
+
+#: cinecutie/render.C:1157
+msgid "Render range:"
+msgstr "Barrutia:"
+
+#: cinecutie/render.C:1201
+msgid "Project"
+msgstr "Proiektua"
+
+#: cinecutie/render.C:1212
+msgid "Selection"
+msgstr "Hautapena"
+
+#: cinecutie/render.C:1224
+msgid "In/Out Points"
+msgstr "Sarrerako/Irteerako puntuak"
+
+#: cinecutie/renderfarm.C:170
+msgid "RenderFarmServerThread::start_loop: socket\n"
+msgstr "RenderFarmServerThread::start_loop: socket-a\n"
+
+#: cinecutie/renderfarm.C:194 cinecutie/renderfarm.C:235
+#, c-format
+msgid "RenderFarmServerThread::open_client: %s: %s\n"
+msgstr "RenderFarmServerThread::open_client: %s: %s\n"
+
+#: cinecutie/renderfarm.C:212
+msgid "RenderFarmServerThread::start_loop: socket"
+msgstr "RenderFarmServerThread::start_loop: socket"
+
+#: cinecutie/renderfarm.C:225
+#, c-format
+msgid "RenderFarmServerThread::open_client: unknown host %s.\n"
+msgstr "RenderFarmServerThread::open_client: %s ostalaria ezezaguna.\n"
+
+#: cinecutie/renderfarm.C:463
+#, c-format
+msgid "RenderFarmServerThread::run: unknown request %02x\n"
+msgstr "RenderFarmServerThread::run: %02x eskaera ezezaguna\n"
+
+#: cinecutie/renderfarmclient.C:109 cinecutie/renderfarmclient.C:134
+msgid "RenderFarmClient::main_loop: socket"
+msgstr "RenderFarmClient::main_loop: socket-a"
+
+#: cinecutie/renderfarmclient.C:118
+#, c-format
+msgid "RenderFarmClient::main_loop: bind port %d: %s"
+msgstr "RenderFarmClient::main_loop: lotu %d ataka: %s"
+
+#: cinecutie/renderfarmclient.C:143
+#, c-format
+msgid "RenderFarmClient::main_loop: bind path %s: %s\n"
+msgstr "RenderFarmClient::main_loop: lotu %s bide-izena: %s\n"
+
+#: cinecutie/renderfarmclient.C:156
+msgid "RenderFarmClient::main_loop: listen"
+msgstr "RenderFarmClient::main_loop: entzun"
+
+#: cinecutie/renderfarmclient.C:172 cinecutie/renderfarmclient.C:191
+msgid "RenderFarmClient::main_loop: accept"
+msgstr "RenderFarmClient::main_loop: onartu"
+
+#: cinecutie/renderfarmclient.C:719
+#, c-format
+msgid "RenderFarmClientThread::run: Session finished.\n"
+msgstr "RenderFarmClientThread::run: saioa amaituta.\n"
+
+#: cinecutie/renderprofiles.C:92
+msgid "RenderProfile:"
+msgstr "Errendatze-profila:"
+
+#: cinecutie/renderprofiles.C:96
+msgid "Render profile:"
+msgstr "Errendatze-profila:"
+
+#: cinecutie/renderprofiles.C:248
+msgid "Save profile"
+msgstr "Gorde profila"
+
+#: cinecutie/renderprofiles.C:287
+msgid "Delete profile"
+msgstr "Ezabatu profila"
+
+#: cinecutie/resizetrackthread.C:98
+msgid ""
+"This track's dimensions are not multiples of 4 so\n"
+"it can't be rendered by OpenGL."
+msgstr ""
+"Pista honen dimentsioak ez direnez 4-ren multiploak\n"
+"ezin izango da OpenGL-n errendatu."
+
+#: cinecutie/resizetrackthread.C:133 plugins/titler/titlewindow.C:196
+msgid "Size:"
+msgstr "Tamaina:"
+
+#: cinecutie/resizetrackthread.C:140 cinecutie/resizetrackthread.C:166
+#: plugins/compressor/compressor.C:939
+msgid "x"
+msgstr "x"
+
+#: cinecutie/resizetrackthread.C:159 plugins/pitch/pitch.C:401
+#: plugins/timestretch/timestretch.C:517
+msgid "Scale:"
+msgstr "Eskala:"
+
+#: cinecutie/resourcepixmap.C:514
+#, c-format
+msgid ""
+"ResourcePixmap::draw_audio_source: failed to check out %s for drawing.\n"
+msgstr ""
+"ResourcePixmap::draw_audio_source: huts egin du %s egiaztatzean marrazteko.\n"
+
+#: cinecutie/savefile.C:49
+msgid "Save backup"
+msgstr "Gorde babeskopia"
+
+#: cinecutie/savefile.C:56
+msgid "Saved backup."
+msgstr "Babeskopia gordeta."
+
+#: cinecutie/savefile.C:70
+msgid "Save"
+msgstr "Gorde"
+
+#: cinecutie/savefile.C:115 cinecutie/savefile.C:217
+#, c-format
+msgid "\"%s\" %dC written"
+msgstr "\"%s\" %dC idatzita"
+
+#: cinecutie/savefile.C:134
+msgid "Save as..."
+msgstr "Gorde honela..."
+
+#: cinecutie/savefile.C:205 plugins/reverb/reverb.C:419
+#, c-format
+msgid "Couldn't open %s."
+msgstr "Ezin izan da %s ireki"
+
+#: cinecutie/savefile.C:244
+msgid "Enter a filename to save as"
+msgstr "Sartu fitxategiaren izena gordetzeko"
+
+#: cinecutie/setformat.C:50
+msgid "Format..."
+msgstr "Formatua..."
+
+#: cinecutie/setformat.C:147
+msgid "set format"
+msgstr "ezarri formatua"
+
+#: cinecutie/setformat.C:376
+msgid "Channel positions:"
+msgstr "Kanalen posizioak:"
+
+#: cinecutie/setformat.C:448
+msgid "W Ratio:"
+msgstr "Z. erlazioa:"
+
+#: cinecutie/setformat.C:457
+msgid "H Ratio:"
+msgstr "A. erlazioa:"
+
+#: cinecutie/setformat.C:701
+#, c-format
+msgid "%d degrees"
+msgstr "%d gradu"
+
+#: cinecutie/setformat.C:879
+msgid "Auto"
+msgstr "Auto"
+
+#: cinecutie/splashgui.C:69
+msgid "Loading..."
+msgstr "Kargatzen..."
+
+#: cinecutie/statusbar.C:112
+msgid "Welcome to Cinelerra."
+msgstr "Ongi etorri Cinelerrara."
+
+#: cinecutie/statusbar.C:120
+msgid "Cancel operation"
+msgstr "Utzi eragiketa"
+
+#: cinecutie/threadindexer.C:90
+#, c-format
+msgid "Where is %s?"
+msgstr "Non dago %s?"
+
+#: cinecutie/tipwindow.C:37
+msgid ""
+"When configuring slow effects, disable playback for the track.  After "
+"configuring it,\n"
+"re-enable playback to process a single frame."
+msgstr ""
+"Desgaitu pista erreproduzitzea efektu motelak konfiguratzean. Konfiguratu "
+"ondoren, \n"
+"gaitu berriro erreproduzitzea fotograma bakarra prozesatzeko."
+
+#: cinecutie/tipwindow.C:40
+msgid ""
+"Ctrl + any transport command causes playback to only cover\n"
+"the region defined by the in/out points."
+msgstr ""
+"Sakatu Ktrl + garraio-komandoa sarrerako eta irteerako puntuen \n"
+"arteko eskualdeak soilik erreproduzitzeko."
+
+#: cinecutie/tipwindow.C:43
+msgid ""
+"Shift + clicking a patch causes all other patches except the\n"
+"selected one to toggle."
+msgstr ""
+"Aukera batean Maius + klik egitean hautatutakoa ezik, beste aukera\n"
+"guztiak txandakatuko dira."
+
+#: cinecutie/tipwindow.C:46
+msgid ""
+"Clicking on a patch and dragging across other tracks causes\n"
+"the other patches to match the first one."
+msgstr ""
+"Botoi batean klik egitean eta beste pistetan zehar arrastatzean\n"
+"beste aukera guztiak aurrenekoarekin bat etortzea eragiten du."
+
+#: cinecutie/tipwindow.C:49
+msgid ""
+"Shift + clicking on an effect boundary causes dragging to affect\n"
+"just the one effect."
+msgstr ""
+"Efektu baten mugetan Maius + klik egitean efektu\n"
+"horrengain soilik eragingo du arrastatzeak."
+
+#: cinecutie/tipwindow.C:52
+msgid ""
+"Load multiple files by clicking on one file and shift + clicking on\n"
+"another file.  Ctrl + clicking toggles individual files."
+msgstr ""
+"Hainbat fitxategi kargatzeko, egin klik fitxategi batean eta Maius tekla\n"
+"sakatuta edukiz egin klik beste fitxategian (tartean dauden fitxategi\n"
+"guztiak aukeratuko ditu baita ere). Tarteko fitxategi guztiak aukeratu\n"
+"ordez, fitxategi zehatz batzuk aukeratzeko erabili Ktrl tekla."
+
+#: cinecutie/tipwindow.C:55
+msgid ""
+"Ctrl + left clicking on the time bar cycles forward a time format.\n"
+"Ctrl + middle clicking on the time bar cycles backward a time format."
+msgstr ""
+"Denbora-barran Ktrl + saguaren ezkerreko botoiarekin klik eginez \n"
+"denbora-formatua aurreratzen du.\n"
+"Ktrl + erdiko botoiarekin klik eginez atzera egiten du."
+
+#: cinecutie/tipwindow.C:58
+msgid "Use the +/- keys in the Compositor window to zoom in and out.\n"
+msgstr ""
+"Konposaketa-leihoan +/- teklak erabili zooma handiagotzeko edo "
+"txikiagotzeko.\n"
+
+#: cinecutie/tipwindow.C:60
+msgid ""
+"Pressing Alt while clicking in the cropping window causes translation of\n"
+"all 4 points.\n"
+msgstr ""
+"Mozketa-leihoan Alt tekla sakatuta klik egitean\n"
+"4 puntuen translazioa eragiten du.\n"
+
+#: cinecutie/tipwindow.C:63
+msgid ""
+"Pressing Tab over a track toggles the Record status.\n"
+"Pressing Shift-Tab over a track toggles the Record status of all the other "
+"tracks.\n"
+msgstr ""
+"Pista baten gainean Tabulatzailea tekla sakatzean grabazioaren egoera\n"
+"txandakatzen du.\n"
+"Pista baten gainean Maius + Tabulatzailea tekla sakatzean beste pista\n"
+"guztien grabazioaren egoera txandakatzen du.\n"
+
+#: cinecutie/tipwindow.C:66
+msgid ""
+"Audio->Map 1:1 maps each recordable audio track to a different channel.\n"
+"Map 5.1:1 maps 6 recordable AC3 tracks to 2 channels.\n"
+msgstr ""
+"Audioa->1:1 erlazioak audioko pista grabagarria beste kanal bati esleitzen "
+"dio.\n"
+"5.1:1 erlazioak AC3 motako 6 pista grabagarri 2 kanalei esleitzen die.\n"
+
+#: cinecutie/tipwindow.C:69
+msgid ""
+"Alt + left moves to the previous edit handle.\n"
+"Alt + right moves to the next edit handle.\n"
+msgstr ""
+"Alt + ezkerrera teklak aurreko muntai-heldulekura joaten da.\n"
+"Alt + eskuinera teklak hurrengo muntai-heldulekura joaten da.\n"
+
+#: cinecutie/tipwindow.C:199
+msgid "Show tip of the day."
+msgstr "Erakutsi eguneko aholkua."
+
+#: cinecutie/tipwindow.C:220
+msgid "Next tip"
+msgstr "Hurrengo aholkua"
+
+#: cinecutie/tipwindow.C:243
+msgid "Previous tip"
+msgstr "Aurreko aholkua"
+
+#: cinecutie/trackcanvas.C:4411
+msgid "select"
+msgstr "hautatu"
+
+#: cinecutie/transitionpopup.C:82
+msgid "Seconds:"
+msgstr "Segundoak:"
+
+#: cinecutie/transitionpopup.C:182
+#, c-format
+msgid "Length: %2.2f sec"
+msgstr "Iraupena: %2.2f segundo"
+
+#: cinecutie/transitionpopup.C:192
+msgid "Attach..."
+msgstr "Erantsi..."
+
+#: cinecutie/transitionpopup.C:279
+msgid "Length"
+msgstr "Iraupena"
+
+#: cinecutie/vdeviceprefs.C:218
+msgid "Host:"
+msgstr "Ostalaria:"
+
+#: cinecutie/vdeviceprefs.C:225
+msgid "Adaptor:"
+msgstr "Egokigailua:"
+
+#: cinecutie/vdeviceprefs.C:281
+msgid "Output channel:"
+msgstr "Irteerako kanala:"
+
+#: cinecutie/vdeviceprefs.C:427
+msgid "Display:"
+msgstr "Erakutsi:"
+
+#: cinecutie/vdeviceprefs.C:438
+msgid "Display for compositor:"
+msgstr "Erakutsi konposaketa-leihoa:"
+
+#: cinecutie/viewmenu.C:39
+msgid "Show assets"
+msgstr "Erakutsi klipak"
+
+#: cinecutie/viewmenu.C:66
+msgid "Show titles"
+msgstr "Erakutsi tituluak"
+
+#: cinecutie/viewmenu.C:92
+msgid "Show transitions"
+msgstr "Erakutsi trantsizioak"
+
+#: cinecutie/viewmenu.C:146
+msgid "Plugin Autos"
+msgstr "Plugin automatikoak"
+
+#: cinecutie/vpatchgui.C:302
+msgid "mode"
+msgstr "modua"
+
+#: cinecutie/vpatchgui.C:357 cinecutie/vpatchgui.C:385
+msgid "Normal"
+msgstr "Normala"
+
+#: cinecutie/vpatchgui.C:361
+msgid "Replace"
+msgstr "Ordeztu"
+
+#: cinecutie/vpatchgui.C:365
+msgid "Addition"
+msgstr "Gehiketa"
+
+#: cinecutie/vpatchgui.C:369
+msgid "Subtract"
+msgstr "Kenketa"
+
+#: cinecutie/vpatchgui.C:373
+msgid "Multiply"
+msgstr "Biderketa"
+
+#: cinecutie/vpatchgui.C:377
+msgid "Divide"
+msgstr "Zatiketa"
+
+#: cinecutie/vpatchgui.C:381
+msgid "Max"
+msgstr "Gehien."
+
+#: cinecutie/vtrack.C:119
+#, c-format
+msgid "Video %d"
+msgstr "%d. bideoa"
+
+#: cinecutie/vwindow.C:217 cinecutie/vwindow.C:224
+msgid "Viewer"
+msgstr "Ikustailea"
+
+#: cinecutie/vwindowgui.C:662
+#, c-format
+msgid ""
+"%s\n"
+" Created from:\n"
+"%s"
+msgstr ""
+"%s\n"
+"Sorrera:\n"
+"%s"
+
+#: cinecutie/zoombar.C:72 cinecutie/zoombar.C:73
+msgid "Duration visible in the timeline"
+msgstr "Iraupen ikusgaia denbora-lerroan"
+
+#: cinecutie/zoombar.C:79 cinecutie/zoombar.C:80
+msgid "Audio waveform scale"
+msgstr "Audioaren uhinaren eskala"
+
+#: cinecutie/zoombar.C:86 cinecutie/zoombar.C:87
+msgid "Height of tracks in the timeline"
+msgstr "Pisten altuera denbora-lerroan"
+
+#: cinecutie/zoombar.C:430
+msgid "Automation range maximum"
+msgstr "Automatizazio barrutiaren gehiengoa"
+
+#: cinecutie/zoombar.C:432
+msgid "Automation range minimum"
+msgstr "Automatizazio barrutiaren gutxienekoa"
+
+#: cinecutie/zoombar.C:464
+msgid "Automation Type"
+msgstr "Automatizazio mota"
+
+#: cinecutie/zoombar.C:481
+msgid "Audio Fade:"
+msgstr "Audioa iraungitzea:"
+
+#: cinecutie/zoombar.C:483
+msgid "Video Fade:"
+msgstr "Bideoa iraungitzea:"
+
+#: cinecutie/zoombar.C:485
+msgid "Zoom:"
+msgstr "Zooma:"
+
+#: cinecutie/zoombar.C:491
+msgid "??"
+msgstr "??"
+
+#: cinecutie/zoombar.C:521
+msgid "Automation range"
+msgstr "Automatizazio barrutia"
+
+#: cinecutie/zoombar.C:581
+msgid "Selection start time"
+msgstr "Hautapenaren hasiera-denbora"
+
+#: cinecutie/zoombar.C:619
+msgid "Selection length"
+msgstr "Hautapenaren iraupena"
+
+#: cinecutie/zoombar.C:653
+msgid "Selection end time"
+msgstr "Hautapenaren amaiera-denbora"
+
+#: guicast/bccapture.C:65
+#, c-format
+msgid "cannot connect to X server.\n"
+msgstr "ezin da X zerbitzariarekin konektatu.\n"
+
+#: guicast/bccapture.C:67
+#, c-format
+msgid "'DISPLAY' environment variable not set.\n"
+msgstr "Inguruneko 'DISPLAY' aldagaia ezarri gabe dago.\n"
+
+#: guicast/bcfilebox.C:237
+msgid "Change the filter"
+msgstr "Aldatu iragazkia"
+
+#: guicast/bcfilebox.C:262
+msgid "Cancel the operation"
+msgstr "Bertan behera utzi eragiketa"
+
+#: guicast/bcfilebox.C:290
+msgid "Submit the directory"
+msgstr "Bidali direktorioa"
+
+#: guicast/bcfilebox.C:315
+msgid "Descend directory"
+msgstr "Jaitsi direktorioa"
+
+#: guicast/bcfilebox.C:317
+msgid "Submit the file"
+msgstr "Bidali fitxategia"
+
+#: guicast/bcfilebox.C:365
+msgid "Create new folder"
+msgstr "Sortu karpeta berria"
+
+#: guicast/bcfilebox.C:377
+msgid "Up a directory"
+msgstr "Igo direktorioa"
+
+#: guicast/bcfilebox.C:382
+#, c-format
+msgid ".."
+msgstr ".."
+
+#: guicast/bcfilebox.C:391
+msgid "Delete files"
+msgstr "Ezabatu fitxategiak"
+
+#: guicast/bcfilebox.C:405
+msgid "Refresh"
+msgstr "Freskatu"
+
+#: guicast/bcfilebox.C:1189
+msgid ": New folder"
+msgstr ": karpeta berria"
+
+#: guicast/bcfilebox.C:1204
+msgid ": Delete"
+msgstr ": ezabatu"
+
+#: guicast/bcresources.C:64
+msgid "-*-helvetica-medium-r-normal-*-10-*"
+msgstr "-*-helvetica-medium-r-normal-*-10-*"
+
+#: guicast/bcresources.C:65
+msgid "-*-helvetica-medium-r-normal-*-11-*"
+msgstr "-*-helvetica-medium-r-normal-*-11-*"
+
+#: guicast/bcresources.C:66 guicast/bcresources.C:67
+msgid "-*-helvetica-bold-r-normal-*-14-*"
+msgstr "-*-helvetica-bold-r-normal-*-14-*"
+
+#: guicast/bcresources.C:68
+msgid "-*-helvetica-bold-r-normal-*-18-*"
+msgstr "-*-helvetica-bold-r-normal-*-18-*"
+
+#: guicast/bcresources.C:69
+msgid "-*-helvetica-bold-r-normal-*-20-*"
+msgstr "-*-helvetica-bold-r-normal-*-20-*"
+
+#: guicast/bcresources.C:75
+msgid "-*-luxi sans-*-r-*-*-12-*-*-*-*-*-*-*"
+msgstr "-*-luxi sans-*-r-*-*-12-*-*-*-*-*-*-*"
+
+#: guicast/bcresources.C:76 guicast/bcresources.C:78 guicast/bcresources.C:80
+msgid "-microsoft-verdana-*-*-*-*-*-*-*-*-*-*-*-*"
+msgstr "-microsoft-verdana-*-*-*-*-*-*-*-*-*-*-*-*"
+
+#: guicast/bcresources.C:77
+msgid "-*-luxi sans-*-r-*-*-16-*-*-*-*-*-*-*"
+msgstr "-*-luxi sans-*-r-*-*-16-*-*-*-*-*-*-*"
+
+#: guicast/bcresources.C:79
+msgid "-*-luxi sans-bold-r-*-*-20-*-*-*-*-*-*-*"
+msgstr "-*-luxi sans-bold-r-*-*-20-*-*-*-*-*-*-*"
+
+#: guicast/bctheme.C:470
+#, c-format
+msgid "Theme::get_image: %s not found.\n"
+msgstr "Theme::get_image: ez da %s aurkitu.\n"
+
+#: guicast/bctheme.C:484
+#, c-format
+msgid "BC_Theme::check_used: Images aren't used.\n"
+msgstr "BC_Theme::check_used: irudiak ez dira erabili.\n"
+
+#: plugins/1080to540/1080to540.C:99 plugins/720to480/720to480.C:77
+#: plugins/ivtc/ivtcwindow.C:128
+msgid "Odd field first"
+msgstr "Eremu bakoitiak aurrenik"
+
+#: plugins/1080to540/1080to540.C:101 plugins/720to480/720to480.C:79
+msgid "Even field first"
+msgstr "Eremu bikoitiak aurrenik"
+
+#: plugins/1080to540/1080to540.C:172
+msgid "1080 to 540"
+msgstr "1080-tik 540-ra"
+
+#: plugins/720to480/720to480.C:195
+msgid "720 to 480"
+msgstr "720-tik 480-ra"
+
+#: plugins/aging/aging.C:80
+msgid "AgingTV"
+msgstr "Filma zahartzea"
+
+#: plugins/aging/agingwindow.C:60
+msgid ""
+"Film aging from EffectTV\n"
+"Copyright (C) 2001 FUKUCHI Kentarou"
+msgstr ""
+"Filma zahartzea, EffectTV-ren eskutik\n"
+"Copyright (C) 2001 FUKUCHI Kentarou"
+
+#: plugins/aging/agingwindow.C:93
+msgid "Grain"
+msgstr "Alea"
+
+#: plugins/aging/agingwindow.C:108
+msgid "Scratch"
+msgstr "Urradura"
+
+#: plugins/aging/agingwindow.C:150
+msgid "Pits"
+msgstr "Zuloak"
+
+#: plugins/aging/agingwindow.C:192
+msgid "Dust"
+msgstr "Hautsa"
+
+#: plugins/bandslide/bandslide.C:78 plugins/bandwipe/bandwipe.C:78
+#: plugins/irissquare/irissquare.C:50 plugins/slide/slide.C:97
+msgid "In"
+msgstr "Sarrera"
+
+#: plugins/bandslide/bandslide.C:100 plugins/bandwipe/bandwipe.C:100
+#: plugins/irissquare/irissquare.C:72 plugins/slide/slide.C:119
+msgid "Out"
+msgstr "Irteera"
+
+#: plugins/bandslide/bandslide.C:147 plugins/bandwipe/bandwipe.C:146
+msgid "Bands:"
+msgstr "Bandak:"
+
+#: plugins/bandslide/bandslide.C:157 plugins/irissquare/irissquare.C:119
+#: plugins/shapewipe/shapewipe.C:206 plugins/slide/slide.C:166
+#: plugins/slide/slide.C:180 plugins/wipe/wipe.C:119
+msgid "Direction:"
+msgstr "Norabidea:"
+
+#: plugins/bandslide/bandslide.C:196
+msgid "BandSlide"
+msgstr "BandSlide"
+
+#: plugins/bandwipe/bandwipe.C:194
+msgid "BandWipe"
+msgstr "BandWipe"
+
+#: plugins/blur/blur.C:129 plugins/blur/blurwindow.C:60
+msgid "Blur"
+msgstr "Lausotu"
+
+#: plugins/blur/blurwindow.C:67 plugins/whirl/whirl.C:260
+msgid "Radius"
+msgstr "Erradioa"
+
+#: plugins/blur/blurwindow.C:112 plugins/downsample/downsample.C:294
+#: plugins/flip/flipwindow.C:62
+msgid "Vertical"
+msgstr "Bertikala"
+
+#: plugins/blur/blurwindow.C:130 plugins/downsample/downsample.C:276
+#: plugins/flip/flipwindow.C:68
+msgid "Horizontal"
+msgstr "Horizontala"
+
+#: plugins/blur/blurwindow.C:148
+msgid "Blur alpha"
+msgstr "Alfa lausoa"
+
+#: plugins/blur/blurwindow.C:160
+msgid "Blur red"
+msgstr "Lauso gorria"
+
+#: plugins/blur/blurwindow.C:172
+msgid "Blur green"
+msgstr "Lauso berdea"
+
+#: plugins/blur/blurwindow.C:184
+msgid "Blur blue"
+msgstr "Lauso urdina"
+
+#: plugins/blurzoom/blurzoom.C:80
+msgid "RadioacTV"
+msgstr "Filma erradioaktiboa"
+
+#: plugins/blurzoom/blurzoomwindow.C:88
+msgid ""
+"RadioacTV from EffectTV\n"
+"Copyright (C) 2001 FUKUCHI Kentarou"
+msgstr ""
+"Filma erradioaktiboa, EffectTV-ren eskutik\n"
+"Copyright (C) 2001 FUKUCHI Kentarou"
+
+#: plugins/brightness/brightness.C:98 plugins/brightness/brightnesswindow.C:53
+msgid "Brightness/Contrast"
+msgstr "Distira/Kontrastea"
+
+#: plugins/brightness/brightnesswindow.C:136
+msgid "Boost luminance only"
+msgstr "Bultzatu luminantzia soilik"
+
+#: plugins/burn/burn.C:80
+msgid "BurningTV"
+msgstr "Filma erretzen"
+
+#: plugins/burn/burnwindow.C:59
+msgid ""
+"BurningTV from EffectTV\n"
+"Copyright (C) 2001 FUKUCHI Kentarou"
+msgstr ""
+"Filma erretzen, EffectTV-ren eskutik\n"
+"Copyright (C) 2001 FUKUCHI Kentarou"
+
+#: plugins/cdripper/cdripper.C:58
+msgid "CD Ripper"
+msgstr "CD erauzlea"
+
+#: plugins/cdripper/cdripper.C:135
+msgid "Can't open cdrom drive."
+msgstr "Ezin da CD-ROM gailua ireki."
+
+#: plugins/cdripper/cdripper.C:167
+msgid "Can't get total from table of contents."
+msgstr "Ezin da edukiaren aurkibide osoa eskuratu."
+
+#: plugins/cdripper/cdripper.C:183
+msgid "Can't get table of contents entry."
+msgstr "Ezin da edukiaren aurkibidea eskuratu."
+
+#: plugins/cdripper/cdripper.C:199
+msgid "Can't get table of contents leadout."
+msgstr "Ezin da edukiaren aurkibidearen amaiera aurkitu."
+
+#: plugins/cdripper/cdripper.C:214
+msgid "Start track is out of range."
+msgstr "Hasierako pista barrutitik kanpo dago."
+
+#: plugins/cdripper/cdripper.C:232
+msgid "End track is out of range."
+msgstr "Amaierako pista barrutitik kanpo dago."
+
+#: plugins/cdripper/cdripper.C:244
+msgid "End position is out of range."
+msgstr "Amaierako posizioa barrutitik kanpo dago."
+
+#: plugins/cdripper/cdripwindow.C:54
+msgid "Select the range to transfer:"
+msgstr "Hautatu barrutia transferitzeko:"
+
+#: plugins/cdripper/cdripwindow.C:55 plugins/cdripper/cdripwindow.C:59
+msgid "Track"
+msgstr "Pista"
+
+#: plugins/cdripper/cdripwindow.C:56 plugins/cdripper/cdripwindow.C:60
+msgid "Min"
+msgstr "Min"
+
+#: plugins/cdripper/cdripwindow.C:57 plugins/cdripper/cdripwindow.C:61
+msgid "Sec"
+msgstr "Seg"
+
+#: plugins/cdripper/cdripwindow.C:78
+msgid "From"
+msgstr "Nondik"
+
+#: plugins/cdripper/cdripwindow.C:80
+msgid "To"
+msgstr "Nora"
+
+#: plugins/cdripper/cdripwindow.C:83
+msgid "CD Device:"
+msgstr "CD gailua:"
+
+#: plugins/chromakey/chromakey.C:141 plugins/diffkey/diffkey.C:307
+msgid "Slope:"
+msgstr "Malda:"
+
+#: plugins/chromakey/chromakey.C:145 plugins/denoisevideo/denoisevideo.C:196
+#: plugins/diffkey/diffkey.C:302 plugins/histogram/histogramwindow.C:199
+#: plugins/unsharp/unsharpwindow.C:71
+msgid "Threshold:"
+msgstr "Atalasea:"
+
+#: plugins/chromakey/chromakey.C:192 plugins/chromakeyhsv/chromakey.C:300
+#: plugins/titler/titlewindow.C:606
+msgid "Color..."
+msgstr "Kolorea..."
+
+#: plugins/chromakey/chromakey.C:252
+msgid "Use value"
+msgstr "Erabili balioa"
+
+#: plugins/chromakey/chromakey.C:268 plugins/chromakeyhsv/chromakey.C:472
+msgid "Use color picker"
+msgstr "Erabili kolore-hautatzailea"
+
+#: plugins/chromakey/chromakey.C:288 plugins/chromakeyhsv/chromakey.C:531
+#: plugins/gradient/gradient.C:509
+msgid "Inner color"
+msgstr "Barneko kolorea"
+
+#: plugins/chromakey/chromakey.C:582
+msgid "Chroma key"
+msgstr "Gako-kromatikoa"
+
+#: plugins/chromakeyhsv/chromakey.C:200
+msgid "Key parameters:"
+msgstr "Gakoaren parametroak:"
+
+#: plugins/chromakeyhsv/chromakey.C:202
+msgid "Hue Tolerance:"
+msgstr "Ñabarduraren jasamena:"
+
+#: plugins/chromakeyhsv/chromakey.C:205
+msgid "Min. Brightness:"
+msgstr "Gut. distira:"
+
+#: plugins/chromakeyhsv/chromakey.C:208
+msgid "Max. Brightness:"
+msgstr "Geh. distira:"
+
+#: plugins/chromakeyhsv/chromakey.C:211
+msgid "Saturation Offset:"
+msgstr "Saturazioaren despl.:"
+
+#: plugins/chromakeyhsv/chromakey.C:214
+msgid "Min Saturation:"
+msgstr "Gut. saturazioa:"
+
+#: plugins/chromakeyhsv/chromakey.C:220
+msgid "Mask tweaking:"
+msgstr "Maskara doikuntza:"
+
+#: plugins/chromakeyhsv/chromakey.C:222
+msgid "In Slope:"
+msgstr "Sarrerako malda:"
+
+#: plugins/chromakeyhsv/chromakey.C:225
+msgid "Out Slope:"
+msgstr "Irteerako malda:"
+
+#: plugins/chromakeyhsv/chromakey.C:228
+msgid "Alpha Offset:"
+msgstr "Alfa despl.:"
+
+#: plugins/chromakeyhsv/chromakey.C:236
+msgid "Spill light control:"
+msgstr "Argitasun parasitoaren kontrola:"
+
+#: plugins/chromakeyhsv/chromakey.C:238
+msgid "Spill Threshold:"
+msgstr "Argitasun parasitoaren atalasea:"
+
+#: plugins/chromakeyhsv/chromakey.C:241
+msgid "Spill Compensation:"
+msgstr "Argitasun parasitoaren konpentsazioa:"
+
+#: plugins/chromakeyhsv/chromakey.C:456
+msgid "Show Mask"
+msgstr "Erakutsi maskara"
+
+#: plugins/chromakeyhsv/chromakey.C:909
+msgid "Chroma key (HSV)"
+msgstr "Gako kromatikoa (ÑSB)"
+
+#: plugins/colorbalance/colorbalance.C:375
+#: plugins/colorbalance/colorbalancewindow.C:57
+msgid "Color Balance"
+msgstr "Kolore-balantzea"
+
+#: plugins/colorbalance/colorbalancewindow.C:59
+msgid "Cyan"
+msgstr "Cyana"
+
+#: plugins/colorbalance/colorbalancewindow.C:61
+#: plugins/colors/colorpicker.C:191 plugins/denoisevideo/denoisevideo.C:200
+#: plugins/downsample/downsample.C:316 plugins/histogram/histogramwindow.C:82
+#: plugins/linearblur/linearblur.C:303 plugins/radialblur/radialblur.C:298
+#: plugins/swapchannels/swapchannels.C:450
+#: plugins/swapchannels/swapchannels.C:475 plugins/zoomblur/zoomblur.C:313
+msgid "Red"
+msgstr "Gorria"
+
+#: plugins/colorbalance/colorbalancewindow.C:63
+msgid "Magenta"
+msgstr "Magenta"
+
+#: plugins/colorbalance/colorbalancewindow.C:65
+#: plugins/colors/colorpicker.C:197 plugins/denoisevideo/denoisevideo.C:202
+#: plugins/downsample/downsample.C:322 plugins/histogram/histogramwindow.C:88
+#: plugins/linearblur/linearblur.C:305 plugins/radialblur/radialblur.C:300
+#: plugins/swapchannels/swapchannels.C:453
+#: plugins/swapchannels/swapchannels.C:476 plugins/zoomblur/zoomblur.C:315
+msgid "Green"
+msgstr "Berdea"
+
+#: plugins/colorbalance/colorbalancewindow.C:67
+msgid "Yellow"
+msgstr "Horia"
+
+#: plugins/colorbalance/colorbalancewindow.C:69
+#: plugins/colors/colorpicker.C:203 plugins/denoisevideo/denoisevideo.C:204
+#: plugins/downsample/downsample.C:328 plugins/histogram/histogramwindow.C:94
+#: plugins/linearblur/linearblur.C:307 plugins/radialblur/radialblur.C:302
+#: plugins/swapchannels/swapchannels.C:456
+#: plugins/swapchannels/swapchannels.C:477 plugins/zoomblur/zoomblur.C:317
+msgid "Blue"
+msgstr "Urdina"
+
+#: plugins/colorbalance/colorbalancewindow.C:136
+msgid "Preserve luminosity"
+msgstr "Mantendu argitasuna"
+
+#: plugins/colorbalance/colorbalancewindow.C:155
+msgid "Lock parameters"
+msgstr "Blokeatu parametroak"
+
+#: plugins/colorbalance/colorbalancewindow.C:175
+msgid "White balance"
+msgstr "Zuri-balantzea"
+
+#: plugins/colorbalance/colorbalancewindow.C:221
+#: plugins/histogram/histogramwindow.C:595
+#: plugins/perspective/perspective.C:529
+msgid "Reset"
+msgstr "Berrezarri"
+
+#: plugins/colors/colorpicker.C:87
+msgid "Color Picker"
+msgstr "Kolore-hautatzailea"
+
+#: plugins/colors/colorpicker.C:173
+msgid "Hue"
+msgstr "Ñabardura"
+
+#: plugins/colors/colorpicker.C:179
+msgid "Saturation"
+msgstr "Saturazioa"
+
+#: plugins/colors/colorpicker.C:185 plugins/histogram/histogramwindow.C:76
+msgid "Value"
+msgstr "Balioa"
+
+#: plugins/colors/colorpicker.C:211 plugins/denoisevideo/denoisevideo.C:206
+#: plugins/downsample/downsample.C:334 plugins/linearblur/linearblur.C:309
+#: plugins/radialblur/radialblur.C:304 plugins/swapchannels/swapchannels.C:459
+#: plugins/swapchannels/swapchannels.C:478 plugins/zoomblur/zoomblur.C:319
+msgid "Alpha"
+msgstr "Alfa"
+
+#: plugins/compressor/compressor.C:116
+msgid "Compressor"
+msgstr "Konpresorea"
+
+#: plugins/compressor/compressor.C:912
+msgid "Reaction secs:"
+msgstr "Erantzun-denbora (s):"
+
+#: plugins/compressor/compressor.C:916
+msgid "Decay secs:"
+msgstr "Gainbehera-denbora (s):"
+
+#: plugins/compressor/compressor.C:920
+msgid "Trigger Type:"
+msgstr "Abiarazle mota:"
+
+#: plugins/compressor/compressor.C:925
+msgid "Trigger:"
+msgstr "Abiarazlea:"
+
+#: plugins/compressor/compressor.C:935
+msgid "Point:"
+msgstr "Puntua:"
+
+#: plugins/compressor/compressor.C:1069
+msgid "Input level"
+msgstr "Sarrera maila"
+
+#: plugins/compressor/compressor.C:1071
+msgid "Input"
+msgstr "Sarrera"
+
+#: plugins/compressor/compressor.C:1423
+msgid "Smooth only"
+msgstr "Leundu soilik"
+
+#: plugins/crossfade/crossfade.C:46
+msgid "Crossfade"
+msgstr "Urtze kateatua"
+
+#: plugins/decimate/decimate.C:262
+#: plugins/interpolatevideo/interpolatevideo.C:217
+msgid "Input frames per second:"
+msgstr "Sarrerako fotogramak segundoko:"
+
+#: plugins/decimate/decimate.C:273
+msgid "Last frame dropped: "
+msgstr "Jaregindako azken fotograma:"
+
+#: plugins/decimate/decimate.C:764
+msgid "Decimate"
+msgstr "Dezimala"
+
+#: plugins/deinterlace/deinterlace.C:100
+#: plugins/denoisemjpeg/denoisemjpeg.C:259
+msgid "Deinterlace"
+msgstr "Desgurutzelarkatu"
+
+#: plugins/deinterlace/deinterwindow.C:62
+msgid "Select deinterlacing mode"
+msgstr "Hautatu gurutuzelarkatze modua"
+
+#: plugins/deinterlace/deinterwindow.C:83
+#, c-format
+msgid "Changed rows: %d\n"
+msgstr "Aldatutako errenkadak: %d\n"
+
+#: plugins/deinterlace/deinterwindow.C:104
+msgid "Keep top field"
+msgstr "Mantendu goiko eremua"
+
+#: plugins/deinterlace/deinterwindow.C:106
+msgid "Keep bottom field"
+msgstr "Mantendu beheko eremua"
+
+#: plugins/deinterlace/deinterwindow.C:110
+msgid "Average top fields"
+msgstr "Goiko eremuen batez bestekoa"
+
+#: plugins/deinterlace/deinterwindow.C:116
+#: plugins/deinterlace/deinterwindow.C:122 plugins/fieldframe/fieldframe.C:221
+#: plugins/framefield/framefield.C:243
+msgid "Top field first"
+msgstr "Goiko eremua aurrenik"
+
+#: plugins/deinterlace/deinterwindow.C:144 plugins/threshold/threshold.C:138
+msgid "Threshold"
+msgstr "Atalasea"
+
+#: plugins/deinterlace/deinterwindow.C:149
+msgid "Bob Threshold"
+msgstr "Bob atalasea"
+
+#: plugins/deinterlace/deinterwindow.C:192
+msgid "Adaptive"
+msgstr "Moldatzailea"
+
+#: plugins/deinterlace/deinterwindow.C:278
+msgid "Duplicate one field"
+msgstr "Bikoiztu eremu bat"
+
+#: plugins/deinterlace/deinterwindow.C:280
+msgid "Average one field"
+msgstr "Eremu baten batez bestekoa"
+
+#: plugins/deinterlace/deinterwindow.C:282
+msgid "Average both fields"
+msgstr "Bi eremuen batez bestekoa"
+
+#: plugins/deinterlace/deinterwindow.C:284
+msgid "Bob & Weave"
+msgstr "Bob eta Weave"
+
+#: plugins/deinterlace/deinterwindow.C:286
+msgid "Spatial field swap"
+msgstr "Eremuen espazioa trukatzea"
+
+#: plugins/deinterlace/deinterwindow.C:288
+msgid "Temporal field swap"
+msgstr "Eremuak aldi baterako trukatzea"
+
+#: plugins/deinterlace/deinterwindow.C:290 plugins/motion/motionwindow.C:883
+#: plugins/motion/motionwindow.C:903
+msgid "Do Nothing"
+msgstr "Ez egin ezer"
+
+#: plugins/delayaudio/delayaudio.C:72
+msgid "Delay audio"
+msgstr "Audio-atzerapena"
+
+#: plugins/delayaudio/delayaudio.C:295 plugins/delayvideo/delayvideo.C:97
+msgid "Delay seconds:"
+msgstr "Atzerapen segundoak:"
+
+#: plugins/delayvideo/delayvideo.C:254
+msgid "Delay Video"
+msgstr "Bideo-atzerapena"
+
+#: plugins/denoise/denoise.C:806 plugins/gain/gainwindow.C:60
+#: plugins/spectrogram/spectrogram.C:120
+msgid "Level:"
+msgstr "Maila:"
+
+#: plugins/denoisefft/denoisefft.C:252
+msgid "Denoise power:"
+msgstr "Zarata kentzeko maila:"
+
+#: plugins/denoisefft/denoisefft.C:255
+msgid "Number of samples for reference:"
+msgstr "Erreferentzien lagin kopurua:"
+
+#: plugins/denoisefft/denoisefft.C:257
+msgid "The keyframe is the start of the reference"
+msgstr "Gako-fotograma erreferentziaren hasiera da"
+
+#: plugins/denoisefft/denoisefft.C:329
+msgid "DenoiseFFT"
+msgstr "FFT zarata kentzea"
+
+#: plugins/denoisemjpeg/denoisemjpeg.C:281
+msgid "Progressive"
+msgstr "Pixkanaka"
+
+#: plugins/denoisemjpeg/denoisemjpeg.C:319
+msgid "Fast"
+msgstr "Bizkor"
+
+#: plugins/denoisemjpeg/denoisemjpeg.C:385
+msgid "Search radius:"
+msgstr "Bilatu erradioa:"
+
+#: plugins/denoisemjpeg/denoisemjpeg.C:389
+msgid "Pass 1 threshold:"
+msgstr "Atalasea, 1. urratsa:"
+
+#: plugins/denoisemjpeg/denoisemjpeg.C:393
+msgid "Pass 2 threshold:"
+msgstr "Atalasea, 2. urratsa:"
+
+#: plugins/denoisemjpeg/denoisemjpeg.C:397
+msgid "Sharpness:"
+msgstr "Zorroztasuna:"
+
+#: plugins/denoisemjpeg/denoisemjpeg.C:401
+msgid "Luma contrast:"
+msgstr "Luma kontrastea:"
+
+#: plugins/denoisemjpeg/denoisemjpeg.C:405
+msgid "Chroma contrast:"
+msgstr "Kontraste kromatikoa:"
+
+#: plugins/denoisemjpeg/denoisemjpeg.C:409
+msgid "Delay frames:"
+msgstr "Atzeratu fotogramak:"
+
+#: plugins/denoisemjpeg/denoisemjpeg.C:481
+msgid "Denoise video2"
+msgstr "2. bideoaren zarata kentzea"
+
+#: plugins/denoisevideo/denoisevideo.C:192
+msgid "Frames to accumulate:"
+msgstr "Fotogramak pilatzeko:"
+
+#: plugins/denoisevideo/denoisevideo.C:345
+msgid "Denoise video"
+msgstr "Kendu bideoaren zarata"
+
+#: plugins/denoiseseltempavg/seltempavg.C:121
+msgid "Selective Temporal Averaging"
+msgstr "Aldi baterako hautapenaren batez bestekoa"
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:55
+#: plugins/timeavg/timeavgwindow.C:54
+msgid "Frames to average"
+msgstr "Fotogramak batez bestean erabiltzeko"
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:60
+msgid "Use Method:"
+msgstr "Erabili metodoa:"
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:63
+msgid "None "
+msgstr "Bat ere ez"
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:66
+msgid "Selective Temporal Averaging: "
+msgstr "Aldi baterako hautapenaren batez bestekoa: "
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:69
+msgid "Av. Thres."
+msgstr "Batez.best. atal."
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:70
+msgid "S.D. Thres."
+msgstr "D.E. atal."
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:74
+msgid "R / Y"
+msgstr "G / Y"
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:80
+msgid "G / U"
+msgstr "B / U"
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:86
+msgid "B / V"
+msgstr "U / V"
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:92
+#: plugins/timeavg/timeavgwindow.C:137
+msgid "Average"
+msgstr "Batez bestekoa"
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:94
+msgid "Standard Deviation"
+msgstr "Desbiderapen mota"
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:97
+msgid "First frame in average:"
+msgstr "Aurreneko fotograma batez bestekoan:"
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:99
+msgid "Fixed offset: "
+msgstr "Despl. finkatua:"
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:103
+msgid "Restart marker system:"
+msgstr "Berrabiarazteko marka-sistema:"
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:111
+msgid "Other Options:"
+msgstr "Beste aukerak:"
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:117
+#: plugins/freeverb/freeverb.C:328
+msgid "Gain:"
+msgstr "Irabazia:"
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:292
+#: plugins/timeavg/timeavgwindow.C:179
+msgid "Reprocess frame again"
+msgstr "Prozesatu fotograma berriro"
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:309
+#: plugins/timeavg/timeavgwindow.C:199
+msgid "Disable subtraction"
+msgstr "Desgaitu kenketa"
+
+#: plugins/denoiseseltempavg/seltempavgwindow.C:354
+msgid "This Frame is a start of a section"
+msgstr "Fotograma sekzioaren hasiera da"
+
+#: plugins/despike/despike.C:57
+msgid "Despike"
+msgstr "Kendu parasitoak"
+
+#: plugins/despike/despikewindow.C:62
+msgid "Maximum level:"
+msgstr "Gehienezko maila:"
+
+#: plugins/despike/despikewindow.C:66
+msgid "Maximum rate of change:"
+msgstr "Aldaketaren gehienezko tasa:"
+
+#: plugins/diffkey/diffkey.C:260
+msgid "Use Value"
+msgstr "Erabili balioa"
+
+#: plugins/diffkey/diffkey.C:346
+msgid "Difference key"
+msgstr "Gako diferentzia"
+
+#: plugins/dissolve/dissolve.C:51
+msgid "Dissolve"
+msgstr "Disolbatu"
+
+#: plugins/dot/dot.C:83
+msgid "DotTV"
+msgstr "TB puntuekin"
+
+#: plugins/dot/dotwindow.C:57
+msgid ""
+"DotTV from EffectTV\n"
+"Copyright (C) 2001 FUKUCHI Kentarou"
+msgstr ""
+"TB puntuekin, EffectTV-ren eskutik\n"
+"Copyright (C) 2001 FUKUCHI Kentarou"
+
+#: plugins/downsample/downsample.C:285
+msgid "Horizontal offset"
+msgstr "Despl. horizontala"
+
+#: plugins/downsample/downsample.C:303
+msgid "Vertical offset"
+msgstr "Despl. bertikala"
+
+#: plugins/downsample/downsample.C:423 plugins/reframert/reframert.C:307
+msgid "Downsample"
+msgstr "Lagin-murrizketa"
+
+#: plugins/fieldframe/fieldframe.C:345
+msgid "Fields to frames"
+msgstr "Eremuak fotogrametara"
+
+#: plugins/flash/flash.C:49
+msgid "Flash"
+msgstr "Flasha"
+
+#: plugins/flip/flip.C:89
+msgid "Flip"
+msgstr "Irauli"
+
+#: plugins/framefield/framefield.C:581
+msgid "Frames to fields"
+msgstr "Fotogramak eremuetara"
+
+#: plugins/freeverb/freeverb.C:287
+msgid "Freeze"
+msgstr "Izoztu"
+
+#: plugins/freeverb/freeverb.C:332
+msgid "Roomsize:"
+msgstr "Piezaren tamaina:"
+
+#: plugins/freeverb/freeverb.C:336
+msgid "Damp:"
+msgstr "Moteldu:"
+
+#: plugins/freeverb/freeverb.C:340
+msgid "Wet:"
+msgstr "Aldatutako seinalea:"
+
+#: plugins/freeverb/freeverb.C:344
+msgid "Dry:"
+msgstr "Jatorrizko seinalea:"
+
+#: plugins/freeverb/freeverb.C:492
+msgid "Freeverb"
+msgstr "Freeverb"
+
+#: plugins/freezeframe/freezeframe.C:173
+msgid "Freeze Frame"
+msgstr "Izoztu fotograma"
+
+#: plugins/gain/gain.C:85
+msgid "Gain"
+msgstr "Irabazia"
+
+#: plugins/gradient/gradient.C:188 plugins/shapewipe/shapewipe.C:218
+msgid "Shape:"
+msgstr "Forma:"
+
+#: plugins/gradient/gradient.C:198 plugins/timefront/timefront.C:213
+#: plugins/timefront/timefront.C:256
+msgid "Rate:"
+msgstr "Tasa:"
+
+#: plugins/gradient/gradient.C:204 plugins/timefront/timefront.C:219
+#: plugins/timefront/timefront.C:262
+msgid "Inner radius:"
+msgstr "Barruko erradioa:"
+
+#: plugins/gradient/gradient.C:207 plugins/timefront/timefront.C:222
+#: plugins/timefront/timefront.C:265
+msgid "Outer radius:"
+msgstr "Kanpoko erradioa:"
+
+#: plugins/gradient/gradient.C:245 plugins/linearblur/linearblur.C:295
+#: plugins/polar/polar.C:225 plugins/radialblur/radialblur.C:290
+#: plugins/timefront/timefront.C:207
+msgid "Angle:"
+msgstr "Angelua:"
+
+#: plugins/gradient/gradient.C:257 plugins/timefront/timefront.C:240
+msgid "Center X:"
+msgstr "X zentrua:"
+
+#: plugins/gradient/gradient.C:262 plugins/timefront/timefront.C:245
+msgid "Center Y:"
+msgstr "Y zentrua:"
+
+#: plugins/gradient/gradient.C:320 plugins/gradient/gradient.C:409
+#: plugins/timefront/timefront.C:380 plugins/timefront/timefront.C:520
+msgid "Linear"
+msgstr "Lineala"
+
+#: plugins/gradient/gradient.C:322 plugins/timefront/timefront.C:386
+msgid "Radial"
+msgstr "Erradiala"
+
+#: plugins/gradient/gradient.C:411 plugins/timefront/timefront.C:522
+msgid "Log"
+msgstr "Logaritmikoa"
+
+#: plugins/gradient/gradient.C:413 plugins/synthesizer/synthesizer.C:762
+#: plugins/synthesizer/synthesizer.C:1015 plugins/timefront/timefront.C:524
+#, c-format
+msgid "Square"
+msgstr "Seinale karratua"
+
+#: plugins/gradient/gradient.C:475
+msgid "Inner color:"
+msgstr "Barneko kolorea:"
+
+#: plugins/gradient/gradient.C:491
+msgid "Outer color:"
+msgstr "Kanpoko kolorea:"
+
+#: plugins/gradient/gradient.C:541
+msgid "Outer color"
+msgstr "Kanpoko kolorea"
+
+#: plugins/gradient/gradient.C:598
+msgid "Gradient"
+msgstr "Gradientea"
+
+#: plugins/histogram/histogram.C:103
+msgid "Histogram"
+msgstr "Histograma"
+
+#: plugins/histogram/histogramwindow.C:104
+msgid "Input X:"
+msgstr "X sarrera:"
+
+#: plugins/histogram/histogramwindow.C:114
+msgid "Input Y:"
+msgstr "Y sarrera:"
+
+#: plugins/histogram/histogramwindow.C:158
+msgid "Output min:"
+msgstr "Gutxieneko irteera:"
+
+#: plugins/histogram/histogramwindow.C:167
+msgid "Output Max:"
+msgstr "Gehienezko irteera:"
+
+#: plugins/histogram/histogramwindow.C:777 plugins/ivtc/ivtc.C:37
+#: plugins/ivtc/ivtcwindow.C:34
+msgid "Automatic"
+msgstr "Automatikoa"
+
+#: plugins/histogram/histogramwindow.C:795
+#: plugins/threshold/thresholdwindow.C:102
+msgid "Plot histogram"
+msgstr "Bistaratu histograma"
+
+#: plugins/histogram/histogramwindow.C:813
+msgid "Split output"
+msgstr "Zatitu irteera"
+
+#: plugins/holo/holo.C:84
+msgid "HolographicTV"
+msgstr "Filma holografikoa"
+
+#: plugins/holo/holowindow.C:56
+msgid ""
+"HolographicTV from EffectTV\n"
+"Copyright (C) 2001 FUKUCHI Kentarou"
+msgstr ""
+"Filma holografikoa, EffectTV-ren eskutik\n"
+"Copyright (C) 2001 FUKUCHI Kentarou"
+
+#: plugins/huesaturation/huesaturation.C:333
+msgid "Saturation:"
+msgstr "Saturazioa:"
+
+#: plugins/huesaturation/huesaturation.C:593
+msgid "Hue saturation"
+msgstr "Ñabarduraren saturazioa"
+
+#: plugins/interpolate/interpolate.C:103
+msgid "X Offset:"
+msgstr "X despl.:"
+
+#: plugins/interpolate/interpolate.C:109
+msgid "Y Offset:"
+msgstr "Y despl.:"
+
+#: plugins/interpolate/interpolate.C:179
+msgid "Interpolate Pixels"
+msgstr "Interpolatu pixelak"
+
+#: plugins/interpolatevideo/interpolatevideo.C:326
+msgid "Use keyframes as input"
+msgstr "Erabili fotogramak sarrera gisa"
+
+#: plugins/interpolatevideo/interpolatevideo.C:539
+#: plugins/interpolateall/interpolateall.C:97
+#: plugins/reframert/reframert.C:325
+msgid "Interpolate"
+msgstr "Interpolatu"
+
+#: plugins/invertaudio/invert.C:48
+msgid "Invert Audio"
+msgstr "Alderantzikatu audioa"
+
+#: plugins/invertvideo/invert.C:191
+msgid "Invert R"
+msgstr "Alderantzikatu G"
+
+#: plugins/invertvideo/invert.C:193
+msgid "Invert G"
+msgstr "Alderantzikatu B"
+
+#: plugins/invertvideo/invert.C:195
+msgid "Invert B"
+msgstr "Alderantzikatu U"
+
+#: plugins/invertvideo/invert.C:197
+msgid "Invert A"
+msgstr "Alderantzikatu A"
+
+#: plugins/invertvideo/invert.C:226
+msgid "Invert Video"
+msgstr "Alderantzikatu bideoa"
+
+#: plugins/invertvideo/invertwindow.C:42
+#: plugins/synthesizer/synthesizer.C:1281
+#: plugins/synthesizer/synthesizer.C:1328
+msgid "Invert"
+msgstr "Alderantzikatu"
+
+#: plugins/irissquare/irissquare.C:156
+msgid "IrisSquare"
+msgstr "Diafragma karratua"
+
+#: plugins/ivtc/ivtc.C:35 plugins/ivtc/ivtcwindow.C:32
+msgid "A  B  BC  CD  D"
+msgstr "A  B  BC  CD  D"
+
+#: plugins/ivtc/ivtc.C:36 plugins/ivtc/ivtcwindow.C:33
+msgid "AB  BC  CD  DE  EF"
+msgstr "AB  BC  CD  DE  EF"
+
+#: plugins/ivtc/ivtc.C:75
+msgid "Inverse Telecine"
+msgstr "Alderantzikatu Telezinema"
+
+#: plugins/ivtc/ivtcwindow.C:68
+msgid "Pattern offset:"
+msgstr "Ereduaren despl.:"
+
+#: plugins/ivtc/ivtcwindow.C:76
+msgid "Pattern:"
+msgstr "Eredua:"
+
+#: plugins/ivtc/ivtcwindow.C:144
+msgid "Automatic IVTC"
+msgstr "IVTC automatikoa"
+
+#: plugins/level/leveleffect.C:135
+msgid "Duration (seconds):"
+msgstr "Iraupena (s):"
+
+#: plugins/level/leveleffect.C:138
+msgid "Max soundlevel (dB):"
+msgstr "Geh. soinu-maila (dB):"
+
+#: plugins/level/leveleffect.C:141
+msgid "RMS soundlevel (dB):"
+msgstr "RMS soinu-maila (dB):"
+
+#: plugins/level/leveleffect.C:207
+msgid "SoundLevel"
+msgstr "Soinu-maila"
+
+#: plugins/linearblur/linearblur.C:291 plugins/motionblur/motionblur.C:257
+msgid "Length:"
+msgstr "Luzera:"
+
+#: plugins/linearblur/linearblur.C:299 plugins/radialblur/radialblur.C:294
+#: plugins/zoomblur/zoomblur.C:309 plugins/motionblur/motionblur.C:261
+msgid "Steps:"
+msgstr "Urratsak:"
+
+#: plugins/linearblur/linearblur.C:402
+msgid "Linear Blur"
+msgstr "Lausotze lineala"
+
+#: plugins/loopaudio/loopaudio.C:129
+msgid "Samples to loop:"
+msgstr "Laginak begiztan:"
+
+#: plugins/loopaudio/loopaudio.C:189
+msgid "Loop audio"
+msgstr "Audioaren begizta"
+
+#: plugins/loopvideo/loopvideo.C:128
+msgid "Frames to loop:"
+msgstr "Fotogramak begiztan:"
+
+#: plugins/loopvideo/loopvideo.C:187
+msgid "Loop video"
+msgstr "Bideoa begiztan"
+
+#: plugins/motion/motion.C:270
+msgid "Motion"
+msgstr "Mugimendua"
+
+#: plugins/motion/motionwindow.C:76
+msgid ""
+"Translation search radius:\n"
+"(W/H Percent of image)"
+msgstr ""
+"Translazioaren bilaketa-erradioa:\n"
+"(Irudiaren Z/A-ren ehunekoa)"
+
+#: plugins/motion/motionwindow.C:88
+msgid ""
+"Rotation search radius:\n"
+"(Degrees)"
+msgstr ""
+"Biraketaren bilaketa-erradioa:\n"
+"(Gradu)"
+
+#: plugins/motion/motionwindow.C:96
+msgid ""
+"Translation block size:\n"
+"(W/H Percent of image)"
+msgstr ""
+"Translazioaren bloke-tamaina:\n"
+"(Irudiaren Z/A-ren ehunekoa)"
+
+#: plugins/motion/motionwindow.C:108
+msgid ""
+"Rotation block size:\n"
+"(W/H Percent of image)"
+msgstr ""
+"Biraketaren bloke-tamaina:\n"
+"(Irudiaren Z/A-ren ehunekoa)"
+
+#: plugins/motion/motionwindow.C:119
+msgid "Translation search steps:"
+msgstr "Translazioaren bilaketa-urratsak:"
+
+#: plugins/motion/motionwindow.C:126
+msgid "Rotation search steps:"
+msgstr "Biraketaren bilaketa-urratsak:"
+
+#: plugins/motion/motionwindow.C:134
+msgid "Translation direction:"
+msgstr "Translazioaren norabidea:"
+
+#: plugins/motion/motionwindow.C:142
+msgid "Block X:"
+msgstr "X blokea:"
+
+#: plugins/motion/motionwindow.C:153
+msgid "Block Y:"
+msgstr "Y blokea:"
+
+#: plugins/motion/motionwindow.C:164
+msgid "Maximum absolute offset:"
+msgstr "Geh. desplazamendu absolutua:"
+
+#: plugins/motion/motionwindow.C:170
+msgid "Settling speed:"
+msgstr "Jaulkipen abiadura:"
+
+#: plugins/motion/motionwindow.C:191
+msgid "Frame number:"
+msgstr "Fotograma zenbakia:"
+
+#: plugins/motion/motionwindow.C:216
+msgid "Master layer:"
+msgstr "Geruza nagusia:"
+
+#: plugins/motion/motionwindow.C:225
+msgid "Action:"
+msgstr "Ekintza:"
+
+#: plugins/motion/motionwindow.C:236
+msgid "Calculation:"
+msgstr "Kalkulua:"
+
+#: plugins/motion/motionwindow.C:494
+msgid "Add (loaded) offset from tracked frame"
+msgstr ""
+
+#: plugins/motion/motionwindow.C:515
+msgid "Track translation"
+msgstr "Pistaren translazioa"
+
+#: plugins/motion/motionwindow.C:535
+msgid "Track rotation"
+msgstr "Pistaren biraketa"
+
+#: plugins/motion/motionwindow.C:670
+msgid "Draw vectors"
+msgstr "Marraztu bektoreak"
+
+#: plugins/motion/motionwindow.C:697
+msgid "Track single frame"
+msgstr "Fotograma bakarraren jarraipena"
+
+#: plugins/motion/motionwindow.C:751
+msgid "Track previous frame"
+msgstr "Aurreko fotogramaren jarraipena"
+
+#: plugins/motion/motionwindow.C:780
+msgid "Previous frame same block"
+msgstr "Aurreko fotograma, bloke berdina"
+
+#: plugins/motion/motionwindow.C:827 plugins/motion/motionwindow.C:833
+#: plugins/overlay/overlay.C:229 plugins/titler/titlewindow.C:913
+msgid "Top"
+msgstr "Gora"
+
+#: plugins/motion/motionwindow.C:833 plugins/overlay/overlay.C:230
+#: plugins/titler/titlewindow.C:941
+msgid "Bottom"
+msgstr "Behera"
+
+#: plugins/motion/motionwindow.C:879 plugins/motion/motionwindow.C:891
+msgid "Track Subpixel"
+msgstr "Azpipixelaren jarraipena"
+
+#: plugins/motion/motionwindow.C:880 plugins/motion/motionwindow.C:894
+msgid "Track Pixel"
+msgstr "Pixelaren jarraipena"
+
+#: plugins/motion/motionwindow.C:881 plugins/motion/motionwindow.C:897
+msgid "Stabilize Subpixel"
+msgstr "Egonkortu azpipixelak"
+
+#: plugins/motion/motionwindow.C:882 plugins/motion/motionwindow.C:900
+msgid "Stabilize Pixel"
+msgstr "Egonkortu pixelak"
+
+#: plugins/motion/motionwindow.C:950 plugins/motion/motionwindow.C:961
+msgid "Don't Calculate"
+msgstr "Ez kalkulatu"
+
+#: plugins/motion/motionwindow.C:951 plugins/motion/motionwindow.C:964
+msgid "Recalculate"
+msgstr "Kalkulatu berriro"
+
+#: plugins/motion/motionwindow.C:952 plugins/motion/motionwindow.C:967
+msgid "Save coords to /tmp"
+msgstr "Gorde koordenatuak '/tmp'-en"
+
+#: plugins/motion/motionwindow.C:953 plugins/motion/motionwindow.C:970
+msgid "Load coords from /tmp"
+msgstr "Kargatu koordenatuak /tmp direktoriotik"
+
+#: plugins/motion/motionwindow.C:1028 plugins/quark/quarkwindow.C:156
+#: plugins/sharpen/sharpenwindow.C:130
+msgid "Horizontal only"
+msgstr "Horizontala soilik"
+
+#: plugins/motion/motionwindow.C:1029
+msgid "Vertical only"
+msgstr "Bertikala soilik"
+
+#: plugins/motion/motionwindow.C:1030
+msgid "Both"
+msgstr "Biak"
+
+#: plugins/normalize/normalize.C:58 plugins/synthesizer/synthesizer.C:1201
+msgid "Normalize"
+msgstr "Normalizatu"
+
+#: plugins/normalize/normalizewindow.C:53
+msgid "Enter the DB to overload by:"
+msgstr "Sartu gainkarga (dB):"
+
+#: plugins/normalize/normalizewindow.C:89
+msgid "Treat tracks independantly"
+msgstr "Tratatu pistak independenteki"
+
+#: plugins/oilpainting/oil.C:244
+msgid "Use intensity"
+msgstr "Erabili intentsitatea"
+
+#: plugins/oilpainting/oil.C:283 plugins/unsharp/unsharpwindow.C:59
+#: plugins/zoomblur/zoomblur.C:305
+msgid "Radius:"
+msgstr "Erradioa:"
+
+#: plugins/oilpainting/oil.C:324
+msgid "Oil painting"
+msgstr "Olioz pintatzea"
+
+#: plugins/overlay/overlay.C:219
+msgid "Bottom first"
+msgstr "Behekoa aurrenik"
+
+#: plugins/overlay/overlay.C:220
+msgid "Top first"
+msgstr "Goikoa aurrenik"
+
+#: plugins/overlay/overlay.C:274
+msgid "Layer order:"
+msgstr "Geruzen ordena:"
+
+#: plugins/overlay/overlay.C:281
+msgid "Output layer:"
+msgstr "Irteerako geruza:"
+
+#: plugins/overlay/overlay.C:714
+msgid "Overlay"
+msgstr "Gainjarri"
+
+#: plugins/parametric/parametric.C:269
+msgid "Lowpass"
+msgstr "Behe-pasea"
+
+#: plugins/parametric/parametric.C:272
+msgid "Highpass"
+msgstr "Goi-pasea"
+
+#: plugins/parametric/parametric.C:275
+msgid "Bandpass"
+msgstr "Banda-pasa"
+
+#: plugins/parametric/parametric.C:380
+msgid "Freq"
+msgstr "Maiz."
+
+#: plugins/parametric/parametric.C:381
+msgid "Qual"
+msgstr "Kali."
+
+#: plugins/parametric/parametric.C:382 plugins/synthesizer/synthesizer.C:579
+#: plugins/synthesizer/synthesizer.C:637
+msgid "Level"
+msgstr "Maila"
+
+#: plugins/parametric/parametric.C:392 plugins/synthesizer/synthesizer.C:628
+msgid "Wetness:"
+msgstr "Tratatutako seinalea:"
+
+#: plugins/parametric/parametric.C:656
+msgid "EQ Parametric"
+msgstr "Eku. parametrikoa"
+
+#: plugins/perspective/perspective.C:148
+msgid "Current X:"
+msgstr "X posizioa:"
+
+#: plugins/perspective/perspective.C:175 plugins/perspective/perspective.C:625
+msgid "Perspective"
+msgstr "Perspektiba"
+
+#: plugins/perspective/perspective.C:181
+msgid "Sheer"
+msgstr "Garbitasuna"
+
+#: plugins/perspective/perspective.C:188 plugins/reframert/reframert.C:288
+msgid "Stretch"
+msgstr "Tiratu"
+
+#: plugins/perspective/perspective.C:192
+msgid "Perspective direction:"
+msgstr "Perspektibaren norabidea:"
+
+#: plugins/perspective/perspective.C:198
+msgid "Forward"
+msgstr "Aurrera"
+
+#: plugins/perspective/perspective.C:204
+msgid "Reverse"
+msgstr "Atzera"
+
+#: plugins/pitch/pitch.C:63
+msgid "Pitch shift"
+msgstr "Garaieraren despl."
+
+#: plugins/polar/polar.C:222
+msgid "Depth:"
+msgstr "Sakonera:"
+
+#: plugins/polar/polar.C:301
+msgid "Polar"
+msgstr "Polarra"
+
+#: plugins/quark/quark.C:63
+msgid "Quark"
+msgstr "Quark"
+
+#: plugins/quark/quarkwindow.C:87 plugins/sharpen/sharpenwindow.C:61
+msgid "Sharpness"
+msgstr "Zorroztasuna"
+
+#: plugins/quark/quarkwindow.C:138 plugins/sharpen/sharpenwindow.C:112
+msgid "Interlace"
+msgstr "Gurutzelarkatu"
+
+#: plugins/quark/quarkwindow.C:173 plugins/sharpen/sharpenwindow.C:147
+msgid "Luminance only"
+msgstr "Luminantzia soilik"
+
+#: plugins/radialblur/radialblur.C:390
+msgid "Radial Blur"
+msgstr "Lausotze erradiala"
+
+#: plugins/reframe/reframe.C:57
+msgid "Reframe"
+msgstr "Aldatu fotograma-tasa"
+
+#: plugins/reframe/reframe.C:193 plugins/resample/resample.C:77
+msgid "Scale factor:"
+msgstr "Eskala-faktorea:"
+
+#: plugins/reframert/reframert.C:224
+msgid "Scale by amount:"
+msgstr "Eskala-kopurua:"
+
+#: plugins/reframert/reframert.C:354
+msgid "ReframeRT"
+msgstr "Aldatu fotograma-tasa - RT"
+
+#: plugins/resample/resample.C:106
+msgid "Resample"
+msgstr "Berriz lagindu"
+
+#: plugins/reverb/reverb.C:99
+msgid "Heroine College Concert Hall"
+msgstr "Heroine eskolako kontzertu aretoa"
+
+#: plugins/reverb/reverb.C:453
+#, c-format
+msgid "Couldn't save %s."
+msgstr "Ezin izan da %s gorde."
+
+#: plugins/reverb/reverbwindow.C:61
+msgid "Initial signal level:"
+msgstr "Hasierako seinale-maila:"
+
+#: plugins/reverb/reverbwindow.C:63
+msgid "ms before reflections:"
+msgstr "Denbora islapenen aurretik (ms):"
+
+#: plugins/reverb/reverbwindow.C:65
+msgid "First reflection level:"
+msgstr "Aurreneko islapenaren maila:"
+
+#: plugins/reverb/reverbwindow.C:67
+msgid "Last reflection level:"
+msgstr "Azken islapenaren maila:"
+
+#: plugins/reverb/reverbwindow.C:69
+msgid "Number of reflections:"
+msgstr "Islapen kopurua:"
+
+#: plugins/reverb/reverbwindow.C:71
+msgid "ms of reflections:"
+msgstr "Islapenen iraupena (ms):"
+
+#: plugins/reverb/reverbwindow.C:73
+msgid "Start band for lowpass:"
+msgstr "Behe-pasaren bandaren hasiera:"
+
+#: plugins/reverb/reverbwindow.C:75
+msgid "End band for lowpass:"
+msgstr "Behe-pasaren bandaren amaiera:"
+
+#: plugins/reverb/reverbwindow.C:347
+msgid "Load..."
+msgstr "Kargatu..."
+
+#: plugins/reverb/reverbwindow.C:364
+msgid "Save..."
+msgstr "Gorde..."
+
+#: plugins/reverb/reverbwindow.C:381
+msgid "Set default"
+msgstr "Ezarri lehenetsia"
+
+#: plugins/reverb/reverbwindow.C:442
+msgid "Save reverb"
+msgstr "Gorde ohiartzuna"
+
+#: plugins/reverb/reverbwindow.C:443
+msgid "Select the reverb file to save as"
+msgstr "Hautatu fitxategia oihartzuna gordetzeko"
+
+#: plugins/reverb/reverbwindow.C:525
+msgid "Load reverb"
+msgstr "Kargatu oihartzuna"
+
+#: plugins/reverb/reverbwindow.C:526
+msgid "Select the reverb file to load from"
+msgstr "Hautatu oihartzun-fitxategia kargatzeko"
+
+#: plugins/reverseaudio/reverseaudio.C:185
+msgid "Reverse audio"
+msgstr "Atzekoz aurrera audioa"
+
+#: plugins/reversevideo/reversevideo.C:183
+msgid "Reverse video"
+msgstr "Atzekoz aurrera bideoa"
+
+#: plugins/rgb601/rgb601.C:55
+msgid "RGB - 601"
+msgstr "GBU - 601"
+
+#: plugins/rgb601/rgb601window.C:65
+msgid "RGB -> 601 compression"
+msgstr "GBU -> 601 konpresioa"
+
+#: plugins/rgb601/rgb601window.C:72
+msgid "601 -> RGB expansion"
+msgstr "601 -> GBU hedapena"
+
+#: plugins/rotate/rotate.C:323
+msgid "Draw pivot"
+msgstr "Marraztu orpoa"
+
+#: plugins/rotate/rotate.C:476 plugins/rotate/rotate.C:629
+msgid "Rotate"
+msgstr "Biratu"
+
+#: plugins/rotate/rotate.C:520
+msgid "Degrees"
+msgstr "Gradu"
+
+#: plugins/rotate/rotate.C:527
+msgid "Pivot (x,y):"
+msgstr "Orpoa (x,y):"
+
+#: plugins/scale/scale.C:92
+msgid "Scale"
+msgstr "Eskala"
+
+#: plugins/scale/scalewin.C:63
+msgid "X Scale:"
+msgstr "X eskala:"
+
+#: plugins/scale/scalewin.C:68
+msgid "Y Scale:"
+msgstr "Y eskala:"
+
+#: plugins/scale/scalewin.C:163
+msgid "Constrain ratio"
+msgstr "Murriztu erlazioa"
+
+#: plugins/timeavg/timeavg.C:111
+msgid "Time Average"
+msgstr "Denboraren batez bestekoa"
+
+#: plugins/timeavg/timeavgwindow.C:114
+msgid "Accumulate"
+msgstr "Pilatu"
+
+#: plugins/timeavg/timeavgwindow.C:158
+msgid "Inclusive Or"
+msgstr "EDO inklusiboa"
+
+#: plugins/shapewipe/shapewipe.C:46
+msgid "White to Black"
+msgstr "Zuritik beltzera"
+
+#: plugins/shapewipe/shapewipe.C:68
+msgid "Black to White"
+msgstr "Beltzetik zurira"
+
+#: plugins/shapewipe/shapewipe.C:87
+msgid "Anti-aliasing"
+msgstr "Antialiasing-a"
+
+#: plugins/shapewipe/shapewipe.C:104
+msgid "Preserve shape aspect ratio"
+msgstr "Mantendu formaren aspektu-erlazioa"
+
+#: plugins/shapewipe/shapewipe.C:144
+msgid "Browse..."
+msgstr "Arakatu..."
+
+#: plugins/shapewipe/shapewipe.C:176
+msgid "Choose Shape"
+msgstr "Aukeratu forma"
+
+#: plugins/shapewipe/shapewipe.C:177
+msgid "Choose a Wipe Shape"
+msgstr "Aukeratu errezel forma"
+
+#: plugins/shapewipe/shapewipe.C:273
+msgid "Shape Wipe"
+msgstr "Errezel forma"
+
+#: plugins/sharpen/sharpen.C:121
+msgid "Sharpen"
+msgstr "Enfokatu"
+
+#: plugins/shiftinterlace/shiftinterlace.C:206
+msgid "Odd offset:"
+msgstr "Despl. bakoitia:"
+
+#: plugins/shiftinterlace/shiftinterlace.C:209
+msgid "Even offset:"
+msgstr "Despl. bikoitia:"
+
+#: plugins/shiftinterlace/shiftinterlace.C:284
+msgid "ShiftInterlace"
+msgstr "Gurutzelarkatze-despl."
+
+#: plugins/slide/slide.C:53 plugins/titler/titlewindow.C:869
+#: plugins/wipe/wipe.C:50
+msgid "Left"
+msgstr "Ezkerrera"
+
+#: plugins/slide/slide.C:75 plugins/titler/titlewindow.C:897
+#: plugins/wipe/wipe.C:72
+msgid "Right"
+msgstr "Eskuinera"
+
+#: plugins/slide/slide.C:219
+msgid "Slide"
+msgstr "Gortina"
+
+#: plugins/spectrogram/spectrogram.C:223
+msgid "Spectrogram"
+msgstr "Espektograma"
+
+#: plugins/svg/svg.C:144
+msgid "SVG via Inkscape"
+msgstr "SVG (Inkscape)"
+
+#: plugins/svg/svg.C:281
+#, c-format
+msgid "Running command %s\n"
+msgstr "%s komandoa exekutatzen\n"
+
+#: plugins/svg/svg.C:287
+#, c-format
+msgid "Export of %s to %s failed\n"
+msgstr "%2$s(e)k huts egin du %1$s esportatzean\n"
+
+#: plugins/svg/svg.C:301
+#, c-format
+msgid ""
+"The file %s that was generated from %s is not in RAWC format. Try to delete "
+"all *.raw files.\n"
+msgstr ""
+"%s fitxategia, %s(e)ndik sortutakoa, ez dago RAWC formatuan. Saiatu *.raw "
+"fitxategi guztiak ezabatzen.\n"
+
+#: plugins/svg/svg.C:308
+#, c-format
+msgid ""
+"Unsupported version of RAWC file %s. This means your Inkscape uses newer "
+"RAWC format than Cinelerra. Please upgrade Cinelerra.\n"
+msgstr ""
+"%s fitxategiak onartu gabeko RAWC formatua du. Inscape aplikazioak Cinelerra "
+"baino RAWC formatu berriagoa erabiltzen duela adierazten du. Eguneratu "
+"Cinelerra.\n"
+
+#: plugins/svg/svgwin.C:106 plugins/translate/translatewin.C:94
+msgid "Out X:"
+msgstr "Irteerako X:"
+
+#: plugins/svg/svgwin.C:112 plugins/translate/translatewin.C:100
+msgid "Out Y:"
+msgstr "Irteerako Y:"
+
+#: plugins/svg/svgwin.C:180
+msgid "New/Open SVG..."
+msgstr "Berria/Ireki SVG..."
+
+#: plugins/svg/svgwin.C:360
+#, c-format
+msgid "Inkscape has exited\n"
+msgstr "Inkscape irten egin da\n"
+
+#: plugins/svg/svgwin.C:363
+#, c-format
+msgid "Plugin window has closed\n"
+msgstr "Plugin-en leihoa itxi da\n"
+
+#: plugins/svg/svgwin.C:400
+#, c-format
+msgid "Running external SVG editor: %s\n"
+msgstr "Kanpoko SVG editorea exekutatzen: %s\n"
+
+#: plugins/svg/svgwin.C:403
+#, c-format
+msgid "External SVG editor finished\n"
+msgstr "Kanpoko SVG editorea amaitu da\n"
+
+#: plugins/svg/svgwin.C:420
+msgid "SVG Plugin: Pick SVG file"
+msgstr "SVG plugin-a: hautatu SVG fitxategia"
+
+#: plugins/svg/svgwin.C:421
+msgid "Open an existing SVG file or create a new one"
+msgstr "Ireki SVG fitxategia edo sortu berria"
+
+#: plugins/swapchannels/swapchannels.C:107
+#: plugins/swapchannels/swapchannels.C:217
+msgid "Swap channels"
+msgstr "Trukatu kanalak"
+
+#: plugins/swapchannels/swapchannels.C:109
+msgid "-> Red"
+msgstr "-> Gorria"
+
+#: plugins/swapchannels/swapchannels.C:113
+msgid "-> Green"
+msgstr "-> Berdea"
+
+#: plugins/swapchannels/swapchannels.C:117
+msgid "-> Blue"
+msgstr "-> Urdina"
+
+#: plugins/swapchannels/swapchannels.C:121
+msgid "-> Alpha"
+msgstr "-> Alfa"
+
+#: plugins/swapchannels/swapchannels.C:462
+#: plugins/swapchannels/swapchannels.C:479
+msgid "0%"
+msgstr "%0"
+
+#: plugins/swapchannels/swapchannels.C:465
+#: plugins/swapchannels/swapchannels.C:480
+msgid "100%"
+msgstr "%100"
+
+#: plugins/synthesizer/synthesizer.C:79
+msgid "Synthesizer"
+msgstr "Sintetizadorea"
+
+#: plugins/synthesizer/synthesizer.C:580 plugins/synthesizer/synthesizer.C:639
+msgid "Phase"
+msgstr "Fasea"
+
+#: plugins/synthesizer/synthesizer.C:581 plugins/synthesizer/synthesizer.C:641
+msgid "Harmonic"
+msgstr "Harmonikoa"
+
+#: plugins/synthesizer/synthesizer.C:602
+msgid "Waveform"
+msgstr "Uhin-forma"
+
+#: plugins/synthesizer/synthesizer.C:604
+msgid "Wave Function"
+msgstr "Uhin-funtzioa"
+
+#: plugins/synthesizer/synthesizer.C:619
+msgid "Base Frequency:"
+msgstr "Oinarri-maiztasuna:"
+
+#: plugins/synthesizer/synthesizer.C:759
+#, c-format
+msgid "DC"
+msgstr "DC"
+
+#: plugins/synthesizer/synthesizer.C:760
+#: plugins/synthesizer/synthesizer.C:1013
+#: plugins/synthesizer/synthesizer.C:1302
+#: plugins/synthesizer/synthesizer.C:1369
+#, c-format
+msgid "Sine"
+msgstr "Sinua"
+
+#: plugins/synthesizer/synthesizer.C:761
+#: plugins/synthesizer/synthesizer.C:1014
+#, c-format
+msgid "Sawtooth"
+msgstr "Zerra-hortza"
+
+#: plugins/synthesizer/synthesizer.C:763
+#: plugins/synthesizer/synthesizer.C:1016
+#, c-format
+msgid "Triangle"
+msgstr "Triangelua"
+
+#: plugins/synthesizer/synthesizer.C:764
+#: plugins/synthesizer/synthesizer.C:1017
+#, c-format
+msgid "Pulse"
+msgstr "Pultsua"
+
+#: plugins/synthesizer/synthesizer.C:765
+#: plugins/synthesizer/synthesizer.C:1018
+#, c-format
+msgid "Noise"
+msgstr "Zarata"
+
+#: plugins/synthesizer/synthesizer.C:888
+msgid "Add"
+msgstr "Gehitu"
+
+#: plugins/synthesizer/synthesizer.C:1160
+#: plugins/synthesizer/synthesizer.C:1349
+msgid "Zero"
+msgstr "Zero"
+
+#: plugins/synthesizer/synthesizer.C:1181
+msgid "Maximum"
+msgstr "Gehienezkoa"
+
+#: plugins/synthesizer/synthesizer.C:1237
+msgid "Slope"
+msgstr "Malda"
+
+#: plugins/synthesizer/synthesizer.C:1260
+#: plugins/synthesizer/synthesizer.C:1392
+#: plugins/synthesizer/synthesizer.C:1417
+msgid "Random"
+msgstr "Ausazkoa"
+
+#: plugins/synthesizer/synthesizer.C:1438
+msgid "Enumerate"
+msgstr "Zenbatu"
+
+#: plugins/synthesizer/synthesizer.C:1458
+msgid "Even"
+msgstr "Bikoitia"
+
+#: plugins/synthesizer/synthesizer.C:1481
+msgid "Odd"
+msgstr "Bakoitia"
+
+#: plugins/synthesizer/synthesizer.C:1499
+msgid "Fibonnacci"
+msgstr "Fibonnacci"
+
+#: plugins/synthesizer/synthesizer.C:1523
+msgid "Prime"
+msgstr "Lehentasuna"
+
+#: plugins/threshold/thresholdwindow.C:310
+msgid "Low Color"
+msgstr "Kolore baxua"
+
+#: plugins/threshold/thresholdwindow.C:330
+msgid "Mid Color"
+msgstr "Tarteko kolorea"
+
+#: plugins/threshold/thresholdwindow.C:350
+msgid "High Color"
+msgstr "Kolore altua"
+
+#: plugins/threshold/thresholdwindow.C:370
+msgid "Low color"
+msgstr "Kolore baxua"
+
+#: plugins/threshold/thresholdwindow.C:389
+msgid "Mid color"
+msgstr "Tarteko kolorea"
+
+#: plugins/threshold/thresholdwindow.C:408
+msgid "High color"
+msgstr "Kolore altua"
+
+#: plugins/threshold/thresholdwindow.C:482
+msgid "Min:"
+msgstr "Gutx.:"
+
+#: plugins/threshold/thresholdwindow.C:495
+msgid "Max:"
+msgstr "Gehien.:"
+
+#: plugins/timefront/timefront.C:161
+msgid "Type:"
+msgstr "Mota:"
+
+#: plugins/timefront/timefront.C:171
+msgid "Time range:"
+msgstr "Denbora barrutia:"
+
+#: plugins/timefront/timefront.C:298
+msgid "As timefront use:"
+msgstr "Erabili aurredenbora gisa:"
+
+#: plugins/timefront/timefront.C:382
+msgid "Other track as timefront"
+msgstr "Beste pista aurredenbora gisa"
+
+#: plugins/timefront/timefront.C:384
+msgid "Alpha as timefront"
+msgstr "Alfa aurredenbora gisa"
+
+#: plugins/timefront/timefront.C:426
+msgid "Intensity"
+msgstr "Intentsitatea"
+
+#: plugins/timefront/timefront.C:428
+msgid "Alpha mask"
+msgstr "Alfa maskara"
+
+#: plugins/timefront/timefront.C:610
+msgid "Inversion"
+msgstr "Alderantzikatu"
+
+#: plugins/timefront/timefront.C:626
+msgid "Show grayscale (for tuning"
+msgstr "Erakutsi gris-eskala"
+
+#: plugins/timefront/timefront.C:659
+msgid "TimeFront"
+msgstr "AurreDenbora"
+
+#: plugins/timestretch/timestretch.C:339
+msgid "Time stretch"
+msgstr "Tiratu denbora"
+
+#: plugins/titler/title.C:81
+#, c-format
+msgid "hello world"
+msgstr "Kaixo mundua"
+
+#: plugins/titler/title.C:295
+#, c-format
+msgid "GlyphUnit::process_package FT_New_Face failed.\n"
+msgstr "GlyphUnit::process_package:  FT_New_Face-k huts egin du.\n"
+
+#: plugins/titler/title.C:314
+#, c-format
+msgid "GlyphUnit::process_package FT_Load_Char failed - char: %i.\n"
+msgstr ""
+"GlyphUnit::process_package: FT_Load_Char huts egin du - karakterea: %i.\n"
+
+#: plugins/titler/title.C:1385
+#, c-format
+msgid "TitleMain::load_freetype_face %s failed.\n"
+msgstr "TitleMain::load_freetype_face: %s-(e)k huts eign du.\n"
+
+#: plugins/titler/title.C:1506
+#, c-format
+msgid "Iconv conversion from %s to Unicode UCS-4 not available\n"
+msgstr ""
+"%s(e)tik Unicode UCS-4 kodeketarako Iconv bihurketa ez dago erabilgarri.\n"
+
+#: plugins/titler/title.C:1947
+msgid "No motion"
+msgstr "Mugimendurik gabe"
+
+#: plugins/titler/title.C:1948
+msgid "Bottom to top"
+msgstr "Behetik gora"
+
+#: plugins/titler/title.C:1949
+msgid "Top to bottom"
+msgstr "Goitik behera"
+
+#: plugins/titler/title.C:1950
+msgid "Right to left"
+msgstr "Eskuinetik ezkerrera"
+
+#: plugins/titler/title.C:1951
+msgid "Left to right"
+msgstr "Ezkerretik eskuinera"
+
+#: plugins/titler/titlewindow.C:189
+msgid "Font:"
+msgstr "Letra-tipoa:"
+
+#: plugins/titler/titlewindow.C:202
+msgid "Style:"
+msgstr "Estiloa:"
+
+#: plugins/titler/titlewindow.C:209
+msgid "Justify:"
+msgstr "Justifikatu:"
+
+#: plugins/titler/titlewindow.C:234
+msgid "Motion type:"
+msgstr "Mugimendu mota:"
+
+#: plugins/titler/titlewindow.C:246
+msgid "Drop shadow:"
+msgstr "Jaregin itzala:"
+
+#: plugins/titler/titlewindow.C:251
+msgid "Fade in (sec):"
+msgstr "Pixkanaka agertu (s):"
+
+#: plugins/titler/titlewindow.C:255
+msgid "Fade out (sec):"
+msgstr "Pixkanaka desagertu (s):"
+
+#: plugins/titler/titlewindow.C:259
+msgid "Speed:"
+msgstr "Abiadura:"
+
+#: plugins/titler/titlewindow.C:272
+msgid "Encoding:"
+msgstr "Kodeketa:"
+
+#: plugins/titler/titlewindow.C:278
+msgid "Outline width:"
+msgstr "Ertzaren zabalera:"
+
+#: plugins/titler/titlewindow.C:299
+msgid "Text:"
+msgstr "Testua:"
+
+#: plugins/titler/titlewindow.C:510
+msgid "Bold"
+msgstr "Lodia"
+
+#: plugins/titler/titlewindow.C:524
+msgid "Italic"
+msgstr "Etzana"
+
+#: plugins/titler/titlewindow.C:537
+msgid "Outline"
+msgstr "Ertza"
+
+#: plugins/titler/titlewindow.C:618
+msgid "Outline color..."
+msgstr "Ertzaren kolorea..."
+
+#: plugins/titler/titlewindow.C:651
+msgid "Loop"
+msgstr "Begizta"
+
+#: plugins/titler/titlewindow.C:663
+msgid "Stamp timecode"
+msgstr "Markatu denbora-kodea"
+
+#: plugins/titler/titlewindow.C:883
+msgid "Center"
+msgstr "Zentratu"
+
+#: plugins/titler/titlewindow.C:927
+msgid "Mid"
+msgstr "Erdian"
+
+#: plugins/translate/translate.C:118
+msgid "Translate"
+msgstr "Desplazatu"
+
+#: plugins/translate/translatewin.C:67
+msgid "In X:"
+msgstr "Sarrerako X:"
+
+#: plugins/translate/translatewin.C:73
+msgid "In Y:"
+msgstr "Sarrerako Y:"
+
+#: plugins/translate/translatewin.C:79
+msgid "In W:"
+msgstr "Sarrerako Z:"
+
+#: plugins/translate/translatewin.C:85
+msgid "In H:"
+msgstr "Sarrerako A:"
+
+#: plugins/translate/translatewin.C:106
+msgid "Out W:"
+msgstr "Irteerako Z:"
+
+#: plugins/translate/translatewin.C:112
+msgid "Out H:"
+msgstr "Irteerako A:"
+
+#: plugins/unsharp/unsharp.C:105
+msgid "Unsharp"
+msgstr "Zorroztasun gabe"
+
+#: plugins/unsharp/unsharpwindow.C:65
+msgid "Amount:"
+msgstr "Kopurua:"
+
+#: plugins/videoscope/videoscope.C:711
+msgid "HDTV"
+msgstr "HDTV"
+
+#: plugins/videoscope/videoscope.C:759
+msgid "Inverse"
+msgstr "Alderantzikatu"
+
+#: plugins/videoscope/videoscope.C:811
+msgid "VideoScope"
+msgstr "Bideoaren esparrua"
+
+#: plugins/wave/wave.C:276
+msgid "Smear"
+msgstr "Lohitu"
+
+#: plugins/wave/wave.C:293
+msgid "Blacken"
+msgstr "Belztu"
+
+#: plugins/wave/wave.C:312
+msgid "Reflective"
+msgstr "Islatzailea"
+
+#: plugins/wave/wave.C:421
+msgid "Amplitude:"
+msgstr "Anplitudea:"
+
+#: plugins/wave/wave.C:424
+msgid "Phase:"
+msgstr "Fasea:"
+
+#: plugins/wave/wave.C:427
+msgid "Wavelength:"
+msgstr "Uhin-luzera:"
+
+#: plugins/wave/wave.C:474
+msgid "Wave"
+msgstr "Uhina"
+
+#: plugins/whirl/whirl.C:264
+msgid "Pinch"
+msgstr "Tiratu"
+
+#: plugins/whirl/whirl.C:268
+msgid "Angle"
+msgstr "Angelua"
+
+#: plugins/whirl/whirl.C:388
+msgid "Whirl"
+msgstr "Bihurritu"
+
+#: plugins/wipe/wipe.C:156
+msgid "Wipe"
+msgstr "Ezabatu"
+
+#: plugins/yuv/yuv.C:196
+msgid "U:"
+msgstr "U:"
+
+#: plugins/yuv/yuv.C:199
+msgid "V:"
+msgstr "V:"
+
+#: plugins/yuv/yuv.C:234
+msgid "YUV"
+msgstr "YUV"
+
+#: plugins/zoomblur/zoomblur.C:417
+msgid "Zoom Blur"
+msgstr "Zooma lausotzea"
+
+#: plugins/livevideo/livevideo.C:563
+msgid "Live Video"
+msgstr "Zuzeneko bideoa"
+
+#: plugins/motionblur/motionblur.C:322
+msgid "Motion Blur"
+msgstr "Mugimendu-lausotzea"

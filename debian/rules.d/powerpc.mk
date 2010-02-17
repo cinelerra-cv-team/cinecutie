@@ -1,0 +1,1 @@
+CONFFLAGS=--enable-opengl
