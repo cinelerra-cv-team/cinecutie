@@ -945,21 +945,6 @@ static inline void transfer_RGB161616_to_BGR8888(unsigned char *(*output), uint1
 	(*output) += 4;
 }
 
-static inline void transfer_RGB161616_to_RGB_FLOAT(float *(*output), uint16_t *input)
-{
-	*(*output)++ = (float)*input++ / 0xffff;
-	*(*output)++ = (float)*input++ / 0xffff;
-	*(*output)++ = (float)*input / 0xffff;
-}
-
-static inline void transfer_RGB161616_to_RGBA_FLOAT(float *(*output), uint16_t *input)
-{
-	*(*output)++ = (float)*input++ / 0xffff;
-	*(*output)++ = (float)*input++ / 0xffff;
-	*(*output)++ = (float)*input / 0xffff;
-	*(*output)++ = 1.0;
-}
-
 static inline void transfer_RGB161616_to_YUV888(unsigned char *(*output), uint16_t *input)
 {
 	int y, u, v, r, g, b;
@@ -992,38 +977,6 @@ static inline void transfer_RGB161616_to_YUVA8888(unsigned char *(*output), uint
 	(*output) += 4;
 }
 
-static inline void transfer_RGB161616_to_YUV161616(uint16_t *(*output), uint16_t *input)
-{
-	uint32_t y, u, v, r, g, b, a;
-	
-	r = (uint32_t)input[0];
-	g = (uint32_t)input[1];
-	b = (uint32_t)input[2];
-	
-	RGB_TO_YUV16(y, u, v, r, g, b);
-	
-	(*output)[0] = y;
-	(*output)[1] = u;
-	(*output)[2] = v;
-	(*output) += 3;
-}
-
-static inline void transfer_RGB161616_to_YUVA16161616(uint16_t *(*output), uint16_t *input)
-{
-	uint32_t y, u, v, r, g, b;
-	
-	r = (uint32_t)input[0];
-	g = (uint32_t)input[1];
-	b = (uint32_t)input[2];
-	
-	RGB_TO_YUV16(y, u, v, r, g, b);
-
-	(*output)[0] = y;
-	(*output)[1] = u;
-	(*output)[2] = v;
-	(*output)[3] = 0xffff;
-	(*output) += 4;
-}
 
 static inline void transfer_RGB161616_to_YUV101010(unsigned char *(*output), uint16_t *input)
 {
@@ -1181,7 +1134,7 @@ static inline void transfer_RGBA16161616_to_RGB888(unsigned char *(*output), uin
 }
 
 
-static inline void transfer_RGBA16161616_to_RGBA8888(unsigned char *(*output), uint16_t *input)
+static inline void transfer_RGBA16161616_to_RGBA8888(unsigned char *(*output), unsigned char *input)
 {
 	(*output)[0] = input[0] >> 8;
 	(*output)[1] = input[1] >> 8;
@@ -1205,91 +1158,6 @@ static inline void transfer_RGBA16161616_to_BGR8888(unsigned char *(*output), ui
 	(*output)[2] = (unsigned char)(r >> 24);
 	(*output) += 4;
 }
-
-static inline void transfer_RGBA16161616_to_RGB_FLOAT(float *(*output), uint16_t *input)
-{
-	float opacity = (float)input[3];
-	*(*output)++ = (float)*input++ * opacity / 0xffff / 0xffff;
-	*(*output)++ = (float)*input++ * opacity / 0xffff / 0xffff;
-	*(*output)++ = (float)*input * opacity / 0xffff / 0xffff;
-}
-
-static inline void transfer_RGBA16161616_to_RGBA_FLOAT(float *(*output), uint16_t *input)
-{
-	*(*output)++ = (float)*input++ / 0xffff;
-	*(*output)++ = (float)*input++ / 0xffff;
-	*(*output)++ = (float)*input++ / 0xffff;
-	*(*output)++ = (float)*input / 0xffff;
-}
-
-static inline void transfer_RGBA16161616_to_YUV888(unsigned char *(*output), uint16_t *input)
-{
-	uint32_t y, u, v, r, g, b, a;
-	
-	a = input[3];
-	r = (uint32_t)input[0] * a / 0xffffff;
-	g = (uint32_t)input[1] * a / 0xffffff;
-	b = (uint32_t)input[2] * a / 0xffffff;
-	
-	RGB_TO_YUV(y, u, v, r, g, b);
-	
-	(*output)[0] = y;
-	(*output)[1] = u;
-	(*output)[2] = v;
-	(*output) += 3;
-}
-
-static inline void transfer_RGBA16161616_to_YUVA8888(unsigned char *(*output), uint16_t *input)
-{
-	int y, u, v, r, g, b;
-
-	r = input[0] >> 8;
-	g = input[1] >> 8;
-	b = input[2] >> 8;
-	
-	RGB_TO_YUV(y, u, v, r, g, b);
-	
-	(*output)[0] = y;
-	(*output)[1] = u;
-	(*output)[2] = v;
-	(*output)[3] = input[3] >> 8;
-	(*output) += 4;
-}
-
-static inline void transfer_RGBA16161616_to_YUV161616(uint16_t *(*output), uint16_t *input)
-{
-	uint32_t y, u, v, r, g, b, a;
-	
-	a = input[3];
-	r = (uint32_t)input[0] * a / 0xffff;
-	g = (uint32_t)input[1] * a / 0xffff;
-	b = (uint32_t)input[2] * a / 0xffff;
-	
-	RGB_TO_YUV16(y, u, v, r, g, b);
-	
-	(*output)[0] = y;
-	(*output)[1] = u;
-	(*output)[2] = v;
-	(*output) += 3;
-}
-
-static inline void transfer_RGBA16161616_to_YUVA16161616(uint16_t *(*output), uint16_t *input)
-{
-	uint32_t y, u, v, r, g, b;
-	
-	r = (uint32_t)input[0];
-	g = (uint32_t)input[1];
-	b = (uint32_t)input[2];
-	
-	RGB_TO_YUV16(y, u, v, r, g, b);
-	
-	(*output)[0] = y;
-	(*output)[1] = u;
-	(*output)[2] = v;
-	(*output)[3] = input[3];
-	(*output) += 4;
-}
-
 
 static inline void transfer_RGBA16161616_to_YUV101010(unsigned char *(*output), uint16_t *input)
 {

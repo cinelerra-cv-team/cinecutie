@@ -106,11 +106,12 @@ void quicktime_finalize_indx(quicktime_t *file)
 
 /* Rewrite JUNK less indx size and indx header size */
 		junk_size = strl->padding_size - indx->atom.size - 8;
-  		quicktime_atom_write_header(file, &junk_atom, "JUNK");
-  		for(j = 0; j < junk_size; j += 4)
-  			quicktime_write_int32_le(file, 0);
-  		quicktime_atom_write_footer(file, &junk_atom);
- 
+/*
+ * 		quicktime_atom_write_header(file, &junk_atom, "JUNK");
+ * 		for(j = 0; j < junk_size; j += 4)
+ * 			quicktime_write_int32_le(file, 0);
+ * 		quicktime_atom_write_footer(file, &junk_atom);
+ */
 	}
 }
 
@@ -141,6 +142,8 @@ void quicktime_read_indx(quicktime_t *file,
 	quicktime_read_int32_le(file);
 	quicktime_read_int32_le(file);
 
+
+//	file->is_odml = 1;
 
 //printf("quicktime_read_indx 1\n");
 /* Read indx entries */

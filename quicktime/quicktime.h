@@ -23,7 +23,6 @@ extern "C" {
 #define QUICKTIME_MP42 "MP42"
 #define QUICKTIME_DIVX "DIVX"
 #define QUICKTIME_XVID "XVID"
-#define QUICKTIME_DNXHD "AVdn"
 #define QUICKTIME_MP4V "mp4v"
 
 #define QUICKTIME_H264 "avc1"
@@ -56,6 +55,7 @@ extern "C" {
 
 /* Jpeg Photo */
 #define QUICKTIME_JPEG "jpeg"
+#define QUICKTIME_MJPG "MJPG"
 
 /* Concatenated png images.  Allows alpha */
 #define QUICKTIME_PNG "png "
@@ -126,6 +126,7 @@ extern "C" {
 #define QUICKTIME_MP3 ".mp3"
 
 #define QUICKTIME_MP4A "mp4a"
+#define QUICKTIME_QDM2 "QDM2"
 
 /* Mike Row Soft */
 /* AVI decode only */
@@ -163,9 +164,9 @@ void quicktime_set_asf(quicktime_t *file, int value);
 int quicktime_make_streamable(char *in_path, char *out_path);
 
 /* Set various options in the file. */
-void quicktime_set_copyright(quicktime_t *file, char *string);
-void quicktime_set_name(quicktime_t *file, char *string);
-void quicktime_set_info(quicktime_t *file, char *string);
+void quicktime_set_copyright(quicktime_t *file, const char *string);
+void quicktime_set_name(quicktime_t *file, const char *string);
+void quicktime_set_info(quicktime_t *file, const char *string);
 char* quicktime_get_copyright(quicktime_t *file);
 char* quicktime_get_name(quicktime_t *file);
 char* quicktime_get_info(quicktime_t *file);
@@ -205,7 +206,7 @@ void quicktime_set_jpeg(quicktime_t *file, int quality, int use_float);
 /* It iterates through every track and sets the key in that codec to */
 /* the value.  The value can be any data type and the key must be a */
 /* string which the codec understands. */
-void quicktime_set_parameter(quicktime_t *file, char *key, void *value);
+void quicktime_set_parameter(quicktime_t *file, const char *key, void *value);
 
 /* Get the english title of a codec based on its fourcc. */
 /* Used by info boxed. */
@@ -252,9 +253,6 @@ int quicktime_video_height(quicktime_t *file, int track);
 
 /* Number of bytes per pixel for the raw codec */
 int quicktime_video_depth(quicktime_t *file, int track);
-
-/* The interlace mode */
-int quicktime_video_interlacemode(quicktime_t *file, int track);
 
 /* Frames per second */
 double quicktime_frame_rate(quicktime_t *file, int track);
@@ -420,9 +418,6 @@ int quicktime_set_cpus(quicktime_t *file, int cpus);
 void quicktime_set_preload(quicktime_t *file, int64_t preload);
 
 int64_t quicktime_byte_position(quicktime_t *file);
-
-/* Set frame offset for programme timecode */
-void quicktime_set_frame_start(quicktime_t *file, int64_t value);
 
 
 

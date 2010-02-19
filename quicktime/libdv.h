@@ -14,7 +14,7 @@ extern "C" {
 #define DV_PAL 1
 
 
-#include <libdv/dv.h>
+#include "libdv/dv.h"
 #include <pthread.h>
 #include <sys/time.h>
 

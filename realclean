@@ -2,8 +2,10 @@ make clean 2> /dev/null
 make distclean 2> /dev/null
 rm -rf aclocal.m4
 rm -rf autom4te.cache
-rm -rf cincutie/data/Makefile.in
-rm -rf cincutie/Makefile.in
+rm -rf cinecutie/data/Makefile.in
+rm -rf cinecutie/Makefile.in
+rm -rf plugins/themepink/Makefile.in
+rm -rf plugins/themepink/data/Makefile.in
 rm -rf config.guess
 rm -rf config.h.in
 rm -rf config.sub

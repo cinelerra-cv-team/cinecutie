@@ -77,6 +77,7 @@ int quicktime_atom_read_header(quicktime_t *file, quicktime_atom_t *atom)
 {
 	int result = 0;
 	char header[10];
+	int debug = 0;
 
 	if(file->use_avi)
 	{
@@ -107,13 +108,12 @@ int quicktime_atom_read_header(quicktime_t *file, quicktime_atom_t *atom)
 		result = read_type(header, atom->type);
 		atom->size = read_size(header);
 		atom->end = atom->start + atom->size;
-/*
- * printf("quicktime_atom_read_header 1 %c%c%c%c start %llx size %llx end %llx ftell %llx %llx\n", 
- * 	atom->type[0], atom->type[1], atom->type[2], atom->type[3],
- * 	atom->start, atom->size, atom->end,
- * 	file->file_position,
- * 	(int64_t)FTELL(file->stream));
- */
+		if(debug)
+			printf("quicktime_atom_read_header 1 %c%c%c%c start=0x%llx size=0x%llx end=0x%llx ftell %llx %llx\n", 
+				atom->type[0], atom->type[1], atom->type[2], atom->type[3],
+				atom->start, atom->size, atom->end,
+				file->file_position,
+				(int64_t)FTELL(file->stream));
 
 /* Skip placeholder atom */
 		if(quicktime_match_32(atom->type, "wide"))
@@ -195,12 +195,9 @@ void quicktime_atom_write_footer(quicktime_t *file, quicktime_atom_t *atom)
 	{
 		quicktime_set_position(file, atom->start - 4);
 		quicktime_write_int32_le(file, atom->end - atom->start);
-		atom->size = atom->end - atom->start;
 	}
 	else
 	{
-		// We should calculate atom->size here also...  it is used in trak.c FIXME
-		// I don't know internals of the quicktime to know what is proper calculation - with or wirhout header?
 		if(atom->use_64)
 		{
 			quicktime_set_position(file, atom->start + 8);
@@ -213,6 +210,7 @@ void quicktime_atom_write_footer(quicktime_t *file, quicktime_atom_t *atom)
 			quicktime_write_int32(file, atom->end - atom->start);
 		}
 	}
+
 	quicktime_set_position(file, atom->end);
 }
 

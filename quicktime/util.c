@@ -247,7 +247,6 @@ int quicktime_write_data(quicktime_t *file, char *data, int size)
 	if(!file->use_presave)
 	{
 //printf("quicktime_write_data 1\n");
-		quicktime_fseek(file, file->file_position);
 		writes_attempted = 1;
 		writes_succeeded = fwrite(data, 
 				size, 

@@ -61,6 +61,9 @@ libquicktimecc_la_SOURCES = \
 	qth264.c \
 	qtpng.c \
 	qtmp3.c \
+	qtasf.c \
+	qdm2.c \
+	frma.c \
 	quicktime.c \
 	raw.c \
 	rawaudio.c \
@@ -93,6 +96,9 @@ noinst_HEADERS = cmodel_permutation.h \
 	qtffmpeg.h \
 	qth264.h \
 	qtmp3.h \
+	qtasf.h \
+	qtasf_codes.h \
+	qdm2.h \
 	qtpng.h \
 	qtprivate.h \
 	qtvorbis.h \
@@ -107,6 +113,7 @@ noinst_HEADERS = cmodel_permutation.h \
 	v308.h \
 	v408.h \
 	v410.h \
+	funcprotos.h \
 	wma.h \
 	wmx1.h \
 	wmx2.h \

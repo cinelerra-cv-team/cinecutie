@@ -10,7 +10,7 @@
 #undef LTP
 
 
-#include <faad.h>
+#include "faad.h"
 #include "funcprotos.h"
 #include "quicktime.h"
 
@@ -41,6 +41,8 @@ typedef struct
 // Number of samples allocated
 	int input_allocated;
 	unsigned char *compressed_buffer;
+
+// Encoding objects
 	int bitrate;
 	int quantizer_quality;
 	int encoder_initialized;

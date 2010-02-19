@@ -82,10 +82,6 @@ typedef struct
 	int utog_tab[0x100], utob_tab[0x100];
 // Used by init_yuv only
 	int *vtor, *vtog, *utog, *utob;
-	
-	short int vtor_tab8[0x100], vtog_tab8[0x100];
-	short int utog_tab8[0x100], utob_tab8[0x100];
-	short int *vtor8, *vtog8, *utog8, *utob8;
 
 	float vtor_float_tab[0x100], vtog_float_tab[0x100];
 	float utog_float_tab[0x100], utob_float_tab[0x100];
@@ -111,13 +107,12 @@ int cmodel_calculate_datasize(int w, int h, int bytes_per_line, int color_model)
 int cmodel_calculate_max(int colormodel);
 int cmodel_components(int colormodel);
 int cmodel_is_yuv(int colormodel);
-int cmodel_has_alpha(int colormodel);
 
 // Tell when to use plane arguments or row pointer arguments to functions
 int cmodel_is_planar(int color_model);
 void cmodel_to_text(char *string, int cmodel);
 int cmodel_from_text(char *text);
-
+int cmodel_has_alpha(int colormodel);
 
 
 void cmodel_transfer(unsigned char **output_rows, /* Leave NULL if non existent */

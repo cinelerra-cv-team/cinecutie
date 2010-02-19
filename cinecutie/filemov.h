@@ -97,11 +97,6 @@ public:
 
 // Fix codec to what AVI or MOV support
 	static void fix_codecs(Asset *asset);
-// Check if resolutions match the DV codec when used
-	int check_codec_params(Asset *asset);
-
-// set programme timecode
-	void set_frame_start(int64_t offset);
 
 private:
 	void new_audio_temp(int64_t len);
@@ -115,7 +110,6 @@ private:
 	int reset_parameters_derived();
 	int quicktime_atracks;
 	int quicktime_vtracks;
-// current positions for when the file descriptor doesn't have the right position
 	quicktime_t *fd;
 	int depth;        // Depth in bits per pixel
 	int64_t frames_correction;  // Correction after 32bit overflow
@@ -171,7 +165,7 @@ public:
 	MOVConfigAudio(BC_WindowBase *parent_window, Asset *asset);
 	~MOVConfigAudio();
 
-	int create_objects();
+	void create_objects();
 	int close_event();
 	void update_parameters();
 	void reset();
@@ -253,7 +247,7 @@ public:
 		char *locked_compressor);
 	~MOVConfigVideo();
 
-	int create_objects();
+	void create_objects();
 	int close_event();
 	void reset();
 
