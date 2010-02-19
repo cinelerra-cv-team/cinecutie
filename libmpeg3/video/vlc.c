@@ -1,6 +1,3 @@
-// FIXME: vlc.h redefines ERROR to 99 if and only if error is defined.
-#define ERROR
-
 #include "mpeg3private.h"
 #include "mpeg3protos.h"
 #include "vlc.h"

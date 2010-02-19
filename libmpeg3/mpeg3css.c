@@ -31,7 +31,9 @@
  * the nature of the reordering it has to do.
  */
 
-
+#ifndef HAVE_CSS
+#define HAVE_CSS 1
+#endif
 #ifdef HAVE_CSS
 
 #include "mpeg3css.h"

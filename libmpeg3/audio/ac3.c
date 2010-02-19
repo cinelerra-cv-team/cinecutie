@@ -1,7 +1,7 @@
 #include <stdint.h>
 #include <stdio.h>
 
-#include <a52dec/a52.h>
+#include "a52dec/a52.h"
 #include "mpeg3private.h"
 #include "mpeg3protos.h"
 
@@ -56,6 +56,7 @@ int mpeg3_ac3_header(mpeg3_ac3_t *audio, unsigned char *header)
 
 		if(audio->flags & A52_LFE)
 			audio->channels++;
+
 /*
  * printf("mpeg3_ac3_header %08x %08x\n", 
  * audio->flags & A52_LFE, 

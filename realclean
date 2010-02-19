@@ -1,3 +1,4 @@
+sh debian/switch-xt
 make clean 2> /dev/null
 make distclean 2> /dev/null
 rm -rf aclocal.m4
