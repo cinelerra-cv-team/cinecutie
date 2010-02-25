@@ -31,7 +31,8 @@
 #include <stdlib.h>
 
 FileBase::FileBase(Asset *asset, File *file)
-{
+{	
+	//close_file();
 	this->file = file;
 	this->asset = asset;
 	internal_byte_order = get_byte_order();
@@ -62,13 +63,151 @@ int FileBase::close_file()
 	if(row_pointers_in) delete [] row_pointers_in;
 	if(row_pointers_out) delete [] row_pointers_out;
 	if(float_buffer) delete [] float_buffer;
+	if(pcm_history)
+	{
+		for(int i = 0; i < history_channels; i++)
+			delete [] pcm_history[i];
+		delete [] pcm_history;
+	}
 	close_file_derived();
 	reset_parameters();
 	delete_ima4();
 }
 
+void FileBase::update_pcm_history(int64_t len)
+{
+	decode_start = 0;
+	decode_len = 0;
+
+	if(!pcm_history)
+	{
+		history_channels = asset->channels;
+		pcm_history = new double*[history_channels];
+		for(int i = 0; i < history_channels; i++)
+			pcm_history[i] = new double[HISTORY_MAX];
+		history_start = 0;
+		history_size = 0;
+		history_allocated = HISTORY_MAX;
+	}
+	
+
+//printf("FileBase::update_pcm_history current_sample=%lld history_start=%lld history_size=%lld\n",
+//file->current_sample,
+//history_start,
+//history_size);
+// Restart history.  Don't bother shifting history back.
+	if(file->current_sample < history_start ||
+		file->current_sample > history_start + history_size)
+	{
+		history_size = 0;
+		history_start = file->current_sample;
+		decode_start = file->current_sample;
+		decode_len = len;
+	}
+	else
+// Shift history forward to make room for new samples
+	if(file->current_sample > history_start + HISTORY_MAX)
+	{
+		int diff = file->current_sample - (history_start + HISTORY_MAX);
+		for(int i = 0; i < asset->channels; i++)
+		{
+			double *temp = pcm_history[i];
+			memcpy(temp, temp + diff, (history_size - diff) * sizeof(double));
+		}
+
+		history_start += diff;
+		history_size -= diff;
+
+// Decode more data
+		decode_start = history_start + history_size;
+		decode_len = file->current_sample + len - (history_start + history_size);
+	}
+	else
+// Starting somewhere in the buffer
+	{
+		decode_start = history_start + history_size;
+		decode_len = file->current_sample + len - (history_start + history_size);
+	}
+}
+
+void FileBase::append_history(float **new_data, int len)
+{
+	allocate_history(len);
+
+	for(int i = 0; i < history_channels; i++)
+	{
+		double *output = pcm_history[i] + history_size;
+		float *input = new_data[i];
+		for(int j = 0; j < len; j++)
+			*output++ = *input++;
+	}
+
+	history_size += len;
+	decode_end += len;
+}
+
+void FileBase::append_history(short *new_data, int len)
+{
+	allocate_history(len);
+
+	for(int i = 0; i < history_channels; i++)
+	{
+		double *output = pcm_history[i] + history_size;
+		short *input = new_data + i;
+		for(int j = 0; j < len; j++)
+		{
+			*output++ = (double)*input / 32768;
+			input += history_channels;
+		}
+	}
+
+	history_size += len;
+	decode_end += len;
+}
+
+void FileBase::read_history(double *dst,
+	int64_t start_sample, 
+	int channel,
+	int64_t len)
+{
+	if(start_sample - history_start + len > history_size)
+		len = history_size - (start_sample - history_start);
+//printf("FileBase::read_history start_sample=%lld history_start=%lld history_size=%lld len=%lld\n", 
+//start_sample, history_start, history_size, len);
+	double *input = pcm_history[channel] + start_sample - history_start;
+	for(int i = 0; i < len; i++)
+	{
+		*dst++ = *input++;
+	}
+}
+
+void FileBase::allocate_history(int len)
+{
+	if(history_size + len > history_allocated)
+	{
+		double **temp = new double*[history_channels];
+
+		for(int i = 0; i < history_channels; i++)
+		{
+			temp[i] = new double[history_size + len];
+			memcpy(temp[i], pcm_history[i], history_size * sizeof(double));
+			delete [] pcm_history[i];
+		}
+
+		delete [] pcm_history;
+		pcm_history = temp;
+		history_allocated = history_size + len;
+	}
+}
+
+int64_t FileBase::get_history_sample()
+{
+	return history_start + history_size;
+}
+
 int FileBase::set_dither()
 {
+	decode_end = 0;
 	dither = 1;
 	return 0;
 }
@@ -91,6 +230,11 @@ int FileBase::reset_parameters()
 	prev_layer = -1;
 	ulawtofloat_table = 0;
 	floattoulaw_table = 0;
+	pcm_history = 0; 
+	history_start = 0; 
+	history_size = 0; 
+	history_allocated = 0;
+	history_channels = 0;
 	rd = wr = 0;
 
 	delete_ulaw_tables();
@@ -172,6 +316,15 @@ int FileBase::match4(char *in, char *out)
 	else
 		return 0;
 }
+
+//int64_t FileBase::get_memory_usage()
+//{
+//	if(pcm_history) 
+//		return history_allocated * 
+//			history_channels * 
+//			sizeof(double);
+//	return 0;
+//}
 
 int FileBase::search_render_strategies(ArrayList<int>* render_strategies, int render_strategy)
 {

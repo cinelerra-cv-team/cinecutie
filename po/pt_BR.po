@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cinecutie 2.1\n"
 "Report-Msgid-Bugs-To: cinecutie@skolelinux.no\n"
-"POT-Creation-Date: 2009-12-23 17:21+0100\n"
+"POT-Creation-Date: 2010-02-23 03:17+0100\n"
 "PO-Revision-Date: 2007-12-02 02:52-0200\n"
 "Last-Translator: Rafael Diniz <rafael@riseup.net>\n"
 "Language-Team: EstudioLivre <estudiolivre@lists.riseup.net>\n"
@@ -17,12 +17,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: cinecutie/aboutprefs.C:59
-msgid "Cinelerra "
-msgstr "Cinelerra "
+msgid "Cinecutie"
+msgstr ""
 
 #: cinecutie/aboutprefs.C:68
+#, fuzzy
 msgid ""
-"(C) 2006 Heroine Virtual Ltd.\n"
+"(C) 2008 Heroine Virtual Ltd. and http://www.akiradproject.net\n"
 "\n"
 msgstr ""
 "(c) 2006 Heroine Virtual Ltd.\n"
@@ -45,7 +46,7 @@ msgstr ""
 "Quicktime versão %d.%d.%d (%s)\n"
 "Libmpeg3 versão %d.%d.%d\n"
 
-#: cinecutie/aboutprefs.C:140
+#: cinecutie/aboutprefs.C:144
 #, c-format
 msgid ""
 "This program is free software; you can redistribute it and/or modify it "
@@ -150,7 +151,7 @@ msgid "Audio:"
 msgstr "Áudio:"
 
 #: cinecutie/assetedit.C:270 cinecutie/assetedit.C:409
-#: cinecutie/filemov.C:1449 cinecutie/filemov.C:1740
+#: cinecutie/filemov.C:1394 cinecutie/filemov.C:1688
 #: cinecutie/filesndfile.C:398 cinecutie/filetga.C:931
 msgid "Compression:"
 msgstr "Compressão:"
@@ -325,7 +326,7 @@ msgid "Jump to end ( End )"
 msgstr "Pular para o final ( End )"
 
 #: cinecutie/awindowgui.C:376 cinecutie/awindowgui.C:973
-#: cinecutie/awindowgui.C:1000 plugins/titler/title.C:1070
+#: cinecutie/awindowgui.C:1000 plugins/titler/title.C:1078
 msgid "Title"
 msgstr "Título"
 
@@ -415,8 +416,8 @@ msgstr "Sem contador"
 msgid "Timed"
 msgstr "Com contador"
 
-#: cinecutie/batch.C:183 cinecutie/batchrender.C:889 cinecutie/file.C:1334
-#: cinecutie/filemov.C:1245 cinecutie/loadmode.C:84
+#: cinecutie/batch.C:183 cinecutie/batchrender.C:889 cinecutie/file.C:1369
+#: cinecutie/filemov.C:1188 cinecutie/loadmode.C:84
 #: plugins/timefront/timefront.C:430
 msgid "Unknown"
 msgstr "Desconhecido"
@@ -1129,173 +1130,182 @@ msgstr "Selecione uma trilha para ser exportada:"
 msgid "Currently only CMX 3600 format is supported"
 msgstr "Atualmente só o formato CMX 3600 é suportado"
 
-#: cinecutie/file.C:272
+#: cinecutie/file.C:281
 msgid "This format doesn't support audio."
 msgstr "Este formato não suporta áudio."
 
-#: cinecutie/file.C:275
+#: cinecutie/file.C:284
 msgid "This format doesn't support video."
 msgstr "Este formato não suporta vídeo."
 
-#: cinecutie/file.C:1390 cinecutie/file.C:1396 cinecutie/fileformat.C:160
+#: cinecutie/file.C:1425 cinecutie/file.C:1431 cinecutie/fileformat.C:160
 #: cinecutie/filesndfile.C:449
 msgid "Lo Hi"
 msgstr "Baixo Alto"
 
-#: cinecutie/file.C:1397 cinecutie/fileformat.C:174
+#: cinecutie/file.C:1432 cinecutie/fileformat.C:174
 #: cinecutie/filesndfile.C:434
 msgid "Hi Lo"
 msgstr "Alto Baixo"
 
-#: cinecutie/file.inc:106
+#: cinecutie/file.inc:108
 msgid "AC3"
 msgstr "AC3"
 
-#: cinecutie/file.inc:107
+#: cinecutie/file.inc:109
 msgid "Apple/SGI AIFF"
 msgstr "Apple/SGI AIFF"
 
-#: cinecutie/file.inc:108
+#: cinecutie/file.inc:110
 msgid "MPEG Audio"
 msgstr "Áudio MPEG"
 
-#: cinecutie/file.inc:109
+#: cinecutie/file.inc:111
 msgid "Sun/NeXT AU"
 msgstr "Sun/NeXT AU"
 
-#: cinecutie/file.inc:110
+#: cinecutie/file.inc:112
 msgid "Microsoft AVI"
 msgstr "AVI da Microsoft"
 
-#: cinecutie/file.inc:111
+#: cinecutie/file.inc:113
 msgid "Microsoft WAV"
 msgstr "WAV da Microsoft"
 
-#: cinecutie/file.inc:112
+#: cinecutie/file.inc:114
 msgid "AVI Arne Type 1"
 msgstr "AVI Arne Tipo 1"
 
-#: cinecutie/file.inc:113
+#: cinecutie/file.inc:115
 msgid "AVI DV Type 2"
 msgstr "AVI DV Tipo 2"
 
-#: cinecutie/file.inc:114
+#: cinecutie/file.inc:116
 msgid "AVI Avifile"
 msgstr "AVI Avifile"
 
-#: cinecutie/file.inc:115
+#: cinecutie/file.inc:117
 msgid "AVI Lavtools"
 msgstr "AVI Lavtools"
 
-#: cinecutie/file.inc:116
+#: cinecutie/file.inc:118
+msgid "FLAC"
+msgstr ""
+
+#: cinecutie/file.inc:119
+#, fuzzy
+msgid "FFMPEG"
+msgstr "MPEG"
+
+#: cinecutie/file.inc:120
 msgid "Raw DV"
 msgstr "DV Bruto"
 
-#: cinecutie/file.inc:117
+#: cinecutie/file.inc:121
 msgid "JPEG Sequence"
 msgstr "Seqüência JPEG"
 
-#: cinecutie/file.inc:118
+#: cinecutie/file.inc:122
 msgid "JPEG"
 msgstr "JPEG"
 
-#: cinecutie/file.inc:119
+#: cinecutie/file.inc:123
 msgid "Quicktime for Linux"
 msgstr "Quicktime para Linux"
 
-#: cinecutie/file.inc:120 plugins/videoscope/videoscope.C:727
+#: cinecutie/file.inc:124 plugins/videoscope/videoscope.C:727
 msgid "MPEG"
 msgstr "MPEG"
 
-#: cinecutie/file.inc:121
+#: cinecutie/file.inc:125
 msgid "Raw PCM"
 msgstr "PCM Bruto"
 
-#: cinecutie/file.inc:122
+#: cinecutie/file.inc:126
 msgid "PNG Sequence"
 msgstr "Seqüência PNG"
 
-#: cinecutie/file.inc:123 cinecutie/filemov.C:49
+#: cinecutie/file.inc:127 cinecutie/filemov.C:47
 msgid "PNG"
 msgstr "PNG"
 
-#: cinecutie/file.inc:124
+#: cinecutie/file.inc:128
 msgid "Unknown sound"
 msgstr "Som desconhecido"
 
-#: cinecutie/file.inc:125
+#: cinecutie/file.inc:129
 msgid "TGA Sequence"
 msgstr "Seqüência TGA"
 
-#: cinecutie/file.inc:126
+#: cinecutie/file.inc:130
 msgid "TGA"
 msgstr "TGA"
 
-#: cinecutie/file.inc:127
+#: cinecutie/file.inc:131
 msgid "TIFF"
 msgstr "TIFF"
 
-#: cinecutie/file.inc:128
+#: cinecutie/file.inc:132
 msgid "TIFF Sequence"
 msgstr "Seqüência TIFF"
 
-#: cinecutie/file.inc:129
+#: cinecutie/file.inc:133
 msgid "MPEG Video"
 msgstr "Vídeo MPEG"
 
-#: cinecutie/file.inc:130 cinecutie/file.inc:134
+#: cinecutie/file.inc:134
 msgid "OGG Theora/Vorbis"
 msgstr "OGG Theora/Vorbis"
 
-#: cinecutie/file.inc:131
+#: cinecutie/file.inc:135
 msgid "OGG Vorbis"
 msgstr "OGG Vorbis"
 
-#: cinecutie/file.inc:132
+#: cinecutie/file.inc:136
 msgid "EXR"
 msgstr "EXR"
 
-#: cinecutie/file.inc:133
+#: cinecutie/file.inc:137
 msgid "EXR Sequence"
 msgstr "Seqüência EXR"
 
-#: cinecutie/file.inc:180
+#: cinecutie/file.inc:184
 msgid "8 Bit Linear"
 msgstr "8 Bits Linear"
 
-#: cinecutie/file.inc:181
+#: cinecutie/file.inc:185
 msgid "16 Bit Linear"
 msgstr "16 Bits Linear"
 
-#: cinecutie/file.inc:182
+#: cinecutie/file.inc:186
 msgid "24 Bit Linear"
 msgstr "24 Bits Linear"
 
-#: cinecutie/file.inc:183
+#: cinecutie/file.inc:187
 msgid "32 Bit Linear"
 msgstr "32 Bits Linear"
 
-#: cinecutie/file.inc:184
+#: cinecutie/file.inc:188
 msgid "u Law"
 msgstr "u Law"
 
-#: cinecutie/file.inc:185
+#: cinecutie/file.inc:189
 msgid "IMA 4"
 msgstr "IMA 4"
 
-#: cinecutie/file.inc:186
+#: cinecutie/file.inc:190
 msgid "ADPCM"
 msgstr "ADPCM"
 
-#: cinecutie/file.inc:187
+#: cinecutie/file.inc:191
 msgid "Float"
 msgstr "Flutuante"
 
-#: cinecutie/file.inc:190
+#: cinecutie/file.inc:194
 msgid "RGB ALPHA"
 msgstr "RGB ALFA"
 
-#: cinecutie/file.inc:191
+#: cinecutie/file.inc:195
 msgid "PNG ALPHA"
 msgstr "PNG ALFA"
 
@@ -1319,200 +1329,205 @@ msgstr "Compressor: DV para consumidor"
 msgid "Assuming raw PCM:"
 msgstr "Assumindo PCM Bruto:"
 
-#: cinecutie/filejpeg.C:301 cinecutie/filemov.C:2007 cinecutie/filemov.C:2017
+#: cinecutie/filejpeg.C:301 cinecutie/filemov.C:1955 cinecutie/filemov.C:1965
 msgid "Quality:"
 msgstr "Qualidade:"
 
-#: cinecutie/filemov.C:42
+#: cinecutie/filemov.C:40
 msgid "MPEG-4"
 msgstr "MPEG-4"
 
-#: cinecutie/filemov.C:43
+#: cinecutie/filemov.C:41
 msgid "Dual H.264"
 msgstr "H.264 Duplo"
 
-#: cinecutie/filemov.C:44
+#: cinecutie/filemov.C:42
 msgid "Dual MPEG-4"
 msgstr "MPEG-4 Duplo"
 
-#: cinecutie/filemov.C:45
+#: cinecutie/filemov.C:43
 msgid "H.264"
 msgstr "H.264"
 
-#: cinecutie/filemov.C:46
+#: cinecutie/filemov.C:44
 msgid "H.263"
 msgstr "H.263"
 
-#: cinecutie/filemov.C:47
+#: cinecutie/filemov.C:45
 msgid "Microsoft MPEG-4"
 msgstr "MPEG-4 da Microsoft"
 
-#: cinecutie/filemov.C:48
+#: cinecutie/filemov.C:46
 msgid "DV"
 msgstr "DV"
 
-#: cinecutie/filemov.C:50
+#: cinecutie/filemov.C:48
 msgid "PNG with Alpha"
 msgstr "PNG com Alfa"
 
-#: cinecutie/filemov.C:51
+#: cinecutie/filemov.C:49
 msgid "Uncompressed RGB"
 msgstr "RGB não-comprimido"
 
-#: cinecutie/filemov.C:52
+#: cinecutie/filemov.C:50
 msgid "Uncompressed RGBA"
 msgstr "RGBA não-comprimido"
 
-#: cinecutie/filemov.C:53
+#: cinecutie/filemov.C:51
 msgid "YUV 4:2:0 Planar"
 msgstr "YUV 4:2:0 Planar"
 
-#: cinecutie/filemov.C:54
+#: cinecutie/filemov.C:52
 msgid "Component Y'CbCr 8-bit 4:2:2 (yuv2)"
 msgstr "Componente Y'CbCr 8-bit 4:4:4"
 
-#: cinecutie/filemov.C:55
+#: cinecutie/filemov.C:53
 msgid "Component Y'CbCr 8-bit 4:2:2 (2vuy)"
 msgstr "Componente Y'CbCr 8-bit 4:4:4"
 
-#: cinecutie/filemov.C:56
+#: cinecutie/filemov.C:54
 msgid "YUV 4:1:1 Packed"
 msgstr "YUV 4:1:1 Packed"
 
-#: cinecutie/filemov.C:57
+#: cinecutie/filemov.C:55
 msgid "Component Y'CbCr 8-bit 4:4:4"
 msgstr "Componente Y'CbCr 8-bit 4:4:4"
 
-#: cinecutie/filemov.C:58
+#: cinecutie/filemov.C:56
 msgid "Component Y'CbCrA 8-bit 4:4:4:4"
 msgstr "Componente Y'CbCrA 8-bit 4:4:4:4"
 
-#: cinecutie/filemov.C:59
+#: cinecutie/filemov.C:57
 msgid "Component Y'CbCr 10-bit 4:4:4"
 msgstr "Componente Y'CbCr 10-bit 4:4:4"
 
-#: cinecutie/filemov.C:60
+#: cinecutie/filemov.C:58
 msgid "JPEG Photo"
 msgstr "JPEG Photo"
 
-#: cinecutie/filemov.C:61
+#: cinecutie/filemov.C:59
 msgid "Motion JPEG A"
 msgstr "Motion JPEG A"
 
-#: cinecutie/filemov.C:64
+#: cinecutie/filemov.C:62
 msgid "Twos complement"
 msgstr "Twos complement"
 
-#: cinecutie/filemov.C:65
+#: cinecutie/filemov.C:63
 msgid "Unsigned"
 msgstr "Não marcado"
 
-#: cinecutie/filemov.C:66
+#: cinecutie/filemov.C:64
 msgid "IMA-4"
 msgstr "IMA-4"
 
-#: cinecutie/filemov.C:67
+#: cinecutie/filemov.C:65
 msgid "U-Law"
 msgstr "U-Law"
 
-#: cinecutie/filemov.C:68
+#: cinecutie/filemov.C:66
 msgid "Vorbis"
 msgstr "Vorbis"
 
-#: cinecutie/filemov.C:69
+#: cinecutie/filemov.C:67
 msgid "MP3"
 msgstr "MP3"
 
-#: cinecutie/filemov.C:70
+#: cinecutie/filemov.C:68
 msgid "MPEG-4 Audio"
 msgstr "MPEG-4 Áudio"
 
-#: cinecutie/filemov.C:299
+#: cinecutie/filemov.C:205
+#, c-format
+msgid "FileMOV::open_file %s: No such file or directory\n"
+msgstr ""
+
+#: cinecutie/filemov.C:277
 msgid "Made with Cinelerra for Linux"
 msgstr "Feito com Cinelerra para Linux"
 
-#: cinecutie/filemov.C:1481
+#: cinecutie/filemov.C:1426
 msgid "Bits per channel:"
 msgstr "Bits por canal:"
 
-#: cinecutie/filemov.C:1493 cinecutie/filesndfile.C:411
+#: cinecutie/filemov.C:1438 cinecutie/filesndfile.C:411
 msgid "Dither"
 msgstr "Dither"
 
-#: cinecutie/filemov.C:1503 cinecutie/filemov.C:1554 cinecutie/filemov.C:1851
-#: cinecutie/filemov.C:1884 cinecutie/filemov.C:1938 cinecutie/filempeg.C:1754
+#: cinecutie/filemov.C:1448 cinecutie/filemov.C:1499 cinecutie/filemov.C:1799
+#: cinecutie/filemov.C:1832 cinecutie/filemov.C:1886 cinecutie/filempeg.C:1754
 msgid "Bitrate:"
 msgstr "Taxa de Bits:"
 
-#: cinecutie/filemov.C:1518 cinecutie/filevorbis.C:625
+#: cinecutie/filemov.C:1463 cinecutie/filevorbis.C:430
 msgid "Variable bitrate"
 msgstr "Taxa de Bits variável"
 
-#: cinecutie/filemov.C:1524 cinecutie/filevorbis.C:582
+#: cinecutie/filemov.C:1469 cinecutie/filevorbis.C:387
 msgid "Min bitrate:"
 msgstr "Taxa de Bits Mín:"
 
-#: cinecutie/filemov.C:1531 cinecutie/filevorbis.C:586
+#: cinecutie/filemov.C:1476 cinecutie/filevorbis.C:391
 msgid "Avg bitrate:"
 msgstr "Taxa de Bits Média:"
 
-#: cinecutie/filemov.C:1538 cinecutie/filevorbis.C:591
+#: cinecutie/filemov.C:1483 cinecutie/filevorbis.C:396
 msgid "Max bitrate:"
 msgstr "Taxa de Bits Máx:"
 
-#: cinecutie/filemov.C:1563
+#: cinecutie/filemov.C:1508
 msgid "Quantization Quality (%):"
 msgstr "Qualidade da Quantização (%):"
 
-#: cinecutie/filemov.C:1863 cinecutie/filemov.C:1904 cinecutie/filempeg.C:1760
+#: cinecutie/filemov.C:1811 cinecutie/filemov.C:1852 cinecutie/filempeg.C:1760
 msgid "Quantization:"
 msgstr "Quantização:"
 
-#: cinecutie/filemov.C:1897
+#: cinecutie/filemov.C:1845
 msgid "Bitrate tolerance:"
 msgstr "Tolerância da taxa de bits:"
 
-#: cinecutie/filemov.C:1918 plugins/denoisemjpeg/denoisemjpeg.C:300
+#: cinecutie/filemov.C:1866 plugins/denoisemjpeg/denoisemjpeg.C:300
 msgid "Interlaced"
 msgstr "Entrelaçado"
 
-#: cinecutie/filemov.C:1924
+#: cinecutie/filemov.C:1872
 msgid "Keyframe interval:"
 msgstr "Intervalo de quadro-chave"
 
-#: cinecutie/filemov.C:1951
+#: cinecutie/filemov.C:1899
 msgid "Quantizer:"
 msgstr "Quantizador:"
 
-#: cinecutie/filemov.C:1965
+#: cinecutie/filemov.C:1913
 msgid "RC Period:"
 msgstr "Período RC:"
 
-#: cinecutie/filemov.C:1972
+#: cinecutie/filemov.C:1920
 msgid "Reaction Ratio:"
 msgstr "Taxa de Reação:"
 
-#: cinecutie/filemov.C:1979
+#: cinecutie/filemov.C:1927
 msgid "Reaction Period:"
 msgstr "Período de reação:"
 
-#: cinecutie/filemov.C:1986
+#: cinecutie/filemov.C:1934
 msgid "Max Key Interval:"
 msgstr "Intervalo máximo do quadro-chave"
 
-#: cinecutie/filemov.C:1993
+#: cinecutie/filemov.C:1941
 msgid "Max Quantizer:"
 msgstr "Quantizador Máx:"
 
-#: cinecutie/filemov.C:2000
+#: cinecutie/filemov.C:1948
 msgid "Min Quantizer:"
 msgstr "Quantizador Mín:"
 
-#: cinecutie/filemov.C:2121
+#: cinecutie/filemov.C:2069
 msgid "Fix bitrate"
 msgstr "Fixar taxa de bits"
 
-#: cinecutie/filemov.C:2146
+#: cinecutie/filemov.C:2094
 msgid "Fix quantization"
 msgstr "Fixar quantização"
 
@@ -1627,7 +1642,7 @@ msgstr "DVD NAV"
 msgid "DVD"
 msgstr "DVD"
 
-#: cinecutie/filempeg.C:1955 cinecutie/filevorbis.C:613
+#: cinecutie/filempeg.C:1955 cinecutie/filevorbis.C:418
 msgid "Fixed bitrate"
 msgstr "Bitrate fixo"
 
@@ -1666,6 +1681,11 @@ msgstr "RGB descomprimido"
 #: cinecutie/filetga.C:120
 msgid "RGBA uncompressed"
 msgstr "RGBA descomprimido"
+
+#: cinecutie/filevorbis.C:133
+#, c-format
+msgid "FileVorbis::open_file %s: invalid bitstream.\n"
+msgstr ""
 
 #: cinecutie/fileyuv.C:397
 msgid "Output Path:"
@@ -2106,7 +2126,7 @@ msgstr "Criando Índices..."
 msgid "File"
 msgstr "Arquivo"
 
-#: cinecutie/mainmenu.C:121 plugins/svg/svgwin.C:282
+#: cinecutie/mainmenu.C:121 plugins/svg/svgwin.C:286
 msgid "Edit"
 msgstr "Editar"
 
@@ -2704,7 +2724,8 @@ msgid "New..."
 msgstr "Novo..."
 
 #: cinecutie/new.C:217
-msgid "Cinelerra: New Project"
+#, fuzzy
+msgid "Cinecutie: New Project"
 msgstr "Cinelerra: Novo Projeto"
 
 #: cinecutie/new.C:221
@@ -3640,7 +3661,8 @@ msgid "Loading..."
 msgstr "Carregando..."
 
 #: cinecutie/statusbar.C:112
-msgid "Welcome to Cinelerra."
+#, fuzzy
+msgid "Welcome to Cinecutie."
 msgstr "Bem vindo ao Cinelerra."
 
 #: cinecutie/statusbar.C:120
@@ -3995,7 +4017,8 @@ msgid "-*-helvetica-medium-r-normal-*-11-*"
 msgstr "-*-helvetica-medium-r-normal-*-11-*"
 
 #: guicast/bcresources.C:66 guicast/bcresources.C:67
-msgid "-*-helvetica-bold-r-normal-*-14-*"
+#, fuzzy
+msgid "-*-helvetica-bold-r-normal-*-12-*"
 msgstr "-*-helvetica-bold-r-normal-*-14-*"
 
 #: guicast/bcresources.C:68
@@ -4007,19 +4030,23 @@ msgid "-*-helvetica-bold-r-normal-*-20-*"
 msgstr "-*-helvetica-bold-r-normal-*-20-*"
 
 #: guicast/bcresources.C:75
-msgid "-*-luxi sans-*-r-*-*-12-*-*-*-*-*-*-*"
+#, fuzzy
+msgid "-*-Sans-*-r-*-*-10-*-*-*-*-*-*-*"
 msgstr "-*-luxi sans-*-r-*-*-12-*-*-*-*-*-*-*"
 
 #: guicast/bcresources.C:76 guicast/bcresources.C:78 guicast/bcresources.C:80
-msgid "-microsoft-verdana-*-*-*-*-*-*-*-*-*-*-*-*"
+#, fuzzy
+msgid "-verdana-*-*-*-*-*-*-*-*-*-*-*-*"
 msgstr "-microsoft-verdana-*-*-*-*-*-*-*-*-*-*-*-*"
 
 #: guicast/bcresources.C:77
-msgid "-*-luxi sans-*-r-*-*-16-*-*-*-*-*-*-*"
-msgstr "-*-luxi sans-*-r-*-*-16-*-*-*-*-*-*-*"
+#, fuzzy
+msgid "-*-Sans-*-r-*-*-12-*-*-*-*-*-*-*"
+msgstr "-*-luxi sans-*-r-*-*-12-*-*-*-*-*-*-*"
 
 #: guicast/bcresources.C:79
-msgid "-*-luxi sans-bold-r-*-*-20-*-*-*-*-*-*-*"
+#, fuzzy
+msgid "-*-Sans-bold-r-*-*-16-*-*-*-*-*-*-*"
 msgstr "-*-luxi sans-bold-r-*-*-20-*-*-*-*-*-*-*"
 
 #: guicast/bctheme.C:470
@@ -5563,21 +5590,22 @@ msgstr "Deslizamento"
 msgid "Spectrogram"
 msgstr "Espectrograma"
 
-#: plugins/svg/svg.C:144
+#: plugins/svg/svg.C:148
 msgid "SVG via Inkscape"
 msgstr "SVG via Inkscape"
 
-#: plugins/svg/svg.C:281
+#: plugins/svg/svg.C:308 plugins/svg/svg.C:314 plugins/svg/svg.C:323
+#: plugins/svg/svgwin.C:432 plugins/svg/svgwin.C:438
 #, c-format
 msgid "Running command %s\n"
 msgstr "Executando o comando %s\n"
 
-#: plugins/svg/svg.C:287
+#: plugins/svg/svg.C:330
 #, c-format
 msgid "Export of %s to %s failed\n"
 msgstr "Exportação de %s para %s falhou\n"
 
-#: plugins/svg/svg.C:301
+#: plugins/svg/svg.C:344
 #, c-format
 msgid ""
 "The file %s that was generated from %s is not in RAWC format. Try to delete "
@@ -5586,7 +5614,7 @@ msgstr ""
 "O arquivo %s que foi gerado de %s não está no formato RAWC. Tente apagar "
 "todos os arquivos *.raw.\n"
 
-#: plugins/svg/svg.C:308
+#: plugins/svg/svg.C:351
 #, c-format
 msgid ""
 "Unsupported version of RAWC file %s. This means your Inkscape uses newer "
@@ -5604,37 +5632,41 @@ msgstr "X de Fora:"
 msgid "Out Y:"
 msgstr "Y de Fora:"
 
-#: plugins/svg/svgwin.C:180
+#: plugins/svg/svgwin.C:184
 msgid "New/Open SVG..."
 msgstr "Novo/Abrir SVG..."
 
-#: plugins/svg/svgwin.C:360
+#: plugins/svg/svgwin.C:364
 #, c-format
 msgid "Inkscape has exited\n"
 msgstr "Sodipodi foi finalizado\n"
 
-#: plugins/svg/svgwin.C:363
+#: plugins/svg/svgwin.C:367
 #, c-format
 msgid "Plugin window has closed\n"
 msgstr "Janela de plugin foi fechada\n"
 
-#: plugins/svg/svgwin.C:400
+#: plugins/svg/svgwin.C:423 plugins/svg/svgwin.C:447
 #, c-format
 msgid "Running external SVG editor: %s\n"
 msgstr "Executando editor SVG externo: %s\n"
 
-#: plugins/svg/svgwin.C:403
+#: plugins/svg/svgwin.C:426 plugins/svg/svgwin.C:450
 #, c-format
 msgid "External SVG editor finished\n"
 msgstr "Editor SVG externo finalizou\n"
 
-#: plugins/svg/svgwin.C:420
+#: plugins/svg/svgwin.C:469
 msgid "SVG Plugin: Pick SVG file"
 msgstr "Plugin SVG: Escolha um arquivo SVG"
 
-#: plugins/svg/svgwin.C:421
+#: plugins/svg/svgwin.C:470
 msgid "Open an existing SVG file or create a new one"
 msgstr "Abrir um arquivo SVG existente ou criar um novo"
+
+#: plugins/svg/svgwin.C:481
+msgid "Use Imagemagick Workaround"
+msgstr ""
 
 #: plugins/swapchannels/swapchannels.C:107
 #: plugins/swapchannels/swapchannels.C:217
@@ -5847,48 +5879,48 @@ msgstr "Frente de Tempo"
 msgid "Time stretch"
 msgstr "Esticamento de tempo"
 
-#: plugins/titler/title.C:81
+#: plugins/titler/title.C:84
 #, c-format
 msgid "hello world"
 msgstr "descrição"
 
-#: plugins/titler/title.C:295
+#: plugins/titler/title.C:298
 #, c-format
 msgid "GlyphUnit::process_package FT_New_Face failed.\n"
 msgstr "GlyphUnit::process_package FT_New_Face falhou.\n"
 
-#: plugins/titler/title.C:314
+#: plugins/titler/title.C:317
 #, c-format
 msgid "GlyphUnit::process_package FT_Load_Char failed - char: %i.\n"
 msgstr "GlyphUnit::process_package FT_Load_Char falhou - char: %i.\n"
 
-#: plugins/titler/title.C:1385
+#: plugins/titler/title.C:1393
 #, c-format
 msgid "TitleMain::load_freetype_face %s failed.\n"
 msgstr "TitleMain::load_freetype_face %s falhou.\n"
 
-#: plugins/titler/title.C:1506
+#: plugins/titler/title.C:1571
 #, c-format
 msgid "Iconv conversion from %s to Unicode UCS-4 not available\n"
 msgstr "Conversão Iconv de %s para Unicode UCS-4 não disponível\n"
 
-#: plugins/titler/title.C:1947
+#: plugins/titler/title.C:2023
 msgid "No motion"
 msgstr "Sem movimento"
 
-#: plugins/titler/title.C:1948
+#: plugins/titler/title.C:2024
 msgid "Bottom to top"
 msgstr "Base para topo"
 
-#: plugins/titler/title.C:1949
+#: plugins/titler/title.C:2025
 msgid "Top to bottom"
 msgstr "Topo para base"
 
-#: plugins/titler/title.C:1950
+#: plugins/titler/title.C:2026
 msgid "Right to left"
 msgstr "Direita para esquerda"
 
-#: plugins/titler/title.C:1951
+#: plugins/titler/title.C:2027
 msgid "Left to right"
 msgstr "Esquerda para direita"
 
@@ -6083,6 +6115,12 @@ msgstr "Video ao Vivo"
 #: plugins/motionblur/motionblur.C:322
 msgid "Motion Blur"
 msgstr "Desfocar Movimentação"
+
+#~ msgid "Cinelerra "
+#~ msgstr "Cinelerra "
+
+#~ msgid "-*-luxi sans-*-r-*-*-16-*-*-*-*-*-*-*"
+#~ msgstr "-*-luxi sans-*-r-*-*-16-*-*-*-*-*-*-*"
 
 #~ msgid "Clicking on in/out points does what:"
 #~ msgstr "Clicando nos pontos de entrada/saída faz:"

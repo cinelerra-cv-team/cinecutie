@@ -35,6 +35,9 @@
 
 #include <sys/types.h>
 
+// Number of samples saved before the current read position
+#define HISTORY_MAX 0x10000
+
 // inherited by every file interpreter
 class FileBase
 {
@@ -104,7 +107,22 @@ public:
 // This file can copy compressed frames directly from the asset
 	virtual int can_copy_from(Edit *edit, int64_t position) { return 0; }; 
 	virtual int get_render_strategy(ArrayList<int>* render_strategies) { return VRENDER_VPIXEL; };
+// Manages an audio history buffer
+	void update_pcm_history(int64_t len);
+// Returns history_start + history_size
+	int64_t get_history_sample();
+// contiguous float
+	void append_history(float **new_data, int len);
+// Interleaved short
+	void append_history(short *new_data, int len);
+	void read_history(double *dst,
+		int64_t start_sample, 
+		int channel,
+		int64_t len);
+	void allocate_history(int len);
 
+// For static functions to access it
+//	Asset *asset;
 protected:
 // Return 1 if the render_strategy is present on the list.
 	static int search_render_strategies(ArrayList<int>* render_strategies, int render_strategy);
@@ -167,6 +185,17 @@ protected:
 	int dither;
 	int internal_byte_order;
 	File *file;
+	// ================================= Audio compression
+	double **pcm_history;
+	int64_t history_allocated;
+	int64_t history_size;
+	int64_t history_start;
+	int history_channels;
+// Range to decode to fill history buffer.  Maintained by FileBase.
+	int64_t decode_start;
+	int64_t decode_len;
+// End of last decoded sample.  Maintained by user for seeking.
+	int64_t decode_end;
 
 private:
 

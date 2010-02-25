@@ -40,6 +40,7 @@
 #include "filemov.h"
 #include "filempeg.h"
 #include "fileogg.h"
+#include "fileffmpeg.h"
 #include "filepng.h"
 #include "filesndfile.h"
 #include "filetga.h"
@@ -226,6 +227,14 @@ int File::get_options(FormatTools *format,
 				video_options,
 				format);
 			break;
+	   //     case FILE_FFMPEG:
+		//	FileFFMPEG::get_parameters(parent_window, 
+		//		asset, 
+		//		format_window, 
+		///	audio_options, 
+		//		video_options,
+		//		format);
+		//	break;
 		case FILE_PNG:
 		case FILE_PNG_LIST:
 			FilePNG::get_parameters(parent_window, 
@@ -324,12 +333,6 @@ int File::purge_cache()
 {
 	return frame_cache->delete_oldest();
 }
-
-
-
-
-
-
 
 
 
@@ -470,6 +473,12 @@ int File::open_file(Preferences *preferences,
 				file = new FileMOV(this->asset, this);
 			}
 			else
+			if(FileFFMPEG::check_sig(this->asset))
+			{
+				fclose(stream);
+				file = new FileFFMPEG(this->asset, this);
+			}
+			else
 			{
 // PCM file
 				fclose(stream);
@@ -481,7 +490,9 @@ int File::open_file(Preferences *preferences,
 		case FILE_AC3:
 			file = new FileAC3(this->asset, this);
 			break;
-
+		case FILE_FFMPEG:
+			file = new FileFFMPEG(this->asset, this);
+			break;
 		case FILE_PCM:
 		case FILE_WAV:
 		case FILE_AU:
@@ -1228,6 +1239,8 @@ int File::strtoformat(ArrayList<PluginServer*> *plugindb, char *format)
 	if(!strcasecmp(format, _(VORBIS_NAME))) return FILE_VORBIS;
 	else
 	if(!strcasecmp(format, _(RAWDV_NAME))) return FILE_RAWDV;
+	else
+	if(!strcasecmp(format, _(FFMPEG_NAME))) return FILE_FFMPEG;
 	return 0;
 }
 
@@ -1329,6 +1342,9 @@ char* File::formattostr(ArrayList<PluginServer*> *plugindb, int format)
 			break;
 		case FILE_RAWDV:
 			return _(RAWDV_NAME);
+			break;
+		case FILE_FFMPEG:
+			return _(FFMPEG_NAME);
 			break;
 		default:
 			return _("Unknown");
