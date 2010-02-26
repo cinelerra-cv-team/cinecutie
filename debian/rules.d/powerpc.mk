@@ -1,1 +1,6 @@
+CFLAGS=-O0 -pipe
+CXXFLAGS=$(CFLAGS)
 CONFFLAGS=--enable-opengl
+CFLAGSXT=-O3 -pipe
+CXXFLAGSXT=$(CFLAGSXT)
+CONFFLAGSXT=--enable-opengl

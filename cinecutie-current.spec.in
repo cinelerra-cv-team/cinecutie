@@ -8,12 +8,12 @@
 
 Summary: Cinecutie
 Name: cinecutie
-Version: @VERSION@.cv981
+Version: @VERSION@.005rc
 %if %{with_OPENGL}
-##Version: @VERSION@.CV.svn.%{build_nick}.opengl
+##Version: @VERSION@.%{build_nick}.opengl
 Release: %{build_nick}.%(date '+%Y%m%d').opengl
 %else
-##Version: @VERSION@.CV.svn.%{build_nick}
+##Version: @VERSION@.%{build_nick}
 Release: %{build_nick}.%(date '+%Y%m%d')
 %endif
 ##Release: %(date '+%Y%m%d')
@@ -88,9 +88,9 @@ rm -rf $RPM_BUILD_ROOT
 #%exclude %{prefix}/bin/mpeg3dump
 #%exclude %{prefix}/bin/mpeg3toc
 #%exclude %{prefix}/bin/mpeg3cat
-%{prefix}/bin/mpeg3dump.hv
-%{prefix}/bin/mpeg3toc.hv
-%{prefix}/bin/mpeg3cat.hv
+%{prefix}/bin/mpeg3dump.cc
+%{prefix}/bin/mpeg3toc.cc
+%{prefix}/bin/mpeg3cat.cc
 %{prefix}/bin/cinecutie-rawc-convert
 
 %{prefix}/share/locale/*
@@ -118,77 +118,7 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
-* Fri Jan 19 2007 Kevin Brosius <cobra@compuserve.com> - 2.1.cv981-cobra-date
-- svn r981
-- Update for 64bit SUSE builds
-- Change versioning to more closely match SUSE package guidelines and packman
-
-
-* Fri Nov 24 2006 Kevin Brosius <cobra@compuserve.com> - 2.1.0.cvs.cobra-date
-- svn r958
-
-* Thu Sep 14 2006 Kevin Brosius <cobra@compuserve.com> - 2.1.0.cvs.cobra-date
-- First package with merged Cinelerra 2.1
-- svn r888
-
-%changelog
-* Thu Jun 1 2006 Kevin Brosius <cobra@compuserve.com> - 2.0.0.cvs.cobra-date
-- transitions fix, Ogg renderfarm support, po email address fix
-- file.h compile fix, fix thread delete race condition
-- a bunch of mem management fixes
-
-* Mon May 29 2006 Kevin Brosius <cobra@compuserve.com> - 2.0.0.cvs.cobra-date
-- reading ogg vorbis fix, Freetype2 2.2.1 compatibility
-- mjpeg load fixes (bug139, 148, 259), fix insertion of media files directly
-- shorten xml files, motion blur plugin
-- camera and projector automation for plugins, waveform not shown fix
-- change every clip all media files behavior in saved xml
-- work without audio enabled, delete pluginsets fix
-
-* Tue May 02 2006 Kevin Brosius <cobra@compuserve.com> - 2.0.0.cvs.cobra-date
-- fseek0 fix bug244, bug250, check sound/audio in dv format
-- bug249 vorbis setup fix, chromakey fix, check for libfaac
-- fix DV audio read sample impl., move icon in Gnome
-- bug30 allow transition at end of track, bug243
-- fix crash when rendering plugins, fix null plugin usage
-- fix load XML crash, bug242 >1024 properties
-
-* Sat Apr 03 2006 Kevin Brosius <cobra@compuserve.com> - 2.0.0.cvs.cobra-date
-- EDL export, .mov DV fourcc -> dvc, multi transitions with diff lengths fix
-- debian build fixes, new configure checks and libavcodec header fixes
-- mux fixes for long silence/empty video, ubuntu build fixes
-- RGB*_FLOAT color models for mask engine, gcc 4.1.0 fixes/mpeg2enc
-- Makefile cleanups, raise_window() commands, BUZ driver channel editor fixes
-- format selection for timecode in titler, build date and CV versioning
-- fix --disable-firewire, chromakey-hsv plugin, pt_BR translation updates
-- deinterlace plugin updates, cache frames even when not static
-- new deinterlacer, timefronts - take from alpha
-- fix apply-mask-before-plugins for masks, new timefront plugin
-- add histogram split checkbox
-
-* Sat Feb 04 2006 Kevin Brosius <cobra@compuserve.com> - 2.0.0.cvs.cobra-date
-- vertical pos of auto-zoom text, dv audio offset/framing fix
-- Italian translation, Spanish update, deinterlace fix
-- mpeg encode params fix
-
-* Sat Jan 26 2006 Kevin Brosius <cobra@compuserve.com> - 2.0.0.cvs.cobra-date
-- raw dv i/o fixes, textual info for labels, " conversion
-- Automation text label editable, audio_position adjust for dv1394
-
-* Sat Dec 24 2005 Kevin Brosius <cobra@compuserve.com> - 2.0.0.cvs.cobra-date
-- fix bug 219 & 220, make text menu hilight white
-- alt+left/right navigates trough edit handles
-- parameter name fix, single image dnd fixes, remove mwindowmove dup code
-- ffmpeg defaults for elem stream (Bug 164), member function fix
-- gettextize language changes for more plugins, French update
-
-* Sun Dec 11 2005 Kevin Brosius <cobra@compuserve.com> - 2.0.0.cvs.cobra-date
-- Fix renderfarm client crash, align cursor on frames default
-- right mouse on keyframe - keyframe popup, guicast / gettextize additions
-- Brazilian update, French update
-- link mpeg2enc.plugin for SUSE, add mjpegtools >= 1.6.3 dep
-
-* Mon Nov 14 2005 Kevin Brosius <cobra@compuserve.com> - 2.0.0.cvs.cobra-date
-- Initial build of CV from svn tree.
-
+* Fri Feb 26 2010 Brosius <akir4d@gmail.com> - 1.0.0-cobra-date
+- 005rc
+- Cinecutie now open more video/audio format
 

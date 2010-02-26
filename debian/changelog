@@ -1,3 +1,11 @@
+cinecutie (1.0.0-005rc) karmic; urgency=low
+
+  * Added support for many video format
+  * now interface is very stable
+  * the package is made with -O0 in order made debug easy
+
+ -- Paolo Rampino <akir4d@gmail.com>  Fri, 26 Feb 2010 09:39:21 +0100
+
 cinecutie (1.0.0-004betarelease) karmic; urgency=low
 
   * merge png patch, fixed /usr/local issue.
