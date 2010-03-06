@@ -58,7 +58,7 @@ static void dump_context(void *ptr)
 	printf("    codec_id=%d\n", context->codec_id);
 	printf("    codec_tag=%d\n", context->codec_tag);
 	printf("    workaround_bugs=%d\n", context->workaround_bugs);
-	printf("    error_resilience=%d\n", context->error_resilience);
+	//printf("    error_resilience=%d\n", context->error_resilience);
 	printf("    has_b_frames=%d\n", context->has_b_frames);
 	printf("    block_align=%d\n", context->block_align);
 	printf("    parse_only=%d\n", context->parse_only);
@@ -67,7 +67,7 @@ static void dump_context(void *ptr)
 	printf("    slice_offset=%p\n", context->slice_offset);
 	printf("    error_concealment=%d\n", context->error_concealment);
 	printf("    dsp_mask=%p\n", context->dsp_mask);
-	printf("    bits_per_sample=%d\n", context->bits_per_sample);
+	//printf("    bits_per_sample=%d\n", context->bits_per_sample);
 	printf("    slice_flags=%d\n", context->slice_flags);
 	printf("    xvmc_acceleration=%d\n", context->xvmc_acceleration);
 	printf("    antialias_algo=%d\n", context->antialias_algo);

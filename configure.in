@@ -430,10 +430,11 @@ if test "x$with_external_ffmpeg" = "xyes"; then
      FFMPEG_EXTERNALTEXT="External ffmpeg"
 else
      FFMPEG_FOLDER=ffmpeg
-     FFMPEG_CFLAGS="-I\$(top_srcdir)/quicktime/ffmpeg"
+     FFMPEG_CFLAGS="-I\$(top_srcdir)/quicktime/ffmpeg -DHAVE_SWSCALER"
      FFMPEG_LIBS="-L\$(top_builddir)/quicktime/ffmpeg/libavcodec -lavcodec-cinecutie \
      		-L\$(top_builddir)/quicktime/ffmpeg/libavformat -lavformat-cinecutie \
      		-L\$(top_builddir)/quicktime/ffmpeg/libavdevice -lavdevice-cinecutie \
+     		-L\$(top_builddir)/quicktime/ffmpeg/libswscale -lswscale-cinecutie \
 		-L\$(top_builddir)/quicktime/ffmpeg/libavutil -lavutil-cinecutie"
      FFMPEG_EXTERNALTEXT="Internal ffmpeg"
 fi
@@ -457,7 +458,8 @@ else
 	fi
 	ff_conf_args="--disable-ffmpeg --prefix=$prefix --incdir=/opt/cinecutie/conflicts/include \ 
 		--mandir=/opt/cinecutie/conflicts/share/man --disable-ffserver --disable-ffplay \
-		--disable-static --enable-shared --build-suffix=-cinecutie"
+		--disable-static --enable-shared --enable-libtheora --enable-libspeex --enable-libopenjpeg \
+	        --enable-swscale --enable-libfaad --enable-libx264 --disable-vhook --enable-gpl --build-suffix=-cinecutie"
 
 	if test "x$enable_mmx" = "xno"; then
 		ff_conf_args="$ff_conf_args --disable-mmx"

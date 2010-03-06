@@ -1,8 +1,7 @@
 #include <string.h>
-
 #ifdef HAVE_SWSCALER
 extern "C" {
-#include <swscale.h>
+#include <libswscale/swscale.h>
 }
 #endif
 

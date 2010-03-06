@@ -48,7 +48,7 @@
 #define MPEG_YUV422 1
 
 
-#define MJPEG_EXE PLUGIN_DIR "/mpeg2enc.plugin"
+#define MJPEG_EXE PLUGIN_DIR "/mpeg2enc"
 
 
 

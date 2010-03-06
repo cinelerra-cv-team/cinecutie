@@ -19,7 +19,7 @@
  */
 
 /*!
- * \file theoraenc.c
+ * \file libtheoraenc.c
  * \brief Theora encoder using libtheora.
  * \author Paul Richards <paul.richards@gmail.com>
  *
@@ -31,6 +31,7 @@
  */
 
 /* FFmpeg includes */
+#include "libavutil/intreadwrite.h"
 #include "libavutil/log.h"
 #include "avcodec.h"
 
@@ -76,7 +77,7 @@ static int concatenate_packet(unsigned int* offset, AVCodecContext* avc_context,
     return 0;
 }
 
-static int encode_init(AVCodecContext* avc_context)
+static av_cold int encode_init(AVCodecContext* avc_context)
 {
     theora_info t_info;
     theora_comment t_comment;
@@ -105,11 +106,9 @@ static int encode_init(AVCodecContext* avc_context)
     }
     t_info.colorspace = OC_CS_UNSPECIFIED;
     t_info.pixelformat = OC_PF_420;
-    t_info.target_bitrate = avc_context->bit_rate;
     t_info.keyframe_frequency = avc_context->gop_size;
     t_info.keyframe_frequency_force = avc_context->gop_size;
     t_info.keyframe_mindistance = avc_context->keyint_min;
-    t_info.quality = 0;
 
     t_info.quick_p = 1;
     t_info.dropframes_p = 0;
@@ -118,6 +117,19 @@ static int encode_init(AVCodecContext* avc_context)
     t_info.keyframe_auto_threshold = 80;
     t_info.noise_sensitivity = 1;
     t_info.sharpness = 0;
+
+    if (avc_context->flags & CODEC_FLAG_QSCALE) {
+        /* to be constant with the libvorbis implementation, clip global_quality to 0 - 10
+           Theora accepts a quality parameter p, which is:
+                * 0 <= p <=63
+                * an int value
+         */
+        t_info.quality = av_clip(avc_context->global_quality / (float)FF_QP2LAMBDA, 0, 10) * 6.3;
+        t_info.target_bitrate = 0;
+    } else {
+        t_info.target_bitrate = avc_context->bit_rate;
+        t_info.quality = 0;
+    }
 
     /* Now initialise libtheora */
     if (theora_encode_init( &(h->t_state), &t_info ) != 0) {
@@ -239,7 +251,7 @@ static int encode_frame(
     return o_packet.bytes;
 }
 
-static int encode_close(AVCodecContext* avc_context)
+static av_cold int encode_close(AVCodecContext* avc_context)
 {
     ogg_packet o_packet;
     TheoraContext *h = avc_context->priv_data;
@@ -277,5 +289,5 @@ AVCodec libtheora_encoder =
     .close = encode_close,
     .encode = encode_frame,
     .pix_fmts = supported_pixel_formats,
-    .long_name = "libtheora Theora",
+    .long_name = NULL_IF_CONFIG_SMALL("libtheora Theora"),
 };
