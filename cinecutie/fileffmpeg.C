@@ -226,95 +226,86 @@ printf("FileFFMPEG::open_file %d\n", __LINE__);
 		}
 if(debug) printf("FileFFMPEG::open_file %d result=%d\n", __LINE__, result);
 
-// Convert format to asset
-		if(result >= 0)
-		{
-			result = 0;
-			asset->format = FILE_FFMPEG;
-			for(int i = 0; i < ((AVFormatContext*)ffmpeg_file_context)->nb_streams; i++)
-			{
-				AVStream *stream = ((AVFormatContext*)ffmpeg_file_context)->streams[i];
-       			AVCodecContext *decoder_context = stream->codec;
-        		switch(decoder_context->codec_type) 
-				{
-        			case CODEC_TYPE_AUDIO:
-if(debug) printf("FileFFMPEG::open_file %d i=%d audio_index=%d\n", __LINE__, i, audio_index);
-            			if(audio_index < 0)
-						{
-							audio_index = i;
-							asset->audio_data = 1;
-							asset->channels = decoder_context->channels;
-							asset->sample_rate = decoder_context->sample_rate;
-							asset->audio_length = (int64_t)(((AVFormatContext*)ffmpeg_file_context)->duration * 
-								asset->sample_rate / 
-								AV_TIME_BASE);
-							asset->bits = 16;
-if(debug) printf("FileFFMPEG::open_file %d decoder_context->codec_id=%d\n", __LINE__, decoder_context->codec_id);
-							AVCodec *codec = avcodec_find_decoder(decoder_context->codec_id);
-							if(!codec)
-							{
-								printf("FileFFMPEG::open_file: audio codec 0x%x not found.\n", 
-									decoder_context->codec_id);
-								asset->audio_data = 0;
-								audio_index = -1;
-							}
-							else
-							{
-								avcodec_thread_init(decoder_context, file->cpus);
-								avcodec_open(decoder_context, codec);
-							}
-						}
-            			break;
 
-        			case CODEC_TYPE_VIDEO:
-if(debug) printf("FileFFMPEG::open_file %d i=%d video_index=%d\n", __LINE__, i, video_index);
-            			if(video_index < 0)
+		result = 0;
+		asset->format = FILE_FFMPEG;
+		for(int i = 0; i < ((AVFormatContext*)ffmpeg_file_context)->nb_streams; i++)
+		{
+			AVStream *stream = ((AVFormatContext*)ffmpeg_file_context)->streams[i];
+      			AVCodecContext *decoder_context = stream->codec;
+      		switch(decoder_context->codec_type) 
+			{
+      			case CODEC_TYPE_AUDIO:
+if(debug) printf("FileFFMPEG::open_file %d i=%d audio_index=%d\n", __LINE__, i, audio_index);
+      			if(audio_index < 0)
+					{
+						audio_index = i;
+						asset->audio_data = 1;
+						asset->channels = decoder_context->channels;
+						asset->sample_rate = decoder_context->sample_rate;
+						asset->audio_length = (int64_t)(((AVFormatContext*)ffmpeg_file_context)->duration * 
+							asset->sample_rate / 
+							AV_TIME_BASE);
+						asset->bits = 16;
+if(debug) printf("FileFFMPEG::open_file %d decoder_context->codec_id=%d\n", __LINE__, decoder_context->codec_id);
+						AVCodec *codec = avcodec_find_decoder(decoder_context->codec_id);
+						if(!codec)
 						{
-							video_index = i;
-							asset->video_data = 1;
-							asset->layers = 1;
-							asset->width = decoder_context->width;
-							asset->height = decoder_context->height;
-							if(EQUIV(asset->frame_rate, 0))
-								asset->frame_rate = 
-									(double)stream->r_frame_rate.num /
-									stream->r_frame_rate.den;
-// 								(double)decoder_context->time_base.den / 
-// 								decoder_context->time_base.num;
-							asset->video_length = (int64_t)(((AVFormatContext*)ffmpeg_file_context)->duration *
-								asset->frame_rate / 
-								AV_TIME_BASE);
-							asset->aspect_ratio = 
-								(double)decoder_context->sample_aspect_ratio.num / 
-								decoder_context->sample_aspect_ratio.den;
-if(debug) printf("FileFFMPEG::open_file %d decoder_context->codec_id=%d\n", 
-__LINE__, 
-decoder_context->codec_id);
-							AVCodec *codec = avcodec_find_decoder(decoder_context->codec_id);
+							printf("FileFFMPEG::open_file: audio codec 0x%x not found.\n", 
+								decoder_context->codec_id);
+							asset->audio_data = 0;
+							audio_index = -1;
+						}
+						else
+						{
 							avcodec_thread_init(decoder_context, file->cpus);
 							avcodec_open(decoder_context, codec);
 						}
-            			break;
+					}
+      			break;
 
-        			default:
-            			break;
-        		}
-			}
+      			case CODEC_TYPE_VIDEO:
+if(debug) printf("FileFFMPEG::open_file %d i=%d video_index=%d\n", __LINE__, i, video_index);
+      			if(video_index < 0)
+					{
+						video_index = i;
+						asset->video_data = 1;
+						asset->layers = 1;
+						asset->width = decoder_context->width;
+						asset->height = decoder_context->height;
+						if(EQUIV(asset->frame_rate, 0))
+							asset->frame_rate = 
+								(double)stream->r_frame_rate.num /
+								stream->r_frame_rate.den;
+// 								(double)decoder_context->time_base.den / 
+// 								decoder_context->time_base.num;
+						asset->video_length = (int64_t)(((AVFormatContext*)ffmpeg_file_context)->duration *
+							asset->frame_rate / 
+							AV_TIME_BASE);
+						asset->aspect_ratio = 
+							(double)decoder_context->sample_aspect_ratio.num / 
+							decoder_context->sample_aspect_ratio.den;
+if(debug) printf("FileFFMPEG::open_file %d decoder_context->codec_id=%d\n", 
+__LINE__, 
+decoder_context->codec_id);
+						AVCodec *codec = avcodec_find_decoder(decoder_context->codec_id);
+						avcodec_thread_init(decoder_context, file->cpus);
+						avcodec_open(decoder_context, codec);
+					}
+      			break;
 
-			if(debug) 
-			{
-				printf("FileFFMPEG::open_file %d audio_index=%d video_index=%d\n",
-					__LINE__,
-					audio_index,
-					video_index);
-				asset->dump();
-			}
+      			default:
+      			break;
+      		}
 		}
-		else
+
+		if(debug) 
 		{
-			ffmpeg_lock->unlock();
-printf("FileFFMPEG::open_file %d\n", __LINE__);
-			return 1;
+			printf("FileFFMPEG::open_file %d audio_index=%d video_index=%d\n",
+				__LINE__,
+				audio_index,
+				video_index);
+			asset->dump();
 		}
 	}
 
