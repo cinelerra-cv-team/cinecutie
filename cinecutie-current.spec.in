@@ -31,6 +31,7 @@ BuildRequires: libvorbis-devel libtheora-devel OpenEXR-devel libdv-devel
 BuildRequires: libpng-devel libjpeg-devel mjpegtools-devel fftw3-devel a52dec
 BuildRequires: faad2-devel faac libiec61883-devel esound-devel lame
 BuildRequires: e2fsprogs-devel libsndfile-devel nasm gcc gcc-c++ libtiff-devel
+BuildRequires: libopenjpeg-devel libspeex-devel
 
 # libpng-devel-32bit libjpeg-devel-32bit e2fsprogs-devel-32bit
 # libtiff-devel-32bit
@@ -42,10 +43,10 @@ Provides: cinecutie
 
 %description
 %if %{with_OPENGL}
-Cinelerra unofficial cvs package
+Cinecutie package
 build options: --with opengl
 %else
-Cinelerra unofficial cvs package
+Cinecutie package
 without OpenGL support
 build options: [none]
 %endif
@@ -55,9 +56,9 @@ build options: [none]
 
 %build
 %if %{with_OPENGL}
-./configure --prefix=%{prefix} --libdir=%_libdir --with-plugindir=%{_libdir}/cinecutie --enable-freetype2 --enable-xft --with-buildinfo=cust/"1.0.0 r003 SUSE" --enable-opengl
+./configure --prefix=%{prefix} --libdir=%_libdir --with-plugindir=%{_libdir}/cinecutie --enable-freetype2 --enable-xft --with-buildinfo=cust/"1.0.0 r005 SUSE" --enable-opengl
 %else
-./configure --prefix=%{prefix} --libdir=%_libdir --with-plugindir=%{_libdir}/cinecutie --enable-freetype2 --enable-xft --with-buildinfo=cust/"1.0.0 r003 SUSE"
+./configure --prefix=%{prefix} --libdir=%_libdir --with-plugindir=%{_libdir}/cinecutie --enable-freetype2 --enable-xft --with-buildinfo=cust/"1.0.0 r005 SUSE"
 %endif
 %{__make} %{?_smp_mflags} %{?mflags}
 
@@ -69,7 +70,7 @@ make DESTDIR=$RPM_BUILD_ROOT install
   mv mpeg3toc mpeg3toc.cc
   mv mpeg3cat mpeg3cat.cc
   mv mpeg3dump mpeg3dump.cc
-  ln -s /usr/bin/mpeg2enc $RPM_BUILD_ROOT%{_libdir}/cinecutie/mpeg2enc.plugin
+  ln -s /usr/bin/mpeg2enc $RPM_BUILD_ROOT%{_libdir}/cinecutie/mpeg2enc
 )
 
 %clean
