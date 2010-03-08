@@ -1,0 +1,158 @@
+--- cinecutie/labels.C	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/labels.C	2010-02-19 22:19:11.968571001 +0100
+@@ -36,11 +36,11 @@
+ 
+ 
+ 
+-Labels::Labels(EDL *edl, const char *xml_tag)
++Labels::Labels(EDL *edl, char *xml_tag)
+  : List<Label>()
+ {
+ 	this->edl = edl;
+-	this->xml_tag = (char*)xml_tag;
++	this->xml_tag = xml_tag;
+ }
+ 
+ Labels::~Labels()
+@@ -52,7 +52,7 @@
+ {
+ 	for(Label *current = first; current; current = NEXT)
+ 	{
+-		printf("  label: %f\n", current->position);
++		printf("  label: %f '%s'\n", current->position, current->textstr);
+ 	}
+ }
+ 
+@@ -62,7 +62,7 @@
+ 	Label *old_label;
+ 
+ 
+-//printf("Labels::insert_labels 1 %d %d\n", __LINE__, paste_silence);
++//printf("Labels::insert_labels 1 %f\n", start);
+ 
+ // Insert silence in old labels
+ 	if(paste_silence)
+@@ -98,9 +98,9 @@
+ 		if(!exists)
+ 		{
+ 			if(old_label)
+-				insert_before(old_label, new Label(edl, this, new_label->position + start));
++				insert_before(old_label, new Label(edl, this, new_label->position + start, new_label->textstr));
+ 			else
+-				append(new Label(edl, this, new_label->position + start));
++				append(new Label(edl, this, new_label->position + start, new_label->textstr));
+ 		}
+ 	}
+ }
+@@ -130,13 +130,13 @@
+ 		}
+ 		else
+ 		{        // insert before it
+-			current = insert_before(current, new Label(edl, this, start));
++			current = insert_before(current, new Label(edl, this, start, ""));
+ 		}
+ 	}
+ 	else
+ 	{           // insert after last
+ //printf("Labels::toggle_label 1\n");
+-		current = append(new Label(edl, this, start));
++		current = append(new Label(edl, this, start, ""));
+ 	}
+ 
+ // handle selection end
+@@ -159,12 +159,12 @@
+ 			}
+ 			else
+ 			{
+-				current = insert_before(current, new Label(edl, this, end));
++				current = insert_before(current, new Label(edl, this, end, ""));
+ 			}
+ 		}
+ 		else
+ 		{
+-			current = append(new Label(edl, this, end));
++			current = append(new Label(edl, this, end, ""));
+ 		}
+ 	}
+ 	return 0;
+@@ -185,16 +185,20 @@
+ 	xml->append_newline();
+ 
+ 	Label *current;
+-	sprintf(string, xml_tag);
+-	string[strlen(string) - 1] = 0;
++	sprintf(string, "/%s", xml_tag);
++	string[strlen(string) - 1] = 0; // remove trailing "S" on "LABELS" giving "LABEL"
+ 	for(current = label_of(start); 
+ 		current && current->position <= end; 
+ 		current = NEXT)
+ 	{
+-		xml->tag.set_title(string);
++		xml->tag.set_title(string+1); // skip the "/" for opening tag
+ 		xml->tag.set_property("TIME", (double)current->position - start);
++		xml->tag.set_property("TEXTSTR", current->textstr);
+ //printf("Labels::copy %f\n", current->position - start);
+ 		xml->append_tag();
++		xml->tag.set_title(string); // closing tag
++		xml->append_tag();
++		xml->append_newline();
+ 	}
+ 	
+ 	sprintf(string, "/%s", xml_tag);
+@@ -223,7 +227,7 @@
+ 
+ 	for(Label *current = labels->first; current; current = NEXT)
+ 	{
+-		append(new Label(edl, this, current->position));
++		append(new Label(edl, this, current->position, current->textstr));
+ 	}
+ }
+ 
+@@ -237,6 +241,7 @@
+ 
+ 
+ int Labels::save(FileXML *xml)
++// Note: Normally the saving of Labels is done by Labels::copy()
+ {
+ 	xml->tag.set_title("LABELS");
+ 	xml->append_tag();
+@@ -248,7 +253,11 @@
+ 	{
+ 		xml->tag.set_title("LABEL");
+ 		xml->tag.set_property("TIME", (double)current->position);
++		xml->tag.set_property("TEXTSTR", current->textstr);
+ 		xml->append_tag();
++		xml->tag.set_title("/LABEL");
++		xml->append_tag();
++		xml->append_newline();
+ 	}
+ 	
+ 	xml->append_newline();
+@@ -286,7 +295,8 @@
+ 				if(position > -1)
+ 				{
+ 					Label *current = label_of(position);
+-					current = insert_before(current, new Label(edl, this, position));
++					current = insert_before(current, new Label(edl, this, position, ""));
++					xml->tag.get_property("TEXTSTR", current->textstr);
+ 				}
+ 			}
+ 			else
+@@ -506,12 +516,16 @@
+ {
+ }
+ 
+-Label::Label(EDL *edl, Labels *labels, double position)
++Label::Label(EDL *edl, Labels *labels, double position, char *textstr = 0)
+  : ListItem<Label>()
+ {
+ 	this->edl = edl;
+ 	this->labels = labels;
+ 	this->position = position;
++	if (textstr)
++		strcpy(this->textstr, textstr);
++	else
++		strcpy(this->textstr, "");
+ }
+ 
+ 

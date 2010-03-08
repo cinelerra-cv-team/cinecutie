@@ -1,0 +1,30 @@
+--- cinecutie/question.C	2008-10-11 17:46:25.000000000 +0200
++++ /home/user/cinecutie/cinecutie/question.C	2010-02-19 22:19:11.988570758 +0100
+@@ -19,7 +19,6 @@
+  * 
+  */
+ 
+-#include "bcsignals.h"
+ #include "language.h"
+ #include "mwindow.h"
+ #include "mwindowgui.h"
+@@ -44,9 +43,8 @@
+ {
+ }
+ 
+-void QuestionWindow::create_objects(char *string, int use_cancel)
++int QuestionWindow::create_objects(char *string, int use_cancel)
+ {
+-	lock_window("QuestionWindow::create_objects");
+ 	int x = 10, y = 10;
+ 	add_subwindow(new BC_Title(10, 10, string));
+ 	y += 30;
+@@ -55,7 +53,7 @@
+ 	add_subwindow(new QuestionNoButton(mwindow, this, x, y));
+ 	x = get_w() - 100;
+ 	if(use_cancel) add_subwindow(new BC_CancelButton(x, y));
+-	unlock_window();
++	return 0;
+ }
+ 
+ QuestionYesButton::QuestionYesButton(MWindow *mwindow, QuestionWindow *window, int x, int y)

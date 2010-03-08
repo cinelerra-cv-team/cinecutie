@@ -1,0 +1,12 @@
+--- cinecutie/audiodevice.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/audiodevice.C	2010-02-19 22:19:11.848575688 +0100
+@@ -19,7 +19,9 @@
+  * 
+  */
+ 
++#ifdef HAVE_FIREWIRE
+ #include "audio1394.h"
++#endif
+ #include "audioalsa.h"
+ #include "audiocine.h"
+ #include "audiodevice.h"

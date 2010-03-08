@@ -1,0 +1,114 @@
+--- cinecutie/fileac3.C	2010-02-19 23:58:21.938582724 +0100
++++ /home/user/cinecutie/cinecutie/fileac3.C	2010-02-19 22:19:11.948570683 +0100
+@@ -20,17 +20,11 @@
+  */
+ 
+ #include "asset.h"
+-
+-extern "C" 
+-{
+-#include "libavcodec/avcodec.h"
+-}
+-
+ #include "clip.h"
+ #include "fileac3.h"
+ #include "language.h"
+ #include "mwindow.inc"
+-
++#include "mainerror.h"
+ 
+ 
+ 
+@@ -95,24 +89,22 @@
+ 		codec = avcodec_find_encoder(CODEC_ID_AC3);
+ 		if(!codec)
+ 		{
+-			fprintf(stderr, 
+-				"FileAC3::open_file codec not found.\n");
++			eprintf("codec not found.\n");
+ 			return 1;
+ 		}
+ 		codec_context = avcodec_alloc_context();
+-		((AVCodecContext*)codec_context)->bit_rate = asset->ac3_bitrate * 1000;
+-		((AVCodecContext*)codec_context)->sample_rate = asset->sample_rate;
+-		((AVCodecContext*)codec_context)->channels = asset->channels;
+-		if(avcodec_open(((AVCodecContext*)codec_context), ((AVCodec*)codec)))
++		codec_context->bit_rate = asset->ac3_bitrate * 1000;
++		codec_context->sample_rate = asset->sample_rate;
++		codec_context->channels = asset->channels;
++		if(avcodec_open(codec_context, codec))
+ 		{
+-			fprintf(stderr, 
+-				"FileAC3::open_file failed to open codec.\n");
++			eprintf("failed to open codec.\n");
+ 			return 1;
+ 		}
+ 
+ 		if(!(fd = fopen(asset->path, "w")))
+ 		{
+-			perror("FileAC3::open_file");
++			eprintf("Error while opening \"%s\" for writing. \n%m\n", asset->path);
+ 			return 1;
+ 		}
+ 	}
+@@ -120,7 +112,7 @@
+ 	{
+ 		if(!(fd = fopen(asset->path, "r")))
+ 		{
+-			perror("FileAC3::open_file");
++			eprintf("Error while opening \"%s\" for reading. \n%m\n", asset->path);
+ 			return 1;
+ 		}
+ 	}
+@@ -135,7 +127,7 @@
+ {
+ 	if(codec_context)
+ 	{
+-		avcodec_close(((AVCodecContext*)codec_context));
++		avcodec_close(codec_context);
+ 		free(codec_context);
+ 		codec_context = 0;
+ 		codec = 0;
+@@ -213,7 +205,7 @@
+ 	}
+ 	temp_raw_size += len;
+ 
+-	int frame_size = ((AVCodecContext*)codec_context)->frame_size;
++	int frame_size = codec_context->frame_size;
+ 	int output_size = 0;
+ 	int current_sample = 0;
+ 	for(current_sample = 0; 
+@@ -221,7 +213,7 @@
+ 		current_sample += frame_size)
+ 	{
+ 		int compressed_size = avcodec_encode_audio(
+-			((AVCodecContext*)codec_context), 
++			codec_context, 
+ 			temp_compressed + output_size, 
+ 			compressed_allocated - output_size, 
+             temp_raw + current_sample * asset->channels);
+@@ -237,7 +229,7 @@
+ 	int bytes_written = fwrite(temp_compressed, 1, output_size, fd);
+ 	if(bytes_written < output_size)
+ 	{
+-		perror("FileAC3::write_samples");
++		eprintf("Error while writing samples. \n%m\n");
+ 		return 1;
+ 	}
+ 	return 0;
+@@ -270,7 +262,6 @@
+ {
+ 	int x = 10, y = 10;
+ 	int x1 = 150;
+-	lock_window("AC3ConfigAudio::create_objects");
+ 	add_tool(new BC_Title(x, y, "Bitrate (kbps):"));
+ 	AC3ConfigAudioBitrate *bitrate;
+ 	add_tool(bitrate = 
+@@ -282,7 +273,6 @@
+ 	add_subwindow(new BC_OKButton(this));
+ 	show_window();
+ 	flush();
+-	unlock_window();
+ }
+ 
+ int AC3ConfigAudio::close_event()

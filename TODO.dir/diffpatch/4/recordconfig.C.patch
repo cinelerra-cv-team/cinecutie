@@ -1,0 +1,29 @@
+--- cinecutie/recordconfig.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/recordconfig.C	2010-02-19 22:19:11.988570758 +0100
+@@ -41,7 +41,7 @@
+ 	oss_in_bits = 16;
+ 	firewire_port = 0;
+ 	firewire_channel = 63;
+-	strcpy(firewire_path, "/dev/raw1394");
++	strcpy(firewire_path, "/dev/dv1394");
+ 	sprintf(esound_in_server, "");
+ 	esound_in_port = 0;
+ 
+@@ -190,7 +190,7 @@
+ 
+ 	firewire_port = 0;
+ 	firewire_channel = 63;
+-	sprintf(firewire_path, "/dev/raw1394");
++	sprintf(firewire_path, "/dev/dv1394");
+ // number of frames to read from device during video recording.
+ //	capture_length = 15;   
+ 	capture_length = 2;   
+@@ -240,7 +240,7 @@
+ 
+ 
+ 
+-	strcmp(dvb_in_host, src->dvb_in_host);
++	strcpy(dvb_in_host, src->dvb_in_host);
+ 	dvb_in_port = src->dvb_in_port;
+ 	dvb_in_number = src->dvb_in_number;
+ 

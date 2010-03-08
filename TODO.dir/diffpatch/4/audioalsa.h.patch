@@ -1,0 +1,11 @@
+--- cinecutie/audioalsa.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/audioalsa.h	2010-02-19 22:19:11.848575688 +0100
+@@ -27,7 +27,7 @@
+ #include "audiodevice.h"
+ 
+ #ifdef HAVE_ALSA
+-#include "alsa/asoundlib.h"
++#include <alsa/asoundlib.h>
+ 
+ class AudioALSA : public AudioLowLevel
+ {

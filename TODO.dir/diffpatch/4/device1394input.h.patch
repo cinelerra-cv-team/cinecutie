@@ -1,0 +1,21 @@
+--- cinecutie/device1394input.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/device1394input.h	2010-02-19 22:19:11.948570683 +0100
+@@ -30,7 +30,7 @@
+ #include "libdv.h"
+ #include "dv1394.h"
+ #include "mutex.inc"
+-#include "libraw1394/raw1394.h"
++#include <libraw1394/raw1394.h>
+ #include "thread.h"
+ #include "vframe.inc"
+ 
+@@ -43,7 +43,8 @@
+ 	Device1394Input();
+ 	~Device1394Input();
+ 
+-	int open(int port,
++	int open(const char *path,
++		int port,
+ 		int channel,
+ 		int length,
+ 		int channels,

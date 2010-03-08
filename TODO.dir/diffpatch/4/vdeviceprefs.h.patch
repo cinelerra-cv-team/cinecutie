@@ -1,0 +1,20 @@
+--- cinecutie/vdeviceprefs.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/vdeviceprefs.h	2010-02-19 22:19:12.018571035 +0100
+@@ -155,7 +155,7 @@
+ 	~VDriverMenu();
+ 	
+ 	char* driver_to_string(int driver);
+-	void create_objects();
++	int create_objects();
+ 	
+ 	VDevicePrefs *device_prefs;
+ 	int do_input;
+@@ -167,7 +167,7 @@
+ class VDriverItem : public BC_MenuItem
+ {
+ public:
+-	VDriverItem(VDriverMenu *popup, const char *text, int driver);
++	VDriverItem(VDriverMenu *popup, char *text, int driver);
+ 	~VDriverItem();
+ 	
+ 	int handle_event();

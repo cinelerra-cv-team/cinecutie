@@ -1,0 +1,46 @@
+--- cinecutie/maskauto.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/maskauto.h	2010-02-19 22:19:11.968571001 +0100
+@@ -35,7 +35,6 @@
+ 
+ 	int operator==(MaskPoint& ptr);
+ 	MaskPoint& operator=(MaskPoint& ptr);
+-	void copy_from(MaskPoint &ptr);
+ 
+ 	float x, y;
+ // Incoming acceleration
+@@ -50,9 +49,7 @@
+ 	SubMask(MaskAuto *keyframe);
+ 	~SubMask();
+ 
+-// Don't use ==
+ 	int operator==(SubMask& ptr);
+-	int equivalent(SubMask& ptr);
+ 	void copy_from(SubMask& ptr);
+ 	void load(FileXML *file);
+ 	void copy(FileXML *file);
+@@ -74,16 +71,8 @@
+ 	void load(FileXML *file);
+ 	void copy(int64_t start, int64_t end, FileXML *file, int default_auto);
+ 	void copy_from(Auto *src);
++	int interpolate_from(Auto *a1, Auto *a2, int64_t position); 
+ 	void copy_from(MaskAuto *src);
+-// Copy data but not position
+-	void copy_data(MaskAuto *src);
+-	void get_points(ArrayList<MaskPoint*> *points, 
+-		int submask);
+-	void set_points(ArrayList<MaskPoint*> *points, 
+-		int submask);
+-
+-// Copy parameters to this which differ between ref & src
+-	void update_parameter(MaskAuto *ref, MaskAuto *src);
+ 
+ 	void dump();
+ // Retrieve submask with clamping
+@@ -98,6 +87,7 @@
+ 	float feather;
+ // 0 - 100
+ 	int value;
++	int apply_before_plugins;
+ };
+ 
+ 

@@ -1,0 +1,28 @@
+--- cinecutie/audioalsa.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/audioalsa.C	2010-02-19 22:19:11.848575688 +0100
+@@ -74,6 +74,7 @@
+ #define DEFAULT_DEVICE "default"
+ 	char *result = new char[strlen(DEFAULT_DEVICE) + 1];
+ 	devices->append(result);
++	devices->set_array_delete();     // since we are allocating by new[]
+ 	strcpy(result, DEFAULT_DEVICE);
+ 
+ 	while(snd_card_next(&card) >= 0)
+@@ -291,7 +292,7 @@
+ 	translate_name(pcm_name, device->in_config->alsa_in_device);
+ //printf("AudioALSA::open_input %s\n", pcm_name);
+ 
+-	err = snd_pcm_open(&dsp_in, pcm_name, stream, open_mode);
++	err = snd_pcm_open(&dsp_in, device->in_config->alsa_in_device, stream, open_mode);
+ 
+ 	if(err < 0)
+ 	{
+@@ -320,7 +321,7 @@
+ 
+ 	translate_name(pcm_name, device->out_config->alsa_out_device);
+ 
+-	err = snd_pcm_open(&dsp_out, pcm_name, stream, open_mode);
++	err = snd_pcm_open(&dsp_out, device->out_config->alsa_out_device, stream, open_mode);
+ 
+ 	if(err < 0)
+ 	{

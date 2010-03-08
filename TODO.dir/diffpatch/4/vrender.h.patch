@@ -1,0 +1,20 @@
+--- cinecutie/vrender.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/vrender.h	2010-02-19 22:19:12.028571315 +0100
+@@ -35,6 +35,7 @@
+ {
+ public:
+ 	VRender(RenderEngine *renderengine);
++	VRender(MWindow *mwindow, RenderEngine *renderengine);
+ 	~VRender();
+ 
+ 	VirtualConsole* new_vconsole_object();
+@@ -80,6 +81,9 @@
+ 	int get_colormodel(Edit* &playable_edit, 
+ 		int use_vconsole,
+ 		int use_brender);
++	int insert_timecode(Edit* &playable_edit,
++		int64_t position,
++		VFrame *output);
+ 
+ 	int64_t tounits(double position, int round);
+ 	double fromunits(int64_t position);

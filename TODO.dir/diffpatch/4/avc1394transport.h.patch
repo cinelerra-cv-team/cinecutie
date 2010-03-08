@@ -1,0 +1,11 @@
+--- cinecutie/avc1394transport.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/avc1394transport.h	2010-02-19 22:19:11.858573208 +0100
+@@ -59,7 +59,7 @@
+ 	AVC1394Transport(MWindow *mwindow, AVC1394Control *avc, BC_WindowBase *window, int x, int y);
+ 	~AVC1394Transport();
+ 
+-	void create_objects();
++	int create_objects();
+ 	void reposition_window(int x, int y);
+ 	int keypress_event(int keypress);
+ 	

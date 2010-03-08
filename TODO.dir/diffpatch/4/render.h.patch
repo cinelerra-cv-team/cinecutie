@@ -1,0 +1,110 @@
+--- cinecutie/render.h	2008-09-02 13:38:13.000000000 +0200
++++ /home/user/cinecutie/cinecutie/render.h	2010-02-19 22:19:11.998570756 +0100
+@@ -51,6 +51,8 @@
+ #include "track.inc"
+ #include "transportque.inc"
+ #include "vframe.inc"
++#include "renderprofiles.inc"
++
+ 
+ class RenderItem : public BC_MenuItem
+ {
+@@ -93,7 +95,7 @@
+ 	Render *render;
+ };
+ 
+-
++class RenderWindow;
+ 
+ 
+ class Render : public Thread
+@@ -121,10 +123,12 @@
+ 	int render(int test_overwrite, 
+ 		Asset *asset,
+ 		EDL *edl,
+-		int strategy);
++		int strategy,
++		int range_type);
+ 
+ 	int load_defaults(Asset *asset);
+ 	int save_defaults(Asset *asset);
++	int load_profile(int profile_slot, Asset *asset);
+ // force asset parameters regardless of window
+ // This should be integrated into the Asset Class.
+ 	static int check_asset(EDL *edl, Asset &asset); 
+@@ -181,6 +185,7 @@
+ // For use in non interactive mode
+ 	ArrayList<PluginServer*> *plugindb;
+ 	int strategy;
++	int range_type;
+ // Total selection to render in seconds
+ 	double total_start, total_end;
+ // External Render farm checks this every frame.
+@@ -202,6 +207,9 @@
+ // Time used in last render
+ 	double elapsed_time;
+ 
++// Current open RenderWindow
++	RenderWindow *render_window;
++
+ // For non interactive mode, maintain progress here.
+ 	int64_t progress_max;
+ 	Timer *progress_timer;
+@@ -210,19 +218,50 @@
+ 
+ class RenderToTracks;
+ 
++
++class RenderRangeProject : public BC_Radial
++{
++public:
++	RenderRangeProject(RenderWindow *rwindow, int value, int x, int y);
++	int handle_event();
++	RenderWindow *rwindow;
++};
++
++class RenderRangeSelection : public BC_Radial
++{
++public:
++	RenderRangeSelection(RenderWindow *rwindow, int value, int x, int y);
++	int handle_event();
++	RenderWindow *rwindow;
++};
++
++
++class RenderRangeInOut : public BC_Radial
++{
++public:
++	RenderRangeInOut(RenderWindow *rwindow, int value, int x, int y);
++	int handle_event();
++	RenderWindow *rwindow;
++};
++
++
++
+ class RenderWindow : public BC_Window
+ {
+ public:
+-	RenderWindow(MWindow *mwindow, 
+-		Render *render, 
+-		Asset *asset,
+-		int x,
+-		int y);
++	RenderWindow(MWindow *mwindow, Render *render, Asset *asset);
+ 	~RenderWindow();
+ 
+-	void create_objects();
+-
++	int create_objects();
++	void update_range_type(int range_type);
++	int load_profile(int profile_slot);
++	
++	RenderRangeProject *rangeproject;
++	RenderRangeSelection *rangeselection;
++	RenderRangeInOut *rangeinout;
+ 
++	RenderProfile *renderprofile;
++	
+ 	LoadMode *loadmode;
+ 	FormatTools *format_tools;
+ 

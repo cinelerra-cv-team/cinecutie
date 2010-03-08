@@ -1,0 +1,20 @@
+--- cinecutie/threadexec.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/threadexec.h	2010-02-19 22:19:12.008571675 +0100
+@@ -44,7 +44,7 @@
+ 	
+ 	FILE* get_stdin();
+ 	void run();
+-	void start_command(const char *command_line, int pipe_stdin);
++	void start_command(char *command_line, int pipe_stdin);
+ 	virtual void run_program(int argc, char *argv[], int stdin_fd);
+ 	
+ 	
+@@ -55,7 +55,7 @@
+ 	int total_arguments;
+ 	FILE *stdin_fd;
+ 	Mutex *start_lock;
+-	const char *command_line;
++	char *command_line;
+ 	int pipe_stdin;
+ };
+ 

@@ -1,0 +1,11 @@
+--- cinecutie/patchgui.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/patchgui.h	2010-02-19 22:19:11.978570999 +0100
+@@ -51,7 +51,7 @@
+ 		int y);
+ 	virtual ~PatchGUI();
+ 
+-	virtual void create_objects();
++	virtual int create_objects();
+ 	virtual int reposition(int x, int y);
+ 	void toggle_behavior(int type, 
+ 		int value,

@@ -1,0 +1,11 @@
+--- cinecutie/featheredits.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/featheredits.h	2010-02-19 22:19:11.948570683 +0100
+@@ -49,7 +49,7 @@
+ 	FeatherEditsWindow(MWindow *mwindow, long feather_samples);
+ 	~FeatherEditsWindow();
+ 	
+-	void create_objects(int audio, int video);
++	int create_objects(int audio, int video);
+ 
+ 	long feather_samples;
+ 	FeatherEditsTextBox  *text;

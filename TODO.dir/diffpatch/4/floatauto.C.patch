@@ -1,0 +1,104 @@
+--- cinecutie/floatauto.C	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/floatauto.C	2010-02-19 22:19:11.958569362 +0100
+@@ -32,9 +32,8 @@
+ 	value = 0;
+ 	control_in_value = 0;
+ 	control_out_value = 0;
+-	mode = BEZIER;
+-//	control_in_position = 0;
+-//	control_out_position = 0;
++	control_in_position = 0;
++	control_out_position = 0;
+ }
+ 
+ FloatAuto::~FloatAuto()
+@@ -58,14 +57,15 @@
+ 	return EQUIV(value, src->value) &&
+ 		EQUIV(control_in_value, src->control_in_value) &&
+ 		EQUIV(control_out_value, src->control_out_value) &&
+-		mode == src->mode;
++		control_in_position == src->control_in_position &&
++		control_out_position == src->control_out_position;
+ }
+ 
+ float FloatAuto::value_to_percentage()
+ {
+ 	if(!edl) return 0;
+-	float automation_min = edl->local_session->automation_min;
+-	float automation_max = edl->local_session->automation_max;
++	float automation_min = edl->local_session->automation_mins[autos->autogrouptype];
++	float automation_max = edl->local_session->automation_maxs[autos->autogrouptype];
+ 	float automation_range = automation_max - automation_min;
+ 	return (value - automation_min) / automation_range;
+ }
+@@ -73,8 +73,8 @@
+ float FloatAuto::invalue_to_percentage()
+ {
+ 	if(!edl) return 0;
+-	float automation_min = edl->local_session->automation_min;
+-	float automation_max = edl->local_session->automation_max;
++	float automation_min = edl->local_session->automation_mins[autos->autogrouptype];
++	float automation_max = edl->local_session->automation_maxs[autos->autogrouptype];
+ 	float automation_range = automation_max - automation_min;
+ 	return (value + control_in_value - automation_min) / 
+ 		automation_range;
+@@ -83,13 +83,27 @@
+ float FloatAuto::outvalue_to_percentage()
+ {
+ 	if(!edl) return 0;
+-	float automation_min = edl->local_session->automation_min;
+-	float automation_max = edl->local_session->automation_max;
++	float automation_min = edl->local_session->automation_mins[autos->autogrouptype];
++	float automation_max = edl->local_session->automation_maxs[autos->autogrouptype];
+ 	float automation_range = automation_max - automation_min;
+ 	return (value + control_out_value - automation_min) / 
+ 		automation_range;
+ }
+ 
++// float FloatAuto::percentage_to_value(float percentage)
++// {
++// 	return percentage * (autos->max - autos->min) + autos->min;
++// }
++// 
++// float FloatAuto::percentage_to_invalue(float percentage)
++// {
++// 	return percentage * (autos->max - autos->min) + autos->min - value;
++// }
++// 
++// float FloatAuto::percentage_to_outvalue(float percentage)
++// {
++// 	return percentage * (autos->max - autos->min) + autos->min - value;
++// }
+ 
+ void FloatAuto::copy_from(Auto *that)
+ {
+@@ -102,7 +116,8 @@
+ 	this->value = that->value;
+ 	this->control_in_value = that->control_in_value;
+ 	this->control_out_value = that->control_out_value;
+-	this->mode = that->mode;
++	this->control_in_position = that->control_in_position;
++	this->control_out_position = that->control_out_position;
+ }
+ 
+ int FloatAuto::value_to_str(char *string, float value)
+@@ -147,7 +162,10 @@
+ 	file->tag.set_property("VALUE", value);
+ 	file->tag.set_property("CONTROL_IN_VALUE", control_in_value);
+ 	file->tag.set_property("CONTROL_OUT_VALUE", control_out_value);
+-	file->tag.set_property("MODE", mode);
++	file->tag.set_property("CONTROL_IN_POSITION", control_in_position);
++	file->tag.set_property("CONTROL_OUT_POSITION", control_out_position);
++	file->append_tag();
++	file->tag.set_title("/AUTO");
+ 	file->append_tag();
+ 	file->append_newline();
+ }
+@@ -157,5 +175,6 @@
+ 	value = file->tag.get_property("VALUE", value);
+ 	control_in_value = file->tag.get_property("CONTROL_IN_VALUE", control_in_value);
+ 	control_out_value = file->tag.get_property("CONTROL_OUT_VALUE", control_out_value);
+-	mode = file->tag.get_property("MODE", mode);
++	control_in_position = file->tag.get_property("CONTROL_IN_POSITION", control_in_position);
++	control_out_position = file->tag.get_property("CONTROL_OUT_POSITION", control_out_position);
+ }

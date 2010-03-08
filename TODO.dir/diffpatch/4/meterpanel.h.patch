@@ -1,0 +1,11 @@
+--- cinecutie/meterpanel.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/meterpanel.h	2010-02-19 22:19:11.968571001 +0100
+@@ -41,7 +41,7 @@
+ 		int use_recording = 0);
+ 	~MeterPanel();
+ 
+-	void create_objects();
++	int create_objects();
+ 	int set_meters(int meter_count, int use_meters);
+ 	static int get_meters_width(int meter_count, int use_meters);
+ 	void reposition_window(int x, int y, int h);

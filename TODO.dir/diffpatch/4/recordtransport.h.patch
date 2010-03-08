@@ -1,0 +1,11 @@
+--- cinecutie/recordtransport.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/recordtransport.h	2010-02-19 22:19:11.988570758 +0100
+@@ -44,7 +44,7 @@
+ 		int y);
+ 	~RecordTransport();
+ 
+-	void create_objects();
++	int create_objects();
+ 	void reposition_window(int x, int y);
+ 	int keypress_event();
+ 	int get_h();

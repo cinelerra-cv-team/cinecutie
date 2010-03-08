@@ -1,0 +1,11 @@
+--- cinecutie/editpopup.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/editpopup.h	2010-02-19 22:19:11.948570683 +0100
+@@ -166,7 +166,7 @@
+ 	EditPopupTitleWindow (MWindow *mwindow, EditPopup *popup);
+ 	~EditPopupTitleWindow ();
+ 
+-	void create_objects();
++	int create_objects();
+ 	int close_event();
+ 
+ 	EditPopupTitleText *title_text;

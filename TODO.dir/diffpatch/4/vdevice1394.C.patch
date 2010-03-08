@@ -1,0 +1,36 @@
+--- cinecutie/vdevice1394.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/vdevice1394.C	2010-02-19 22:19:12.018571035 +0100
+@@ -36,7 +36,6 @@
+ #include "videodevice.h"
+ 
+ 
+-#ifdef HAVE_FIREWIRE
+ 
+ 
+ 
+@@ -86,7 +85,8 @@
+ 		if(device->in_config->driver == CAPTURE_FIREWIRE)
+ 		{
+ 			input_thread = new Device1394Input;
+-			result = input_thread->open(device->in_config->firewire_port, 
++			result = input_thread->open(device->in_config->firewire_path,
++				device->in_config->firewire_port, 
+ 				device->in_config->firewire_channel, 
+ 				device->in_config->capture_length,
+ 				2,
+@@ -280,15 +280,3 @@
+ {
+ 	return 0;
+ }
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-#endif // HAVE_FIREWIRE

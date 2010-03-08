@@ -1,0 +1,119 @@
+--- cinecutie/vmodule.C	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/vmodule.C	2010-02-19 22:19:12.018571035 +0100
+@@ -50,6 +50,9 @@
+ #include "vplugin.h"
+ #include "vtrack.h"
+ #include <string.h>
++#include "interlacemodes.h"
++#include "maskengine.h"
++#include "automation.h"
+ 
+ VModule::VModule(RenderEngine *renderengine, 
+ 	CommonRender *commonrender, 
+@@ -61,6 +64,11 @@
+ 	overlay_temp = 0;
+ 	input_temp = 0;
+ 	transition_temp = 0;
++	if (renderengine)
++		masker = new MaskEngine(renderengine->preferences->processors);
++	else
++		masker = new MaskEngine(plugin_array->mwindow->preferences->processors);
++	
+ }
+ 
+ VModule::~VModule()
+@@ -68,6 +76,7 @@
+ 	if(overlay_temp) delete overlay_temp;
+ 	if(input_temp) delete input_temp;
+ 	if(transition_temp) delete transition_temp;
++	delete masker;
+ }
+ 
+ 
+@@ -159,8 +168,7 @@
+ 			if (position > max_position) position = max_position;
+ 			int use_cache = renderengine && 
+ 				renderengine->command->single_frame();
+-			int use_asynchronous = !use_cache && 
+-				renderengine &&
++			int use_asynchronous = !use_cache && renderengine &&
+ 				renderengine->command->realtime &&
+ 				renderengine->edl->session->video_asynchronous;
+ 
+@@ -184,6 +192,37 @@
+ 				out_w1, 
+ 				out_h1);
+ 
++//
++//			printf("VModule::import_frame 1 [ilace] Project: mode (%d) Asset: autofixoption (%d), mode (%d), method (%d)\n", 
++//			get_edl()->session->interlace_mode,
++//			current_edit->asset->interlace_autofixoption,
++//			current_edit->asset->interlace_mode,
++//			current_edit->asset->interlace_fixmethod);
++
++			// Determine the interlacing method to use.
++			int interlace_fixmethod = ilaceautofixmethod2(get_edl()->session->interlace_mode,
++					current_edit->asset->interlace_autofixoption,
++					current_edit->asset->interlace_mode,
++					current_edit->asset->interlace_fixmethod);
++//
++//			char string[BCTEXTLEN];
++//			ilacefixmethod_to_text(string,interlace_fixmethod);
++//			printf("VModule::import_frame 1 [ilace] Compensating by using: '%s'\n",string);
++
++			// Compensate for the said interlacing...
++			switch (interlace_fixmethod) {
++				case BC_ILACE_FIXMETHOD_NONE:
++				
++				break;
++				case BC_ILACE_FIXMETHOD_UPONE:
++					out_y1--;
++				break;
++				case BC_ILACE_FIXMETHOD_DOWNONE:
++					out_y1++;
++				break;
++				default:
++					printf("vmodule::importframe WARNING - unknown fix method for interlacing, no compensation in effect\n");
++			}
+ 
+ 
+ // file -> temp -> output
+@@ -391,8 +430,6 @@
+ 	int result = 0;
+ 	double edl_rate = get_edl()->session->frame_rate;
+ 
+-//printf("VModule::render %lld\n", start_position);
+-
+ 	if(use_nudge) start_position += (int64_t)(track->nudge * 
+ 		frame_rate / 
+ 		edl_rate);
+@@ -423,6 +460,9 @@
+ 	if(!current_edit)
+ 	{
+ 		output->clear_frame();
++		// We do not apply mask here, since alpha is 0, and neither substracting nor multypling changes it
++		// Another mask mode - "addition" should be added to be able to create mask from empty frames
++		// in this case we would call masking here too...
+ 		return 0;
+ 	}
+ 
+@@ -501,6 +541,19 @@
+ 			direction,
+ 			use_opengl);
+ 	}
++	
++	int64_t mask_position;
++	if (renderengine)
++		mask_position = renderengine->vrender->current_position;
++	else 
++		mask_position = start_position;
++	masker->do_mask(output, 
++		mask_position,
++		edl_rate,
++		edl_rate,
++		(MaskAutos*)track->automation->autos[AUTOMATION_MASK], 
++		direction,
++		1);      // we are calling before plugins
+ 
+ 
+ 	return result;

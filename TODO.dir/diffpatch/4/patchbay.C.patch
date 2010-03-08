@@ -1,0 +1,87 @@
+--- cinecutie/patchbay.C	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/patchbay.C	2010-02-19 22:19:11.978570999 +0100
+@@ -149,7 +149,7 @@
+     return 0;
+ }
+ 
+-void PatchBay::create_objects()
++int PatchBay::create_objects()
+ {
+ 	draw_top_background(get_parent(), 0, 0, get_w(), get_h());
+ 	flash();
+@@ -180,6 +180,7 @@
+ 	add_subwindow(nudge_popup = new NudgePopup(mwindow, this));
+ 	nudge_popup->create_objects();
+ 
++	return 0;
+ }
+ 
+ BC_Pixmap* PatchBay::mode_to_icon(int mode)
+@@ -212,6 +213,36 @@
+ 	return result;
+ }
+ 
++
++Track *PatchBay::is_over_track()     // called from mwindow
++{
++	int cursor_x = get_relative_cursor_x();
++	int cursor_y = get_relative_cursor_y();
++	Track *over_track = 0;
++
++	if(get_cursor_over_window() &&
++		cursor_x >= 0 && 
++		cursor_y >= 0 && 
++		cursor_x < get_w() && 
++		cursor_y < get_h())
++	{
++// Get track we're inside of
++		for(Track *track = mwindow->edl->tracks->first;
++			track;
++			track = track->next)
++		{
++			int y = track->y_pixel;
++			int h = track->vertical_span(mwindow->theme);
++			if(cursor_y >= y && cursor_y < y + h)
++			{	
++				over_track = track;
++			}
++		}
++	}				
++	return (over_track);
++
++}
++
+ int PatchBay::cursor_motion_event()
+ {
+ 	int cursor_x = get_relative_cursor_x();
+@@ -287,12 +318,11 @@
+ 							if(current->value != new_status)
+ 							{
+ 
+-//								mwindow->undo->update_undo_before(_("keyframe"), this);
+ 								current = (IntAuto*)mute_autos->get_auto_for_editing(position);
+ 
+ 								current->value = new_status;
+ 
+-//								mwindow->undo->update_undo_after(_("keyframe"), LOAD_AUTOMATION);
++								mwindow->undo->update_undo(_("keyframe"), LOAD_AUTOMATION);
+ 
+ 								mwindow->gui->unlock_window();
+ 								mwindow->restart_brender();
+@@ -469,10 +499,13 @@
+ 
+ 			keyframe->value += change;
+ 			if(data_type == TRACK_AUDIO)
+-				CLAMP(keyframe->value, INFINITYGAIN, MAX_AUDIO_FADE);
++				CLAMP(keyframe->value, 
++				      mwindow->edl->local_session->automation_mins[AUTOGROUPTYPE_AUDIO_FADE],
++				      mwindow->edl->local_session->automation_maxs[AUTOGROUPTYPE_AUDIO_FADE]);
+ 			else
+-				CLAMP(keyframe->value, 0, MAX_VIDEO_FADE);
+-
++				CLAMP(keyframe->value, 
++				      mwindow->edl->local_session->automation_mins[AUTOGROUPTYPE_VIDEO_FADE],
++				      mwindow->edl->local_session->automation_maxs[AUTOGROUPTYPE_VIDEO_FADE]);
+ 
+ 			PatchGUI *patch = get_patch_of(current);
+ 			if(patch) patch->update(patch->x, patch->y);

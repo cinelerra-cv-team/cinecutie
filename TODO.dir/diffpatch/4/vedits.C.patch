@@ -1,0 +1,11 @@
+--- cinecutie/vedits.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/vedits.C	2010-02-19 22:19:12.018571035 +0100
+@@ -36,7 +36,7 @@
+ 
+ 
+ VEdits::VEdits(EDL *edl, Track *track)
+- : Edits(edl, track)
++ : Edits(edl, track, create_edit())
+ {
+ }
+ 

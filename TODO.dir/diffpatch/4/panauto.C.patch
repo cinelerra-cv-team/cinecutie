@@ -1,0 +1,11 @@
+--- cinecutie/panauto.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/panauto.C	2010-02-19 22:19:11.978570999 +0100
+@@ -85,6 +85,8 @@
+ 		file->tag.set_property(string, values[i]);
+ 	}
+ 	file->append_tag();
++	file->tag.set_title("/AUTO");
++	file->append_tag();
+ }
+ 
+ 

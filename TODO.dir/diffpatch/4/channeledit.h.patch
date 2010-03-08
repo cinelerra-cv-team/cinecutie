@@ -1,0 +1,29 @@
+--- cinecutie/channeledit.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/channeledit.h	2010-02-19 22:19:11.868576808 +0100
+@@ -71,7 +71,7 @@
+ 		ChannelPicker *channel_picker);
+ 	~ChannelEditWindow();
+ 
+-	void create_objects();
++	int create_objects();
+ 	int close_event();
+ 	int add_channel();  // Start the thread for adding a channel
+ 	int delete_channel(int channel);
+@@ -284,7 +284,7 @@
+ 		ChannelEditWindow *window,
+ 		ChannelPicker *channel_picker);
+ 	~ChannelEditEditWindow();
+-	void create_objects(Channel *channel);
++	int create_objects(Channel *channel);
+ 
+ 	ChannelEditEditThread *thread;
+ 	ChannelEditWindow *window;
+@@ -446,7 +446,7 @@
+ 	~ChannelEditPictureWindow();
+ 
+ 	int calculate_h(ChannelPicker *channel_picker);
+-	void create_objects();
++	int create_objects();
+ 
+ 	ChannelEditPictureThread *thread;
+ 	ChannelPicker *channel_picker;

@@ -1,0 +1,155 @@
+--- cinecutie/recordmonitor.C	2008-10-19 20:42:28.000000000 +0200
++++ /home/user/cinecutie/cinecutie/recordmonitor.C	2010-02-19 22:19:11.988570758 +0100
+@@ -72,7 +72,7 @@
+ 	delete window;
+ }
+ 
+-void RecordMonitor::create_objects()
++int RecordMonitor::create_objects()
+ {
+ 	int min_w = 150;
+ 	mwindow->session->rwindow_fullscreen = 0;
+@@ -107,11 +107,11 @@
+ SET_TRACE
+ 
+ 		device->open_output(&config, 
+-			record->default_asset->frame_rate, 
+-			record->default_asset->width, 
+-			record->default_asset->height,
+-			window->canvas,
+-			0);
++						record->default_asset->frame_rate, 
++						record->default_asset->width, 
++						record->default_asset->height,
++						window->canvas,
++						0);
+ SET_TRACE
+ 
+ 		thread = new RecordMonitorThread(mwindow, record, this);
+@@ -122,6 +122,7 @@
+ SET_TRACE
+ 
+ 	Thread::start();
++	return 0;
+ }
+ 
+ 
+@@ -217,11 +218,13 @@
+ 	this->mwindow = mwindow;
+ 	this->thread = thread;
+ 	this->record = record;
++#ifdef HAVE_FIREWIRE
+ 	avc = 0;
+ 	avc1394_transport = 0;
+ 	avc1394transport_title = 0;
+ 	avc1394transport_timecode = 0;
+ 	avc1394transport_thread = 0;
++#endif
+ 	bitmap = 0;
+ 	channel_picker = 0;
+ 	reverse_interlace = 0;
+@@ -232,10 +235,10 @@
+ 
+ RecordMonitorGUI::~RecordMonitorGUI()
+ {
+-	lock_window("RecordMonitorGUI::~RecordMonitorGUI");
+ 	delete canvas;
+ 	if(bitmap) delete bitmap;
+ 	if(channel_picker) delete channel_picker;
++#ifdef HAVE_FIREWIRE
+ 	if(avc1394transport_thread)
+ 		delete avc1394transport_thread;
+ 	if(avc)
+@@ -248,13 +251,12 @@
+ 	}
+ 	if(avc1394transport_title)
+ 		delete avc1394transport_title;
+-	unlock_window();
++#endif
+ }
+ 
+-void RecordMonitorGUI::create_objects()
++int RecordMonitorGUI::create_objects()
+ {
+ // y offset for video canvas if we have the transport controls
+-	lock_window("RecordMonitorGUI::create_objects");
+ 	int do_channel = (mwindow->edl->session->vconfig_in->driver == VIDEO4LINUX ||
+ 			mwindow->edl->session->vconfig_in->driver == CAPTURE_BUZ ||
+ 			mwindow->edl->session->vconfig_in->driver == VIDEO4LINUX2 ||
+@@ -279,6 +281,7 @@
+ 	{
+ 		int driver = mwindow->edl->session->vconfig_in->driver;
+ 
++#ifdef HAVE_FIREWIRE
+ 		if(driver == CAPTURE_FIREWIRE ||
+ 			driver == CAPTURE_IEC61883)
+ 		{
+@@ -316,6 +319,7 @@
+ 
+ 			}
+ 		}
++#endif
+ 
+ 
+ 		if(!background_done)
+@@ -386,7 +390,7 @@
+ 			1);
+ 		meters->create_objects();
+ 	}
+-	unlock_window();
++	return 0;
+ }
+ 
+ int RecordMonitorGUI::button_press_event()
+@@ -445,7 +449,6 @@
+ int RecordMonitorGUI::keypress_event()
+ {
+ 	int result = 0;
+-
+ 	switch(get_keypress())
+ 	{
+ 		case LEFT:
+@@ -499,14 +502,14 @@
+ 		case 'w':
+ 			close_event();
+ 			break;
+-
+ 		default:
+-			if(canvas) result = canvas->keypress_event(this);
++			result = canvas->keypress_event(this);
++#ifdef HAVE_FIREWIRE
+ 			if(!result && avc1394_transport)
+ 				result = avc1394_transport->keypress_event(get_keypress());
++#endif
+ 			break;
+ 	}
+-
+ 	return result;
+ }
+ 
+@@ -527,7 +530,10 @@
+ 			mwindow->edl->session->vconfig_in->driver == VIDEO4LINUX2JPEG);
+ 	int do_interlace = (mwindow->edl->session->vconfig_in->driver == CAPTURE_BUZ ||
+ 		mwindow->edl->session->vconfig_in->driver == VIDEO4LINUX2JPEG);
+-	int do_avc = avc1394_transport ? 1 : 0;
++	int do_avc = 0;
++#ifdef HAVE_FIREWIRE
++	do_avc = avc1394_transport ? 1 : 0;
++#endif
+ 
+ 	mwindow->session->rmonitor_x = get_x();
+ 	mwindow->session->rmonitor_y = get_y();
+@@ -546,11 +552,13 @@
+ 
+ // 	record_transport->reposition_window(mwindow->theme->rmonitor_tx_x,
+ // 		mwindow->theme->rmonitor_tx_y);
++#ifdef HAVE_FIREWIRE
+ 	if(avc1394_transport)
+ 	{
+ 		avc1394_transport->reposition_window(mwindow->theme->rmonitor_tx_x,
+ 			mwindow->theme->rmonitor_tx_y);
+ 	}
++#endif
+ 	
+ 	if(channel_picker) channel_picker->reposition();
+ 	if(reverse_interlace) reverse_interlace->reposition_window(reverse_interlace->get_x(),

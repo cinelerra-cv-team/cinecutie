@@ -1,0 +1,11 @@
+--- cinecutie/levelwindowgui.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/levelwindowgui.h	2010-02-19 22:19:11.968571001 +0100
+@@ -36,7 +36,7 @@
+ 	LevelWindowGUI(MWindow *mwindow, LevelWindow *thread);
+ 	~LevelWindowGUI();
+ 
+-	void create_objects();
++	int create_objects();
+ 	int resize_event(int w, int h);
+ 	int translation_event();
+ 	int close_event();

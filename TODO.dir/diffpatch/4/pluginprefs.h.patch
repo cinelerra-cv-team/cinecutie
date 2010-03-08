@@ -1,0 +1,11 @@
+--- cinecutie/pluginprefs.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/pluginprefs.h	2010-02-19 22:19:11.988570758 +0100
+@@ -34,7 +34,7 @@
+ 	PluginPrefs(MWindow *mwindow, PreferencesWindow *pwindow);
+ 	~PluginPrefs();
+ 	
+-	void create_objects();
++	int create_objects();
+ // must delete each derived class
+ 	BrowseButton *ipath;
+ 	PluginGlobalPathText *ipathtext;

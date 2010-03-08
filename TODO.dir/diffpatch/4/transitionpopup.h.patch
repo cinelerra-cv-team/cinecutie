@@ -1,0 +1,83 @@
+--- cinecutie/transitionpopup.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/transitionpopup.h	2010-02-19 22:19:12.018571035 +0100
+@@ -22,12 +22,10 @@
+ #ifndef TRANSITIONPOPUP_H
+ #define TRANSITIONPOPUP_H
+ 
+-#include "bcdialog.h"
+ #include "guicast.h"
+ #include "mwindowgui.inc"
+ #include "plugin.inc"
+ #include "transition.inc"
+-#include "transitionpopup.inc"
+ 
+ class TransitionPopupOn;
+ class TransitionPopupShow;
+@@ -36,41 +34,31 @@
+ class TransitionPopupLength;
+ class TransitionLengthText;
+ 
+-class TransitionLengthThread : public BC_DialogThread
++class TransitionLengthThread : public Thread
+ {
+ public:
+-	TransitionLengthThread(MWindow *mwindow);
++	TransitionLengthThread(MWindow *mwindow, TransitionPopup *popup);
+ 	~TransitionLengthThread();
+ 
+-	void start(Transition *transition, 
+-		double length);
+-	BC_Window* new_gui();
+-	void handle_close_event(int result);
+-
++	void run();
++	
+ 	MWindow *mwindow;
+-
+-	Transition *transition;
+-	double length;
+-	double orig_length;
++	TransitionPopup *popup;
+ };
+ 
+ 
+ class TransitionLengthDialog : public BC_Window
+ {
+ public:
+-	TransitionLengthDialog(MWindow *mwindow, 
+-		TransitionLengthThread *thread, 
+-		int x, 
+-		int y);
++	TransitionLengthDialog(MWindow *mwindow, Transition *transition);
+ 	~TransitionLengthDialog();
+ 	
+ 	void create_objects();
+ 	int close_event();
+ 	
+ 	MWindow *mwindow;
+-	TransitionLengthThread *thread;
++	Transition *transition;
+ 	TransitionLengthText *text;
+-	double length;
+ };
+ 
+ class TransitionLengthText : public BC_TumbleTextBox
+@@ -96,9 +84,7 @@
+ 	int update(Transition *transition);
+ 
+ // Acquired through the update command as the plugin currently being operated on
+-// Can't be dereferenced.
+ 	Transition *transition;
+-	double length;
+ 
+ // Set when the user clicks a transition.
+ 	MWindow *mwindow;
+@@ -109,7 +95,7 @@
+ 	TransitionPopupShow *show;
+ 	TransitionPopupAttach *attach;
+ 	TransitionPopupDetach *detach;
+-	TransitionPopupLength *length_item;
++	TransitionPopupLength *length;
+ 	TransitionLengthThread *length_thread;
+ };
+ 

@@ -1,0 +1,14 @@
+--- cinecutie/awindowmenu.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/awindowmenu.C	2010-02-19 22:19:11.858573208 +0100
+@@ -89,6 +89,11 @@
+ 			break;
+ 	}
+ 
++	
++	if (!mwindow->awindow->gui->allow_iconlisting) {
++		mwindow->edl->session->assetlist_format = ASSETS_TEXT;
++	}
++
+ 	mwindow->awindow->gui->asset_list->update_format(
+ 		mwindow->edl->session->assetlist_format, 
+ 		1);

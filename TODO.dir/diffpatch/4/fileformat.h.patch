@@ -1,0 +1,14 @@
+--- cinecutie/fileformat.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/fileformat.h	2010-02-19 22:19:11.948570683 +0100
+@@ -45,9 +45,9 @@
+ 	FileFormat(MWindow *mwindow);
+ 	~FileFormat();
+ 
+-	void create_objects(Asset *asset, char *string2);
++	int create_objects(Asset *asset, char *string2);
+ 
+-	void create_objects_(char *string2);
++	int create_objects_(char *string2);
+ 
+ 	Asset *asset; 
+ 

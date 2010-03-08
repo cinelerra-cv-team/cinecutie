@@ -1,0 +1,11 @@
+--- cinecutie/quit.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/quit.h	2010-02-19 22:19:11.988570758 +0100
+@@ -30,7 +30,7 @@
+ {
+ public:
+ 	Quit(MWindow *mwindow);
+-	void create_objects(Save *save);
++	int create_objects(Save *save);
+ 	int handle_event();
+ 	void run();
+ 	

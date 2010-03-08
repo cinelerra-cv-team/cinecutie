@@ -1,0 +1,64 @@
+--- cinecutie/playbackengine.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/playbackengine.C	2010-02-19 22:19:11.978570999 +0100
+@@ -19,10 +19,9 @@
+  * 
+  */
+ 
+-#include "bchash.h"
+-#include "bcsignals.h"
+ #include "cache.h"
+ #include "condition.h"
++#include "bchash.h"
+ #include "edl.h"
+ #include "edlsession.h"
+ #include "localsession.h"
+@@ -54,7 +53,6 @@
+ 	video_cache = 0;
+ 	last_command = STOP;
+ 	tracking_lock = new Mutex("PlaybackEngine::tracking_lock");
+-	renderengine_lock = new Mutex("PlaybackEngine::renderengine_lock");
+ 	tracking_done = new Condition(1, "PlaybackEngine::tracking_done");
+ 	pause_lock = new Condition(0, "PlaybackEngine::pause_lock");
+ 	start_lock = new Condition(0, "PlaybackEngine::start_lock");
+@@ -82,10 +80,9 @@
+ 	delete tracking_done;
+ 	delete pause_lock;
+ 	delete start_lock;
+-	delete renderengine_lock;
+ }
+ 
+-void PlaybackEngine::create_objects()
++int PlaybackEngine::create_objects()
+ {
+ 	int result = 0;
+ 	preferences = new Preferences;
+@@ -99,6 +96,7 @@
+ 	done = 0;
+ 	Thread::start();
+ 	start_lock->lock("PlaybackEngine::create_objects");
++	return result;
+ }
+ 
+ ChannelDB* PlaybackEngine::get_channeldb()
+@@ -136,10 +134,8 @@
+ 
+ void PlaybackEngine::delete_render_engine()
+ {
+-	renderengine_lock->lock("PlaybackEngine::delete_render_engine");
+ 	delete render_engine;
+ 	render_engine = 0;
+-	renderengine_lock->unlock();
+ }
+ 
+ void PlaybackEngine::arm_render_engine()
+@@ -204,10 +200,8 @@
+ 
+ void PlaybackEngine::interrupt_playback(int wait_tracking)
+ {
+-	renderengine_lock->lock("PlaybackEngine::interrupt_playback");
+ 	if(render_engine)
+ 		render_engine->interrupt_playback();
+-	renderengine_lock->unlock();
+ 
+ // Stop pausing
+ 	pause_lock->unlock();

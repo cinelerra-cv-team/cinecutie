@@ -1,0 +1,137 @@
+--- cinecutie/awindowgui.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/awindowgui.h	2010-02-19 22:19:11.858573208 +0100
+@@ -30,6 +30,7 @@
+ #include "awindowmenu.inc"
+ #include "edl.inc"
+ #include "guicast.h"
++#include "labels.h"
+ #include "mwindow.inc"
+ #include "newfolder.inc"
+ #include "pluginserver.inc"
+@@ -48,6 +49,8 @@
+ class AWindowAppend;
+ class AWindowView;
+ 
++class LabelPopup;
++class LabelPopupEdit;
+ 
+ class AWindowGUI;
+ 
+@@ -57,7 +60,8 @@
+ 	AssetPicon(MWindow *mwindow, AWindowGUI *gui, Asset *asset);
+ 	AssetPicon(MWindow *mwindow, AWindowGUI *gui, EDL *edl);
+ 	AssetPicon(MWindow *mwindow, AWindowGUI *gui, PluginServer *plugin);
+-	AssetPicon(MWindow *mwindow, AWindowGUI *gui, const char *folder);
++	AssetPicon(MWindow *mwindow, AWindowGUI *gui, Label *plugin);
++	AssetPicon(MWindow *mwindow, AWindowGUI *gui, char *folder);
+ 	virtual ~AssetPicon();
+ 
+ 	void create_objects();
+@@ -81,6 +85,7 @@
+ 
+ 	int persistent;
+ 	PluginServer *plugin;
++	Label *label;
+ };
+ 
+ 
+@@ -90,12 +95,12 @@
+ 	AWindowGUI(MWindow *mwindow, AWindow *awindow);
+ 	~AWindowGUI();
+ 
+-	void create_objects();
++	int create_objects();
+ 	int resize_event(int w, int h);
+ 	int translation_event();
+ 	int close_event();
+ 	int keypress_event();
+-	void update_assets();
++	void async_update_assets();     // Sends update asset event
+ 	void sort_assets();
+ 	void reposition_objects();
+ 	int current_folder_number();
+@@ -109,6 +114,7 @@
+ 		int do_video, 
+ 		int is_realtime, 
+ 		int is_transition);
++	void create_label_folder();
+ 	void copy_picons(ArrayList<BC_ListBoxItem*> *dst, 
+ 		ArrayList<BC_ListBoxItem*> *src, 
+ 		char *folder);
+@@ -135,12 +141,13 @@
+ 	ArrayList<BC_ListBoxItem*> veffects;
+ 	ArrayList<BC_ListBoxItem*> atransitions;
+ 	ArrayList<BC_ListBoxItem*> vtransitions;
++	ArrayList<BC_ListBoxItem*> labellist;
+ 
+ // Currently displayed data for listboxes
+ // Currently displayed assets + comments
+ 	ArrayList<BC_ListBoxItem*> displayed_assets[2];
+ 
+-	const char *asset_titles[ASSET_COLUMNS];
++	char *asset_titles[ASSET_COLUMNS];
+ 
+ // Persistent icons
+ 	BC_Pixmap *folder_icon;
+@@ -152,15 +159,28 @@
+ 
+ // Popup menus
+ 	AssetPopup *asset_menu;
++	LabelPopup *label_menu;
+ 	AssetListMenu *assetlist_menu;
+ 	FolderListMenu *folderlist_menu;
+ // Temporary for reading picons from files
+ 	VFrame *temp_picon;
+ 
++	int allow_iconlisting;
++	
++// Create custom atoms to be used for async messages between windows
++	int create_custom_xatoms();
++// Function to overload to recieve customly defined atoms
++	virtual int recieve_custom_xatoms(xatom_event *event); 
++	
++	
++	
+ private:
+ 	void update_folder_list();
+ 	void update_asset_list();
+ 	void filter_displayed_assets();
++	Atom UpdateAssetsXAtom;
++	void update_assets();
++
+ };
+ 
+ class AWindowAssets : public BC_ListBox
+@@ -309,4 +329,32 @@
+ 	int x, y;
+ };
+ 
++class LabelPopup : public BC_PopupMenu
++{
++public:
++	LabelPopup(MWindow *mwindow, AWindowGUI *gui);
++	~LabelPopup();
++
++	void create_objects();
++// Set mainsession with the current selections
++	int update();
++
++	MWindow *mwindow;
++	AWindowGUI *gui;
++
++	LabelPopupEdit *editlabel;
++};
++
++class LabelPopupEdit : public BC_MenuItem
++{
++public:
++	LabelPopupEdit(MWindow *mwindow, LabelPopup *popup);
++	~LabelPopupEdit();
++
++	int handle_event();
++
++	MWindow *mwindow;
++	LabelPopup *popup;
++};
++
+ #endif

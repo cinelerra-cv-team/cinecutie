@@ -1,0 +1,20 @@
+--- cinecutie/playbackengine.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/playbackengine.h	2010-02-19 22:19:11.978570999 +0100
+@@ -46,7 +46,7 @@
+ 	PlaybackEngine(MWindow *mwindow, Canvas *output);
+ 	virtual ~PlaybackEngine();
+ 
+-	void create_objects();
++	int create_objects();
+ 	virtual int create_render_engine();
+ 	void delete_render_engine();
+ 	void arm_render_engine();
+@@ -92,8 +92,6 @@
+ 	Timer tracking_timer;
+ // Lock access to tracking data
+ 	Mutex *tracking_lock;
+-// Lock access to renderengine between interrupt and deletion
+-	Mutex *renderengine_lock;
+ // Block returns until tracking loop is finished
+ 	Condition *tracking_done;
+ // Pause the main loop for the PAUSE command

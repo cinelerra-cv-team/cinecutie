@@ -1,0 +1,151 @@
+--- cinecutie/pluginaclientlad.C	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/pluginaclientlad.C	2010-02-19 22:19:11.978570999 +0100
+@@ -23,7 +23,6 @@
+ #include "data/lad_picon_png.h"
+ #include "bchash.h"
+ #include "filexml.h"
+-#include "language.h"
+ #include "pluginaclientlad.h"
+ #include "pluginserver.h"
+ #include "vframe.h"
+@@ -31,6 +30,11 @@
+ #include <ctype.h>
+ #include <string.h>
+ 
++#include <libintl.h>
++#define _(String) gettext(String)
++#define gettext_noop(String) String
++#define N_(String) gettext_noop (String)
++
+ 
+ 
+ PluginAClientConfig::PluginAClientConfig()
+@@ -331,13 +335,18 @@
+ 
+ 
+ 
+-PluginAClientWindow::PluginAClientWindow(PluginAClientLAD *plugin)
+- : PluginClientWindow(plugin, 
+- 	500, 
++PluginAClientWindow::PluginAClientWindow(PluginAClientLAD *plugin, 
++	int x, 
++	int y)
++ : BC_Window(plugin->gui_string, 
++ 	x,
++	y,
++	500, 
+ 	plugin->config.total_ports * 30 + 60, 
+ 	500, 
+ 	plugin->config.total_ports * 30 + 60, 
+-	0)
++	0, 
++	1)
+ {
+ 	this->plugin = plugin;
+ }
+@@ -347,7 +356,7 @@
+ }
+ 
+ 
+-void PluginAClientWindow::create_objects()
++int PluginAClientWindow::create_objects()
+ {
+ 	PluginServer *server = plugin->server;
+ 	char string[BCTEXTLEN];
+@@ -474,6 +483,11 @@
+ 	add_subwindow(new BC_Title(x, y, string));
+ }
+ 
++int PluginAClientWindow::close_event()
++{
++	set_done(1);
++	return 1;
++}
+ 
+ 
+ 
+@@ -486,6 +500,8 @@
+ 
+ 
+ 
++PLUGIN_THREAD_OBJECT(PluginAClientLAD, PluginAClientThread, PluginAClientWindow)
++
+ 
+ 
+ 
+@@ -493,6 +509,7 @@
+ PluginAClientLAD::PluginAClientLAD(PluginServer *server)
+  : PluginAClient(server)
+ {
++	PLUGIN_CONSTRUCTOR_MACRO
+ 	in_buffers = 0;
+ 	total_inbuffers = 0;
+ 	out_buffers = 0;
+@@ -503,12 +520,11 @@
+ 
+ PluginAClientLAD::~PluginAClientLAD()
+ {
++	PLUGIN_DESTRUCTOR_MACRO
+ 	delete_buffers();
+ 	delete_plugin();
+ }
+ 
+-NEW_WINDOW_MACRO(PluginAClientLAD, PluginAClientWindow)
+-
+ int PluginAClientLAD::is_realtime()
+ {
+ 	return 1;
+@@ -545,7 +561,7 @@
+ }
+ 
+ 
+-const char* PluginAClientLAD::plugin_title()
++char* PluginAClientLAD::plugin_title()
+ {
+ 	return (char*)server->lad_descriptor->Name;
+ }
+@@ -565,13 +581,16 @@
+ 	return new VFrame(lad_picon_png);
+ }
+ 
++SHOW_GUI_MACRO(PluginAClientLAD, PluginAClientThread)
++RAISE_WINDOW_MACRO(PluginAClientLAD)
++SET_STRING_MACRO(PluginAClientLAD)
+ LOAD_CONFIGURATION_MACRO(PluginAClientLAD, PluginAClientConfig)
+ 
+ void PluginAClientLAD::update_gui()
+ {
+ }
+ 
+-char* PluginAClientLAD::lad_to_string(char *string, const char *input)
++char* PluginAClientLAD::lad_to_string(char *string, char *input)
+ {
+ 	strcpy(string, input);
+ 	for(int j = 0; j < strlen(string); j++)
+@@ -583,7 +602,7 @@
+ 	return string;
+ }
+ 
+-char* PluginAClientLAD::lad_to_upper(char *string, const char *input)
++char* PluginAClientLAD::lad_to_upper(char *string, char *input)
+ {
+ 	lad_to_string(string, input);
+ 	for(int j = 0; j < strlen(string); j++)
+@@ -660,7 +679,7 @@
+ 	char string[BCTEXTLEN];
+ 
+ // cause data to be stored directly in text
+-	output.set_shared_string(keyframe->get_data(), MESSAGESIZE);
++	output.set_shared_string(keyframe->data, MESSAGESIZE);
+ 	output.tag.set_title(lad_to_upper(string, plugin_title()));
+ 
+ 	int current_port = 0;
+@@ -689,7 +708,7 @@
+ 	FileXML input;
+ 	char string[BCTEXTLEN];
+ 
+-	input.set_shared_string(keyframe->get_data(), strlen(keyframe->get_data()));
++	input.set_shared_string(keyframe->data, strlen(keyframe->data));
+ 	config.initialize(server);
+ 
+ 	int result = 0;

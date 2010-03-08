@@ -1,0 +1,136 @@
+--- cinecutie/menueffects.C	2008-10-11 17:46:25.000000000 +0200
++++ /home/user/cinecutie/cinecutie/menueffects.C	2010-02-19 22:19:11.968571001 +0100
+@@ -89,10 +89,9 @@
+ 
+ 
+ 
+-MenuEffectThread::MenuEffectThread(MWindow *mwindow, MenuEffects *menu_item)
++MenuEffectThread::MenuEffectThread(MWindow *mwindow)
+ {
+ 	this->mwindow = mwindow;
+-	this->menu_item = menu_item;
+ 	sprintf(title, "");
+ }
+ 
+@@ -104,7 +103,7 @@
+ 
+ 
+ 
+-int MenuEffectThread::set_title(const char *title)
++int MenuEffectThread::set_title(char *title)
+ {
+ 	strcpy(this->title, title);
+ }
+@@ -501,7 +500,6 @@
+ 	{
+ 		mwindow->gui->lock_window("MenuEffectThread::run");
+ 
+-		mwindow->undo->update_undo_before("", 0);
+ 		if(load_mode == LOAD_PASTE)
+ 			mwindow->clear(0);
+ 		mwindow->load_assets(&assets,
+@@ -510,11 +508,12 @@
+ 			0,
+ 			0,
+ 			mwindow->edl->session->labels_follow_edits, 
+-			mwindow->edl->session->plugins_follow_edits);
++			mwindow->edl->session->plugins_follow_edits,
++			0); // overwrite
+ 
+ 
+ 		mwindow->save_backup();
+-		mwindow->undo->update_undo_after(title, LOAD_ALL);
++		mwindow->undo->update_undo(title, LOAD_ALL);
+ 
+ 
+ 
+@@ -540,9 +539,6 @@
+ 
+ 
+ 
+-
+-
+-
+ MenuEffectItem::MenuEffectItem(MenuEffects *menueffect, char *string)
+  : BC_MenuItem(string)
+ {
+@@ -584,27 +580,21 @@
+ 	this->plugin_list = plugin_list; 
+ 	this->asset = asset;
+ 	this->mwindow = mwindow;
+-	file_title = 0;
+-	format_tools = 0;
+-	loadmode = 0;
+ }
+ 
+ MenuEffectWindow::~MenuEffectWindow()
+ {
+-	lock_window("MenuEffectWindow::~MenuEffectWindow");
+ 	delete format_tools;
+-	unlock_window();
+ }
+ 
+ 
+ 
+-void MenuEffectWindow::create_objects()
++int MenuEffectWindow::create_objects()
+ {
+ 	int x, y;
+ 	result = -1;
+ 	mwindow->theme->get_menueffect_sizes(plugin_list ? 1 : 0);
+ 
+-	lock_window("MenuEffectWindow::create_objects");
+ // only add the list if needed
+ 	if(plugin_list)
+ 	{
+@@ -619,8 +609,7 @@
+ 			plugin_list));
+ 	}
+ 
+-	add_subwindow(file_title = new BC_Title(
+-		mwindow->theme->menueffect_file_x, 
++	add_subwindow(file_title = new BC_Title(mwindow->theme->menueffect_file_x, 
+ 		mwindow->theme->menueffect_file_y, 
+ 		(char*)((menueffects->strategy == FILE_PER_LABEL  || menueffects->strategy == FILE_PER_LABEL_FARM) ? 
+ 			_("Select the first file to render to:") : 
+@@ -656,7 +645,7 @@
+ 	add_subwindow(new MenuEffectWindowCancel(this));
+ 	show_window();
+ 	flush();
+-	unlock_window();
++	return 0;
+ }
+ 
+ int MenuEffectWindow::resize_event(int w, int h)
+@@ -675,12 +664,12 @@
+ 			mwindow->theme->menueffect_list_h - list_title->get_h() - 5);
+ 	}
+ 
+-	if(file_title) file_title->reposition_window(mwindow->theme->menueffect_file_x, 
++	file_title->reposition_window(mwindow->theme->menueffect_file_x, 
+ 		mwindow->theme->menueffect_file_y);
+ 	int x = mwindow->theme->menueffect_tools_x;
+ 	int y = mwindow->theme->menueffect_tools_y;
+-	if(format_tools) format_tools->reposition_window(x, y);
+-	if(loadmode) loadmode->reposition_window(x, y);
++	format_tools->reposition_window(x, y);
++	loadmode->reposition_window(x, y);
+ }
+ 
+ 
+@@ -783,7 +772,7 @@
+ }
+ 
+ 
+-void MenuEffectPrompt::create_objects()
++int MenuEffectPrompt::create_objects()
+ {
+ 	int x = 10, y = 10;
+ 	BC_Title *title;
+@@ -793,5 +782,6 @@
+ 	show_window();
+ 	raise_window();
+ 	flush();
++	return 0;
+ }
+ 

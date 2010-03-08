@@ -1,0 +1,94 @@
+--- cinecutie/indexfile.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/indexfile.C	2010-02-19 22:19:11.958569362 +0100
+@@ -128,7 +128,6 @@
+ int IndexFile::open_file()
+ {
+ 	int result = 0;
+-	const int debug = 0;
+ 	get_index_filename(source_filename, 
+ 		mwindow->preferences->index_directory,
+ 		index_filename, 
+@@ -145,10 +144,6 @@
+ 		FileSystem fs;
+ 		if(fs.get_date(index_filename) < fs.get_date(test_asset->path))
+ 		{
+-			if(debug) printf("IndexFile::open_file %d index_date=%lld asset_date=%lld\n",
+-				__LINE__,
+-				fs.get_date(index_filename),
+-				fs.get_date(test_asset->path));
+ // index older than source
+ 			result = 2;
+ 			fclose(file);
+@@ -158,18 +153,12 @@
+ 		if(fs.get_size(asset->path) != test_asset->index_bytes)
+ 		{
+ // source file is a different size than index source file
+-			if(debug) printf("IndexFile::open_file %d index_size=%lld asset_size=%lld\n",
+-				__LINE__,
+-				test_asset->index_bytes,
+-				fs.get_size(asset->path));
+ 			result = 2;
+ 			fclose(file);	
+ 			file = 0;
+ 		}
+ 		else
+ 		{
+-			if(debug) printf("IndexFile::open_file %d\n",
+-				__LINE__);
+ 			fseek(file, 0, SEEK_END);
+ 			file_length = ftell(file);
+ 			fseek(file, 0, SEEK_SET);
+@@ -429,19 +418,15 @@
+ 
+ int IndexFile::draw_index(ResourcePixmap *pixmap, Edit *edit, int x, int w)
+ {
+-	const int debug = 0;
+-	if(debug) printf("IndexFile::draw_index %d\n");
+ // check against index_end when being built
+ 	if(asset->index_zoom == 0)
+ 	{
+ 		printf(_("IndexFile::draw_index: index has 0 zoom\n"));
+ 		return 0;
+ 	}
+-	if(debug) printf("IndexFile::draw_index %d\n");
+ 
+ // test channel number
+ 	if(edit->channel > asset->channels) return 1;
+-	if(debug) printf("IndexFile::draw_index %d\n");
+ 
+ // calculate a virtual x where the edit_x should be in floating point
+ 	double virtual_edit_x = 1.0 * edit->track->from_units(edit->startproject) * 
+@@ -478,7 +463,6 @@
+ 		lengthindex = asset->get_index_size(edit->channel) - startindex;
+ 	if(lengthindex <= 0) return 0;
+ 
+-	if(debug) printf("IndexFile::draw_index %d\n");
+ 
+ 
+ 
+@@ -604,7 +588,6 @@
+ 
+ 
+ 	if(!buffer_shared) delete [] buffer;
+-	if(debug) printf("IndexFile::draw_index %d\n");
+ 	return 0;
+ }
+ 
+@@ -621,8 +604,7 @@
+ 
+ int IndexFile::remove_index()
+ {
+-	if(asset->index_status == INDEX_READY || 
+-		asset->index_status == INDEX_NOTTESTED)
++	if(asset->index_status == INDEX_READY || asset->index_status == INDEX_NOTTESTED)
+ 	{
+ 		close_index();
+ 		remove(index_filename);
+@@ -650,7 +632,6 @@
+ 		delete [] data;
+ 		if(test_asset->format == FILE_UNKNOWN)
+ 		{
+-printf("IndexFile::read_info %d\n", __LINE__);
+ 			return 1;
+ 		}
+ 	}

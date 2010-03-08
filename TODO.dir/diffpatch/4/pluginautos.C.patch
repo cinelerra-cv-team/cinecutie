@@ -1,0 +1,21 @@
+--- cinecutie/pluginautos.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/pluginautos.C	2010-02-19 22:19:11.988570758 +0100
+@@ -19,13 +19,11 @@
+  * 
+  */
+ 
+-#if 0
+ #include "pluginautos.h"
+ 
+ PluginAutos::PluginAutos(EDL *edl, Track *track)
+  : Autos(edl, track)
+ {
+-printf("PluginAutos::PluginAutos\n");
+ }
+ 
+ PluginAutos::~PluginAutos()
+@@ -34,4 +32,3 @@
+ 
+ 
+ 
+-#endif

@@ -1,0 +1,39 @@
+--- cinecutie/performanceprefs.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/performanceprefs.C	2010-02-19 22:19:11.978570999 +0100
+@@ -47,7 +47,7 @@
+ 	nodes[3].remove_all_objects();
+ }
+ 
+-void PerformancePrefs::create_objects()
++int PerformancePrefs::create_objects()
+ {
+ 	int x, y;
+ 	int xmargin1;
+@@ -229,6 +229,7 @@
+ // 		y));
+ // 	y += 30;
+ 
++	return 0;
+ }
+ 
+ void PerformancePrefs::generate_node_list()
+@@ -262,7 +263,7 @@
+ 	}
+ }
+ 
+-static const char *titles[] = 
++static char *titles[] = 
+ {
+ 	N_("On"),
+ 	N_("Hostname"),
+@@ -519,9 +520,7 @@
+ 
+ 
+ PrefsRenderFarmNodes::PrefsRenderFarmNodes(PreferencesWindow *pwindow, 
+-	PerformancePrefs *subwindow, 
+-	int x, 
+-	int y)
++	PerformancePrefs *subwindow, int x, int y)
+  : BC_ListBox(x, 
+ 		y, 
+ 		340, 

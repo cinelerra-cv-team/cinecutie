@@ -1,0 +1,187 @@
+--- cinecutie/autos.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/autos.C	2010-02-19 22:19:11.858573208 +0100
+@@ -37,6 +37,8 @@
+ 	this->edl = edl;
+ 	this->track = track;
+ 	type = -1;
++	autoidx = -1;
++	autogrouptype = -1;
+ }
+ 
+ 
+@@ -298,7 +300,7 @@
+ 
+ 	if(edl->session->auto_keyframes)
+ 	{
+-		result = insert_auto(track->to_units(position, 0));
++		result = insert_auto_for_editing(track->to_units(position, 0));
+ 	}
+ 	else
+ 		result = get_prev_auto(track->to_units(position, 0), 
+@@ -391,8 +393,55 @@
+ 		}
+ 
+ 		result->position = position;
+-// Set curve type
+-		result->mode = edl->local_session->floatauto_type;
++	}
++	else
++	{
++		result = current;
++	}
++
++	return result;
++}
++
++Auto* Autos::insert_auto_for_editing(int64_t position)
++{
++	Auto *current, *result;
++
++// Test for existence
++	for(current = first; 
++		current && !edl->equivalent(current->position, position); 
++		current = NEXT)
++	{
++		;
++	}
++
++//printf("Autos::insert_auto_for_editing %p\n", current);
++// Insert new
++	if(!current)
++	{
++// Get first one on or before as a template
++		for(current = last; 
++			current && current->position > position; 
++			current = PREVIOUS)
++		{
++			;
++		}
++
++		if(current)
++		{
++			Auto *next = NEXT;
++			insert_after(current, result = new_auto());
++			result->interpolate_from(current, next, position);
++		}
++		else
++		{
++			current = first;
++			if(!current) current = default_auto;
++
++			insert_before(first, result = new_auto());
++			if(current) result->copy_from(current);
++		}
++
++		result->position = position;
+ 	}
+ 	else
+ 	{
+@@ -436,20 +485,20 @@
+ 	int64_t length, 
+ 	double scale, 
+ 	FileXML *file, 
+-	int default_only,
+-	int active_only)
++	int default_only)
+ {
+ 	int total = 0;
+ 	int result = 0;
+ 
+-//printf("Autos::paste %d start=%lld\n", __LINE__, start);
++//printf("Autos::paste %ld\n", start);
+ 	do{
+ 		result = file->read_tag();
+ 
+-		if(!result)
++		if(!result && !file->tag.title_is("/AUTO"))
+ 		{
+ // End of list
+-			if(file->tag.get_title()[0] == '/')
++			if(/* strstr(file->tag.get_title(), "AUTOS") && */
++				file->tag.get_title()[0] == '/')
+ 			{
+ 				result = 1;
+ 			}
+@@ -458,14 +507,19 @@
+ 			{
+ 				Auto *current = 0;
+ 
+-// Paste first auto into default				
+-				if(default_only && total == 0)
++// Paste first active auto into default				
++				if(default_only)
+ 				{
+-					current = default_auto;
++					if(total == 1)
++					{
++						current = default_auto;
++					}
+ 				}
+ 				else
+ // Paste default auto into default
+-				if(!default_only)
++				if(total == 0)
++					current = default_auto;
++				else
+ 				{
+ 					int64_t position = Units::to_int64(
+ 						(double)file->tag.get_property("POSITION", 0) *
+@@ -497,17 +551,18 @@
+ 	int64_t end, 
+ 	FileXML *file, 
+ 	int default_only,
+-	int active_only)
++	int autos_only)
+ {
+-// First auto always loaded with default
+-//printf("Autos::copy %d %d %d\n", __LINE__, default_only, active_only);
+-	if(default_only || (!active_only && !default_only))
++// First auto is always loaded into default even if it is discarded in a paste
++// operation
++//printf("Autos::copy 1 %d %d %p\n", default_only, start, autoof(start));
++	if(!autos_only)
+ 	{
+ 		default_auto->copy(0, 0, file, default_only);
+ 	}
+ 
+ //printf("Autos::copy 10 %d %d %p\n", default_only, start, autoof(start));
+-	if(active_only || (!default_only && !active_only))
++	if(!default_only)
+ 	{
+ 		for(Auto* current = autoof(start); 
+ 			current && current->position <= end; 
+@@ -521,12 +576,12 @@
+ 		}
+ 	}
+ // Copy default auto again to make it the active auto on the clipboard
+-//	else
+-//	{
++	else
++	{
+ // Need to force position to 0 for the case of plugins
+ // and default status to 0.
+-//		default_auto->copy(0, 0, file, default_only);
+-//	}
++		default_auto->copy(0, 0, file, default_only);
++	}
+ //printf("Autos::copy 20\n");
+ 
+ 	return 0;
+@@ -585,7 +640,7 @@
+ }
+ 
+ 
+-void Autos::set_automation_mode(int64_t start, int64_t end, int mode)
++void Autos::straighten(int64_t start, int64_t end)
+ {
+ }
+ 
+@@ -639,7 +694,7 @@
+ 	do{
+ 		result = file->read_tag();
+ 		
+-		if(!result)
++		if(!result && !file->tag.title_is("/AUTO"))
+ 		{
+ // First tag with leading / is taken as end of autos
+ 			if(/* strstr(file->tag.get_title(), "AUTOS") && */

@@ -1,0 +1,84 @@
+--- cinecutie/browsebutton.C	2008-10-17 03:49:10.000000000 +0200
++++ /home/user/cinecutie/cinecutie/browsebutton.C	2010-02-19 22:19:11.858573208 +0100
+@@ -19,7 +19,6 @@
+  * 
+  */
+ 
+-#include "bcsignals.h"
+ #include "browsebutton.h"
+ #include "language.h"
+ #include "mutex.h"
+@@ -34,12 +33,13 @@
+ 	BC_TextBox *textbox, 
+ 	int x, 
+ 	int y, 
+-	const char *init_directory, 
+-	const char *title, 
+-	const char *caption, 
+-	int want_directory)
++	char *init_directory, 
++	char *title, 
++	char *caption, 
++	int want_directory,
++	const char *recent_prefix)
+  : BC_Button(x, y, mwindow->theme->get_image_set("magnify_button")), 
+-   Thread(1, 0, 0)
++   Thread()
+ {
+ 	this->parent_window = parent_window;
+ 	this->want_directory = want_directory;
+@@ -48,6 +48,7 @@
+ 	this->init_directory = init_directory;
+ 	this->textbox = textbox;
+ 	this->mwindow = mwindow;
++	this->recent_prefix = recent_prefix;
+ 	set_tooltip(_("Look for file"));
+ 	gui = 0;
+ 	startup_lock = new Mutex("BrowseButton::startup_lock");
+@@ -73,7 +74,7 @@
+ 	{
+ 		if(gui)
+ 		{
+-			gui->lock_window("BrowseButton::handle_event");
++			gui->lock_window();
+ 			gui->raise_window();
+ 			gui->unlock_window();
+ 		}
+@@ -101,10 +102,7 @@
+ 		want_directory);
+ 	gui = &browsewindow;
+ 	startup_lock->unlock();
+-	
+-	browsewindow.lock_window("BrowseButton::run");
+ 	browsewindow.create_objects();
+-	browsewindow.unlock_window();
+ 	int result2 = browsewindow.run_window();
+ 
+ 	if(!result2)
+@@ -118,13 +116,10 @@
+ // 			textbox->update(browsewindow.get_filename());
+ // 		}
+ 
+-		parent_window->lock_window("BrowseButton::run");
+ 		textbox->update(browsewindow.get_submitted_path());
+ 		parent_window->flush();
+ 		textbox->handle_event();
+-		parent_window->unlock_window();
+ 	}
+-
+ 	startup_lock->lock("BrowseButton::run");
+ 	gui = 0;
+ 	startup_lock->unlock();
+@@ -138,9 +133,9 @@
+ BrowseButtonWindow::BrowseButtonWindow(MWindow *mwindow, 
+ 	BrowseButton *button,
+ 	BC_WindowBase *parent_window, 
+-	const char *init_directory, 
+-	const char *title, 
+-	const char *caption, 
++	char *init_directory, 
++	char *title, 
++	char *caption, 
+ 	int want_directory)
+  : BC_FileBox(button->x - 
+  		BC_WindowBase::get_resources()->filebox_w / 2, 

@@ -1,0 +1,250 @@
+--- cinecutie/Makefile.am	2010-02-19 23:37:19.128575441 +0100
++++ /home/user/cinecutie/cinecutie/Makefile.am	2010-02-19 22:19:11.828574968 +0100
+@@ -10,40 +10,40 @@
+ else
+ BUILDINFO_NONRC_S=[unsure]
+ 
+-main.o: 
+-aboutprefs.o: 
++main.o: versioninfo.h
++aboutprefs.o: versioninfo.h
+ 
+-:
++versioninfo.h:
+ endif
+-	echo '#define BUILDDATE "$(BUILDDATE)"' > 
++	echo '#define BUILDDATE "$(BUILDDATE)"' > versioninfo.h
+ 
+ if BUILDINFO_GIT
+ GITVERSION=$(shell if [ -d $(top_srcdir)/.git ]; then cd $(top_srcdir); git rev-parse HEAD; else echo "unknown"; fi)
+-	echo '#define REPOMAINTXT " GIT::$(GITVERSION) $(BUILDINFO_NONRC_S) (C) 2006 Heroine Virtual Ltd.\n@FFMPEG_EXTERNALTEXT@\nCompiled on $(BUILDDATE)"' >> 
+-	echo '#define REPOABOUTPREFTXT "Git SHA-1: $(GITVERSION)"' >> 
++	echo '#define REPOMAINTXT " GIT::$(GITVERSION) $(BUILDINFO_NONRC_S) (C) 2006 Heroine Virtual Ltd.\n@FFMPEG_EXTERNALTEXT@\nCompiled on $(BUILDDATE)"' >> versioninfo.h
++	echo '#define REPOABOUTPREFTXT "Git SHA-1: $(GITVERSION)"' >> versioninfo.h
+ else
+ 
+ if BUILDINFO_SVN
+ SVNVERSION=$(shell if [ -d $(top_srcdir)/.svn ]; then svnversion $(top_srcdir); else echo "unknown"; fi)
+-	echo '#define REPOMAINTXT      " SVN $(SVNVERSION) $(BUILDINFO_NONRC_S) (C) 2006 Heroine Virtual Ltd.\n@FFMPEG_EXTERNALTEXT@\nCompiled on $(BUILDDATE)"' >> 
+-	echo '#define REPOABOUTPREFTXT "SVN Version: $(SVNVERSION) $(BUILDINFO_NONRC_S)"' >> 
++	echo '#define REPOMAINTXT      " SVN $(SVNVERSION) $(BUILDINFO_NONRC_S) (C) 2006 Heroine Virtual Ltd.\n@FFMPEG_EXTERNALTEXT@\nCompiled on $(BUILDDATE)"' >> versioninfo.h
++	echo '#define REPOABOUTPREFTXT "SVN Version: $(SVNVERSION) $(BUILDINFO_NONRC_S)"' >> versioninfo.h
+ 
+ else
+ if BUILDINFO_CUST
+ 
+-	echo '#define REPOMAINTXT      " $(BUILDINFO_CUSTOM_TAG) (C) 2006 Heroine Virtual Ltd.\n@FFMPEG_EXTERNALTEXT@\nCompiled on $(BUILDDATE)"' >> 
+-	echo '#define REPOABOUTPREFTXT "$(BUILDINFO_CUSTOM_TAG)"' >> 
++	echo '#define REPOMAINTXT      " $(BUILDINFO_CUSTOM_TAG) (C) 2006 Heroine Virtual Ltd.\n@FFMPEG_EXTERNALTEXT@\nCompiled on $(BUILDDATE)"' >> versioninfo.h
++	echo '#define REPOABOUTPREFTXT "$(BUILDINFO_CUSTOM_TAG)"' >> versioninfo.h
+ 
+ 
+ else # (no repository)
+ 
+ 
+-	echo '#define REPOMAINTXT      "(C) 2006 Heroine Virtual Ltd.\nCompiled on $(BUILDDATE)"' >> 
+-	echo '#define REPOABOUTPREFTXT ""' >> 
++	echo '#define REPOMAINTXT      "(C) 2006 Heroine Virtual Ltd.\nCompiled on $(BUILDDATE)"' >> versioninfo.h
++	echo '#define REPOABOUTPREFTXT ""' >> versioninfo.h
+ endif
+ endif
+ endif
+-	echo '#define FFMPEG_EXTERNALTEXT "@FFMPEG_EXTERNALTEXT@"' >> 
++	echo '#define FFMPEG_EXTERNALTEXT "@FFMPEG_EXTERNALTEXT@"' >> versioninfo.h
+ 
+ SUBDIRS = data
+ 
+@@ -135,7 +135,9 @@
+ 		    edits.C \
+ 		    edl.C \
+ 		    edlsession.C \
++		    exportedl.C \
+ 		    fadeengine.C \
++                    ffmpeg.C \
+ 		    fileac3.C \
+ 		    fileavi.C \
+ 		    filebaseaudio.C \
+@@ -144,6 +146,7 @@
+ 		    filebaseulaw.C \
+ 		    file.C \
+ 		    filecr2.C \
++		    filedv.C \
+ 		    fileogg.C \
+ 		    fileexr.C \
+ 		    fileformat.C \
+@@ -158,6 +161,7 @@
+ 		    filetiff.C \
+ 		    filevorbis.C \
+ 		    filexml.C \
++		    fileyuv.C \
+ 		    floatauto.C \
+ 		    floatautos.C \
+ 		    formatcheck.C \
+@@ -177,6 +181,7 @@
+ 		    keyframehandles.C \
+ 		    keyframepopup.C \
+ 		    keyframes.C \
++		    labeledit.C \
+ 		    labelnavigate.C \
+ 		    labels.C \
+ 		    levelwindow.C \
+@@ -194,6 +199,7 @@
+ 		    mainprogress.C \
+ 		    mainsession.C \
+ 		    mainundo.C \
++		    manualgoto.C \
+ 		    maskauto.C \
+ 		    maskautos.C \
+ 		    maskengine.C \
+@@ -213,12 +219,14 @@
+ 		    overlayframe.C \
+ 		    packagedispatcher.C \
+ 		    packagerenderer.C \
++		    packagingengine.C \
+ 		    panauto.C \
+ 		    panautos.C \
+ 		    patchbay.C \
+ 		    patchgui.C \
+ 		    performanceprefs.C \
+ 		    picture.C \
++                    pipe.C \
+ 		    playabletracks.C \
+ 		    playback3d.C \
+ 		    playbackconfig.C \
+@@ -261,6 +269,7 @@
+ 		    renderengine.C \
+ 		    renderfarm.C \
+ 		    renderfarmclient.C \
++		    renderprofiles.C \
+ 		    resample.C \
+ 		    resizetrackthread.C \
+ 		    resourcepixmap.C \
+@@ -292,6 +301,7 @@
+ 		    transitionpopup.C \
+ 		    transportque.C \
+ 		    tunerserver.C \
++		    undostackitem.C \
+ 		    vattachmentpoint.C \
+ 		    vautomation.C \
+ 		    vdevicebase.C \
+@@ -325,18 +335,10 @@
+ 		    vwindow.C \
+ 		    vwindowgui.C \
+ 		    wavecache.C \
+-		    fileffmpeg.C \
+-		    fileflac.C \
+-		    keyframegui.C \
+-		    menuattacheffect.C \
+-		    menuattachtransition.C \
+-		    menutransitionlength.C \
+-		    presets.C \
+-		    presetsgui.C \
+-		    undostack.C \
++                    yuvstream.C \
+ 		    zoombar.C \
+ 		    zoompanel.C \
+-		    $(firewire_SOURCES)
++	$(firewire_SOURCES)
+ 
+ # guicast must come first, to pick up correct workarounds.h
+ INCLUDES = \
+@@ -442,15 +444,19 @@
+ 		 edits.h \
+ 		 edl.h \
+ 		 edlsession.h \
++		 exportedl.h \
+ 		 fadeengine.h \
++		 feather.h \
+ 		 featheredits.h \
++                 ffmpeg.h \
+ 		 fileac3.h \
+ 		 fileavi.h \
+ 		 filebase.h \
+ 		 fileformat.h \
+ 		 file.h \
+ 		 filecr2.h \
+-		 fileogg.h \
++	    filedv.h \
++	    fileogg.h \
+ 		 fileexr.h \
+ 		 filejpeg.h \
+ 		 filelist.h \
+@@ -463,6 +469,7 @@
+ 		 filetiff.h \
+ 		 filevorbis.h \
+ 		 filexml.h \
++		 fileyuv.h \
+ 		 floatauto.h \
+ 		 floatautos.h \
+ 		 formatcheck.h \
+@@ -488,6 +495,7 @@
+ 		 keyframehandles.h \
+ 		 keyframepopup.h \
+ 		 keyframes.h \
++		 labeledit.h \
+ 		 labelnavigate.h \
+ 		 labels.h \
+ 		 ladspa.h \
+@@ -505,6 +513,7 @@
+ 		 mainprogress.h \
+ 		 mainsession.h \
+ 		 mainundo.h \
++		 manualgoto.h \
+ 		 maskauto.h \
+ 		 maskautos.h \
+ 		 maskengine.h \
+@@ -526,6 +535,7 @@
+ 		 overlayframe.h \
+ 		 packagedispatcher.h \
+ 		 packagerenderer.h \
++		 packagingengine.h \
+ 		 panauto.h \
+ 		 panautos.h \
+ 		 patchbay.h \
+@@ -533,6 +543,7 @@
+ 		 patch.h \
+ 		 performanceprefs.h \
+ 		 picture.h \
++                 pipe.h \
+ 		 playabletracks.h \
+ 		 playback3d.h \
+ 		 playbackconfig.h \
+@@ -580,6 +591,7 @@
+ 		 renderfarm.h \
+ 		 render.h \
+ 		 resample.h \
++		 renderprofiles.h \
+ 		 resizetrackthread.h \
+ 		 resourcepixmap.h \
+ 		 resourcethread.h \
+@@ -613,6 +625,7 @@
+ 		 transitionpopup.h \
+ 		 transportque.h \
+ 		 tunerserver.h \
++		 undostackitem.h \
+ 		 vattachmentpoint.h \
+ 		 vautomation.h \
+ 		 vdevice1394.h \
+@@ -654,15 +667,7 @@
+ 		 vwindowgui.h \
+ 		 vwindow.h \
+ 		 wavecache.h \
+-		 fileffmpeg.h \
+-		 fileflac.h \
+-		 keyframegui.h \
+-		 menuattacheffect.h \
+-		 menuattachtransition.h \
+-		 menutransitionlength.h \
+-		 presetsgui.h \
+-		 presets.h \
+-		 undostack.h \
++                 yuvstream.h \
+ 		 zoombar.h \
+ 		 zoompanel.h \
+ 		$(srcdir)/*.inc
+@@ -686,4 +691,4 @@
+ 	-luuid \
+ 	$(MJPEG_LIBS)
+ 
+-EXTRA_DIST = gen-
++EXTRA_DIST = gen-feather-h

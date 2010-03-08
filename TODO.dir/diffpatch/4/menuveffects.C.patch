@@ -1,0 +1,22 @@
+--- cinecutie/menuveffects.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/menuveffects.C	2010-02-19 22:19:11.968571001 +0100
+@@ -39,7 +39,7 @@
+ MenuVEffects::MenuVEffects(MWindow *mwindow)
+  : MenuEffects(mwindow)
+ {
+-	thread = new MenuVEffectThread(mwindow, this);
++	thread = new MenuVEffectThread(mwindow);
+ }
+ 
+ MenuVEffects::~MenuVEffects()
+@@ -47,8 +47,8 @@
+ 	delete thread;
+ }
+ 
+-MenuVEffectThread::MenuVEffectThread(MWindow *mwindow, MenuVEffects *menu_item)
+- : MenuEffectThread(mwindow, menu_item)
++MenuVEffectThread::MenuVEffectThread(MWindow *mwindow)
++ : MenuEffectThread(mwindow)
+ {
+ }
+ 

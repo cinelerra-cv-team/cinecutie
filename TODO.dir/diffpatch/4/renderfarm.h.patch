@@ -1,0 +1,31 @@
+--- cinecutie/renderfarm.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/renderfarm.h	2010-02-19 22:19:11.998570756 +0100
+@@ -126,8 +126,8 @@
+ // Request codes to be used in both client and server.
+ enum
+ {
+-	RENDERFARM_NONE,         // 0
+-	RENDERFARM_PREFERENCES,  // Get preferences on startup
++	RENDERFARM_NONE,
++	RENDERFARM_PREFERENCES,  // 0 Get preferences on startup
+ 	RENDERFARM_ASSET,        // Get output format on startup
+ 	RENDERFARM_EDL,          // Get EDL on startup
+ 	RENDERFARM_PACKAGE,      // Get one package after another to render
+@@ -138,7 +138,7 @@
+ 	RENDERFARM_SET_VMAP,     // 8 Update video map in background rendering
+ 	RENDERFARM_COMMAND,      // Get the client to run
+ 	RENDERFARM_TUNER,        // Run a tuner server
+-	RENDERFARM_PACKAGES,     // 12 Run packages
++	RENDERFARM_PACKAGES,     // Run packages
+ 	RENDERFARM_KEEPALIVE,    // Keep alive
+ 
+ // VFS commands
+@@ -221,7 +221,7 @@
+ 	int64_t read_int64(int *error);
+ // Inserts header and writes string to socket
+ 	int write_string(char *string);
+-	static int open_client(const char *hostname, int port);
++	static int open_client(char *hostname, int port);
+ 
+ 
+ 

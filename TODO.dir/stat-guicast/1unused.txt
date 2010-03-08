@@ -1,0 +1,5 @@
+bcpixmapsw.inc 
+bcrelocatablewidget.inc 
+bctheme.inc 
+errorbox.inc 
+sema.inc 

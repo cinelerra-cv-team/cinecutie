@@ -1,0 +1,24 @@
+--- cinecutie/localsession.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/localsession.h	2010-02-19 22:19:11.968571001 +0100
+@@ -28,7 +28,6 @@
+ #include "filexml.inc"
+ 
+ 
+-
+ // Unique session for every EDL
+ 
+ class LocalSession
+@@ -97,10 +96,9 @@
+ // Track zoom
+ 	int64_t zoom_track;
+ // Vertical automation scale
+-	float automation_min;
+-	float automation_max;
+-// Default type of float keyframe
+-	int floatauto_type;
++	float automation_mins[6];
++	float automation_maxs[6];
++	int zoombar_showautotype;
+ 
+ // Eye dropper
+ 	float red, green, blue;

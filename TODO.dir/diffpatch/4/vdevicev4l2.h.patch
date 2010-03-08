@@ -1,0 +1,12 @@
+--- cinecutie/vdevicev4l2.h	2010-02-20 00:31:13.208575805 +0100
++++ /home/user/cinecutie/cinecutie/vdevicev4l2.h	2010-02-19 22:19:12.018571035 +0100
+@@ -23,7 +23,9 @@
+ #define VDEVICEV4L2_H
+ 
+ 
++#ifdef HAVE_CONFIG_H
+ #include "config.h"
++#endif
+ #ifdef HAVE_VIDEO4LINUX2
+ 
+ #include "vdevicebase.h"

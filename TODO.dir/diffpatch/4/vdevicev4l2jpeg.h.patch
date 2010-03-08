@@ -1,0 +1,14 @@
+--- cinecutie/vdevicev4l2jpeg.h	2010-02-20 00:31:44.488581038 +0100
++++ /home/user/cinecutie/cinecutie/vdevicev4l2jpeg.h	2010-02-19 22:19:12.018571035 +0100
+@@ -22,8 +22,10 @@
+ #ifndef VDEVICEV4L2JPEG_H
+ #define VDEVICEV4L2JPEG_H
+ 
+-#include "config.h"
+ 
++#ifdef HAVE_CONFIG_H
++#include "config.h"
++#endif
+ #ifdef HAVE_VIDEO4LINUX2
+ #include "condition.inc"
+ #include "mutex.inc"

@@ -1,0 +1,18 @@
+--- cinecutie/vmodule.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/vmodule.h	2010-02-19 22:19:12.018571035 +0100
+@@ -44,6 +44,7 @@
+ #include "track.inc"
+ #include "vedit.inc"
+ #include "vframe.inc"
++#include "maskengine.inc"
+ 
+ class VModule : public Module
+ {
+@@ -85,6 +86,7 @@
+ 	VFrame *transition_temp;
+ // Engine for transferring from file to buffer_in
+ 	OverlayFrame *overlay_temp;
++	MaskEngine *masker;
+ };
+ 
+ #endif

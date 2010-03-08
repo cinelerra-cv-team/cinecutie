@@ -1,0 +1,41 @@
+--- cinecutie/automation.inc	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/automation.inc	2010-02-19 22:19:11.858573208 +0100
+@@ -43,10 +43,38 @@
+ 	AUTOMATION_PAN,
+ 	AUTOMATION_MODE,
+ 	AUTOMATION_MASK,
++//	AUTOMATION_NUDGE,
+ 	AUTOMATION_TOTAL
+ };
+ 
+ 
+ 
++// Automation group types (used by the gui to control the ranges)
++
++// These must match the following arrays:
++// xml_autogrouptypes_* in localsession.C
++// autogrouptypes_fixedrange in automation.C
++enum
++{
++	AUTOGROUPTYPE_AUDIO_FADE,
++	AUTOGROUPTYPE_VIDEO_FADE,
++	AUTOGROUPTYPE_ZOOM,
++	AUTOGROUPTYPE_X,
++	AUTOGROUPTYPE_Y,
++	AUTOGROUPTYPE_INT255,
++	AUTOGROUPTYPE_COUNT
++};
++
++
++
++// Automation types
++enum
++{
++	AUTOMATION_TYPE_FLOAT,
++	AUTOMATION_TYPE_MASK,
++	AUTOMATION_TYPE_INT,
++	AUTOMATION_TYPE_PAN
++};
++
+ 
+ #endif

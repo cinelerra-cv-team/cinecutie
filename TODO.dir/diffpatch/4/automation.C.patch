@@ -1,0 +1,153 @@
+--- cinecutie/automation.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/automation.C	2010-02-19 22:19:11.858573208 +0100
+@@ -33,6 +33,18 @@
+ #include "transportque.inc"
+ 
+ 
++int Automation::autogrouptypes_fixedrange[] =
++{
++	0,
++	0,
++	0,
++	0,
++	0,
++	1
++};
++
++
++
+ Automation::Automation(EDL *edl, Track *track)
+ {
+ 	this->edl = edl;
+@@ -48,10 +60,43 @@
+ 	}
+ }
+ 
+-void Automation::create_objects()
++int Automation::autogrouptype(int autoidx, Track *track)
++{
++	int autogrouptype = -1;
++	switch (autoidx) 
++	{
++		case AUTOMATION_CAMERA_X:
++		case AUTOMATION_PROJECTOR_X:
++			autogrouptype = AUTOGROUPTYPE_X;
++			break;
++		case AUTOMATION_CAMERA_Y:
++		case AUTOMATION_PROJECTOR_Y:
++			autogrouptype = AUTOGROUPTYPE_Y;
++			break;
++		case AUTOMATION_CAMERA_Z:
++		case AUTOMATION_PROJECTOR_Z:
++			autogrouptype = AUTOGROUPTYPE_ZOOM;
++			break;
++		case AUTOMATION_FADE:
++			if (track->data_type == TRACK_AUDIO)
++				autogrouptype = AUTOGROUPTYPE_AUDIO_FADE;
++			else
++				autogrouptype = AUTOGROUPTYPE_VIDEO_FADE;
++			break;
++		case AUTOMATION_MUTE:
++			autogrouptype = AUTOGROUPTYPE_INT255;
++			break;
++	}
++	return (autogrouptype);
++}
++
++int Automation::create_objects()
+ {
+ 	autos[AUTOMATION_MUTE] = new IntAutos(edl, track, 0);
+ 	autos[AUTOMATION_MUTE]->create_objects();
++	autos[AUTOMATION_MUTE]->autoidx = AUTOMATION_MUTE; 
++	autos[AUTOMATION_MUTE]->autogrouptype = AUTOGROUPTYPE_INT255;
++	return 0;
+ }
+ 
+ Automation& Automation::operator=(Automation& automation)
+@@ -80,7 +125,7 @@
+ }
+ 
+ // These must match the enumerations
+-static const char *xml_titles[] = 
++static char *xml_titles[] = 
+ {
+ 	"MUTEAUTOS",
+ 	"CAMERA_X",
+@@ -114,7 +159,6 @@
+ 	double scale,
+ 	FileXML *file, 
+ 	int default_only,
+-	int active_only,
+ 	AutoConf *autoconf)
+ {
+ 	if(!autoconf) autoconf = edl->session->auto_conf;
+@@ -123,12 +167,7 @@
+ 	{
+ 		if(file->tag.title_is(xml_titles[i]) && autos[i] && autoconf->autos[i])
+ 		{
+-			autos[i]->paste(start, 
+-				length, 
+-				scale, 
+-				file, 
+-				default_only,
+-				active_only);
++			autos[i]->paste(start, length, scale, file, default_only);
+ 			return 1;
+ 		}
+ 	}
+@@ -139,7 +178,7 @@
+ 	int64_t end, 
+ 	FileXML *file, 
+ 	int default_only,
+-	int active_only)
++	int autos_only)
+ {
+ // Copy regardless of what's visible.
+ 	for(int i = 0; i < AUTOMATION_TOTAL; i++)
+@@ -153,7 +192,7 @@
+ 							end, 
+ 							file, 
+ 							default_only,
+-							active_only);
++							autos_only);
+ 			char string[BCTEXTLEN];
+ 			sprintf(string, "/%s", xml_titles[i]);
+ 			file->tag.set_title(string);
+@@ -191,9 +230,8 @@
+ 	if(temp_autoconf) delete temp_autoconf;
+ }
+ 
+-void Automation::set_automation_mode(int64_t start, 
++void Automation::straighten(int64_t start, 
+ 	int64_t end, 
+-	int mode,
+ 	AutoConf *autoconf)
+ {
+ 	AutoConf *temp_autoconf = 0;
+@@ -209,7 +247,7 @@
+ 	{
+ 		if(autos[i] && autoconf->autos[i])
+ 		{
+-			autos[i]->set_automation_mode(start, end, mode);
++			autos[i]->straighten(start, end);
+ 		}
+ 	}
+ 
+@@ -309,13 +347,15 @@
+ 	float *max,
+ 	int *coords_undefined,
+ 	int64_t unit_start,
+-	int64_t unit_end)
++	int64_t unit_end,
++	int autogrouptype)
+ {
+ 	for(int i = 0; i < AUTOMATION_TOTAL; i++)
+ 	{
+ 		if(autos[i] && edl->session->auto_conf->autos[i])
+ 		{
+-			autos[i]->get_extents(min, max, coords_undefined, unit_start, unit_end);
++			if (autos[i]->autogrouptype == autogrouptype)
++				autos[i]->get_extents(min, max, coords_undefined, unit_start, unit_end);
+ 		}
+ 	}
+ }

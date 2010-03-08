@@ -1,0 +1,17 @@
+--- cinecutie/channelpicker.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/channelpicker.h	2010-02-19 22:19:11.868576808 +0100
+@@ -106,11 +106,11 @@
+ 	
+ 
+ 	void update_channel_list();
+-	void create_objects();
++	int create_objects();
+ 	int reposition();
+ 	int close_threads();
+-	const char *get_source_name(Channel *channel);  // Get the name of the source for a channel
+-	const char *current_channel_name();    // Get the name of the current channel of the device
++	char *get_source_name(Channel *channel);  // Get the name of the source for a channel
++	char *current_channel_name();    // Get the name of the current channel of the device
+ 	int channel_up();
+ 	int channel_down();
+ 

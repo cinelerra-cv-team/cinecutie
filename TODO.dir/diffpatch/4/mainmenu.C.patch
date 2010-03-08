@@ -1,0 +1,464 @@
+--- cinecutie/mainmenu.C	2008-08-01 20:46:02.000000000 +0200
++++ /home/user/cinecutie/cinecutie/mainmenu.C	2010-02-19 22:19:11.968571001 +0100
+@@ -20,7 +20,6 @@
+  */
+ 
+ #include "assets.h"
+-#include "auto.h"
+ #include "batchrender.h"
+ #include "bcsignals.h"
+ #include "cache.h"
+@@ -43,10 +42,7 @@
+ #include "mainmenu.h"
+ #include "mainsession.h"
+ #include "mainundo.h"
+-#include "menuattacheffect.h"
+-#include "menuattachtransition.h"
+ #include "menuaeffects.h"
+-#include "menutransitionlength.h"
+ #include "menuveffects.h"
+ #include "mwindowgui.h"
+ #include "mwindow.h"
+@@ -67,6 +63,7 @@
+ #include "transportque.h"
+ #include "viewmenu.h"
+ #include "zoombar.h"
++#include "exportedl.h"
+ 
+ #include <string.h>
+ 
+@@ -82,21 +79,24 @@
+ {
+ }
+ 
+-void MainMenu::create_objects()
++int MainMenu::create_objects()
+ {
+ 	BC_Menu *viewmenu, *windowmenu, *settingsmenu, *trackmenu;
+ 	PreferencesMenuitem *preferences;
+-	Load *append_file;
+-	total_loads = 0; 
++
++	recent_load = new BC_RecentList("PATH", mwindow->defaults);
++SET_TRACE
+ 
+ 	add_menu(filemenu = new BC_Menu(_("File")));
+ 	filemenu->add_item(new_project = new New(mwindow));
+ 	new_project->create_objects();
+ 
++SET_TRACE
+ // file loaders
+ 	filemenu->add_item(load_file = new Load(mwindow, this));
+ 	load_file->create_objects();
+ 
++SET_TRACE
+ // new and load can be undone so no need to prompt save
+ 	Save *save;                   //  affected by saveas
+ 	filemenu->add_item(save = new Save(mwindow));
+@@ -107,6 +107,7 @@
+ 	filemenu->add_item(record = new RecordMenuItem(mwindow));
+ 
+ 	filemenu->add_item(render = new RenderItem(mwindow));
++	filemenu->add_item(new ExportEDLItem(mwindow));
+ 	filemenu->add_item(new BatchRenderMenuItem(mwindow));
+ 	filemenu->add_item(new BC_MenuItem("-"));
+ 	filemenu->add_item(quit_program = new Quit(mwindow));
+@@ -130,9 +131,6 @@
+ 	editmenu->add_item(new TrimSelection(mwindow));
+ 	editmenu->add_item(new SelectAll(mwindow));
+ 	editmenu->add_item(new BC_MenuItem("-"));
+-	editmenu->add_item(new MenuTransitionLength(mwindow));
+-	editmenu->add_item(new DetachTransitions(mwindow));
+-	editmenu->add_item(new BC_MenuItem("-"));
+ 	editmenu->add_item(new ClearLabels(mwindow));
+ 
+ 	BC_Menu *keyframemenu;
+@@ -142,9 +140,6 @@
+ 	keyframemenu->add_item(new PasteKeyframes(mwindow));
+ 	keyframemenu->add_item(new ClearKeyframes(mwindow));
+ 	keyframemenu->add_item(new StraightenKeyframes(mwindow));
+-	keyframemenu->add_item(new BendKeyframes(mwindow));
+-	keyframemenu->add_item(keyframe_type = new KeyframeType(mwindow, 
+-		mwindow->edl->local_session->floatauto_type));
+ 	keyframemenu->add_item(new BC_MenuItem("-"));
+ 	keyframemenu->add_item(new CopyDefaultKeyframe(mwindow));
+ 	keyframemenu->add_item(new PasteDefaultKeyframe(mwindow));
+@@ -157,15 +152,11 @@
+ 	audiomenu->add_item(new DefaultATransition(mwindow));
+ 	audiomenu->add_item(new MapAudio1(mwindow));
+ 	audiomenu->add_item(new MapAudio2(mwindow));
+-	audiomenu->add_item(new MenuAttachTransition(mwindow, TRACK_AUDIO));
+-	audiomenu->add_item(new MenuAttachEffect(mwindow, TRACK_AUDIO));
+ 	audiomenu->add_item(aeffects = new MenuAEffects(mwindow));
+ 
+ 	add_menu(videomenu = new BC_Menu(_("Video")));
+ 	videomenu->add_item(new AddVideoTrack(mwindow));
+ 	videomenu->add_item(new DefaultVTransition(mwindow));
+-	videomenu->add_item(new MenuAttachTransition(mwindow, TRACK_VIDEO));
+-	videomenu->add_item(new MenuAttachEffect(mwindow, TRACK_VIDEO));
+ 	videomenu->add_item(veffects = new MenuVEffects(mwindow));
+ 
+ 	add_menu(trackmenu = new BC_Menu(_("Tracks")));
+@@ -223,6 +214,8 @@
+ 	windowmenu->add_item(show_lwindow = new ShowLWindow(mwindow));
+ 	windowmenu->add_item(new TileWindows(mwindow));
+ 
++SET_TRACE
++	return 0;
+ }
+ 
+ int MainMenu::load_defaults(BC_Hash *defaults)
+@@ -236,13 +229,10 @@
+ void MainMenu::update_toggles(int use_lock)
+ {
+ 	if(use_lock) lock_window("MainMenu::update_toggles");
+-	keyframe_type->set_checked(mwindow->edl->local_session->floatauto_type == Auto::BEZIER);
+ 	labels_follow_edits->set_checked(mwindow->edl->session->labels_follow_edits);
+ 	plugins_follow_edits->set_checked(mwindow->edl->session->plugins_follow_edits);
+ 	cursor_on_frames->set_checked(mwindow->edl->session->cursor_on_frames);
+ 	loop_playback->set_checked(mwindow->edl->local_session->loop_playback);
+-
+-	show_assets->set_checked(mwindow->edl->session->show_assets);
+ 	show_titles->set_checked(mwindow->edl->session->show_titles);
+ 	show_transitions->set_checked(mwindow->edl->session->auto_conf->transitions);
+ 	fade_automation->update_toggle();
+@@ -257,13 +247,11 @@
+ 	plugin_automation->set_checked(mwindow->edl->session->auto_conf->plugins);
+ 	mode_automation->update_toggle();
+ 	mask_automation->update_toggle();
+-
+ 	if(use_lock) mwindow->gui->unlock_window();
+ }
+ 
+ int MainMenu::save_defaults(BC_Hash *defaults)
+ {
+-	save_loads(defaults);
+ 	save_aeffects(defaults);
+ 	save_veffects(defaults);
+ 	return 0;
+@@ -287,9 +275,9 @@
+ 
+ int MainMenu::init_aeffects(BC_Hash *defaults)
+ {
+-	total_aeffects = defaults->get((char*)"TOTAL_AEFFECTS", 0);
++	total_aeffects = defaults->get("TOTAL_AEFFECTS", 0);
+ 	
+-	char string[BCTEXTLEN], title[BCTEXTLEN];
++	char string[1024], title[1024];
+ 	if(total_aeffects) audiomenu->add_item(new BC_MenuItem("-"));
+ 	
+ 	for(int i = 0; i < total_aeffects; i++)
+@@ -303,9 +291,9 @@
+ 
+ int MainMenu::init_veffects(BC_Hash *defaults)
+ {
+-	total_veffects = defaults->get((char*)"TOTAL_VEFFECTS", 0);
++	total_veffects = defaults->get("TOTAL_VEFFECTS", 0);
+ 	
+-	char string[BCTEXTLEN], title[BCTEXTLEN];
++	char string[1024], title[1024];
+ 	if(total_veffects) videomenu->add_item(new BC_MenuItem("-"));
+ 	
+ 	for(int i = 0; i < total_veffects; i++)
+@@ -320,22 +308,22 @@
+ int MainMenu::init_loads(BC_Hash *defaults)
+ {
+ //printf("MainMenu::init_loads 1\n");
+-	total_loads = defaults->get((char*)"TOTAL_LOADS", 0);
+ //printf("MainMenu::init_loads 1\n");
+ 	char string[BCTEXTLEN], path[BCTEXTLEN], filename[BCTEXTLEN];
+ //printf("MainMenu::init_loads 1\n");
+ 	FileSystem dir;
++	
++	recent_load->load_items();
++
++	int total_loads = recent_load->items.total;
+ //printf("MainMenu::init_loads 2\n");
+ 	if(total_loads > 0) filemenu->add_item(new BC_MenuItem("-"));
+ 
+ 	for(int i = 0; i < total_loads; i++)
+ 	{
+-		sprintf(string, "LOADPREVIOUS%d", i);
+-//printf("MainMenu::init_loads 3\n");
+-		defaults->get(string, path);
+-//printf("MainMenu::init_loads 4\n");
++		char *path = recent_load->items.values[i]->get_text();
+ 
+-		filemenu->add_item(load[i] = new LoadPrevious(mwindow, load_file));
++		filemenu->add_item(load[i] = new LoadPrevious(mwindow));
+ //printf("MainMenu::init_loads 5\n");
+ 		dir.extract_name(filename, path, 0);
+ //printf("MainMenu::init_loads 6\n");
+@@ -352,8 +340,8 @@
+ 
+ int MainMenu::save_aeffects(BC_Hash *defaults)
+ {
+-	defaults->update((char*)"TOTAL_AEFFECTS", total_aeffects);
+-	char string[BCTEXTLEN];
++	defaults->update("TOTAL_AEFFECTS", total_aeffects);
++	char string[1024];
+ 	for(int i = 0; i < total_aeffects; i++)
+ 	{
+ 		sprintf(string, "AEFFECTRECENT%d", i);
+@@ -364,8 +352,8 @@
+ 
+ int MainMenu::save_veffects(BC_Hash *defaults)
+ {
+-	defaults->update((char*)"TOTAL_VEFFECTS", total_veffects);
+-	char string[BCTEXTLEN];
++	defaults->update("TOTAL_VEFFECTS", total_veffects);
++	char string[1024];
+ 	for(int i = 0; i < total_veffects; i++)
+ 	{
+ 		sprintf(string, "VEFFECTRECENT%d", i);
+@@ -374,18 +362,6 @@
+ 	return 0;
+ }
+ 
+-int MainMenu::save_loads(BC_Hash *defaults)
+-{
+-	defaults->update((char*)"TOTAL_LOADS", total_loads);
+-	char string[BCTEXTLEN];
+-	for(int i = 0; i < total_loads; i++)
+-	{
+-		sprintf(string, "LOADPREVIOUS%d", i);
+-		defaults->update(string, load[i]->path);
+-	}
+-	return 0;
+-}
+-
+ // =================================== add most recent
+ 
+ int MainMenu::add_aeffect(char *title)
+@@ -413,8 +389,7 @@
+ // add another blank effect
+ 	if(total_aeffects < TOTAL_EFFECTS)
+ 	{
+-		audiomenu->add_item(
+-			aeffect[total_aeffects] = new MenuAEffectItem(aeffects, (char*)""));
++		audiomenu->add_item(aeffect[total_aeffects] = new MenuAEffectItem(aeffects, ""));
+ 		total_aeffects++;
+ 	}
+ 
+@@ -455,8 +430,7 @@
+ // add another blank effect
+ 	if(total_veffects < TOTAL_EFFECTS)
+ 	{
+-		videomenu->add_item(veffect[total_veffects] = 
+-			new MenuVEffectItem(veffects, (char*)""));
++		videomenu->add_item(veffect[total_veffects] = new MenuVEffectItem(veffects, ""));
+ 		total_veffects++;
+ 	}
+ 
+@@ -472,54 +446,38 @@
+ 	return 0;
+ }
+ 
+-int MainMenu::add_load(char *path)
++int MainMenu::add_load(char *new_path)
+ {
++	char filename[BCTEXTLEN];
++	FileSystem dir;
++
++	int total_loads = recent_load->items.total;
++
+ 	if(total_loads == 0)
+ 	{
+ 		filemenu->add_item(new BC_MenuItem("-"));
+ 	}
+ 
+-// test for existing copy
+-	FileSystem fs;
+-	char text[BCTEXTLEN], new_path[BCTEXTLEN];      // get text and path
+-	fs.extract_name(text, path);
+-	strcpy(new_path, path);
++	int new_total = recent_load->add_item(NULL, new_path);
+ 
+-	for(int i = 0; i < total_loads; i++)
+-	{
+-		if(!strcmp(load[i]->get_text(), text))     // already exists
+-		{                                // swap for top load
+-			for(int j = i; j > 0; j--)   // move preceeding loads down
+-			{
+-				load[j]->set_text(load[j - 1]->get_text());
+-				load[j]->set_path(load[j - 1]->path);
+-			}
+-			load[0]->set_text(text);
+-			load[0]->set_path(new_path);
+-			
+-			return 1;
+-		}
+-	}
+-	
+-// add another load
+-	if(total_loads < TOTAL_LOADS)
+-	{
+-		filemenu->add_item(load[total_loads] = new LoadPrevious(mwindow, load_file));
+-		total_loads++;
++	if (new_total > total_loads) {
++		// just create a new item if there is room for it
++		int i = new_total - 1;
++		load[i] = new LoadPrevious(mwindow);
++		dir.extract_name(filename, new_path, 0);
++		load[i]->set_text(filename);
++		load[i]->set_path(new_path);
++		filemenu->add_item(load[i]);
+ 	}
+-	
+-// cycle loads down
+-	for(int i = total_loads - 1; i > 0; i--)
+-	{
+-	// set menu item text
+-		load[i]->set_text(load[i - 1]->get_text());
+-	// set filename
+-		load[i]->set_path(load[i - 1]->path);
++
++	// reassign the paths to adjust for the shift down
++	for(int i = 0; i < new_total; i++) {
++		char *path = recent_load->items.values[i]->get_text();
++		dir.extract_name(filename, path, 0);
++		load[i]->set_text(filename);
++		load[i]->set_path(path);
+ 	}
+ 
+-// set up the new load
+-	load[0]->set_text(text);
+-	load[0]->set_path(new_path);
+ 	return 0;
+ }
+ 
+@@ -591,9 +549,9 @@
+ 	mwindow->undo_entry(mwindow->gui);
+ 	return 1;
+ }
+-int Undo::update_caption(const char *new_caption)
++int Undo::update_caption(char *new_caption)
+ {
+-	char string[BCTEXTLEN];
++	char string[1024];
+ 	sprintf(string, _("Undo %s"), new_caption);
+ 	set_text(string);
+ }
+@@ -611,9 +569,9 @@
+ 
+ 	return 1;
+ }
+-int Redo::update_caption(const char *new_caption)
++int Redo::update_caption(char *new_caption)
+ {
+-	char string[BCTEXTLEN];
++	char string[1024];
+ 	sprintf(string, _("Redo %s"), new_caption);
+ 	set_text(string);
+ }
+@@ -656,7 +614,7 @@
+ }
+ 
+ ClearKeyframes::ClearKeyframes(MWindow *mwindow)
+- : BC_MenuItem(_("Clear keyframes"), "Shift-Del", BACKSPACE)
++ : BC_MenuItem(_("Clear keyframes"), "Shift-Del", DELETE)
+ {
+ 	set_shift(); 
+ 	this->mwindow = mwindow; 
+@@ -669,53 +627,20 @@
+ }
+ 
+ 
+-
+ StraightenKeyframes::StraightenKeyframes(MWindow *mwindow)
+- : BC_MenuItem(_("Change to linear"))
++ : BC_MenuItem(_("Straighten curves"))
+ {
+ 	this->mwindow = mwindow; 
+ }
+ 
+ int StraightenKeyframes::handle_event()
+ {
+-	mwindow->set_automation_mode(Auto::LINEAR);
+-	return 1;
+-}
+-
+-
+-
+-
+-BendKeyframes::BendKeyframes(MWindow *mwindow)
+- : BC_MenuItem(_("Change to bezier"))
+-{
+-	this->mwindow = mwindow; 
+-}
+-
+-int BendKeyframes::handle_event()
+-{
+-	mwindow->set_automation_mode(Auto::BEZIER);
++	mwindow->straighten_automation();
+ 	return 1;
+ }
+ 
+ 
+ 
+-KeyframeType::KeyframeType(MWindow *mwindow, int type)
+- : BC_MenuItem("Create bezier")
+-{
+-	this->mwindow = mwindow;
+-	set_checked(type == Auto::BEZIER);
+-}
+-
+-int KeyframeType::handle_event()
+-{
+-	if(get_checked())
+-		mwindow->set_keyframe_type(Auto::LINEAR);
+-	else
+-		mwindow->set_keyframe_type(Auto::BEZIER);
+-	return 1;
+-}
+-
+-
+ 
+ 
+ 
+@@ -761,7 +686,7 @@
+ }
+ 
+ ClearDefaultKeyframe::ClearDefaultKeyframe(MWindow *mwindow)
+- : BC_MenuItem(_("Clear default keyframe"), "Alt-Del", BACKSPACE)
++ : BC_MenuItem(_("Clear default keyframe"), "Alt-Del", DELETE)
+ {
+ 	set_alt(); 
+ 	this->mwindow = mwindow; 
+@@ -810,7 +735,7 @@
+ }
+ 
+ Clear::Clear(MWindow *mwindow)
+- : BC_MenuItem(_("Clear"), "Del", BACKSPACE) 
++ : BC_MenuItem(_("Clear"), "Del", DELETE) 
+ {
+ 	this->mwindow = mwindow; 
+ }
+@@ -859,18 +784,6 @@
+ 	return 1;
+ }
+ 
+-DetachTransitions::DetachTransitions(MWindow *mwindow)
+- : BC_MenuItem(_("Detach transitions")) 
+-{ 
+-	this->mwindow = mwindow; 
+-}
+-
+-int DetachTransitions::handle_event()
+-{
+-	mwindow->detach_transitions();
+-	return 1;
+-}
+-
+ MuteSelection::MuteSelection(MWindow *mwindow)
+  : BC_MenuItem(_("Mute Region"), "m", 'm')
+ {
+@@ -1158,7 +1071,7 @@
+ int LabelsFollowEdits::handle_event()
+ {
+ 	set_checked(get_checked() ^ 1);
+-	mwindow->edl->session->labels_follow_edits = get_checked(); 
++	mwindow->set_labels_follow_edits(get_checked());
+ }
+ 
+ 

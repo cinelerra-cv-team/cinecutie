@@ -1,0 +1,457 @@
+--- cinecutie/track.C	2008-07-26 03:56:57.000000000 +0200
++++ /home/user/cinecutie/cinecutie/track.C	2010-02-19 22:19:12.008571675 +0100
+@@ -75,8 +75,9 @@
+ 	plugin_set.remove_all_objects();
+ }
+ 
+-void Track::create_objects()
++int Track::create_objects()
+ {
++	return 0;
+ }
+ 
+ 
+@@ -235,21 +236,18 @@
+ 	double length = 0;
+ 
+ // Test edits
+-	if(edits->last)
+-	{
+-		length = from_units(edits->last->startproject + edits->last->length);
+-		if(length > total_length) total_length = length;
+-	}
++	int64_t unit_end;
++	unit_end = edits->last->startproject;
++	if (edits->last->transition)
++		unit_end += edits->last->transition->length + 1; // add one so transition is finished...
++	length = from_units(unit_end);
++	if(length > total_length) total_length = length;
+ 
+ // Test plugins
+ 	for(int i = 0; i < plugin_set.total; i++)
+ 	{
+-		if(plugin_set.values[i]->last)
+-		{
+-			length = from_units(plugin_set.values[i]->last->startproject + 
+-				plugin_set.values[i]->last->length);
+-			if(length > total_length) total_length = length;
+-		}
++		length = from_units(plugin_set.values[i]->last->startproject);
++		if(length > total_length) total_length = length;
+ 	}
+ 
+ // Test keyframes
+@@ -372,6 +370,7 @@
+ 		to_units(length, 1), 
+ 		to_units(position, 0), 
+ 		track_number);
++	edits->loaded_length += to_units(length, 1);
+ }
+ 
+ // Insert data
+@@ -391,30 +390,20 @@
+ void Track::insert_track(Track *track, 
+ 	double position, 
+ 	int replace_default,
+-	int edit_plugins,
+-	double edl_length)
++	int edit_plugins)
+ {
+-// Calculate minimum length of data to pad.
+-	int64_t min_length = to_units(
+-		MAX(edl_length, track->get_length()),
+-		1);
+-//printf("Track::insert_track %d %s %lld\n", __LINE__, title, min_length);
+ 
+ // Decide whether to copy settings based on load_mode
+ 	if(replace_default) copy_settings(track);
+ 
+-	edits->insert_edits(track->edits, 
+-		to_units(position, 0),
+-		min_length);
++	edits->insert_edits(track->edits, to_units(position, 0));
+ 
+ 	if(edit_plugins)
+-		insert_plugin_set(track, 
+-			to_units(position, 0),
+-			min_length);
++		insert_plugin_set(track, position);
+ 
+ 	automation->insert_track(track->automation, 
+ 		to_units(position, 0), 
+-		min_length,
++		to_units(track->get_length(), 1),
+ 		replace_default);
+ 
+ 	optimize();
+@@ -422,15 +411,14 @@
+ }
+ 
+ // Called by insert_track
+-void Track::insert_plugin_set(Track *track, 
+-	int64_t position,
+-	int64_t min_length)
++void Track::insert_plugin_set(Track *track, double position)
+ {
+ // Extend plugins if no incoming plugins
+ 	if(!track->plugin_set.total)
+ 	{
+ 		shift_effects(position, 
+-			min_length);
++			track->get_length(), 
++			1);
+ 	}
+ 	else
+ 	for(int i = 0; i < track->plugin_set.total; i++)
+@@ -439,13 +427,12 @@
+ 			plugin_set.append(new PluginSet(edl, this));
+ 
+ 		plugin_set.values[i]->insert_edits(track->plugin_set.values[i], 
+-			position,
+-			min_length);
++			to_units(position, 0));
+ 	}
+ }
+ 
+ 
+-Plugin* Track::insert_effect(const char *title, 
++Plugin* Track::insert_effect(char *title, 
+ 		SharedLocation *shared_location, 
+ 		KeyFrame *default_keyframe,
+ 		PluginSet *plugin_set,
+@@ -490,7 +477,7 @@
+ 			{
+ 				plugin = plugin_set->insert_plugin(title, 
+ 					to_units(start, 0), 
+-					to_units(length, 0),
++					to_units(length, 1),
+ 					plugin_type, 
+ 					shared_location,
+ 					default_keyframe,
+@@ -520,7 +507,7 @@
+ 
+ 		plugin = plugin_set->insert_plugin(title, 
+ 			to_units(start, 0), 
+-			to_units(length, 0),
++			to_units(length, 1),
+ 			plugin_type, 
+ 			shared_location,
+ 			default_keyframe,
+@@ -543,6 +530,12 @@
+ 			PluginSet *temp = this->plugin_set.values[i - 1];
+ 			this->plugin_set.values[i - 1] = this->plugin_set.values[i];
+ 			this->plugin_set.values[i] = temp;
++
++			SharedLocation old_location, new_location;
++			new_location.module = old_location.module = tracks->number_of(this);
++			old_location.plugin = i;
++			new_location.plugin = i - 1;
++			tracks->change_plugins(old_location, new_location, 1);
+ 			break;
+ 		}
+ 	}
+@@ -559,6 +552,12 @@
+ 			PluginSet *temp = this->plugin_set.values[i + 1];
+ 			this->plugin_set.values[i + 1] = this->plugin_set.values[i];
+ 			this->plugin_set.values[i] = temp;
++
++			SharedLocation old_location, new_location;
++			new_location.module = old_location.module = tracks->number_of(this);
++			old_location.plugin = i;
++			new_location.plugin = i + 1;
++			tracks->change_plugins(old_location, new_location, 1);
+ 			break;
+ 		}
+ 	}
+@@ -594,19 +593,30 @@
+ 	}
+ }
+ 
+-void Track::shift_keyframes(int64_t position, int64_t length)
++void Track::shift_keyframes(double position, double length, int convert_units)
+ {
+-	automation->paste_silence(position, 
+-		position + length);
++	if(convert_units)
++	{
++		position = to_units(position, 0);
++		length = to_units(length, 1);
++	}
++
++	automation->paste_silence(Units::to_int64(position), 
++		Units::to_int64(position + length));
+ // Effect keyframes are shifted in shift_effects
+ }
+ 
+-void Track::shift_effects(int64_t position, int64_t length)
++void Track::shift_effects(double position, double length, int convert_units)
+ {
++	if(convert_units)
++	{
++		position = to_units(position, 0);
++		length = to_units(length, 1);
++	}
++
+ 	for(int i = 0; i < plugin_set.total; i++)
+ 	{
+-		plugin_set.values[i]->shift_effects(position, 
+-			length);
++		plugin_set.values[i]->shift_effects(Units::to_int64(position), Units::to_int64(length));
+ 	}
+ }
+ 
+@@ -631,9 +641,8 @@
+ // Delete 0 length pluginsets	
+ 				plugin_set->optimize();
+ //printf("Track::detach_effect 2 %d\n", plugin_set->length());
+-				if(!plugin_set->length()) 
+-					this->plugin_set.remove_object(plugin_set);
+-
++				if(plugin_set->last == plugin_set->first && plugin_set->last->silence())
++					remove_pluginset(plugin_set);
+ 				return;
+ 			}
+ 		}
+@@ -671,7 +680,7 @@
+ 
+ // Delete 0 length pluginsets	
+ 				plugin_set->optimize();
+-				if(!plugin_set->length())  
++				if(plugin_set->last == plugin_set->first && plugin_set->last->silence())
+ 				{
+ 					this->plugin_set.remove_object_number(i);
+ 					--i;
+@@ -687,11 +696,13 @@
+ 	edits->optimize();
+ 	for(int i = 0; i < plugin_set.total; i++)
+ 	{
+-		plugin_set.values[i]->optimize();
++		PluginSet *plugin_set = this->plugin_set.values[i];
++		plugin_set->optimize();
+ //printf("Track::optimize %d\n", plugin_set.values[i]->total());
+-		if(plugin_set.values[i]->total() <= 0)
++// new definition of empty track...
++		if(plugin_set->last == plugin_set->first && plugin_set->last->silence())
+ 		{
+-			remove_pluginset(plugin_set.values[i]);
++			remove_pluginset(plugin_set);
+ 			i--;
+ 		}
+ 	}
+@@ -893,10 +904,10 @@
+ 	double selectionend, 
+ 	FileXML *file,
+ 	int default_only,
+-	int active_only)
++	int autos_only)
+ {
+ 	int64_t start = to_units(selectionstart, 0);
+-	int64_t end = to_units(selectionend, 0);
++	int64_t end = to_units(selectionend, 1);
+ 
+ 	file->tag.set_title("TRACK");
+ // Video or audio
+@@ -904,10 +915,13 @@
+ 	file->append_tag();
+ 	file->append_newline();
+ 
+-	automation->copy(start, end, file, default_only, active_only);
++	automation->copy(start, end, file, default_only, autos_only);
+ 
+ 	if(edl->session->auto_conf->plugins)
+ 	{
++		file->tag.set_title("PLUGINSETS");
++		file->append_tag();
++		file->append_newline();
+ 		for(int i = 0; i < plugin_set.total; i++)
+ 		{
+ 		
+@@ -915,8 +929,11 @@
+ 				end, 
+ 				file, 
+ 				default_only,
+-				active_only);
++				autos_only);
+ 		}
++		file->tag.set_title("/PLUGINSETS");
++		file->append_tag();
++		file->append_newline();
+ 	}
+ 
+ 	file->tag.set_title("/TRACK");
+@@ -934,15 +951,13 @@
+ 	double frame_rate,
+ 	int64_t sample_rate,
+ 	FileXML *file,
+-	int default_only,
+-	int active_only)
++	int default_only)
+ {
+ // Only used for pasting automation alone.
+ 	int64_t start;
+ 	int64_t length;
+ 	int result;
+ 	double scale;
+-	int current_pluginset;
+ 
+ 	if(data_type == TRACK_AUDIO)
+ 		scale = edl->session->sample_rate / sample_rate;
+@@ -951,9 +966,8 @@
+ 
+ 	total_length *= scale;
+ 	start = to_units(selectionstart, 0);
+-	length = to_units(total_length, 0);
++	length = to_units(total_length, 1);
+ 	result = 0;
+-	current_pluginset = 0;
+ //printf("Track::paste_automation 1\n");
+ 
+ 	while(!result)
+@@ -970,26 +984,24 @@
+ 					scale,
+ 					file,
+ 					default_only,
+-					active_only,
+ 					0))
++			/* strstr(file->tag.get_title(), "AUTOS")) */
+ 			{
+ 				;
+ 			}
+ 			else
+-			if(file->tag.title_is("PLUGINSET"))
++			if(file->tag.title_is("PLUGINSETS"))
+ 			{
+-				if(current_pluginset < plugin_set.total)
+-				{
+-					plugin_set.values[current_pluginset]->paste_keyframes(start, 
+-						length, 
+-						file,
+-						default_only,
+-						active_only);
+-					current_pluginset++;
+-				}
++//printf("Track::paste_automation 2 %d\n", current_pluginset);
++				PluginSet::paste_keyframes(start, 
++					length, 
++					file,
++					default_only,
++					this);
+ 			}
+ 		}
+ 	}
++//printf("Track::paste_automation 3\n");
+ 	
+ 
+ 	return 0;
+@@ -1001,7 +1013,7 @@
+ 	int default_only)
+ {
+ 	int64_t start = to_units(selectionstart, 0);
+-	int64_t end = to_units(selectionend, 0);
++	int64_t end = to_units(selectionend, 1);
+ 
+ 	automation->clear(start, end, edl->session->auto_conf, 0);
+ 
+@@ -1015,14 +1027,13 @@
+ 
+ }
+ 
+-void Track::set_automation_mode(double selectionstart, 
+-	double selectionend,
+-	int mode)
++void Track::straighten_automation(double selectionstart, 
++	double selectionend)
+ {
+ 	int64_t start = to_units(selectionstart, 0);
+-	int64_t end = to_units(selectionend, 0);
++	int64_t end = to_units(selectionend, 1);
+ 
+-	automation->set_automation_mode(start, end, mode, edl->session->auto_conf);
++	automation->straighten(start, end, edl->session->auto_conf);
+ }
+ 
+ 
+@@ -1031,7 +1042,7 @@
+ int Track::copy(double start, 
+ 	double end, 
+ 	FileXML *file, 
+-	const char *output_path)
++	char *output_path)
+ {
+ // Use a copy of the selection in converted units
+ // So copy_automation doesn't reconvert.
+@@ -1101,7 +1112,7 @@
+ 	int i, result = 0;
+ 
+ 	start = to_units(start, 0);
+-	end = to_units(end, 0);
++	end = to_units(end, 1);
+ 
+ 	Edit *current = edits->editof((int64_t)start, PLAY_FORWARD, 0);
+ 
+@@ -1143,7 +1154,7 @@
+ 	if(convert_units)
+ 	{
+ 		start = to_units(start, 0);
+-		end = to_units(end, 0);
++		end = to_units(end, 1);
+ 	}
+ 
+ 	if(edit_edits)
+@@ -1223,12 +1234,12 @@
+ 
+ int Track::paste_silence(double start, double end, int edit_plugins)
+ {
+-	int64_t start_i = to_units(start, 0);
+-	int64_t end_i = to_units(end, 1);
++	start = to_units(start, 0);
++	end = to_units(end, 1);
+ 
+-	edits->paste_silence(start_i, end_i);
+-	shift_keyframes(start_i, end_i - start_i);
+-	if(edit_plugins) shift_effects(start_i, end_i - start_i);
++	edits->paste_silence((int64_t)start, (int64_t)end);
++	shift_keyframes(start, end - start, 0);
++	if(edit_plugins) shift_effects(start, end - start, 0);
+ 
+ 	edits->optimize();
+ 	return 0;
+@@ -1386,7 +1397,7 @@
+ 			if(current && 
+ 				((test_transitions && current->transition) ||
+ 				(!test_transitions && current->asset)))
+-				edit_length = input_position - edits->last->startproject - edits->last->length + 1;
++				edit_length = input_position - edits->length() + 1;
+ 		}
+ 	}
+ 	else
+@@ -1516,29 +1527,3 @@
+ {
+ 	return (double)position;
+ }
+-
+-int Track::plugin_exists(Plugin *plugin)
+-{
+-	for(int number = 0; number < plugin_set.size(); number++)
+-	{
+-		PluginSet *ptr = plugin_set.get(number);
+-		for(Plugin *current_plugin = (Plugin*)ptr->first;
+-			current_plugin;
+-			current_plugin = (Plugin*)current_plugin->next)
+-		{
+-			if(current_plugin == plugin) return 1;
+-		}
+-	}
+-
+-	for(Edit *current = edits->first; current; current = NEXT)
+-	{
+-		if(current->transition &&
+-			(Plugin*)current->transition == plugin) return 1;
+-	}
+-
+-
+-	return 0;
+-}
+-
+-
+-		

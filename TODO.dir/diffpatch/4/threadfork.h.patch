@@ -1,0 +1,20 @@
+--- cinecutie/threadfork.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/threadfork.h	2010-02-19 22:19:12.008571675 +0100
+@@ -37,7 +37,7 @@
+ 	
+ 	FILE* get_stdin();
+ 	void run();
+-	void start_command(const char *command_line, int pipe_stdin);
++	void start_command(char *command_line, int pipe_stdin);
+ 	
+ 	static void* entrypoint(void *ptr);
+ 	
+@@ -50,7 +50,7 @@
+ 	int total_arguments;
+ 	FILE *stdin_fd;
+ 	pthread_mutex_t start_lock;
+-	const char *command_line;
++	char *command_line;
+ 	int pipe_stdin;
+ };
+ 

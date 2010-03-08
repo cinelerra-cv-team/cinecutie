@@ -1,0 +1,36 @@
+--- cinecutie/mwindow.inc	2008-08-06 20:45:37.000000000 +0200
++++ /home/user/cinecutie/cinecutie/mwindow.inc	2010-02-19 22:19:11.978570999 +0100
+@@ -22,17 +22,10 @@
+ #ifndef MWINDOW_INC
+ #define MWINDOW_INC
+ 
+-#define PROGRAM_NAME "Cinelerra"
+-#define CINELERRA_VERSION "4"
++#define PROGRAM_NAME "Cinecutie"
++#define CINECUTIE_VERSION "1.0"
+ #define DEFAULT_THEME "S.U.V."
+-#define CONFIG_FILE "Cinelerra_rc"
+-#define PRESETS_FILE "Cinelerra_presets"
+-
+-// #ifdef __x86_64__
+-// #define PLUGIN_DIR "/usr/lib64/cinelerra"
+-// #else
+-// #define PLUGIN_DIR "/usr/lib/cinelerra"
+-// #endif
++#define CONFIG_FILE "Cinecutie_rc"
+ 
+ // What to call silence in the EDL
+ #define SILENCE "SILENCE"
+@@ -41,12 +34,6 @@
+ #define SELECTION_SAMPLES 0
+ #define SELECTION_EDIT 1
+ 
+-// min milliseconds between tweek undos to create new undo entries
+-#define UNDO_SPAN 1000
+-
+-// Make tweeks span keyframes if a region is selected
+-#define USE_KEYFRAME_SPANNING
+-
+ class MWindow;
+ 
+ #endif

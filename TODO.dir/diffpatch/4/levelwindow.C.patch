@@ -1,0 +1,15 @@
+--- cinecutie/levelwindow.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/levelwindow.C	2010-02-19 22:19:11.968571001 +0100
+@@ -41,10 +41,11 @@
+ 	if(gui) delete gui;
+ }
+ 
+-void LevelWindow::create_objects()
++int LevelWindow::create_objects()
+ {
+ 	gui = new LevelWindowGUI(mwindow, this);
+ 	gui->create_objects();
++	return 0;
+ }
+ 
+ 

@@ -1,0 +1,50 @@
+bcbar.inc called by bcwindowbase.h
+bcbitmap.inc called by bcbutton.h bcpixmap.h bcslider.h bctoggle.h bcwindowbase.h
+bcbutton.inc called by bcwindowbase.h
+bccapture.inc called by bcwindowbase.h
+bcclipboard.inc called by bcwindowbase.h
+bcdelete.inc called by bcfilebox.h
+bcdialog.inc called by bcdialog.h
+bcdisplayinfo.inc called by bcresources.h
+bcdragwindow.inc called by bclistbox.h bcwindowbase.h
+bcfilebox.inc called by bcdelete.h bcfilebox.h bcnewfolder.h bcwindowbase.h
+bchash.inc called by bcrecentlist.h bcwindowbase.h vframe.h
+bclistbox.inc called by bcfilebox.h bcresources.C bcscrollbar.h bcwindowbase.h
+bclistboxitem.inc called by bcfilebox.h bclistbox.h
+bcmenubar.inc called by bcmenubar.h bcmenu.h bcmenuitem.h bcmenupopup.h bcpopupmenu.h bcwindowbase.h
+bcmenu.inc called by bcmenubar.h bcmenupopup.h
+bcmenuitem.inc called by bcmenu.h bcmenupopup.h bcpopupmenu.h
+bcmenupopup.inc called by bcmenu.h bcmenuitem.h bcpopupmenu.h
+bcmeter.inc called by bcmeter.h bcwindowbase.h
+bcnewfolder.inc called by bcfilebox.h
+bcpan.inc called by bcwindowbase.h
+bcpbuffer.inc called by bcsynchronous.h bcwindowbase.h vframe.h
+bcpixmap.inc called by bcdragwindow.h bclistbox.h bclistboxitem.h bcmenubar.h bcmenuitem.h bcpixmap.h bcpopup.h bcsynchronous.h bcwindowbase.h
+bcpopup.inc called by bcmenupopup.h bcwindowbase.h
+bcpopupmenu.inc called by bcmenuitem.h bcmenupopup.h bcwindowbase.h
+bcpot.inc called by bcwindowbase.h
+bcprogressbox.inc called by bcprogressbox.h
+bcprogress.inc called by bcprogressbox.h bcwindowbase.h
+bcrepeater.inc called by bcrepeater.h bcwindowbase.h
+bcresources.inc called by bcfilebox.h bcresources.h bctheme.h bcwindowbase.h
+bcscrollbar.inc called by bcwindowbase.h
+bcsignals.inc called by bcresources.h bcsignals.h
+bcslider.inc called by bcwindowbase.h
+bcsubwindow.inc called by bcwindowbase.h
+bcsynchronous.inc called by bcresources.h bcwindowbase.h
+bctextbox.inc called by bcrecentlist.h bcwindowbase.h
+bctexture.inc called by bcsynchronous.h vframe.h
+bctimer.inc called by bctextbox.h bcwindowbase.h
+bctitle.inc called by bcprogressbox.h bcwindowbase.h
+bctoggle.inc called by bcwindowbase.h
+bctumble.inc called by bcwindowbase.h
+bcwidgetgrid.inc called by bcwindowbase.h
+bcwindowbase.inc called by bcbitmap.h bchash.h bcmenu.h bcmenuitem.h bcmenupopup.h bcpixmap.h bcrepeater.h bcresources.h bcsignals.C bcsynchronous.h bctheme.h bcwindowbase.h bcwindowevents.h filesystem.h units.C vframe.h
+bcwindowevents.inc called by bcwindowbase.h
+bcwindow.inc called by bcwindowbase.h
+condition.inc called by bcdialog.h bcfilebox.h bcrepeater.h bcsynchronous.h bcwindowbase.h rotateframe.h
+filesystem.inc called by bcfilebox.h
+mutex.inc called by bccounter.h bcdialog.h bcfilebox.h bcsynchronous.h bcwindowbase.h
+rotateframe.inc called by bcpan.h
+stringfile.inc called by bchash.h
+vframe.inc called by bcbar.h bcbitmap.h bcbutton.h bccapture.h bcpan.h bcpbuffer.h bcpixmap.h bcpixmapsw.h bcpot.h bcresources.h bcsynchronous.h bctexture.h bctheme.h bctoggle.h bcwindowbase.h rotateframe.h vframe.h

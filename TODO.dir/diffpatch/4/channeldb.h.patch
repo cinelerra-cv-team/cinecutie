@@ -1,0 +1,22 @@
+--- cinecutie/channeldb.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/channeldb.h	2010-02-19 22:19:11.868576808 +0100
+@@ -31,8 +31,8 @@
+ 	ChannelDB();
+ 	~ChannelDB();
+ 	
+-	void load(const char *prefix);
+-	void save(const char *prefix);
++	void load(char *prefix);
++	void save(char *prefix);
+ 	void copy_from(ChannelDB *src);
+ 	void clear();
+ 	Channel* get(int number);
+@@ -41,7 +41,7 @@
+ 	void remove_number(int number);
+ 	void set(int number, Channel *ptr);
+ 
+-	char* prefix_to_path(char *path, const char *prefix);
++	char* prefix_to_path(char *path, char *prefix);
+ 
+ 	ArrayList<Channel*> channels;
+ };

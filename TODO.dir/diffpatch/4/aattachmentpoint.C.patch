@@ -1,0 +1,26 @@
+--- cinecutie/aattachmentpoint.C	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/aattachmentpoint.C	2010-02-19 22:19:11.838575648 +0100
+@@ -20,7 +20,6 @@
+  */
+ 
+ #include "aattachmentpoint.h"
+-#include "bcsignals.h"
+ #include "datatype.h"
+ #include "edl.h"
+ #include "edlsession.h"
+@@ -141,6 +140,7 @@
+ // Process plugin
+ 		double *output_temp[1];
+ 		output_temp[0] = output;
++//printf("AAttachmentPoint::render 1\n");
+ 		plugin_servers.values[buffer_number]->process_buffer(output_temp,
+ 			start_position,
+ 			len,
+@@ -149,6 +149,7 @@
+ 				sample_rate /
+ 				renderengine->edl->session->sample_rate,
+ 			renderengine->command->get_direction());
++//printf("AAttachmentPoint::render 10\n");
+ 	}
+ }
+ 

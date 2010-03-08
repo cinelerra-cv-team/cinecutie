@@ -1,0 +1,154 @@
+--- cinecutie/dv1394.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/dv1394.h	2010-02-19 22:19:11.948570683 +0100
+@@ -144,64 +144,84 @@
+    frame 0. Then call DV1394_SUBMIT_FRAMES to inform the device that
+    it may transmit the new frames.
+ 
+-*/
+-
+-
+-/* maximum number of frames in the ringbuffer */
+-#define DV1394_MAX_FRAMES 32
+-
+-/* number of *full* isochronous packets per DV frame */
+-#define DV1394_NTSC_PACKETS_PER_FRAME 250
+-#define DV1394_PAL_PACKETS_PER_FRAME  300
+-
+-/* size of one frame's worth of DV data, in bytes */
+-#define DV1394_NTSC_FRAME_SIZE (480 * DV1394_NTSC_PACKETS_PER_FRAME)
+-#define DV1394_PAL_FRAME_SIZE  (480 * DV1394_PAL_PACKETS_PER_FRAME)
++   ERROR HANDLING
+ 
++   An error (buffer underflow/overflow or a break in the DV stream due
++   to a 1394 bus reset) can be detected by checking the dropped_frames
++   field of struct dv1394_status (obtained through the
++   DV1394_GET_STATUS ioctl).
+ 
+-/* ioctl() commands */
++   The best way to recover from such an error is to re-initialize
++   dv1394, either by using the DV1394_INIT ioctl call, or closing the
++   file descriptor and opening it again. (note that you must unmap all
++   ringbuffer mappings when closing the file descriptor, or else
++   dv1394 will still be considered 'in use').
+ 
+-enum {
+-	/* I don't like using 0 as a valid ioctl() */
+-	DV1394_INVALID = 0,
++   MAIN LOOP
+ 
++   For maximum efficiency and robustness against bus errors, you are
++   advised to model the main loop of your application after the
++   following pseudo-code example:
+ 
+-	/* get the driver ready to transmit video.
+-	   pass a struct dv1394_init* as the parameter (see below),
+-	   or NULL to get default parameters */
+-	DV1394_INIT,
++   (checks of system call return values omitted for brevity; always
++   check return values in your code!)
++   
++   while ( frames left ) {
++   
++    struct pollfd *pfd = ...;
+ 
++    pfd->fd = dv1394_fd;
++    pfd->revents = 0;
++    pfd->events = POLLOUT | POLLIN; (OUT for transmit, IN for receive)
+ 
+-	/* stop transmitting video and free the ringbuffer */
+-	DV1394_SHUTDOWN,
++    (add other sources of I/O here)
++    
++    poll(pfd, 1, -1); (or select(); add a timeout if you want)
+ 
++    if (pfd->revents) {
++         struct dv1394_status status;
++	 
++         ioctl(dv1394_fd, DV1394_GET_STATUS, &status);
+ 
+-	/* submit N new frames to be transmitted, where
+-	   the index of the first new frame is first_clear_buffer,
+-	   and the index of the last new frame is
+-	   (first_clear_buffer + N) % n_frames */
+-	DV1394_SUBMIT_FRAMES,
++	 if (status.dropped_frames > 0) {
++	      reset_dv1394();
++         } else {
++              for (int i = 0; i < status.n_clear_frames; i++) {
++	          copy_DV_frame();
++              }
++         }
++    }
++   }
+ 
++   where copy_DV_frame() reads or writes on the dv1394 file descriptor
++   (read/write mode) or copies data to/from the mmap ringbuffer and
++   then calls ioctl(DV1394_SUBMIT_FRAMES) to notify dv1394 that new
++   frames are availble (mmap mode).
+ 
+-	/* block until N buffers are clear (pass N as the parameter)
+-	   Because we re-transmit the last frame on underrun, there
+-	   will at most be n_frames - 1 clear frames at any time */
+-	DV1394_WAIT_FRAMES,
++   reset_dv1394() is called in the event of a buffer
++   underflow/overflow or a halt in the DV stream (e.g. due to a 1394
++   bus reset). To guarantee recovery from the error, this function
++   should close the dv1394 file descriptor (and munmap() all
++   ringbuffer mappings, if you are using them), then re-open the
++   dv1394 device (and re-map the ringbuffer).
++   
++*/
+ 
+-	/* capture new frames that have been received, where
+-	   the index of the first new frame is first_clear_buffer,
+-	   and the index of the last new frame is
+-	   (first_clear_buffer + N) % n_frames */
+-	DV1394_RECEIVE_FRAMES,
+ 
++/* maximum number of frames in the ringbuffer */
++#define DV1394_MAX_FRAMES 32
+ 
+-	DV1394_START_RECEIVE,
++/* number of *full* isochronous packets per DV frame */
++#define DV1394_NTSC_PACKETS_PER_FRAME 250
++#define DV1394_PAL_PACKETS_PER_FRAME  300
+ 
++/* size of one frame's worth of DV data, in bytes */
++#define DV1394_NTSC_FRAME_SIZE (480 * DV1394_NTSC_PACKETS_PER_FRAME)
++#define DV1394_PAL_FRAME_SIZE  (480 * DV1394_PAL_PACKETS_PER_FRAME)
+ 
+-	/* pass a struct dv1394_status* as the parameter (see below) */
+-	DV1394_GET_STATUS,
+-};
+ 
++/* ioctl() commands */
++#include "ieee1394-ioctl.h"
+ 
+ 
+ enum pal_or_ntsc {
+@@ -239,6 +259,13 @@
+ 	unsigned int syt_offset;
+ };
+ 
++/* NOTE: you may only allocate the DV frame ringbuffer once each time
++   you open the dv1394 device. DV1394_INIT will fail if you call it a
++   second time with different 'n_frames' or 'format' arguments (which
++   would imply a different size for the ringbuffer). If you need a
++   different buffer size, simply close and re-open the device, then
++   initialize it with your new settings. */
++   
+ /* Q: What are cip_n and cip_d? */
+ 
+ /*
+@@ -283,8 +310,9 @@
+ 	   ready to be filled with data */
+ 	unsigned int n_clear_frames;
+ 
+-	/* how many times the DV output has underflowed
+-	   since the last call to DV1394_GET_STATUS */
++	/* how many times the DV stream has underflowed, overflowed,
++	   or otherwise encountered an error, since the previous call
++	   to DV1394_GET_STATUS */
+ 	unsigned int dropped_frames;
+ 
+ 	/* N.B. The dropped_frames counter is only a lower bound on the actual

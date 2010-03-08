@@ -1,0 +1,27 @@
+--- cinecutie/awindow.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/awindow.h	2010-02-19 22:19:11.858573208 +0100
+@@ -27,6 +27,7 @@
+ #include "awindowgui.inc"
+ #include "bcwindowbase.inc"
+ #include "clipedit.inc"
++#include "labeledit.inc"
+ #include "mwindow.inc"
+ #include "thread.h"
+ 
+@@ -37,7 +38,7 @@
+ 	~AWindow();
+ 
+ 	void run();
+-	void create_objects();
++	int create_objects();
+ 
+ 	char current_folder[BCTEXTLEN];
+ 
+@@ -46,6 +47,7 @@
+ 	AssetEdit *asset_edit;
+ 	AssetRemoveThread *asset_remove;
+ 	ClipEdit *clip_edit;
++	LabelEdit *label_edit;
+ };
+ 
+ #endif

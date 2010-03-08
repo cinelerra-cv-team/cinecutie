@@ -1,0 +1,81 @@
+--- cinecutie/edl.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/edl.h	2010-02-19 22:19:11.948570683 +0100
+@@ -41,7 +41,6 @@
+ #include "sharedlocation.inc"
+ #include "theme.inc"
+ #include "tracks.inc"
+-#include "edit.inc"
+ 
+ 
+ // Loading and saving are built on load and copy except for automation:
+@@ -71,7 +70,7 @@
+ 	EDL(EDL *parent_edl = 0);
+ 	~EDL();
+ 
+-	void create_objects();
++	int create_objects();
+ 	EDL& operator=(EDL &edl);
+ 
+ // Load configuration and track counts
+@@ -86,7 +85,7 @@
+ 		uint32_t load_flags);
+ 	int save_xml(ArrayList<PluginServer*> *plugindb,
+ 		FileXML *xml, 
+-		const char *output_path,
++		char *output_path,
+ 		int is_clip,
+ 		int is_vwindow);
+     int load_audio_config(FileXML *file, int append_mode, uint32_t load_flags);
+@@ -122,7 +121,7 @@
+ // If they're completely equivalent, -1 is returned;
+ // This is used by BRender.
+ 	double equivalent_output(EDL *edl);
+-// Set project path for filename prefixes in the assets
++// Set project path for saving a backup
+ 	void set_project_path(char *path);
+ // Set points and labels
+ 	void set_inpoint(double position);
+@@ -136,7 +135,7 @@
+ 	int dump();
+ 	static int next_id();
+ // Create a new folder if it doesn't exist already
+-	void new_folder(const char *folder);
++	void new_folder(char *folder);
+ 	void delete_folder(char *folder);
+ 	void modify_edithandles(double oldposition, 
+ 		double newposition, 
+@@ -163,7 +162,7 @@
+ 		FileXML *file, 
+ 		int all, 
+ 		ArrayList<PluginServer*> *plugindb,
+-		const char *output_path);
++		char *output_path);
+ 	int copy(double start, 
+ 		double end, 
+ 		int all,   // Ignore recordable status of tracks for saving
+@@ -171,7 +170,7 @@
+ 		int is_vwindow,
+ 		FileXML *file, 
+ 		ArrayList<PluginServer*> *plugindb,
+-		const char *output_path,
++		char *output_path,
+ 		int rewind_it);     // Rewind EDL for easy pasting
+ 	void paste_silence(double start, 
+ 		double end, 
+@@ -193,14 +192,8 @@
+ // Add a copy of EDL* to the clip array.  Returns the copy.
+ 	EDL* add_clip(EDL *edl);
+ 
+-	void get_shared_plugins(Track *source, 
+-		ArrayList<SharedLocation*> *plugin_locations,
+-		int omit_recordable,
+-		int data_type);
+-	void get_shared_tracks(Track *track, 
+-		ArrayList<SharedLocation*> *module_locations,
+-		int omit_recordable,
+-		int data_type);
++	void get_shared_plugins(Track *source, ArrayList<SharedLocation*> *plugin_locations);
++	void get_shared_tracks(Track *track, ArrayList<SharedLocation*> *module_locations);
+ 
+ 
+     int get_tracks_height(Theme *theme);

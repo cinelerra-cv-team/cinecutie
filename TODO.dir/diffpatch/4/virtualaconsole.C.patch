@@ -1,0 +1,41 @@
+--- cinecutie/virtualaconsole.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/virtualaconsole.C	2010-02-19 22:19:12.018571035 +0100
+@@ -25,7 +25,6 @@
+ #include "assets.h"
+ #include "atrack.h"
+ #include "audiodevice.h"
+-#include "bcsignals.h"
+ #include "condition.h"
+ #include "edit.h"
+ #include "edits.h"
+@@ -128,11 +127,14 @@
+ 		VirtualANode *node = (VirtualANode*)exit_nodes.values[i];
+ 		Track *track = node->track;
+ 
++//printf("VirtualAConsole::process_buffer 2 %d %p\n", i, output_temp);
+ 		result |= node->render(output_temp, 
+ 			start_position + track->nudge,
+ 			len,
+ 			renderengine->edl->session->sample_rate);
++//printf("VirtualAConsole::process_buffer 3 %p\n", output_temp);
+ 	}
++//printf("VirtualAConsole::process_buffer 4\n");
+ 
+ 
+ // get peaks and limit volume in the fragment
+@@ -186,6 +188,7 @@
+ 
+ 
+ 
++//printf("VirtualAConsole::process_buffer 5\n");
+ 
+ 
+ // Pack channels, fix speed and send to device.
+@@ -271,6 +274,7 @@
+ 
+ 
+ 
++//printf("VirtualAConsole::process_buffer 100\n");
+ 
+ 
+ 

@@ -1,0 +1,114 @@
+--- cinecutie/fileavi.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/fileavi.C	2010-02-19 22:19:11.948570683 +0100
+@@ -25,7 +25,7 @@
+ #include "avifile.h"
+ #include "creators.h"
+ #include "except.h"
+-#include "fourcc.h"
++#include "avm_fourcc.h"
+ #include "StreamInfo.h"
+ #endif
+ 
+@@ -33,13 +33,18 @@
+ #include "file.h"
+ #include "fileavi.h"
+ #include "fileavi.inc"
+-#include "language.h"
++#include "interlacemodes.h"
+ #include "mwindow.inc"
+ #include "vframe.h"
+ 
+ 
+ #include <string.h>
+ 
++#include <libintl.h>
++#define _(String) gettext(String)
++#define gettext_noop(String) String
++#define N_(String) gettext_noop (String)
++
+ 
+ 
+ 
+@@ -460,6 +465,7 @@
+ 		vstream_in[0]->GetVideoFormatInfo(&bh, sizeof(bh));
+ 	    asset->width = bh.biWidth;
+ 	    asset->height = bh.biHeight;
++		asset->interlace_mode = BC_ILACE_MODE_UNDETECTED; // FIXME
+ 
+ 		uint32_t fourcc = stream_info->GetFormat();
+ 		asset->vcodec[0] = ((char*)&fourcc)[0];
+@@ -768,7 +774,7 @@
+ 	}
+ }
+ 
+-void AVIConfigAudio::create_objects()
++int AVIConfigAudio::create_objects()
+ {
+ 	switch(asset->format)
+ 	{
+@@ -793,6 +799,7 @@
+ 	}
+ 
+ 	add_subwindow(new BC_OKButton(this));
++	return 0;
+ }
+ 
+ int AVIConfigAudio::close_event()
+@@ -910,7 +917,7 @@
+ 	}
+ }
+ 
+-void AVIConfigVideo::create_objects()
++int AVIConfigVideo::create_objects()
+ {
+ 	switch(asset->format)
+ 	{
+@@ -943,6 +950,7 @@
+ 	}
+ 
+ 	add_subwindow(new BC_OKButton(this));
++	return 0;
+ }
+ 
+ int AVIConfigVideo::close_event()
+@@ -992,7 +1000,7 @@
+ 			avm::vector<AttributeInfo>& attributes = i->encoder_info;
+ 
+ 			for(avm::vector<AttributeInfo>::const_iterator j = attributes.begin();
+-				j < attributes.end();
++				j != attributes.end();
+ 				j++)
+ 			{
+ 				char *name = (char*)j->GetName();
+@@ -1019,8 +1027,12 @@
+ 					}
+ 
+ 					case AttributeInfo::String:
+-						Creators::GetCodecAttr(*i, name, value, BCTEXTLEN);
++					{
++						const char * temp = 0;
++						Creators::GetCodecAttr(*i, name, &temp);
++						if(temp) strncpy(value, temp, BCTEXTLEN);
+ 						break;
++					}
+ 				}
+ 
+ 				attribute_items[0].append(new BC_ListBoxItem(name));
+@@ -1038,7 +1050,7 @@
+ #endif
+ }
+ 
+-const char* AVIConfigVideo::get_current_attribute_text()
++char* AVIConfigVideo::get_current_attribute_text()
+ {
+ 	BC_ListBoxItem *item = attributes->get_selection(0, 0);
+ 
+@@ -1050,7 +1062,7 @@
+ 		return "";
+ }
+ 
+-const char* AVIConfigVideo::get_current_attribute_value()
++char* AVIConfigVideo::get_current_attribute_value()
+ {
+ 	BC_ListBoxItem *item = attributes->get_selection(1, 0);
+ 

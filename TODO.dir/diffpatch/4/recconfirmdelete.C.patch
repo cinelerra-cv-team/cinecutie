@@ -1,0 +1,19 @@
+--- cinecutie/recconfirmdelete.C	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/recconfirmdelete.C	2010-02-19 22:19:11.988570758 +0100
+@@ -42,7 +42,7 @@
+ {
+ }
+ 
+-void RecConfirmDelete::create_objects(char *string)
++int RecConfirmDelete::create_objects(char *string)
+ {
+ 	char string2[256];
+ 	int x = 10, y = 10;
+@@ -52,6 +52,7 @@
+ 	add_subwindow(new BC_OKButton(x, y));
+ 	x = get_w() - 100;
+ 	add_subwindow(new BC_CancelButton(x, y));
++	return 0;
+ }
+ 
+ 

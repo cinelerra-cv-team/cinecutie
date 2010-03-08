@@ -1,0 +1,97 @@
+--- cinecutie/track.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/track.h	2010-02-19 22:19:12.008571675 +0100
+@@ -59,7 +59,7 @@
+ 	Track();
+ 	virtual ~Track();
+ 
+-	void create_objects();
++	int create_objects();
+ 	int get_id();
+ 	virtual int load_defaults(BC_Hash *defaults);
+ 	int load(FileXML *file, int track_offset, uint32_t load_flags);
+@@ -90,24 +90,20 @@
+ 		double length, 
+ 		double position, 
+ 		int track_number);
+-	Plugin* insert_effect(const char *title, 
++	Plugin* insert_effect(char *title, 
+ 		SharedLocation *shared_location, 
+ 		KeyFrame *keyframe,
+ 		PluginSet *plugin_set,
+ 		double start,
+ 		double length,
+ 		int plugin_type);
+-	void insert_plugin_set(Track *track, 
+-		int64_t position,
+-		int64_t min_length);
++	void insert_plugin_set(Track *track, double position);
+ 	void detach_effect(Plugin *plugin);
+ // Insert a track from another EDL
+ 	void insert_track(Track *track, 
+ 		double position, 
+ 		int replace_default,
+-		int edit_plugins,
+-// Pad pasted sections to a minimum of this length.
+-		double edl_length);
++		int edit_plugins);
+ // Optimize editing
+ 	void optimize();
+ 	int is_muted(int64_t position, int direction);  // Test muting status
+@@ -167,15 +163,14 @@
+ 
+ 
+ 	virtual int copy_settings(Track *track);
+-	void shift_keyframes(int64_t position, int64_t length);
+-	void shift_effects(int64_t position, int64_t length);
++	void shift_keyframes(double position, double length, int convert_units);
++	void shift_effects(double position, double length, int convert_units);
+ 	void change_plugins(SharedLocation &old_location, 
+ 		SharedLocation &new_location, 
+ 		int do_swap);
+ 	void change_modules(int old_location, 
+ 		int new_location, 
+ 		int do_swap);
+-	int plugin_exists(Plugin *plugin);
+ 
+ 	EDL *edl;
+ 	Tracks *tracks;
+@@ -232,7 +227,7 @@
+ 	int copy(double start, 
+ 		double end, 
+ 		FileXML *file, 
+-		const char *output_path = "");
++		char *output_path = "");
+ 	int copy_assets(double start, 
+ 		double end, 
+ 		ArrayList<Asset*> *asset_list);
+@@ -251,9 +246,8 @@
+ 		double selectionend, 
+ 		int shift_autos   /* = 1 */,
+ 		int default_only  /* = 0 */);
+-	void set_automation_mode(double selectionstart, 
+-		double selectionend,
+-		int mode);
++	void straighten_automation(double selectionstart, 
++		double selectionend);
+ 	virtual int clear_automation_derived(AutoConf *auto_conf, 
+ 		double selectionstart, 
+ 		double selectionend, 
+@@ -265,7 +259,7 @@
+ 		double selectionend, 
+ 		FileXML *file,
+ 		int default_only,
+-		int active_only);
++		int autos_only);
+ 	virtual int copy_automation_derived(AutoConf *auto_conf, 
+ 		double selectionstart, 
+ 		double selectionend, 
+@@ -275,8 +269,7 @@
+ 		double frame_rate,
+ 		int64_t sample_rate,
+ 		FileXML *file,
+-		int default_only,
+-		int active_only);
++		int default_only);
+ 	virtual int paste_automation_derived(double selectionstart, 
+ 		double selectionend, 
+ 		double total_length, 

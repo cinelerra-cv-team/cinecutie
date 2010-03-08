@@ -1,0 +1,31 @@
+--- cinecutie/interfaceprefs.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/interfaceprefs.h	2010-02-19 22:19:11.968571001 +0100
+@@ -51,10 +51,10 @@
+ 	InterfacePrefs(MWindow *mwindow, PreferencesWindow *pwindow);
+ 	~InterfacePrefs();
+ 
+-	void create_objects();
++	int create_objects();
+ // must delete each derived class
+ 	int update(int new_value);
+-	const char* behavior_to_text(int mode);
++	char* behavior_to_text(int mode);
+ 
+ 	BrowseButton *ipath;
+ 	IndexSize *isize;
+@@ -218,13 +218,13 @@
+ public:
+ 	ViewBehaviourText(int x, 
+ 		int y, 
+-		const char *text, 
++		char *text, 
+ 		PreferencesWindow *pwindow, 
+ 		int *output);
+ 	~ViewBehaviourText();
+ 
+ 	int handle_event();  // user copies text to value here
+-	void create_objects();         // add initial items
++	int create_objects();         // add initial items
+ 	InterfacePrefs *tfwindow;
+ 	int *output;
+ };

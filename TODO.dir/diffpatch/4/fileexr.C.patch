@@ -1,0 +1,79 @@
+--- cinecutie/fileexr.C	2008-10-11 17:46:25.000000000 +0200
++++ /home/user/cinecutie/cinecutie/fileexr.C	2010-02-19 22:19:11.948570683 +0100
+@@ -24,17 +24,19 @@
+ #include "clip.h"
+ #include "fileexr.h"
+ #include "filesystem.h"
+-#include "ImathBox.h"
+-#include "ImfChannelList.h"
+-#include "ImfChromaticities.h"
+-#include "ImfCompression.h"
+-#include "ImfIO.h"
+-#include "ImfInputFile.h"
+-#include "ImfOutputFile.h"
+-#include "ImfPixelType.h"
+-#include "ImfRgbaFile.h"
+-#include "ImfRgbaYca.h"
+-#include "ImfVersion.h"
++#include "interlacemodes.h"
++
++#include <ImathBox.h>
++#include <ImfChannelList.h>
++#include <ImfChromaticities.h>
++#include <ImfCompression.h>
++#include <ImfIO.h>
++#include <ImfInputFile.h>
++#include <ImfOutputFile.h>
++#include <ImfPixelType.h>
++#include <ImfRgbaFile.h>
++#include <ImfRgbaYca.h>
++#include <ImfVersion.h>
+ #include "mwindow.inc"
+ #include "vframe.h"
+ 
+@@ -183,7 +185,7 @@
+ 	if(temp_v) delete [] temp_v;
+ }
+ 
+-const char* FileEXR::compression_to_str(int compression)
++char* FileEXR::compression_to_str(int compression)
+ {
+ 	switch(compression)
+ 	{
+@@ -304,6 +306,7 @@
+ 	
+ 	asset->width = dw.max.x - dw.min.x + 1;
+ 	asset->height = dw.max.y - dw.min.y + 1;
++	asset->interlace_mode = BC_ILACE_MODE_NOTINTERLACED;
+ 
+ 	const Imf::ChannelList &channels = file.header().channels();
+ 
+@@ -384,6 +387,8 @@
+ 	file.setFrameBuffer(framebuffer);
+ 	file.readPixels (dw.min.y, dw.max.y);
+ 
++
++
+ 	if(is_yuv)
+ 	{
+ // Convert to RGB using crazy ILM equations
+@@ -585,9 +590,8 @@
+ {
+ }
+ 
+-void EXRConfigVideo::create_objects()
++int EXRConfigVideo::create_objects()
+ {
+-	lock_window("EXRConfigVideo::create_objects");
+ 	int x = 10, y = 10;
+ 	add_subwindow(new EXRUseAlpha(this, x, y));
+ 	y += 30;
+@@ -597,7 +601,7 @@
+ 	add_subwindow(menu = new EXRCompression(this, x, y, 100));
+ 	menu->create_objects();
+ 	add_subwindow(new BC_OKButton(this));
+-	unlock_window();
++	return 0;
+ }
+ 
+ int EXRConfigVideo::close_event()

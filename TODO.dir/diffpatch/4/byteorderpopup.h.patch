@@ -1,0 +1,11 @@
+--- cinecutie/byteorderpopup.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/byteorderpopup.h	2010-02-19 22:19:11.868576808 +0100
+@@ -33,7 +33,7 @@
+ 	ByteOrderPopup(BC_WindowBase *parent_window, int x, int y, int *output);
+ 	~ByteOrderPopup();
+ 
+-	void create_objects();
++	int create_objects();
+ 
+ 	ArrayList<BC_ListBoxItem*> byteorder_items;
+ 	BC_WindowBase *parent_window;

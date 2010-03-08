@@ -1,0 +1,11 @@
+--- cinecutie/sharedlocation.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/sharedlocation.h	2010-02-19 22:19:11.998570756 +0100
+@@ -35,8 +35,6 @@
+ 	void load(FileXML *file);
+ 	int operator==(const SharedLocation &that);
+ 	SharedLocation& operator=(const SharedLocation &that);
+-	void copy_from(SharedLocation *that);
+-	int equivalent(SharedLocation *that);
+ 	int get_type();
+ 	void calculate_title(char *string, 
+ 		EDL *edl, 

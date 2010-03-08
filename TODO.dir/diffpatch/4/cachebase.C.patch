@@ -1,0 +1,11 @@
+--- cinecutie/cachebase.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/cachebase.C	2010-02-19 22:19:11.868576808 +0100
+@@ -40,7 +40,7 @@
+ 
+ CacheItemBase::~CacheItemBase()
+ {
+-	delete [] path;
++	free(path); // path was allocated with strdup in FramceCache::put_frame()
+ }
+ 
+ 

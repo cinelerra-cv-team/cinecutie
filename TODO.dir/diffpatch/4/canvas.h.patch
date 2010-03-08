@@ -1,0 +1,16 @@
+--- cinecutie/canvas.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/canvas.h	2010-02-19 22:19:11.868576808 +0100
+@@ -64,11 +64,11 @@
+ 		int &h);
+ // Lock access to the canvas pointer.
+ // Must be called before get_canvas or locking the canvas.
+-	void lock_canvas(const char *location);
++	void lock_canvas(char *location);
+ 	void unlock_canvas();
+ 	int is_locked();
+ 
+-	void create_objects(EDL *edl);
++	int create_objects(EDL *edl);
+ 	void set_cursor(int cursor);
+ // Start video playback
+ 	void start_video();

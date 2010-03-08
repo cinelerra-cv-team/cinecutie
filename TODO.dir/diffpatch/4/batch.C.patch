@@ -1,0 +1,22 @@
+--- cinecutie/batch.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/batch.C	2010-02-19 22:19:11.858573208 +0100
+@@ -70,8 +70,9 @@
+ 	if(edl) delete edl;
+ }
+ 
+-void Batch::create_objects()
++int Batch::create_objects()
+ {
++	return 0;
+ }
+ 
+ void Batch::start_over()
+@@ -198,7 +199,7 @@
+ }
+ 
+ 
+-const char* Batch::get_source_text()
++char* Batch::get_source_text()
+ {
+ // Driver sensitive
+ 	Channel *channel = get_current_channel_struct();

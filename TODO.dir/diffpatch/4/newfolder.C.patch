@@ -1,0 +1,19 @@
+--- cinecutie/newfolder.C	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/newfolder.C	2010-02-19 22:19:11.978570999 +0100
+@@ -54,7 +54,7 @@
+ }
+ 
+ 
+-void NewFolder::create_objects()
++int NewFolder::create_objects()
+ {
+ 	int x = 10, y = 10;
+ 	add_tool(new BC_Title(x, y, _("Enter the name of the folder:")));
+@@ -65,6 +65,7 @@
+ 	x = get_w() - 100;
+ 	add_subwindow(new BC_CancelButton(x, y));
+ 	show_window();
++	return 0;
+ }
+ 
+ char* NewFolder::get_text()

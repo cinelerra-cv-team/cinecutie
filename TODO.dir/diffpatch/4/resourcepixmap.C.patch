@@ -1,0 +1,10 @@
+--- cinecutie/resourcepixmap.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/resourcepixmap.C	2010-02-19 22:19:11.998570756 +0100
+@@ -457,7 +457,6 @@
+ 		mwindow->edl->session->sample_rate;
+ 
+ // Develop strategy for drawing
+-//	printf("ResourcePixmap::draw_audio_resource %d %d\n", __LINE__, edit->asset->index_status);
+ 	switch(edit->asset->index_status)
+ 	{
+ 		case INDEX_NOTTESTED:

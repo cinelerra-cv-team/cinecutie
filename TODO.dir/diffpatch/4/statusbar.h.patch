@@ -1,0 +1,11 @@
+--- cinecutie/statusbar.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/statusbar.h	2010-02-19 22:19:11.998570756 +0100
+@@ -36,7 +36,7 @@
+ 	
+ 	void set_message(char *text);
+ 	void default_message();
+-	void create_objects();
++	int create_objects();
+ 	void resize_event();
+ 	
+ 	MWindow *mwindow;

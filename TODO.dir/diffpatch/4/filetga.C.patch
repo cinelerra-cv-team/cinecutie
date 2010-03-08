@@ -1,0 +1,59 @@
+--- cinecutie/filetga.C	2008-10-11 17:46:25.000000000 +0200
++++ /home/user/cinecutie/cinecutie/filetga.C	2010-02-19 22:19:11.958569362 +0100
+@@ -26,6 +26,7 @@
+ #include "language.h"
+ #include "mwindow.inc"
+ #include "vframe.h"
++#include "mainerror.h"
+ 
+ #include <string.h>
+ #include <unistd.h>
+@@ -129,7 +130,7 @@
+ #define TGA_RGB_NAME "RGB uncompressed"
+ #define TGA_RGBA_NAME "RGBA uncompressed"
+ 
+-const char* FileTGA::compression_to_str(const char *compression)
++char* FileTGA::compression_to_str(char *compression)
+ {
+ 	if(!strcasecmp(compression, TGA_RGB_RLE)) return _(TGA_RGB_RLE_NAME);
+ 	if(!strcasecmp(compression, TGA_RGBA_RLE)) return _(TGA_RGBA_RLE_NAME);
+@@ -138,7 +139,7 @@
+ 	return TGA_RGB_NAME;
+ }
+ 
+-const char* FileTGA::str_to_compression(const char *string)
++char* FileTGA::str_to_compression(char *string)
+ {
+ 	if(!strcasecmp(compression_to_str(TGA_RGB_RLE), string)) return TGA_RGB_RLE;
+ 	if(!strcasecmp(compression_to_str(TGA_RGBA_RLE), string)) return TGA_RGBA_RLE;
+@@ -215,7 +216,7 @@
+ 
+ 	if(!(stream = fopen(path, "rb")))
+ 	{
+-		perror("FileTGA::read_frame_header");
++		eprintf("Error while opening \"%s\" for reading. \n%m\n", asset->path);
+ 		return 1;
+ 	}
+ 
+@@ -923,10 +924,10 @@
+ 	compression_items.remove_all_objects();
+ }
+ 
+-void TGAConfigVideo::create_objects()
++int TGAConfigVideo::create_objects()
+ {
+ 	int x = 10, y = 10;
+-	lock_window("TGAConfigVideo::create_objects");
++
+ 	add_subwindow(new BC_Title(x, y, _("Compression:")));
+ 	TGACompression *textbox = new TGACompression(this, 
+ 		x + 110, 
+@@ -935,7 +936,7 @@
+ 		&compression_items);
+ 	textbox->create_objects();
+ 	add_subwindow(new BC_OKButton(this));
+-	unlock_window();
++	return 0;
+ }
+ 
+ int TGAConfigVideo::close_event()

@@ -1,0 +1,40 @@
+--- cinecutie/bitspopup.C	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/bitspopup.C	2010-02-19 22:19:11.858573208 +0100
+@@ -32,8 +32,7 @@
+ 	int use_ulaw,
+ 	int use_adpcm, 
+ 	int use_float,
+-	int use_32linear,
+-	int use_8linear)
++	int use_32linear)
+ {
+ 	this->parent_window = parent_window;
+ 	this->output = output;
+@@ -44,7 +43,6 @@
+ 	this->use_adpcm = use_adpcm;
+ 	this->use_float = use_float;
+ 	this->use_32linear = use_32linear;
+-	this->use_8linear = use_8linear;
+ }
+ 
+ BitsPopup::~BitsPopup()
+@@ -55,9 +53,9 @@
+ 		delete bits_items.values[i];
+ }
+ 
+-void BitsPopup::create_objects()
++int BitsPopup::create_objects()
+ {
+-	if(use_8linear) bits_items.append(new BC_ListBoxItem(File::bitstostr(BITSLINEAR8)));
++	bits_items.append(new BC_ListBoxItem(File::bitstostr(BITSLINEAR8)));
+ 	bits_items.append(new BC_ListBoxItem(File::bitstostr(BITSLINEAR16)));
+ 	bits_items.append(new BC_ListBoxItem(File::bitstostr(BITSLINEAR24)));
+ 	if(use_32linear) bits_items.append(new BC_ListBoxItem(File::bitstostr(BITSLINEAR32)));
+@@ -69,6 +67,7 @@
+ 	parent_window->add_subwindow(textbox = new BitsPopupText(this, x, y));
+ 	x += textbox->get_w();
+ 	parent_window->add_subwindow(menu = new BitsPopupMenu(this, x, y));
++	return 0;
+ }
+ 
+ int BitsPopup::get_w()

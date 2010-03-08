@@ -1,0 +1,20 @@
+--- cinecutie/cwindow.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/cwindow.h	2010-02-19 22:19:11.878577328 +0100
+@@ -38,7 +38,7 @@
+ 	CWindow(MWindow *mwindow);
+ 	~CWindow();
+ 	
+-    void create_objects();
++    int create_objects();
+ // Position is inclusive of the other 2
+ 	void update(int position, 
+ 		int overlays, 
+@@ -50,8 +50,6 @@
+ // Get keyframe for editing in the CWindow.
+ // create - if 0 forces automatic creation to be off
+ //          if 1 uses automatic creation option to create
+-// created - set to 1 if an auto was created
+-// redraw - redraw MWindow overlays if 1
+ 	Auto* calculate_affected_auto(Autos *autos, 
+ 		int create = 1,
+ 		int *created = 0,

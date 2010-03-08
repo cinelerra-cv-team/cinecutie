@@ -1,0 +1,27 @@
+--- cinecutie/playtransport.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/playtransport.C	2010-02-19 22:19:11.978570999 +0100
+@@ -30,6 +30,7 @@
+ #include "theme.h"
+ #include "transportque.h"
+ #include "vframe.h"
++#include "localsession.h"
+ 
+ 
+ 
+@@ -76,7 +77,7 @@
+ 		mwindow->theme->get_image_set("rewind")[0]->get_w() * 2;
+ }
+ 
+-void PlayTransport::create_objects()
++int PlayTransport::create_objects()
+ {
+ 	int x = this->x, y = this->y;
+ 	subwindow->add_subwindow(rewind_button = new RewindButton(mwindow, this, x, y));
+@@ -101,6 +102,7 @@
+ 	reverse = 0;
+ 	speed = 0;
+ 
++	return 0;
+ }
+ 
+ void PlayTransport::reposition_buttons(int x, int y)

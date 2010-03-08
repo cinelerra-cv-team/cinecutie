@@ -1,0 +1,46 @@
+--- cinecutie/pluginaclientlad.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/pluginaclientlad.h	2010-02-19 22:19:11.978570999 +0100
+@@ -117,14 +117,16 @@
+ };
+ 
+ 
+-class PluginAClientWindow : public PluginClientWindow
++class PluginAClientWindow : public BC_Window
+ {
+ public:
+-	PluginAClientWindow(PluginAClientLAD *plugin);
++	PluginAClientWindow(PluginAClientLAD *plugin, 
++		int x, 
++		int y);
+ 	~PluginAClientWindow();
+ 	
+-	void create_objects();
+-
++	int create_objects();
++	int close_event();
+ 
+ 
+ 
+@@ -136,6 +138,7 @@
+ 	PluginAClientLAD *plugin;
+ };
+ 
++PLUGIN_THREAD_HEADER(PluginAClientLAD, PluginAClientThread, PluginAClientWindow)
+ 
+ class PluginAClientLAD : public PluginAClient
+ {
+@@ -160,11 +163,11 @@
+ 	void save_data(KeyFrame *keyframe);
+ 	void read_data(KeyFrame *keyframe);
+ 
+-	PLUGIN_CLASS_MEMBERS(PluginAClientConfig)
++	PLUGIN_CLASS_MEMBERS(PluginAClientConfig, PluginAClientThread)
+ 
+ 
+-	static char* lad_to_string(char *string, const char *input);
+-	static char* lad_to_upper(char *string, const char *input);
++	static char* lad_to_string(char *string, char *input);
++	static char* lad_to_upper(char *string, char *input);
+ 	int get_inchannels();
+ 	int get_outchannels();
+ 	void delete_buffers();

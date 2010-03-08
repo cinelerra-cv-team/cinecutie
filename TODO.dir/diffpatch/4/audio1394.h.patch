@@ -1,0 +1,18 @@
+--- cinecutie/audio1394.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/audio1394.h	2010-02-19 22:19:11.848575688 +0100
+@@ -30,7 +30,6 @@
+ #include "vdevice1394.inc"
+ 
+ 
+-#ifdef HAVE_FIREWIRE
+ 
+ #include "libdv.h"
+ 
+@@ -64,7 +63,3 @@
+ };
+ 
+ #endif
+-
+-
+-
+-#endif

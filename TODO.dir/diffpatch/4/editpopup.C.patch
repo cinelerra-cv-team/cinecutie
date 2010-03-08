@@ -1,0 +1,30 @@
+--- cinecutie/editpopup.C	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/editpopup.C	2010-02-19 22:19:11.948570683 +0100
+@@ -106,9 +106,7 @@
+ {
+ 	dialog_thread->start_window(popup->track,
+ 		0, 
+-		PROGRAM_NAME ": Attach Effect",
+-		0,
+-		popup->track->data_type);
++		PROGRAM_NAME ": Attach Effect");
+ 	return 1;
+ }
+ 
+@@ -305,7 +303,7 @@
+ 	return 1;
+ }
+ 
+-void EditPopupTitleWindow::create_objects()
++int EditPopupTitleWindow::create_objects()
+ {
+ 	int x = 5;
+ 	int y = 10;
+@@ -319,6 +317,7 @@
+ 
+ 	show_window();
+ 	flush();
++	return 0;
+ }
+ 
+ 

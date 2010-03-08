@@ -1,0 +1,11 @@
+--- cinecutie/question.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/question.h	2010-02-19 22:19:11.988570758 +0100
+@@ -31,7 +31,7 @@
+ 	QuestionWindow(MWindow *mwindow);
+ 	~QuestionWindow();
+ 
+-	void create_objects(char *string, int use_cancel);
++	int create_objects(char *string, int use_cancel);
+ 	MWindow *mwindow;
+ };
+ 

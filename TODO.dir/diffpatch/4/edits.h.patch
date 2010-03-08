@@ -1,0 +1,68 @@
+--- cinecutie/edits.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/edits.h	2010-02-19 22:19:11.948570683 +0100
+@@ -33,25 +33,24 @@
+ #include "track.inc"
+ #include "transition.inc"
+ 
++
++
++#define LAST_VIRTUAL_LENGTH 1000000000
++
+ // Generic list of edits of something
+ 
+ class Edits : public List<Edit>
+ {
+ public:
+-	Edits(EDL *edl, Track *track);
++	Edits(EDL *edl, Track *track, Edit *default_edit);
+ 	virtual ~Edits();	
+ 
+ 	void equivalent_output(Edits *edits, int64_t *result);
+ 	virtual void copy_from(Edits *edits);
+ 	virtual Edits& operator=(Edits& edits);
+ // Editing
+-	void insert_edits(Edits *edits, 
+-		int64_t position,
+-		int64_t min_length);
+-	void insert_asset(Asset *asset, 
+-		int64_t length, 
+-		int64_t sample, 
+-		int track_number);
++	void insert_edits(Edits *edits, int64_t position);
++	void insert_asset(Asset *asset, int64_t length, int64_t sample, int track_number);
+ // Split edit containing position.
+ // Return the second edit in the split.
+ 	Edit* split_edit(int64_t position);
+@@ -63,8 +62,8 @@
+ 	virtual Edit* create_edit() { return 0; };
+ // Insert a 0 length edit at the position
+ 	Edit* insert_new_edit(int64_t sample);
+-	int save(FileXML *xml, const char *output_path);
+-	int copy(int64_t start, int64_t end, FileXML *xml, const char *output_path);
++	int save(FileXML *xml, char *output_path);
++	int copy(int64_t start, int64_t end, FileXML *xml, char *output_path);
+ // Clear region of edits
+ 	virtual void clear(int64_t start, int64_t end);
+ // Clear edits and plugins for a handle modification
+@@ -76,8 +75,11 @@
+ 		Edits *trim_edits);
+ 	virtual void shift_keyframes_recursive(int64_t position, int64_t length);
+ 	virtual void shift_effects_recursive(int64_t position, int64_t length);
++// Does not return an edit - does what it says, nothing more or less
++	void paste_silence(int64_t start, int64_t end);
+ // Returns the newly created edit
+-	Edit* paste_silence(int64_t start, int64_t end);
++	Edit *create_and_insert_edit(int64_t start, int64_t end);
++
+ 	void resample(double old_rate, double new_rate);
+ // Shift edits on or after position by distance
+ // Return the edit now on the position.
+@@ -128,7 +130,7 @@
+ 		Edits *trim_edits);
+ 	virtual int optimize();
+ 
+-
++	int64_t loaded_length;
+ private:
+ 	virtual int clone_derived(Edit* new_edit, Edit* old_edit) {};
+ };

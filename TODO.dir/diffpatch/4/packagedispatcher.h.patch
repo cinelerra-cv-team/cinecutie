@@ -1,0 +1,34 @@
+--- cinecutie/packagedispatcher.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/packagedispatcher.h	2010-02-19 22:19:11.978570999 +0100
+@@ -30,6 +30,7 @@
+ #include "mwindow.inc"
+ #include "packagerenderer.inc"
+ #include "preferences.inc"
++#include "packagingengine.h"
+ 
+ 
+ 
+@@ -56,9 +57,13 @@
+ 		int client_number,
+ 		int use_local_rate);
+ 	ArrayList<Asset*>* get_asset_list();
+-	RenderPackage* get_package(int number);
++	void get_package_paths(ArrayList<char*> *path_list);
++
+ 	int get_total_packages();
++	int64_t get_progress_max();
++	int packages_are_done();
+ 
++private:
+ 	EDL *edl;
+ 	int64_t audio_position;
+ 	int64_t video_position;
+@@ -82,6 +87,8 @@
+ 	RenderPackage **packages;
+ 	int current_package;
+ 	Mutex *package_lock;
++
++	PackagingEngine *packaging_engine;
+ };
+ 
+ 

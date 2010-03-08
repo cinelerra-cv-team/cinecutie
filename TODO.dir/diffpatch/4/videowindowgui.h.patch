@@ -1,0 +1,11 @@
+--- cinecutie/videowindowgui.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/videowindowgui.h	2010-02-19 22:19:12.018571035 +0100
+@@ -31,7 +31,7 @@
+ 	VideoWindowGUI(VideoWindow *thread, int w, int h);
+ 	~VideoWindowGUI();
+ 
+-	void create_objects();
++	int create_objects();
+ 	int resize_event(int w, int h);
+ 	int close_event();
+ 	int keypress_event();

@@ -1,0 +1,23 @@
+--- cinecutie/bitspopup.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/bitspopup.h	2010-02-19 22:19:11.858573208 +0100
+@@ -38,10 +38,9 @@
+ 		int use_ulaw, 
+ 		int use_adpcm,
+ 		int use_float,
+-		int use_32linear,
+-		int use_8linear = 1);
++		int use_32linear);
+ 	~BitsPopup();
+-	void create_objects();
++	int create_objects();
+ 	int get_w();
+ 	int get_h();
+ 	
+@@ -50,7 +49,6 @@
+ 	BitsPopupText *textbox;
+ 	int x, y, use_ima4, use_ulaw, use_float, use_adpcm, *output;
+ 	int use_32linear;
+-	int use_8linear;
+ 	BC_WindowBase *parent_window;
+ };
+ 

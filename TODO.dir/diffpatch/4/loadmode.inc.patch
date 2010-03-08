@@ -1,0 +1,17 @@
+--- cinecutie/loadmode.inc	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/loadmode.inc	2010-02-19 22:19:11.968571001 +0100
+@@ -25,7 +25,6 @@
+ class LoadMode;
+ 
+ // Load modes for loading files, importing recordings, importing effects
+-// Be sure to change mode_images in LoadMode::create_objects if you change this.
+ #define LOAD_NOTHING 0
+ #define LOAD_REPLACE 1
+ #define LOAD_REPLACE_CONCATENATE 2
+@@ -33,6 +32,5 @@
+ #define LOAD_CONCATENATE 4
+ #define LOAD_PASTE 5
+ #define LOAD_RESOURCESONLY 6
+-#define TOTAL_LOADMODES 7
+ 
+ #endif

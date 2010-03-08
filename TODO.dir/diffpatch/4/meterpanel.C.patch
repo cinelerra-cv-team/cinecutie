@@ -1,0 +1,14 @@
+--- cinecutie/meterpanel.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/meterpanel.C	2010-02-19 22:19:11.968571001 +0100
+@@ -133,9 +133,10 @@
+ }
+ 
+ 
+-void MeterPanel::create_objects()
++int MeterPanel::create_objects()
+ {
+ 	set_meters(meter_count, use_meters);
++	return 0;
+ }
+ 
+ int MeterPanel::set_meters(int meter_count, int use_meters)

@@ -1,0 +1,19 @@
+--- cinecutie/setformat.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/setformat.h	2010-02-19 22:19:11.998570756 +0100
+@@ -213,7 +213,7 @@
+ 		int y);
+ 
+ 	void create_objects();
+-	const char* get_preset_text();
++	char* get_preset_text();
+ 
+ 	MWindow *mwindow;
+ 	SetFormatThread *thread;
+@@ -231,6 +231,7 @@
+ 	SetFrameRateTextBox *frame_rate;
+ 	BC_TextBox *color_model;
+ 	ScaleAspectAuto *auto_aspect;
++	InterlacemodePulldown *interlace_pulldown;
+ };
+ 
+ 	

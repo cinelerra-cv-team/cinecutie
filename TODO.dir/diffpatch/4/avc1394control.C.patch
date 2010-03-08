@@ -1,0 +1,15 @@
+--- cinecutie/avc1394control.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/avc1394control.C	2010-02-19 22:19:11.858573208 +0100
+@@ -189,10 +189,10 @@
+ 	return text_return;
+ }
+ 
+-void AVC1394Control::seek(const char *time)
++void AVC1394Control::seek(char *time)
+ {
+ //printf("AVC1394Control::seek(): 1\n");
+ 	device_lock->lock("AVC1394Control::seek");
+-	avc1394_vcr_seek_timecode(handle, device, (char*)time);
++	avc1394_vcr_seek_timecode(handle, device, time);
+ 	device_lock->unlock();
+ }

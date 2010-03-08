@@ -1,0 +1,103 @@
+--- cinecutie/cwindowtool.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/cwindowtool.h	2010-02-19 22:19:11.878577328 +0100
+@@ -26,7 +26,6 @@
+ #include "cwindowgui.inc"
+ #include "guicast.h"
+ #include "maskauto.inc"
+-#include "maskautos.inc"
+ #include "mwindow.inc"
+ 
+ 
+@@ -51,7 +50,6 @@
+ 
+ 	void run();
+ 	void update_show_window();
+-	void raise_window();
+ 	void update_values();
+ 
+ 	MWindow *mwindow;
+@@ -70,7 +68,7 @@
+ public:
+ 	CWindowToolGUI(MWindow *mwindow, 
+ 		CWindowTool *thread, 
+-		const char *title,
++		char *title,
+ 		int w, 
+ 		int h);
+ 	~CWindowToolGUI();
+@@ -95,7 +93,7 @@
+ class CWindowCoord : public BC_TumbleTextBox
+ {
+ public:
+-	CWindowCoord(CWindowToolGUI *gui, int x, int y, float value);
++	CWindowCoord(CWindowToolGUI *gui, int x, int y, float value, int logincrement);
+ 	CWindowCoord(CWindowToolGUI *gui, int x, int y, int value);
+ 
+ // Calls the window's handle_event
+@@ -130,7 +128,7 @@
+ class CWindowMaskMode : public BC_PopupMenu
+ {
+ public:
+-	CWindowMaskMode(MWindow *mwindow, CWindowToolGUI *gui, int x, int y, const char *text);
++	CWindowMaskMode(MWindow *mwindow, CWindowToolGUI *gui, int x, int y, char *text);
+ 	void create_objects();
+ 	int handle_event();
+ 	static char* mode_to_text(int mode);
+@@ -197,6 +195,16 @@
+ 	CWindowToolGUI *gui;
+ };
+ 
++class CWindowMaskBeforePlugins : public BC_CheckBox
++{
++public:
++	CWindowMaskBeforePlugins(CWindowToolGUI *gui, int x, int y);
++	int handle_event();
++	CWindowToolGUI *gui;
++};
++
++
++
+ 
+ class CWindowMaskGUI : public CWindowToolGUI
+ {
+@@ -207,7 +215,6 @@
+ 	void update();
+ 	void handle_event();
+ 	void get_keyframe(Track* &track, 
+-		MaskAutos* &autos,
+ 		MaskAuto* &keyframe, 
+ 		SubMask* &mask, 
+ 		MaskPoint* &point,
+@@ -223,6 +230,7 @@
+ //	CWindowMaskCyclePrev *prev_point;
+ 	CWindowMaskNumber *number;
+ 	CWindowMaskValue *value;
++	CWindowMaskBeforePlugins *apply_before_plugins;
+ };
+ 
+ 
+@@ -380,24 +388,4 @@
+ 
+ 
+ 
+-
+-class CWindowRulerGUI : public CWindowToolGUI
+-{
+-public:
+-	CWindowRulerGUI(MWindow *mwindow, CWindowTool *thread);
+-	~CWindowRulerGUI();
+-	void create_objects();
+-	void update();
+-// Update the gui
+-	void handle_event();
+-	
+-	BC_Title *current;
+-	BC_Title *point1;
+-	BC_Title *point2;
+-	BC_Title *distance;
+-	BC_Title *angle;
+-};
+-
+-
+-
+ #endif

@@ -1,0 +1,10 @@
+--- cinecutie/samplescroll.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/samplescroll.h	2010-02-19 22:19:11.998570756 +0100
+@@ -32,6 +32,7 @@
+ 	SampleScroll(MWindow *mwindow, MWindowGUI *gui, int x, int y, int w);
+ 	~SampleScroll();
+ 
++	int create_objects();
+ 	int flip_vertical();
+ 	int in_use();
+ 	int resize_event();

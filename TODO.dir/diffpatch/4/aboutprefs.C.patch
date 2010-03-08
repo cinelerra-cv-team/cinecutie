@@ -1,0 +1,162 @@
+--- cinecutie/aboutprefs.C	2008-08-02 03:09:02.000000000 +0200
++++ /home/user/cinecutie/cinecutie/aboutprefs.C	2010-02-19 22:19:11.838575648 +0100
+@@ -20,13 +20,13 @@
+  */
+ 
+ #include "aboutprefs.h"
+-#include "bcsignals.h"
+ #include "language.h"
+ #include "libmpeg3.h"
+ #include "mwindow.h"
+ #include "quicktime.h"
+ #include "theme.h"
+ #include "vframe.h"
++#include "versioninfo.h"
+ 
+ 
+ 
+@@ -37,14 +37,12 @@
+ 
+ AboutPrefs::~AboutPrefs()
+ {
+-	credits.remove_all_objects();
+ }
+ 
+-void AboutPrefs::create_objects()
++int AboutPrefs::create_objects()
+ {
+ 	int x, y;
+ 
+-
+ 	BC_Resources *resources = BC_WindowBase::get_resources();
+ 
+ // 	add_subwindow(new BC_Title(mwindow->theme->preferencestitle_x, 
+@@ -58,7 +56,7 @@
+ 		get_text_height(LARGEFONT);
+ 
+ 	char license1[BCTEXTLEN];
+-	sprintf(license1, "%s %s", PROGRAM_NAME, CINELERRA_VERSION);
++	sprintf(license1, "%s %s %s", _("Cinecutie"), CINECUTIE_VERSION, ("(a Cinelerra mockup with some experiments)"));
+ 
+ 	set_font(LARGEFONT);
+ 	set_color(resources->text_default);
+@@ -66,21 +64,26 @@
+ 
+ 	y += get_text_height(LARGEFONT);
+ 	char license2[BCTEXTLEN];
+-	sprintf(license2, _("(C) 2008 Adam Williams\n\n"));
++	sprintf(license2, "%s%s%s%s", 
++		_("(C) 2008 Heroine Virtual Ltd. and http://www.akiradproject.net\n\n"),
++		REPOABOUTPREFTXT,
++		_("\nBuild date: "), 
++		BUILDDATE);
+ 	set_font(MEDIUMFONT);
+ 	draw_text(x, y, license2);
+ 
+ 
+ 
+-	y += get_text_height(MEDIUMFONT) * 3;
++	y += get_text_height(MEDIUMFONT) * 4;
+ 
+ 	char versions[BCTEXTLEN];
+ 	sprintf(versions, 
+-_("Quicktime version %d.%d.%d\n"
++_("Quicktime version %d.%d.%d (%s)\n"
+ "Libmpeg3 version %d.%d.%d\n"),
+ quicktime_major(),
+ quicktime_minor(),
+ quicktime_release(),
++FFMPEG_EXTERNALTEXT,
+ mpeg3_major(),
+ mpeg3_minor(),
+ mpeg3_release());
+@@ -90,46 +93,47 @@
+ 
+ 	y += get_text_height(MEDIUMFONT) * 3;
+ 	set_font(LARGEFONT);
+-	draw_text(x, y, "Contributors:");
++	draw_text(x, y, "Credits:");
+ 	y += get_text_height(LARGEFONT);
++	set_font(MEDIUMFONT);
+ 
++	char credits[BCTEXTLEN];
++	sprintf(credits,
+ 
+-	credits.append(new BC_ListBoxItem("Adam Williams"));
+-	credits.append(new BC_ListBoxItem("Richard Baverstock"));
+-	credits.append(new BC_ListBoxItem("Karl Bielefeldt"));
+-	credits.append(new BC_ListBoxItem("Kevin Brosius"));
+-	credits.append(new BC_ListBoxItem("Jean-Luc Coulon"));
+-	credits.append(new BC_ListBoxItem("Jean-Michel POURE"));
+-	credits.append(new BC_ListBoxItem("Jerome Cornet"));
+-	credits.append(new BC_ListBoxItem("Pierre Marc Dumuid"));
+-	credits.append(new BC_ListBoxItem("Alex Ferrer"));
+-	credits.append(new BC_ListBoxItem("Gustavo Iñiguez"));
+-	credits.append(new BC_ListBoxItem("Tefan de Konink"));
+-	credits.append(new BC_ListBoxItem("Nathan Kurz"));
+-	credits.append(new BC_ListBoxItem("Greg Mekkes"));
+-	credits.append(new BC_ListBoxItem("Eric Seigne"));
+-	credits.append(new BC_ListBoxItem("Johannes Sixt"));
+-	credits.append(new BC_ListBoxItem("Joe Stewart"));
+-	credits.append(new BC_ListBoxItem("Dan Streetman"));
+-	credits.append(new BC_ListBoxItem("Johannes Sixt"));
+-	credits.append(new BC_ListBoxItem("Mark Taraba"));
+-	credits.append(new BC_ListBoxItem("Andraz Tori"));
+-	credits.append(new BC_ListBoxItem("Jonas Wulff"));
++"Jack Crossfire, "
++"Richard Baverstock, "
++"Karl Bielefeldt, "
++"Kevin Brosius, "
++"Jean-Luc Coulon\n"
++"Jean-Michel POURE, "
++"Jerome Cornet, "
++"Pierre Marc Dumuid, "
++"Alex Ferrer, "
++"Jan Gerber\n"
++"Koen Muylkens, "
++"Stefan de Konink, "
++"Nathan Kurz, "
++"Greg Mekkes, "
++"Eric Seigne\n"
++"Joe Stewart, "
++"Dan Streetman, "
++"Gustavo Iñiguez, "
++"Johannes Sixt, "
++"Mark Taraba\n"
++"Andraz Tori, "
++"Jonas Wulff, "
++"David Arendt, "
++"Paolo Rampino, "
++"Franco Iacomella\n"
++"Adam Williams, "
++"Simeon Völkel\n"
++"\nif your credit is missed write at akir4d at gmail dot com\n"
++);
++	draw_text(x, y, credits);
+ 
+-	BC_ListBox *listbox;
+-	add_subwindow(listbox = new BC_ListBox(x, 
+-		y,
+-		200,
+-		300,
+-		LISTBOX_TEXT,
+-		&credits,
+-		0,
+-		0,
+-		1));
+-	y += listbox->get_h() + get_text_height(LARGEFONT) + 10;
++	y = get_h() - 135;
+ 
+ 	set_font(LARGEFONT);
+-	set_color(resources->text_default);
+ 	draw_text(x, y, "License:");
+ 	y += get_text_height(LARGEFONT);
+ 
+@@ -165,6 +169,7 @@
+ 
+ 	flash();
+ 	flush();
++	return 0;
+ }
+ 
+ 

@@ -1,0 +1,47 @@
+--- cinecutie/vwindow.C	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/vwindow.C	2010-02-19 22:19:12.028571315 +0100
+@@ -79,7 +79,7 @@
+ {
+ }
+ 
+-void VWindow::create_objects()
++int VWindow::create_objects()
+ {
+ //printf("VWindow::create_objects 1\n");
+ 	gui = new VWindowGUI(mwindow, this);
+@@ -101,6 +101,7 @@
+ //printf("VWindow::create_objects 2\n");
+ 
+ 	clip_edit = new ClipEdit(mwindow, 0, this);
++	return 0;
+ }
+ 
+ void VWindow::run()
+@@ -124,7 +125,7 @@
+ //printf("VWindow::change_source() 1 %p\n", mwindow->edl->vwindow_edl);
+ 	if(mwindow->edl->vwindow_edl)
+ 	{
+-		gui->change_source(get_edl(), "");
++		gui->change_source(get_edl(), get_edl()->local_session->clip_title);
+ 		update_position(CHANGE_ALL, 1, 1);
+ 	}
+ 	else
+@@ -298,6 +299,7 @@
+ 	EDL *edl = get_edl();
+ 	if(edl)
+ 	{
++		Asset *asset = edl->assets->first;
+ 		if(use_slider) 
+ 		{
+ 			edl->local_session->set_selectionstart(gui->slider->get_value());
+@@ -314,7 +316,9 @@
+ 			edl,
+ 			1);
+ 
+-		gui->clock->update(edl->local_session->get_selectionstart(1));
++		gui->clock->update(edl->local_session->get_selectionstart(1) +
++			asset->tcstart / 
++			(asset->video_data ? asset->frame_rate : asset->sample_rate));
+ 	}
+ }
+ 

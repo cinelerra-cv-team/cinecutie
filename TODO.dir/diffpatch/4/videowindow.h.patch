@@ -1,0 +1,11 @@
+--- cinecutie/videowindow.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/videowindow.h	2010-02-19 22:19:12.018571035 +0100
+@@ -36,7 +36,7 @@
+ 	VideoWindow(MWindow *mwindow);
+ 	~VideoWindow();
+ 	
+-	void create_objects();
++	int create_objects();
+ 	int init_window();
+ 	int load_defaults(BC_Hash *defaults);
+ 	int update_defaults(BC_Hash *defaults);

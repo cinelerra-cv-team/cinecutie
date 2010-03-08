@@ -1,0 +1,11 @@
+--- cinecutie/newfolder.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/newfolder.h	2010-02-19 22:19:11.978570999 +0100
+@@ -33,7 +33,7 @@
+ 	NewFolder(MWindow *mwindow, AWindowGUI *awindow, int x, int y);
+ 	~NewFolder();
+ 
+-	void create_objects();
++	int create_objects();
+ 	char* get_text();
+ 
+ private:

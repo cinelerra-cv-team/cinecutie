@@ -1,0 +1,160 @@
+--- cinecutie/loadfile.h	2008-08-03 22:02:14.000000000 +0200
++++ /home/user/cinecutie/cinecutie/loadfile.h	2010-02-19 22:19:11.968571001 +0100
+@@ -22,11 +22,11 @@
+ #ifndef LOADFILE_H
+ #define LOADFILE_H
+ 
+-#include "bcdialog.h"
+ #include "guicast.h"
+ #include "loadmode.inc"
+ #include "mainmenu.inc"
+ #include "mwindow.inc"
++#include "thread.h"
+ 
+ class LoadFileThread;
+ class LoadFileWindow;
+@@ -37,7 +37,7 @@
+ 	Load(MWindow *mwindow, MainMenu *mainmenu);
+ 	~Load();
+ 
+-	void create_objects();
++	int create_objects();
+ 	int handle_event();
+ 
+ 	MWindow *mwindow;
+@@ -45,22 +45,26 @@
+ 	LoadFileThread *thread;
+ };
+ 
+-class LoadFileThread : public BC_DialogThread
++class LoadFileThread : public Thread
+ {
+ public:
+ 	LoadFileThread(MWindow *mwindow, Load *menuitem);
+ 	~LoadFileThread();
+ 
+-	
+-	BC_Window* new_gui();
+-	void handle_done_event(int result);
++	void run();
+ 
+ 	MWindow *mwindow;
+ 	Load *load;
+ 	int load_mode;
+-	LoadFileWindow *window;
+ };
+ 
++class NewTimeline;
++class NewConcatenate;
++class AppendNewTracks;
++class EndofTracks;
++class ResourcesOnly;
++class ReelWindow;
++class OverwriteReel;
+ 
+ class LoadFileWindow : public BC_FileBox
+ {
+@@ -70,12 +74,57 @@
+ 		char *init_directory);
+ 	~LoadFileWindow();
+ 
+-	void create_objects();
++	int create_objects();
+ 	int resize_event(int w, int h);
+ 
+ 	LoadFileThread *thread;
+ 	LoadMode *loadmode;
+ 	MWindow *mwindow;
++	NewTimeline *newtimeline;
++	NewConcatenate *newconcatenate;
++	AppendNewTracks *newtracks;
++	EndofTracks *concatenate;
++	ResourcesOnly *resourcesonly;
++};
++
++class NewTimeline : public BC_Radial
++{
++public:
++	NewTimeline(int x, int y, LoadFileWindow *window);
++	int handle_event();
++	LoadFileWindow *window;
++};
++
++class NewConcatenate : public BC_Radial
++{
++public:
++	NewConcatenate(int x, int y, LoadFileWindow *window);
++	int handle_event();
++	LoadFileWindow *window;
++};
++
++class AppendNewTracks : public BC_Radial
++{
++public:
++	AppendNewTracks(int x, int y, LoadFileWindow *window);
++	int handle_event();
++	LoadFileWindow *window;
++};
++
++class EndofTracks : public BC_Radial
++{
++public:
++	EndofTracks(int x, int y, LoadFileWindow *window);
++	int handle_event();
++	LoadFileWindow *window;
++};
++
++class ResourcesOnly : public BC_Radial
++{
++public:
++	ResourcesOnly(int x, int y, LoadFileWindow *window);
++	int handle_event();
++	LoadFileWindow *window;
+ };
+ 
+ 
+@@ -91,7 +140,7 @@
+ class LoadPrevious : public BC_MenuItem, public Thread
+ {
+ public:
+-	LoadPrevious(MWindow *mwindow, Load *loadfile);
++	LoadPrevious(MWindow *mwindow);
+ 	int handle_event();
+ 	void run();
+ 	
+@@ -110,4 +159,35 @@
+ 	MWindow *mwindow;
+ };
+ 
++class ReelWindow : public BC_Window
++{
++public:
++	ReelWindow(MWindow *mwindow);
++	~ReelWindow();
++
++	int create_objects();
++	int resize_event(int w, int h);
++
++	BC_OKButton *ok_button;
++	BC_CancelButton *cancel_button;
++	BC_Title *reel_name_title, *reel_number_title;
++	BC_TextBox *reel_name, *reel_number;
++	OverwriteReel *checkbox;
++	int overwrite_reel;
++	
++	MWindow *mwindow;
++};
++
++
++class OverwriteReel : public BC_CheckBox
++{
++public:
++	OverwriteReel(ReelWindow *lwindow,
++		int x, int y, int value);
++	
++	int handle_event();
++	
++	ReelWindow *rwindow;
++};
++
+ #endif

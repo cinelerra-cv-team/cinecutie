@@ -1,0 +1,22 @@
+--- cinecutie/menuaeffects.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/menuaeffects.C	2010-02-19 22:19:11.968571001 +0100
+@@ -38,7 +38,7 @@
+ MenuAEffects::MenuAEffects(MWindow *mwindow)
+  : MenuEffects(mwindow)
+ {
+-	thread = new MenuAEffectThread(mwindow, this);
++	thread = new MenuAEffectThread(mwindow);
+ }
+ 
+ MenuAEffects::~MenuAEffects()
+@@ -46,8 +46,8 @@
+ 	delete thread;
+ }
+ 
+-MenuAEffectThread::MenuAEffectThread(MWindow *mwindow, MenuAEffects *menu_item)
+- : MenuEffectThread(mwindow, menu_item)
++MenuAEffectThread::MenuAEffectThread(MWindow *mwindow)
++ : MenuEffectThread(mwindow)
+ {
+ }
+ 

@@ -1,0 +1,10 @@
+--- cinecutie/virtualconsole.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/virtualconsole.C	2010-02-19 22:19:12.018571035 +0100
+@@ -22,7 +22,6 @@
+ #include "auto.h"
+ #include "automation.h"
+ #include "autos.h"
+-#include "bcsignals.h"
+ #include "commonrender.h"
+ #include "condition.h"
+ #include "edl.h"

@@ -1,0 +1,22 @@
+--- cinecutie/filetiff.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/filetiff.h	2010-02-19 22:19:11.958569362 +0100
+@@ -44,8 +44,8 @@
+ 		int audio_options,
+ 		int video_options);
+ 	static int check_sig(Asset *asset);
+-	static const char* compression_to_str(int value);
+-	static const char* cmodel_to_str(int value);
++	static char* compression_to_str(int value);
++	static char* cmodel_to_str(int value);
+ 	int can_copy_from(Edit *edit, int64_t position);
+ 	int colormodel_supported(int colormodel);
+ 	int get_best_colormodel(Asset *asset, int driver);
+@@ -101,7 +101,7 @@
+ 	~TIFFConfigVideo();
+ 
+ 
+-	void create_objects();
++	int create_objects();
+ 	int close_event();
+ 	static char* alpha_to_codec(int use_alpha);
+ 	static int codec_to_alpha(char *codec);

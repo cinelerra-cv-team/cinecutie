@@ -1,0 +1,19 @@
+--- cinecutie/recordtransport.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/recordtransport.C	2010-02-19 22:19:11.988570758 +0100
+@@ -43,7 +43,7 @@
+ 	this->y = y;
+ }
+ 
+-void RecordTransport::create_objects()
++int RecordTransport::create_objects()
+ {
+ 	int x = this->x, y = this->y;
+ 
+@@ -76,6 +76,7 @@
+ //	window->add_subwindow(end_button = new RecordGUIEnd(mwindow, record, x, y));
+ //	x += end_button->get_w();
+ 	x_end = x + 10;
++	return 0;
+ }
+ 
+ void RecordTransport::reposition_window(int x, int y)

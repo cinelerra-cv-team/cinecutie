@@ -1,0 +1,11 @@
+--- cinecutie/ctracking.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/ctracking.C	2010-02-19 22:19:11.878577328 +0100
+@@ -155,7 +155,7 @@
+ 	if(!updated_scroll)
+ 	{
+ 		mwindow->gui->cursor->update();
+-		mwindow->gui->zoombar->update();
++		mwindow->gui->zoombar->update_clocks();   // we just need to update clocks, not everything
+ 
+ 
+ 		mwindow->gui->canvas->flash();

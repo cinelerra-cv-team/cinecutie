@@ -1,0 +1,11 @@
+--- cinecutie/recordthread.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/recordthread.h	2010-02-19 22:19:11.988570758 +0100
+@@ -40,7 +40,7 @@
+ 	RecordThread(MWindow *mwindow, Record *record);
+ 	~RecordThread();
+ 
+-	void create_objects();
++	int create_objects();
+ 	int start_recording(int monitor, int context);
+ 	int stop_recording(int resume_monitor);
+ 	int pause_recording();

@@ -1,0 +1,175 @@
+--- cinecutie/edl.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/edl.C	2010-02-19 22:19:11.948570683 +0100
+@@ -109,7 +109,7 @@
+ }
+ 
+ 
+-void EDL::create_objects()
++int EDL::create_objects()
+ {
+ 	tracks = new Tracks(this);
+ 	if(!parent_edl)
+@@ -126,6 +126,7 @@
+ 	local_session = new LocalSession(this);
+ 	labels = new Labels(this, "LABELS");
+ //	last_playback_position = 0;
++	return 0;
+ }
+ 
+ EDL& EDL::operator=(EDL &edl)
+@@ -226,12 +227,6 @@
+ 			local_session->unset_outpoint();
+ 		}
+ 
+-// This was originally in LocalSession::load_xml
+-		if(load_flags & LOAD_SESSION)
+-		{
+-			local_session->clipboard_length = 0;
+-		}
+-
+ 		do{
+ 			result = file->read_tag();
+ 
+@@ -247,8 +242,7 @@
+ 				else
+ 				if(file->tag.title_is("CLIPBOARD"))
+ 				{
+-					local_session->clipboard_length = 
+-						file->tag.get_property("LENGTH", (double)0);
++					local_session->clipboard_length = file->tag.get_property("LENGTH", 0);
+ 				}
+ 				else
+ 				if(file->tag.title_is("VIDEO"))
+@@ -351,7 +345,7 @@
+ // The string is not terminated in this call.
+ int EDL::save_xml(ArrayList<PluginServer*> *plugindb,
+ 	FileXML *file, 
+-	const char *output_path,
++	char *output_path,
+ 	int is_clip,
+ 	int is_vwindow)
+ {
+@@ -434,7 +428,7 @@
+ 	FileXML *file, 
+ 	int all, 
+ 	ArrayList<PluginServer*> *plugindb,
+-	const char *output_path)
++	char *output_path)
+ {
+ 	ArrayList<Asset*> asset_list;
+ 	Track* current;
+@@ -491,7 +485,7 @@
+ 	int is_vwindow,
+ 	FileXML *file, 
+ 	ArrayList<PluginServer*> *plugindb, 
+-	const char *output_path,
++	char *output_path,
+ 	int rewind_it)
+ {
+ //printf("EDL::copy 1\n");
+@@ -504,7 +498,7 @@
+ 	else
+ 	{
+ 		file->tag.set_title("EDL");
+-		file->tag.set_property("VERSION", CINELERRA_VERSION);
++		file->tag.set_property("VERSION", CINECUTIE_VERSION);
+ // Save path for restoration of the project title from a backup.
+ 		if(this->project_path[0])
+ 		{
+@@ -521,6 +515,8 @@
+ 		file->tag.set_title("CLIPBOARD");
+ 		file->tag.set_property("LENGTH", end - start);
+ 		file->append_tag();
++		file->tag.set_title("/CLIPBOARD");
++		file->append_tag();
+ 		file->append_newline();
+ 		file->append_newline();
+ 	}
+@@ -1041,7 +1037,12 @@
+ 
+ 
+ 	if(new_asset->video_length < 0) 
++	{
++	if(session->si_useduration)
++		length = session->si_duration;
++	else	
+ 		length = 1.0 / session->frame_rate; 
++	}
+ 	else
+ 	if(new_asset->frame_rate > 0)
+ 		length = ((double)new_asset->video_length / new_asset->frame_rate);
+@@ -1119,49 +1120,38 @@
+ }
+ 
+ void EDL::get_shared_plugins(Track *source, 
+-	ArrayList<SharedLocation*> *plugin_locations,
+-	int omit_recordable,
+-	int data_type)
++	ArrayList<SharedLocation*> *plugin_locations)
+ {
+ 	for(Track *track = tracks->first; track; track = track->next)
+ 	{
+-		if(!track->record || !omit_recordable)
++		if(track != source && 
++			track->data_type == source->data_type)
+ 		{
+-			if(track != source && 
+-				track->data_type == data_type)
++			for(int i = 0; i < track->plugin_set.total; i++)
+ 			{
+-				for(int i = 0; i < track->plugin_set.total; i++)
++				Plugin *plugin = track->get_current_plugin(
++					local_session->get_selectionstart(1), 
++					i, 
++					PLAY_FORWARD, 
++					1,
++					0);
++				if(plugin && plugin->plugin_type == PLUGIN_STANDALONE)
+ 				{
+-					Plugin *plugin = track->get_current_plugin(
+-						local_session->get_selectionstart(1), 
+-						i, 
+-						PLAY_FORWARD, 
+-						1,
+-						0);
+-					if(plugin && plugin->plugin_type == PLUGIN_STANDALONE)
+-					{
+-						plugin_locations->append(new SharedLocation(tracks->number_of(track), i));
+-					}
++					plugin_locations->append(new SharedLocation(tracks->number_of(track), i));
+ 				}
+ 			}
+ 		}
+ 	}
+ }
+ 
+-void EDL::get_shared_tracks(Track *track, 
+-	ArrayList<SharedLocation*> *module_locations,
+-	int omit_recordable,
+-	int data_type)
++void EDL::get_shared_tracks(Track *track, ArrayList<SharedLocation*> *module_locations)
+ {
+ 	for(Track *current = tracks->first; current; current = NEXT)
+ 	{
+-		if(!omit_recordable || !current->record)
++		if(current != track && 
++			current->data_type == track->data_type)
+ 		{
+-			if(current != track && 
+-				current->data_type == data_type)
+-			{
+-				module_locations->append(new SharedLocation(tracks->number_of(current), 0));
+-			}
++			module_locations->append(new SharedLocation(tracks->number_of(current), 0));
+ 		}
+ 	}
+ }
+@@ -1215,7 +1205,7 @@
+ }
+ 
+ 
+-void EDL::new_folder(const char *folder)
++void EDL::new_folder(char *folder)
+ {
+ 	for(int i = 0; i < folders.total; i++)
+ 	{

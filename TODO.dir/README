@@ -1,0 +1,9 @@
+This a some usefull information that can helps to improve cinecutie code. 
+
+On stat-cinecutie you can find usefull information to cleanup the code based on *.C-*.h-*.inc format to new *.cpp-*.h format. The .inc files are used to add class declaration ( not ever used ) and presets. The goal is to make a common .h that can be more easly handled. Stat-guicast are same of stat-cinecutie for guicast.
+
+On diffpatch you can find the difference between actual cinecutie code and cinelerra4. This needs to integrate cinelerra4 feature on cinecutie. Cinelerra4 uses many const * char, instead * char on way to make a sort of semaphore on array. But this made all changes incompatible with improved cinecutie guicast and on also with cinelerra-cv version. The usable way is to convert `on try` all const char * to char *. 
+In order to made easy integration of new feature I made the difference file by file and missing files between cinelerra-cv and cinelerra-4. Cinelerra 4.1 is not considered in this moment because is very unstable. The files succesfully integrate are fileffmpeg and fileflac. The features that can be integate are v4l2 and usable firewire support.
+
+
+

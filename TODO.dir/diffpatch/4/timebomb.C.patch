@@ -1,0 +1,13 @@
+--- cinecutie/timebomb.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/timebomb.C	2010-02-19 22:19:12.008571675 +0100
+@@ -33,8 +33,8 @@
+ 
+ static char *files[] = 
+ {
+-	"/usr/lib/libcinelerra.so",
+-	"/usr/bin/cinelerra"
++	"/usr/lib/libcinecutie.so",
++	"/usr/bin/cinecutie"
+ };
+ 
+ TimeBomb::TimeBomb()

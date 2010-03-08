@@ -1,0 +1,11 @@
+--- cinecutie/cropvideo.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/cropvideo.h	2010-02-19 22:19:11.878577328 +0100
+@@ -48,7 +48,7 @@
+ 	CropVideoWindow(MWindow *mwindow, CropVideo *thread);
+ 	~CropVideoWindow();
+ 
+-	void create_objects();
++	int create_objects();
+ 
+ 	CropVideo *thread;
+ 	MWindow *mwindow;

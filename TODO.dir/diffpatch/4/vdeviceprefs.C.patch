@@ -1,0 +1,133 @@
+--- cinecutie/vdeviceprefs.C	2010-02-20 00:26:51.218577287 +0100
++++ /home/user/cinecutie/cinecutie/vdeviceprefs.C	2010-02-19 22:19:12.018571035 +0100
+@@ -22,10 +22,12 @@
+ #include "bcsignals.h"
+ #include "channeldb.h"
+ #include "channelpicker.h"
++#ifdef HAVE_CONFIG_H
++#include "config.h"
++#endif
+ #include "edl.h"
+ #include "edlsession.h"
+ #include "formattools.h"
+-#include "config.h"
+ #include "language.h"
+ #include "mwindow.h"
+ #include "vdeviceprefs.h"
+@@ -173,9 +175,13 @@
+ 
+ int VDevicePrefs::delete_objects()
+ {
++SET_TRACE
+ 	delete output_title;
++SET_TRACE
+ 	delete channel_picker;
++SET_TRACE
+ 	delete buz_swap_channels;
++SET_TRACE
+ 	delete device_title;
+ 	delete device_text;
+ 
+@@ -185,13 +191,22 @@
+ 	delete number_title;
+ 	delete device_number;
+ 
++SET_TRACE
++SET_TRACE
+ 	if(firewire_port) delete firewire_port;
++SET_TRACE
+ 	if(channel_title) delete channel_title;
++SET_TRACE
+ 	if(firewire_channel) delete firewire_channel;
++SET_TRACE
++SET_TRACE
+ 	if(firewire_path) delete firewire_path;
++SET_TRACE
+ 	if(syt_title) delete syt_title;
++SET_TRACE
+ 	if(firewire_syt) delete firewire_syt;
+ 
++SET_TRACE
+ 	reset_objects();
+ 	driver = -1;
+ 	return 0;
+@@ -293,8 +308,8 @@
+ 				output_char = out_config->firewire_path;
+ 			break;
+ 		case MODERECORD:
+-// Our version of raw1394 doesn't support changing the input path
+-			output_char = 0;
++			if(driver == CAPTURE_FIREWIRE)
++				output_char = in_config->firewire_path;
+ 			break;
+ 	}
+ 
+@@ -466,12 +481,14 @@
+ 		case CAPTURE_LML:
+ 			sprintf(string, CAPTURE_LML_TITLE);
+ 			break;
++#ifdef HAVE_FIREWIRE
+ 		case CAPTURE_FIREWIRE:
+ 			sprintf(string, CAPTURE_FIREWIRE_TITLE);
+ 			break;
+ 		case CAPTURE_IEC61883:
+ 			sprintf(string, CAPTURE_IEC61883_TITLE);
+ 			break;
++#endif
+ 		case CAPTURE_DVB:
+ 			sprintf(string, CAPTURE_DVB_TITLE);
+ 			break;
+@@ -490,6 +507,7 @@
+ 		case PLAYBACK_BUZ:
+ 			sprintf(string, PLAYBACK_BUZ_TITLE);
+ 			break;
++#ifdef HAVE_FIREWIRE
+ 		case PLAYBACK_FIREWIRE:
+ 			sprintf(string, PLAYBACK_FIREWIRE_TITLE);
+ 			break;
+@@ -499,13 +517,14 @@
+ 		case PLAYBACK_IEC61883:
+ 			sprintf(string, PLAYBACK_IEC61883_TITLE);
+ 			break;
++#endif
+ 		default:
+ 			sprintf(string, "");
+ 	}
+ 	return string;
+ }
+ 
+-void VDriverMenu::create_objects()
++int VDriverMenu::create_objects()
+ {
+ 	if(do_input)
+ 	{
+@@ -516,8 +535,10 @@
+ #endif
+ 		add_item(new VDriverItem(this, SCREENCAPTURE_TITLE, SCREENCAPTURE));
+ 		add_item(new VDriverItem(this, CAPTURE_BUZ_TITLE, CAPTURE_BUZ));
++#ifdef HAVE_FIREWIRE
+ 		add_item(new VDriverItem(this, CAPTURE_FIREWIRE_TITLE, CAPTURE_FIREWIRE));
+ 		add_item(new VDriverItem(this, CAPTURE_IEC61883_TITLE, CAPTURE_IEC61883));
++#endif
+ 		add_item(new VDriverItem(this, CAPTURE_DVB_TITLE, CAPTURE_DVB));
+ 	}
+ 	else
+@@ -528,14 +549,17 @@
+ 		add_item(new VDriverItem(this, PLAYBACK_X11_GL_TITLE, PLAYBACK_X11_GL));
+ #endif
+ 		add_item(new VDriverItem(this, PLAYBACK_BUZ_TITLE, PLAYBACK_BUZ));
++#ifdef HAVE_FIREWIRE
+ 		add_item(new VDriverItem(this, PLAYBACK_FIREWIRE_TITLE, PLAYBACK_FIREWIRE));
+ 		add_item(new VDriverItem(this, PLAYBACK_DV1394_TITLE, PLAYBACK_DV1394));
+ 		add_item(new VDriverItem(this, PLAYBACK_IEC61883_TITLE, PLAYBACK_IEC61883));
++#endif
+ 	}
++	return 0;
+ }
+ 
+ 
+-VDriverItem::VDriverItem(VDriverMenu *popup, const char *text, int driver)
++VDriverItem::VDriverItem(VDriverMenu *popup, char *text, int driver)
+  : BC_MenuItem(text)
+ {
+ 	this->popup = popup;

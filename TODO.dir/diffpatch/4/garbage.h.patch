@@ -1,0 +1,11 @@
+--- cinecutie/garbage.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/garbage.h	2010-02-19 22:19:11.958569362 +0100
+@@ -55,7 +55,7 @@
+ class GarbageObject
+ {
+ public:
+-	GarbageObject(const char *title);
++	GarbageObject(char *title);
+ 	virtual ~GarbageObject();
+ 
+ // Called when user begins to use the object.

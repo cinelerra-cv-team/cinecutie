@@ -1,0 +1,32 @@
+--- cinecutie/vwindowgui.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/vwindowgui.h	2010-02-19 22:19:12.028571315 +0100
+@@ -53,7 +53,7 @@
+ 	VWindowGUI(MWindow *mwindow, VWindow *vwindow);
+ 	~VWindowGUI();
+ 
+-	void create_objects();
++	int create_objects();
+ 	int resize_event(int w, int h);
+ 	int translation_event();
+ 	int close_event();
+@@ -64,9 +64,9 @@
+ 	int button_release_event();
+ 	int cursor_motion_event();
+ // Update source pulldown with new assets
+-	void update_sources(const char *title);
++	void update_sources(char *title);
+ // Update GUI to reflect new source
+-	void change_source(EDL *edl, const char *title);
++	void change_source(EDL *edl, char *title);
+ 	void drag_motion();
+ 	int drag_stop();
+ //	void update_labels();
+@@ -90,7 +90,7 @@
+ 	ArrayList<LabelGUI*> labels;
+ 	VWindowInPoint *in_point;
+ 	VWindowOutPoint *out_point;
+-
++	char loaded_title[BCTEXTLEN];
+ private:
+ 	void get_scrollbars(int &canvas_x, int &canvas_y, int &canvas_w, int &canvas_h);
+ };

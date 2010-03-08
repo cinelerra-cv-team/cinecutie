@@ -1,0 +1,11 @@
+--- cinecutie/menuveffects.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/menuveffects.h	2010-02-19 22:19:11.968571001 +0100
+@@ -38,7 +38,7 @@
+ class MenuVEffectThread : public MenuEffectThread
+ {
+ public:
+-	MenuVEffectThread(MWindow *mwindow, MenuVEffects *menu_item);
++	MenuVEffectThread(MWindow *mwindow);
+ 	~MenuVEffectThread();
+ 
+ 	int get_recordable_tracks(Asset *asset);

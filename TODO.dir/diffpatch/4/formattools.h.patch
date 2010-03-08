@@ -1,0 +1,51 @@
+--- cinecutie/formattools.h	2008-08-10 22:24:08.000000000 +0200
++++ /home/user/cinecutie/cinecutie/formattools.h	2010-02-19 22:19:11.958569362 +0100
+@@ -51,7 +51,7 @@
+ 				Asset *asset);
+ 	virtual ~FormatTools();
+ 
+-	void create_objects(int &init_x, 
++	int create_objects(int &init_x, 
+ 						int &init_y, 
+ 						int do_audio,    // Include tools for audio
+ 						int do_video,   // Include tools for video
+@@ -81,7 +81,6 @@
+ 
+ 	int set_audio_options();
+ 	int set_video_options();
+-	void set_w(int w);
+ 	int get_w();
+ 
+ 	BC_WindowBase *window;
+@@ -93,6 +92,7 @@
+ 	FormatVThread *vparams_thread;
+ 	BrowseButton *path_button;
+ 	FormatPathText *path_textbox;
++	BC_RecentList *path_recent;
+ 	BC_Title *format_title;
+ 	FormatFormat *format_button;
+ 	BC_TextBox *format_text;
+@@ -175,11 +175,9 @@
+ 	~FormatAThread();
+ 	
+ 	void run();
+-	void start();
+ 
+ 	FormatTools *format;
+ 	File *file;
+-	int joined;
+ };
+ 
+ class FormatVThread : public Thread
+@@ -189,11 +187,9 @@
+ 	~FormatVThread();
+ 	
+ 	void run();
+-	void start();
+ 
+ 	FormatTools *format;
+ 	File *file;
+-	int joined;
+ };
+ 
+ class FormatAudio : public BC_CheckBox

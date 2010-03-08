@@ -1,0 +1,111 @@
+--- cinecutie/keyframepopup.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/keyframepopup.h	2010-02-19 22:19:11.968571001 +0100
+@@ -23,22 +23,19 @@
+ #define KEYFRAMEPOPUP_H
+ 
+ #include "guicast.h"
+-#include "keyframegui.inc"
+ #include "mwindow.inc"
+ #include "mwindowgui.inc"
+ #include "plugin.inc"
+ #include "plugindialog.inc"
+ #include "keyframe.inc"
+-#include "automation.inc" 
++#include "automation.h" 
+ 
+ 
+ class KeyframePopupDelete;
+-class KeyframePopupHide;
++class KeyframePopupShow;
+ class KeyframePopupCopy;
+-class KeyframePopupLinear;
+-class KeyframePopupBezier;
+-class KeyframePopupEdit;
+-
++ 
++ 
+ class KeyframePopup : public BC_PopupMenu
+ {
+ public:
+@@ -52,6 +49,7 @@
+ 	MWindow *mwindow;
+ 	MWindowGUI *gui;
+ // Acquired through the update command as the plugin currently being operated on
++	
+ 	Plugin *keyframe_plugin;
+ 	Autos *keyframe_autos;
+ 	Automation *keyframe_automation;
+@@ -59,34 +57,9 @@
+ 	
+ 
+ 	
+-	KeyframePopupLinear *key_linear;
+-	KeyframePopupBezier *key_bezier;
+ 	KeyframePopupDelete *key_delete;
+-	KeyframePopupHide *key_hide;
++	KeyframePopupShow *key_show;
+ 	KeyframePopupCopy *key_copy;
+-	KeyframePopupEdit *edit;
+-};
+-
+-class KeyframePopupLinear : public BC_MenuItem
+-{
+-public:
+-	KeyframePopupLinear(MWindow *mwindow, KeyframePopup *popup);
+-	~KeyframePopupLinear();
+-	int handle_event();
+-	
+-	MWindow *mwindow;
+-	KeyframePopup *popup;
+-};
+-
+-class KeyframePopupBezier : public BC_MenuItem
+-{
+-public:
+-	KeyframePopupBezier(MWindow *mwindow, KeyframePopup *popup);
+-	~KeyframePopupBezier();
+-	int handle_event();
+-	
+-	MWindow *mwindow;
+-	KeyframePopup *popup;
+ };
+ 
+ class KeyframePopupDelete : public BC_MenuItem
+@@ -100,10 +73,11 @@
+ 	KeyframePopup *popup;
+ };
+ 
+-class KeyframePopupHide : public BC_MenuItem
++class KeyframePopupShow : public BC_MenuItem
+ {
+ public:
+-	KeyframePopupHide(MWindow *mwindow, KeyframePopup *popup);
++	KeyframePopupShow(MWindow *mwindow, KeyframePopup *popup);
++	~KeyframePopupShow();
+ 	int handle_event();
+ 	
+ 	MWindow *mwindow;
+@@ -114,6 +88,7 @@
+ {
+ public:
+ 	KeyframePopupCopy(MWindow *mwindow, KeyframePopup *popup);
++	~KeyframePopupCopy();
+ 	int handle_event();
+ 	
+ 	MWindow *mwindow;
+@@ -121,15 +96,5 @@
+ };
+ 
+ 
+-class KeyframePopupEdit : public BC_MenuItem
+-{
+-public:
+-	KeyframePopupEdit(MWindow *mwindow, KeyframePopup *popup);
+-	int handle_event();
+-	
+-	MWindow *mwindow;
+-	KeyframePopup *popup;
+-};
+-
+ 
+  #endif

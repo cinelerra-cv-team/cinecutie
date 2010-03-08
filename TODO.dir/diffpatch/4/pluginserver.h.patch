@@ -1,0 +1,30 @@
+--- cinecutie/pluginserver.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/pluginserver.h	2010-02-19 22:19:11.988570758 +0100
+@@ -88,7 +88,7 @@
+ 	void render_stop();
+ 
+ // queries
+-	void set_title(const char *string);
++	void set_title(char *string);
+ // Generate title for display
+ 	void generate_display_title(char *string);
+ // Get keyframes for configuration.  Position is always relative to EDL rate.
+@@ -104,10 +104,6 @@
+ // Get or create keyframe for writing, depending on whether auto keyframes
+ // is enabled.  Called by PluginClient::send_configure_change
+ 	KeyFrame* get_keyframe();
+-// Apply new settings from the plugin GUI.  Called by PluginClient::send_configure_change
+-// Used in keyframe spanning mode.
+-	void apply_keyframe(KeyFrame *src);
+-
+ // Create new theme object.  Used by theme plugins.
+ 	Theme* new_theme();
+ // Get theme being used by Cinelerra currently.  Used by all plugins.
+@@ -129,7 +125,6 @@
+ // cause the plugin to show the GUI
+ // Called by MWindow::show_plugin
+ 	void show_gui();          
+-	void hide_gui();
+ // Update GUI with keyframe settings
+ 	void update_gui();
+ 	void update_title();

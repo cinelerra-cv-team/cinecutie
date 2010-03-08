@@ -1,0 +1,35 @@
+--- cinecutie/patch.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/patch.C	2010-02-19 22:19:11.978570999 +0100
+@@ -91,24 +91,32 @@
+ 	{
+ 		xml->tag.set_title("PLAY");
+ 		xml->append_tag();
++		xml->tag.set_title("/PLAY");
++		xml->append_tag();
+ 	}
+ 	
+ 	if(record)  
+ 	{
+ 		xml->tag.set_title("RECORD");
+ 		xml->append_tag();
++		xml->tag.set_title("/RECORD");
++		xml->append_tag();
+ 	}
+ 	
+ 	if(automate)  
+ 	{
+ 		xml->tag.set_title("AUTO");
+ 		xml->append_tag();
++		xml->tag.set_title("/AUTO");
++		xml->append_tag();
+ 	}
+ 	
+ 	if(draw)  
+ 	{
+ 		xml->tag.set_title("DRAW");
+ 		xml->append_tag();
++		xml->tag.set_title("/DRAW");
++		xml->append_tag();
+ 	}
+ 	
+ 	xml->tag.set_title("TITLE");

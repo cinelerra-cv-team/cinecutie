@@ -1,0 +1,19 @@
+--- cinecutie/record.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/record.h	2010-02-19 22:19:11.988570758 +0100
+@@ -149,13 +149,13 @@
+ 	Batch* get_current_batch();
+ // Information about the batch being edited
+ 	Batch* get_editing_batch();
+-	const char* current_mode();
+-	const char* current_source();
++	char* current_mode();
++	char* current_source();
+ 	int get_current_channel();
+ 	int get_editing_channel();
+ 	void get_current_time(double &seconds, int &day);
+ 	Channel* get_current_channel_struct();
+-	const char* current_news();
++	char* current_news();
+ 	double* current_start();
+ 	double* current_duration();
+ 	Asset* current_asset();

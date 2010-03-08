@@ -1,0 +1,102 @@
+--- cinecutie/maskengine.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/maskengine.h	2010-02-19 22:19:11.968571001 +0100
+@@ -27,10 +27,13 @@
+ #include "loadbalance.h"
+ #include "maskautos.inc"
+ #include "maskauto.inc"
+-#include "mutex.inc"
++#include "mutex.h"
+ #include "vframe.inc"
+ 
+ 
++#define OVERSAMPLE 8
++#define NUM_SPANS 4 /* starting number of spans to be allocated for */
++
+ class MaskEngine;
+ 
+ 
+@@ -48,8 +51,6 @@
+ 	~MaskPackage();
+ 
+ 	int row1, row2;
+-	int part;
+-	Condition *apply_mutex;
+ };
+ 
+ class MaskUnit : public LoadClient
+@@ -59,29 +60,32 @@
+ 	~MaskUnit();
+ 
+ 	void process_package(LoadPackage *package);
+-	void draw_line_clamped(VFrame *frame, 
+-		int &x1, 
+-		int &y1, 
+-		int x2, 
+-		int y2, 
+-		unsigned char value);
++private:
++	void draw_line_clamped(int x1, int y1, int x2, int y2, int w, int h, int hoffset);
+ 	void do_feather(VFrame *output,
+ 		VFrame *input, 
+ 		float feather, 
+ 		int start_out, 
+ 		int end_out);
++	int do_feather_2(VFrame *output,
++		VFrame *input, 
++		float feather, 
++		int start_out, 
++		int end_out);
++	template<class T>
+ 	void blur_strip(float *val_p, 
+ 		float *val_m, 
+ 		float *dst, 
+ 		float *src, 
+ 		int size,
+-		int max);
++		T max);
+ 
+     float n_p[5], n_m[5];
+     float d_p[5], d_m[5];
+     float bd_p[5], bd_m[5];
+ 	MaskEngine *engine;
+-	VFrame *temp;
++	short **row_spans;
++	short row_spans_h;
+ };
+ 
+ 
+@@ -93,11 +97,12 @@
+ 
+ 
+ 	void do_mask(VFrame *output, 
+-// Position relative to project, compensated for playback direction
+-		int64_t start_position_project,
++		int64_t start_position,
++		double frame_rate,
++		double project_frame_rate,
+ 		MaskAutos *keyframe_set, 
+-		MaskAuto *keyframe,
+-		MaskAuto *default_auto);
++		int direction,
++		int before_plugins);
+ 	int points_equivalent(ArrayList<MaskPoint*> *new_points, 
+ 		ArrayList<MaskPoint*> *points);
+ 
+@@ -113,9 +118,16 @@
+ 	VFrame *temp_mask;
+ 	ArrayList<ArrayList<MaskPoint*>*> point_sets;
+ 	int mode;
+-	float feather;
++	float feather;              // gui feather
++	float realfeather;          // real feather
+ 	int recalculate;
+ 	int value;
++	pthread_mutex_t stage1_finished_mutex;
++	pthread_cond_t stage1_finished_cond;
++	int stage1_finished_count;
++	Mutex protect_data;	// protects the following members
++	int first_nonempty_rowspan;
++	int last_nonempty_rowspan;
+ };
+ 
+ 

@@ -1,0 +1,23 @@
+--- cinecutie/timeentry.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/timeentry.C	2010-02-19 22:19:12.008571675 +0100
+@@ -47,7 +47,7 @@
+ 	delete time_text;
+ }
+ 
+-const char* TimeEntry::day_table[] = 
++char* TimeEntry::day_table[] = 
+ {
+ 	"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "*"
+ };
+@@ -182,9 +182,9 @@
+ 		int x, 
+ 		int y, 
+ 		int w, 
+-		const char **table, 
++		char **table, 
+ 		int table_items,
+-		const char *text)
++		char *text)
+  : BC_TextBox(x, y, w, 1, text)
+ {
+ 	this->timeentry = timeentry;

@@ -1,0 +1,40 @@
+--- cinecutie/vtracking.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/vtracking.C	2010-02-19 22:19:12.028571315 +0100
+@@ -19,13 +19,18 @@
+  * 
+  */
+ 
++#include "asset.h"
++#include "assets.h"
+ #include "edl.h"
+ #include "edlsession.h"
+ #include "localsession.h"
+ #include "mainclock.h"
+ #include "meterpanel.h"
+ #include "mwindow.h"
++#include "renderengine.h"
++#include "mainclock.h"
+ #include "vplayback.h"
++#include "vrender.h"
+ #include "vtimebar.h"
+ #include "vtracking.h"
+ #include "vwindow.h"
+@@ -49,12 +54,17 @@
+ 
+ void VTracking::update_tracker(double position)
+ {
++	Asset *asset = vwindow->get_edl()->assets->first;
+ //printf("VTracking::update_tracker %ld\n", position);
+ 	vwindow->gui->lock_window("VTracking::update_tracker");
+ 	vwindow->get_edl()->local_session->set_selectionstart(position);
+ 	vwindow->get_edl()->local_session->set_selectionend(position);
+ 	vwindow->gui->slider->update(position);
+-	vwindow->gui->clock->update(position);
++
++	vwindow->gui->clock->update(position + 
++		asset->tcstart / (asset->video_data ?
++							asset->frame_rate :
++							asset->sample_rate));
+ 
+ // This is going to boost the latency but we need to update the timebar
+ 	vwindow->gui->timebar->draw_range();

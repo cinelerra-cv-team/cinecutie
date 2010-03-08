@@ -1,0 +1,69 @@
+--- cinecutie/record.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/record.C	2010-02-19 22:19:11.988570758 +0100
+@@ -159,7 +159,6 @@
+ 
+ int Record::load_defaults()
+ {
+-
+ 	char string[BCTEXTLEN];
+ 	BC_Hash *defaults = mwindow->defaults;
+ 
+@@ -482,7 +481,7 @@
+ // Force monitor to quit without resuming
+ 		if(monitor_engine->record_video) 
+ 			monitor_engine->record_video->batch_done = 1;
+-		else
++		else if (monitor_engine->record_audio)
+ 			monitor_engine->record_audio->batch_done = 1;
+ 
+ SET_TRACE
+@@ -566,7 +565,6 @@
+ 
+ 		if(new_edls.total)
+ 		{
+-			mwindow->undo->update_undo_before();
+ 
+ // For pasting, clear the active region
+ 			if(load_mode == LOAD_PASTE)
+@@ -579,14 +577,15 @@
+ 				0,
+ 				-1,
+ 				mwindow->edl->session->labels_follow_edits,
+-				mwindow->edl->session->plugins_follow_edits);
++				mwindow->edl->session->plugins_follow_edits,
++				0); // overwrite
+ //printf("Record::run 7\n");
+ 
+ 			new_edls.remove_all_objects();
+ //printf("Record::run 8\n");
+ 
+ 			mwindow->save_backup();
+-			mwindow->undo->update_undo_after(_("record"), LOAD_ALL);
++			mwindow->undo->update_undo(_("record"), LOAD_ALL);
+ 			mwindow->restart_brender();
+ 			mwindow->update_plugin_guis();
+ 			mwindow->gui->update(1, 
+@@ -875,7 +874,7 @@
+ 		return 0;
+ }
+ 
+-const char* Record::current_mode()
++char* Record::current_mode()
+ {
+ 	return Batch::mode_to_text(get_current_batch()->record_mode);
+ }
+@@ -925,12 +924,12 @@
+ 	return 0;
+ }
+ 
+-const char* Record::current_source()
++char* Record::current_source()
+ {
+ 	return get_current_batch()->get_source_text();
+ }
+ 
+-const char* Record::current_news()
++char* Record::current_news()
+ {
+ 	return batches.values[current_batch]->news;
+ }

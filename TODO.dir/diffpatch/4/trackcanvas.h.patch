@@ -1,0 +1,188 @@
+--- cinecutie/trackcanvas.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/trackcanvas.h	2010-02-19 22:19:12.008571675 +0100
+@@ -41,6 +41,8 @@
+ #include "track.inc"
+ #include "tracks.inc"
+ #include "transitionhandles.inc"
++#include "keyframe.inc"
++#include "floatauto.inc"
+ 
+ class TrackCanvas : public BC_SubWindow
+ {
+@@ -48,7 +50,7 @@
+ 	TrackCanvas(MWindow *mwindow, MWindowGUI *gui);
+ 	~TrackCanvas();
+ 
+-	void create_objects();
++	int create_objects();
+ 	void resize_event();
+ 	int drag_start_event();
+ 	int drag_motion_event();
+@@ -62,6 +64,7 @@
+ 		int indexes_only = 0,     // Redraw only certain audio resources with indexes
+ 		Asset *index_asset = 0);
+ 	void draw_highlight_rectangle(int x, int y, int w, int h);
++	void draw_highlight_insertion(int x, int y, int w, int h);
+ 	void draw_playback_cursor();
+ 	void draw_highlighting();
+ // User can either call draw or draw_overlays to copy a fresh 
+@@ -76,12 +79,6 @@
+ 		int64_t &w, 
+ 		int64_t &h, 
+ 		int side);
+-	int get_drag_values(float *percentage, 
+-		int64_t *position,
+-		int do_clamp,
+-		int cursor_x,
+-		int cursor_y,
+-		Auto *current);
+ 	void draw_title(Edit *edit, 
+ 		int64_t edit_x, 
+ 		int64_t edit_y, 
+@@ -93,7 +90,8 @@
+ 		int x, 
+ 		int y, 
+ 		int center_pixel, 
+-		int zoom_track);
++		int zoom_track,
++		int color);
+ 	void draw_floatauto(Auto *current, 
+ 		int x, 
+ 		int y, 
+@@ -102,7 +100,8 @@
+ 		int out_x,
+ 		int out_y,
+ 		int center_pixel, 
+-		int zoom_track);
++		int zoom_track,
++		int color);
+ 	int test_auto(Auto *current, 
+ 		int x, 
+ 		int y, 
+@@ -133,7 +132,9 @@
+ 		int ax,
+ 		int ay,
+ 		int ax2,
+-		int ay2);
++		int ay2,
++		int color,
++		int autogrouptype);
+ 	int test_floatline(int center_pixel, 
+ 		FloatAutos *autos,
+ 		double unit_start,
+@@ -143,12 +144,14 @@
+ 		int x2,
+ 		int cursor_x, 
+ 		int cursor_y, 
+-		int buttonpress);
++		int buttonpress,
++		int autogrouptype);
+ 	void draw_toggleline(int center_pixel, 
+ 		int ax,
+ 		int ay,
+ 		int ax2,
+-		int ay2);
++		int ay2,
++		int color);
+ 	int test_toggleline(Autos *autos,
+ 		int center_pixel, 
+ 		int x1,
+@@ -172,20 +175,17 @@
+ 		int cursor_y, 
+ 		int draw, 
+ 		int buttonpress,
+-		int x_offset,
+-		int y_offset,
+ 		int color,
+-        Auto* &auto_instance);
+-	int do_int_autos(Track *track, 
++		Auto * &auto_instance,
++		int autogrouptype);
++	int do_toggle_autos(Track *track, 
+ 		Autos *autos, 
+ 		int cursor_x, 
+ 		int cursor_y, 
+ 		int draw, 
+ 		int buttonpress,
+-		int x_offset,
+-		int y_offset,
+ 		int color,
+-        Auto* &auto_instance);
++        Auto * &auto_instance);
+ 	int do_autos(Track *track, 
+ 		Autos *autos, 
+ 		int cursor_x, 
+@@ -193,8 +193,7 @@
+ 		int draw, 
+ 		int buttonpress,
+ 		BC_Pixmap *pixmap,
+-        Auto* &auto_instance,
+-		int &rerender);
++        Auto * &auto_instance);
+ 	int do_plugin_autos(Track *track,
+ 		int cursor_x, 
+ 		int cursor_y, 
+@@ -220,7 +219,8 @@
+ //     the result is made relative to the value in reference.
+ 	float percentage_to_value(float percentage, 
+ 		int is_toggle,
+-		Auto *reference);
++		Auto *reference,
++		int autogrouptype);
+ 
+ // Get x and y of a FloatAuto relative to center_pixel
+ 	void calculate_auto_position(double *x, 
+@@ -232,7 +232,8 @@
+ 		Auto *current,
+ 		double unit_start,
+ 		double zoom_units,
+-		double yscale);
++		double yscale,
++		int autogrouptype);
+ 	void synchronize_autos(float change, Track *skip, FloatAuto *fauto, int fill_gangs);
+ 
+ 
+@@ -263,14 +264,18 @@
+ 	int do_edit_handles(int cursor_x, 
+ 		int cursor_y, 
+ 		int button_press,
+-		int &redraw,
+-		int &rerender);
++		int &rerender,
++		int &update_overlay,
++		int &new_cursor,
++		int &update_cursor);
+ // Get plugin and handle the cursor if over
+ 	int do_plugin_handles(int cursor_x, 
+ 		int cursor_y, 
+ 		int button_press,
+-		int &redraw,
+-		int &rerender);
++		int &rerender,
++		int &update_overlay,
++		int &new_cursor,
++		int &update_cursor);
+ // Get edit the cursor is over
+ 	int do_edits(int cursor_x, 
+ 		int cursor_y, 
+@@ -295,12 +300,6 @@
+ 		int button_press,
+ 		int &new_cursor,
+ 		int &update_cursor);
+-	void draw_cropped_line(int x1, 
+-		int y1, 
+-		int x2, 
+-		int y2, 
+-		int min_y,
+-		int max_y);
+ 	int button_press_event();
+ 	int button_release_event();
+ 	int cursor_motion_event();
+@@ -312,6 +311,7 @@
+ 	int start_selection(double position);
+ 	int drag_motion();
+ 	int drag_stop();
++	int64_t get_drop_position (int *is_insertion, Edit *moved_edit, int64_t moved_edit_length);
+ 	void end_edithandle_selection();
+ 	void end_pluginhandle_selection();
+ // Number of seconds spanned by the trackcanvas

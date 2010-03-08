@@ -1,0 +1,11 @@
+--- cinecutie/packagerenderer.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/packagerenderer.h	2010-02-19 22:19:11.978570999 +0100
+@@ -60,6 +60,8 @@
+ 	int64_t video_end;
+ 	int done;
+ 	int use_brender;
++	int video_do;
++	int audio_do;
+ };
+ 
+ 

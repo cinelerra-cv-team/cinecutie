@@ -1,0 +1,34 @@
+--- cinecutie/awindow.C	2008-10-11 17:46:25.000000000 +0200
++++ /home/user/cinecutie/cinecutie/awindow.C	2010-02-19 22:19:11.858573208 +0100
+@@ -25,6 +25,7 @@
+ #include "awindowgui.h"
+ #include "bcsignals.h"
+ #include "clipedit.h"
++#include "labeledit.h"
+ 
+ AWindow::AWindow(MWindow *mwindow) : Thread()
+ {
+@@ -36,18 +37,19 @@
+ AWindow::~AWindow()
+ {
+ 	delete asset_edit;
++	if (label_edit) delete label_edit;
+ }
+ 
+-void AWindow::create_objects()
++int AWindow::create_objects()
+ {
+ 	gui = new AWindowGUI(mwindow, this);
+ 	gui->create_objects();
+-	gui->lock_window("AWindow::create_objects");
+-	gui->update_assets();
+-	gui->unlock_window();
++	gui->async_update_assets();
+ 	asset_remove = new AssetRemoveThread(mwindow);
+ 	asset_edit = new AssetEdit(mwindow);
+ 	clip_edit = new ClipEdit(mwindow, this, 0);
++	label_edit = new LabelEdit(mwindow, this, 0);
++	return 0;
+ }
+ 
+ 

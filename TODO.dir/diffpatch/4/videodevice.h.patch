@@ -1,0 +1,38 @@
+--- cinecutie/videodevice.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/videodevice.h	2010-02-19 22:19:12.018571035 +0100
+@@ -24,7 +24,6 @@
+ 
+ #include "asset.inc"
+ #include "assets.inc"
+-#include "audio1394.inc"
+ #include "audiodevice.inc"
+ #include "bccapture.inc"
+ #include "bctimer.h"
+@@ -41,13 +40,17 @@
+ #include "thread.h"
+ #include "picture.inc"
+ #include "vdevicebase.inc"
+-#include "vdevice1394.inc"
+ #include "vdevicebuz.inc"
+ #include "vdevicelml.inc"
+ #include "vdevicev4l.inc"
+ #include "vdevicex11.inc"
+ #include "videoconfig.inc"
+ #include "videowindow.inc"
++#ifdef HAVE_FIREWIRE
++#include "audio1394.inc"
++#include "device1394output.inc"
++#include "vdevice1394.inc"
++#endif
+ 
+ 
+ // The keepalive thread runs continuously during recording.
+@@ -120,7 +123,7 @@
+ 
+ // Return codec to store on disk if compressed
+ 	void fix_asset(Asset *asset, int driver);
+-	static const char* drivertostr(int driver);
++	static char* drivertostr(int driver);
+ // Get the best colormodel for recording given the file format.
+ // Must be called between open_input and read_buffer.
+ 	int get_best_colormodel(Asset *asset);

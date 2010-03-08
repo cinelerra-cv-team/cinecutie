@@ -1,0 +1,81 @@
+--- cinecutie/apatchgui.C	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/apatchgui.C	2010-02-19 22:19:11.838575648 +0100
+@@ -66,9 +66,9 @@
+ 	if(pan) delete pan;
+ }
+ 
+-void APatchGUI::create_objects()
++int APatchGUI::create_objects()
+ {
+-	update(x, y);
++	return update(x, y);
+ }
+ 
+ int APatchGUI::reposition(int x, int y)
+@@ -120,7 +120,10 @@
+ 				PLAY_FORWARD, 
+ 				previous, 
+ 				next);
+-			fade->update(value);
++			fade->update(fade->get_w(),
++				     value, 
++				     mwindow->edl->local_session->automation_mins[AUTOGROUPTYPE_AUDIO_FADE],
++				     mwindow->edl->local_session->automation_maxs[AUTOGROUPTYPE_AUDIO_FADE]);
+ 		}
+ 	}
+ 	else
+@@ -224,8 +227,8 @@
+ 			0, 
+ 			w, 
+ 			w, 
+-			(float)INFINITYGAIN, 
+-			(float)MAX_AUDIO_FADE, 
++			mwindow->edl->local_session->automation_mins[AUTOGROUPTYPE_AUDIO_FADE], 
++			mwindow->edl->local_session->automation_maxs[AUTOGROUPTYPE_AUDIO_FADE], 
+ 			get_keyframe(mwindow, patch)->value)
+ {
+ 	this->mwindow = mwindow;
+@@ -239,14 +242,14 @@
+ 	Autos *fade_autos = patch->atrack->automation->autos[AUTOMATION_FADE];
+ 	int need_undo = !fade_autos->auto_exists_for_editing(position);
+ 
+-	mwindow->undo->update_undo_before(_("fade"), need_undo ? 0 : this);
+-
+ 	current = (FloatAuto*)fade_autos->get_auto_for_editing(position);
+ 
+ 	float result = get_value() - current->value;
+ 	current->value = get_value();
+ 
+-	mwindow->undo->update_undo_after(_("fade"), LOAD_AUTOMATION);
++	mwindow->undo->update_undo(_("fade"), 
++		LOAD_AUTOMATION, 
++		need_undo ? 0 : this);
+ 
+ 	return result;
+ }
+@@ -262,7 +265,7 @@
+ 
+ 	patch->change_source = 1;
+ 	float change = update_edl();
+-	if(patch->track->gang && patch->track->record) 
++	if(patch->track->gang) 
+ 		patch->patchbay->synchronize_faders(change, TRACK_AUDIO, patch->track);
+ 	patch->change_source = 0;
+ 
+@@ -314,15 +317,13 @@
+ 	Autos *pan_autos = patch->atrack->automation->autos[AUTOMATION_PAN];
+ 	int need_undo = !pan_autos->auto_exists_for_editing(position);
+ 
+-	mwindow->undo->update_undo_before(_("pan"), need_undo ? 0 : this);
+-	
+ 	current = (PanAuto*)pan_autos->get_auto_for_editing(position);
+ 
+ 	current->handle_x = get_stick_x();
+ 	current->handle_y = get_stick_y();
+ 	memcpy(current->values, get_values(), sizeof(float) * mwindow->edl->session->audio_channels);
+ 
+-	mwindow->undo->update_undo_after(_("pan"), LOAD_AUTOMATION);
++	mwindow->undo->update_undo(_("pan"), LOAD_AUTOMATION, need_undo ? 0 : this);
+ 
+ 	mwindow->sync_parameters(CHANGE_PARAMS);
+ 

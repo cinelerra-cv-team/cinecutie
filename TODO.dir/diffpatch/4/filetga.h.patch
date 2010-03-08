@@ -1,0 +1,22 @@
+--- cinecutie/filetga.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/filetga.h	2010-02-19 22:19:11.958569362 +0100
+@@ -38,8 +38,8 @@
+ 		int audio_options,
+ 		int video_options);
+ 	int read_frame_header(char *path);
+-	static const char* compression_to_str(const char *compression);
+-	static const char* str_to_compression(const char *string);
++	static char* compression_to_str(char *compression);
++	static char* str_to_compression(char *string);
+ 
+ 	int64_t get_memory_usage();
+ // To be used in single frame FileTGA
+@@ -108,7 +108,7 @@
+ public:
+ 	TGAConfigVideo(BC_WindowBase *gui, Asset *asset);
+ 	~TGAConfigVideo();
+-	void create_objects();
++	int create_objects();
+ 	int close_event();
+ 
+ 	ArrayList<BC_ListBoxItem*> compression_items;

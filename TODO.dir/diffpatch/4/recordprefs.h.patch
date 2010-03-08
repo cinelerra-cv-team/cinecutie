@@ -1,0 +1,32 @@
+--- cinecutie/recordprefs.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/recordprefs.h	2010-02-19 22:19:11.988570758 +0100
+@@ -43,7 +43,7 @@
+ 	RecordPrefs(MWindow *mwindow, PreferencesWindow *pwindow);
+ 	~RecordPrefs();
+ 
+-	void create_objects();
++	int create_objects();
+ 
+ 	FormatTools *recording_format;
+ 	ADevicePrefs *audio_in_device;
+@@ -173,4 +173,20 @@
+ 	PreferencesWindow *pwindow;
+ };
+ 
++class StillImageUseDuration : public BC_CheckBox
++{
++public:
++	StillImageUseDuration(PreferencesWindow *pwindow, int value, int x, int y);
++	int handle_event();
++	PreferencesWindow *pwindow;
++};
++
++class StillImageDuration : public BC_TextBox
++{
++public:
++	StillImageDuration(PreferencesWindow *pwindow, int x, int y);
++	int handle_event();
++	PreferencesWindow *pwindow;
++};
++
+ #endif

@@ -1,0 +1,74 @@
+--- cinecutie/preferencesthread.h	2008-08-03 22:02:14.000000000 +0200
++++ /home/user/cinecutie/cinecutie/preferencesthread.h	2010-02-19 22:19:11.988570758 +0100
+@@ -22,13 +22,13 @@
+ #ifndef PREFERENCESTHREAD_H
+ #define PREFERENCESTHREAD_H
+ 
+-#include "bcdialog.h"
+ #include "edl.inc"
+ #include "guicast.h"
+ #include "mutex.inc"
+ #include "mwindow.inc"
+ #include "preferences.inc"
+ #include "preferencesthread.inc"
++#include "thread.h"
+ 
+ 
+ class PreferencesMenuitem : public BC_MenuItem
+@@ -43,18 +43,16 @@
+ 	PreferencesThread *thread;
+ };
+ 
+-class PreferencesThread : public BC_DialogThread
++class PreferencesThread : public Thread
+ {
+ public:
+ 	PreferencesThread(MWindow *mwindow);
+ 	~PreferencesThread();
+-
+-	BC_Window* new_gui();
+-	void handle_close_event(int result);
++	void run();
+ 
+ 	int update_framerate();
+ 	int apply_settings();
+-	const char* category_to_text(int category);
++	char* category_to_text(int category);
+ 	int text_to_category(char *category);
+ 
+ 	int current_dialog;
+@@ -67,6 +65,7 @@
+ 	int close_assets;
+ 	int reload_plugins;
+ 	PreferencesWindow *window;
++	Mutex *window_lock;
+ 	MWindow *mwindow;
+ // Copy of mwindow preferences
+ 	Preferences *preferences;
+@@ -90,7 +89,7 @@
+ 	PreferencesDialog(MWindow *mwindow, PreferencesWindow *pwindow);
+ 	virtual ~PreferencesDialog();
+ 	
+-	virtual void create_objects() { };
++	virtual int create_objects() { return 0; };
+ 	virtual int draw_framerate() { return 0; };
+ 	PreferencesWindow *pwindow;
+ 	MWindow *mwindow;
+@@ -109,7 +108,7 @@
+ 		int y);
+ 	~PreferencesWindow();
+ 
+-	void create_objects();
++	int create_objects();
+ 	int delete_current_dialog();
+ 	int set_current_dialog(int number);
+ 	int update_framerate();
+@@ -132,7 +131,7 @@
+ 		int x, 
+ 		int y,
+ 		int category,
+-		const char *text,
++		char *text,
+ 		VFrame **images);
+ 
+ 	int handle_event();

@@ -1,0 +1,10 @@
+--- cinecutie/framecache.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/framecache.h	2010-02-19 22:19:11.958569362 +0100
+@@ -91,6 +91,7 @@
+ 
+ 
+ 
++
+ private:
+ // Return 1 if matching frame exists.
+ // Return 0 if not.

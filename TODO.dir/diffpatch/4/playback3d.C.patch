@@ -1,0 +1,333 @@
+--- cinecutie/playback3d.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/playback3d.C	2010-02-19 22:19:11.978570999 +0100
+@@ -36,6 +36,10 @@
+ #include "transportque.inc"
+ #include "vframe.h"
+ 
++#if defined(HAVE_CONFIG_H)
++#include "config.h"
++#endif
++
+ #ifdef HAVE_GL
+ #include <GL/gl.h>
+ #include <GL/glext.h>
+@@ -50,7 +54,7 @@
+ // These should be passed to VFrame::make_shader to construct shaders.
+ // Can't hard code sampler2D
+ 
+-static const char *yuv_to_rgb_frag = 
++static char *yuv_to_rgb_frag = 
+ 	"uniform sampler2D tex;\n"
+ 	"void main()\n"
+ 	"{\n"
+@@ -63,7 +67,7 @@
+ 	"	gl_FragColor = vec4(yuv_to_rgb_matrix * yuv, 1);\n"
+ 	"}\n";
+ 
+-static const char *yuva_to_rgba_frag = 
++static char *yuva_to_rgba_frag = 
+ 	"uniform sampler2D tex;\n"
+ 	"void main()\n"
+ 	"{\n"
+@@ -76,7 +80,7 @@
+ 	"	gl_FragColor = vec4(yuv_to_rgb_matrix * yuva.rgb, yuva.a);\n"
+ 	"}\n";
+ 
+-static const char *blend_add_frag = 
++static char *blend_add_frag = 
+ 	"uniform sampler2D tex2;\n"
+ 	"uniform vec2 tex2_dimensions;\n"
+ 	"void main()\n"
+@@ -90,7 +94,7 @@
+ 	"	gl_FragColor.a = max(gl_FragColor.a, canvas.a);\n"
+ 	"}\n";
+ 
+-static const char *blend_max_frag = 
++static char *blend_max_frag = 
+ 	"uniform sampler2D tex2;\n"
+ 	"uniform vec2 tex2_dimensions;\n"
+ 	"void main()\n"
+@@ -106,7 +110,7 @@
+ 	"	gl_FragColor.a = max(gl_FragColor.a, canvas.a);\n"
+ 	"}\n";
+ 
+-static const char *blend_subtract_frag = 
++static char *blend_subtract_frag = 
+ 	"uniform sampler2D tex2;\n"
+ 	"uniform vec2 tex2_dimensions;\n"
+ 	"void main()\n"
+@@ -120,7 +124,7 @@
+ 	"	gl_FragColor.a = max(gl_FragColor.a, canvas.a);\n"
+ 	"}\n";
+ 
+-static const char *blend_multiply_frag = 
++static char *blend_multiply_frag = 
+ 	"uniform sampler2D tex2;\n"
+ 	"uniform vec2 tex2_dimensions;\n"
+ 	"void main()\n"
+@@ -134,7 +138,7 @@
+ 	"	gl_FragColor.a = max(gl_FragColor.a, canvas.a);\n"
+ 	"}\n";
+ 
+-static const char *blend_divide_frag = 
++static char *blend_divide_frag = 
+ 	"uniform sampler2D tex2;\n"
+ 	"uniform vec2 tex2_dimensions;\n"
+ 	"void main()\n"
+@@ -151,20 +155,20 @@
+ 	"	gl_FragColor = vec4(result, max(gl_FragColor.a, canvas.a));\n"
+ 	"}\n";
+ 
+-static const char *multiply_alpha_frag = 
++static char *multiply_alpha_frag = 
+ 	"void main()\n"
+ 	"{\n"
+ 	"	gl_FragColor.rgb *= vec3(gl_FragColor.a, gl_FragColor.a, gl_FragColor.a);\n"
+ 	"}\n";
+ 
+-static const char *read_texture_frag = 
++static char *read_texture_frag = 
+ 	"uniform sampler2D tex;\n"
+ 	"void main()\n"
+ 	"{\n"
+ 	"	gl_FragColor = texture2D(tex, gl_TexCoord[0].st);\n"
+ 	"}\n";
+ 
+-static const char *multiply_mask4_frag = 
++static char *multiply_mask4_frag = 
+ 	"uniform sampler2D tex;\n"
+ 	"uniform sampler2D tex1;\n"
+ 	"uniform float scale;\n"
+@@ -174,7 +178,7 @@
+ 	"	gl_FragColor.a *= texture2D(tex1, gl_TexCoord[0].st / vec2(scale, scale)).r;\n"
+ 	"}\n";
+ 
+-static const char *multiply_mask3_frag = 
++static char *multiply_mask3_frag = 
+ 	"uniform sampler2D tex;\n"
+ 	"uniform sampler2D tex1;\n"
+ 	"uniform float scale;\n"
+@@ -186,7 +190,7 @@
+ 	"	gl_FragColor.rgb *= vec3(a, a, a);\n"
+ 	"}\n";
+ 
+-static const char *multiply_yuvmask3_frag = 
++static char *multiply_yuvmask3_frag = 
+ 	"uniform sampler2D tex;\n"
+ 	"uniform sampler2D tex1;\n"
+ 	"uniform float scale;\n"
+@@ -199,7 +203,7 @@
+ 	"	gl_FragColor.gb += vec2(0.5, 0.5);\n"
+ 	"}\n";
+ 
+-static const char *fade_rgba_frag =
++static char *fade_rgba_frag =
+ 	"uniform sampler2D tex;\n"
+ 	"uniform float alpha;\n"
+ 	"void main()\n"
+@@ -208,7 +212,7 @@
+ 	"	gl_FragColor.a *= alpha;\n"
+ 	"}\n";
+ 
+-static const char *fade_yuv_frag =
++static char *fade_yuv_frag =
+ 	"uniform sampler2D tex;\n"
+ 	"uniform float alpha;\n"
+ 	"void main()\n"
+@@ -888,7 +892,7 @@
+ 		}
+ 
+ 
+-		const char *shader_stack[3] = { 0, 0, 0 };
++		char *shader_stack[3] = { 0, 0, 0 };
+ 		int total_shaders = 0;
+ 
+ 		VFrame::init_screen(canvas_w, canvas_h);
+@@ -1079,27 +1083,28 @@
+ 
+ 
+ #ifdef HAVE_GL
++struct Vertex : ListItem<Vertex>
++{
++	GLdouble c[3];
++};
++// this list is only used from the main thread, no locking needed
++// this must be a list so that pointers to allocated entries remain valid
++// when new entries are added
++static List<Vertex> *vertex_cache = 0;
++
+ static void combine_callback(GLdouble coords[3], 
+ 	GLdouble *vertex_data[4],
+ 	GLfloat weight[4], 
+ 	GLdouble **dataOut)
+ {
+-	GLdouble *vertex;
+-
+-	vertex = (GLdouble *) malloc(6 * sizeof(GLdouble));
+-	vertex[0] = coords[0];
+-	vertex[1] = coords[1];
+-	vertex[2] = coords[2];
+-
+-	for (int i = 3; i < 6; i++)
+-	{
+-		vertex[i] = weight[0] * vertex_data[0][i] +
+-			weight[1] * vertex_data[1][i] +
+-			weight[2] * vertex_data[2][i] +
+-			weight[3] * vertex_data[3][i];
+-	}
++// can't use malloc here; GLU doesn't delete the memory for us!
++	Vertex* vertex = vertex_cache->append();
++	vertex->c[0] = coords[0];
++	vertex->c[1] = coords[1];
++	vertex->c[2] = coords[2];
++// we don't need to interpolate anything
+ 
+-	*dataOut = vertex;
++	*dataOut = &vertex->c[0];
+ }
+ #endif
+ 
+@@ -1138,27 +1143,23 @@
+ 		int w = command->frame->get_w();
+ 		int h = command->frame->get_h();
+ 		command->frame->init_screen();
+-		int value = command->keyframe_set->get_value(command->start_position_project,
+-			PLAY_FORWARD);
+-		float feather = command->keyframe_set->get_feather(command->start_position_project,
+-			PLAY_FORWARD);
+ 
+ // Clear screen
+ 		glDisable(GL_TEXTURE_2D);
+ 		if(command->default_auto->mode == MASK_MULTIPLY_ALPHA)
+ 		{
+ 			glClearColor(0.0, 0.0, 0.0, 0.0);
+-			glColor4f((float)value / 100, 
+-				(float)value / 100, 
+-				(float)value / 100, 
++			glColor4f((float)command->keyframe->value / 100, 
++				(float)command->keyframe->value / 100, 
++				(float)command->keyframe->value / 100, 
+ 				1.0);
+ 		}
+ 		else
+ 		{
+ 			glClearColor(1.0, 1.0, 1.0, 1.0);
+-			glColor4f((float)1.0 - (float)value / 100, 
+-				(float)1.0 - (float)value / 100, 
+-				(float)1.0 - (float)value / 100, 
++			glColor4f((float)1.0 - (float)command->keyframe->value / 100, 
++				(float)1.0 - (float)command->keyframe->value / 100, 
++				(float)1.0 - (float)command->keyframe->value / 100, 
+ 				1.0);
+ 		}
+ 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+@@ -1172,12 +1173,14 @@
+ 		gluTessCallback(tesselator, GLU_TESS_END, (GLvoid (*) ( )) &glEnd);
+ 		gluTessCallback(tesselator, GLU_TESS_COMBINE, (GLvoid (*) ( ))&combine_callback);
+ 
++		vertex_cache = new List<Vertex>;
++
+ 
+ // Draw every submask as a new polygon
+ 		int total_submasks = command->keyframe_set->total_submasks(
+ 			command->start_position_project, 
+ 			PLAY_FORWARD);
+-		float scale = feather + 1;
++		float scale = command->keyframe->feather + 1;
+  		int display_list = glGenLists(1);
+  		glNewList(display_list, GL_COMPILE);
+ 		for(int k = 0; k < total_submasks; k++)
+@@ -1201,13 +1204,9 @@
+ 					points->values[0] : 
+ 					points->values[i + 1];
+ 
+-#ifndef SQR
+-#define SQR(x) ((x) * (x))
+-#endif
+ 
+-// This is very slow.
+ 				float x, y;
+-				int segments = (int)(sqrt(SQR(point1->x - point2->x) + SQR(point1->y - point2->y)));
++				int segments = 0;
+ 				if(point1->control_x2 == 0 &&
+ 					point1->control_y2 == 0 &&
+ 					point2->control_x1 == 0 &&
+@@ -1223,24 +1222,52 @@
+ 				float x3 = point2->x;
+ 				float y3 = point2->y;
+ 
+-				for(int j = 0; j <= segments; j++)
++				// forward differencing bezier curves implementation taken from GPL code at
++				// http://cvs.sourceforge.net/viewcvs.py/guliverkli/guliverkli/src/subtitles/Rasterizer.cpp?rev=1.3
++
++				float cx3, cx2, cx1, cx0, cy3, cy2, cy1, cy0;
++
++				// [-1 +3 -3 +1]
++				// [+3 -6 +3  0]
++				// [-3 +3  0  0]
++				// [+1  0  0  0]
++
++				cx3 = -  x0 + 3*x1 - 3*x2 + x3;
++				cx2 =  3*x0 - 6*x1 + 3*x2;
++				cx1 = -3*x0 + 3*x1;
++				cx0 =    x0;
++
++				cy3 = -  y0 + 3*y1 - 3*y2 + y3;
++				cy2 =  3*y0 - 6*y1 + 3*y2;
++				cy1 = -3*y0 + 3*y1;
++				cy0 =    y0;
++
++				// This equation is from Graphics Gems I.
++				//
++				// The idea is that since we're approximating a cubic curve with lines,
++				// any error we incur is due to the curvature of the line, which we can
++				// estimate by calculating the maximum acceleration of the curve.  For
++				// a cubic, the acceleration (second derivative) is a line, meaning that
++				// the absolute maximum acceleration must occur at either the beginning
++				// (|c2|) or the end (|c2+c3|).  Our bounds here are a little more
++				// conservative than that, but that's okay.
++				if (segments == 0)
+ 				{
+-					float t = (float)j / segments;
+-					float tpow2 = t * t;
+-					float tpow3 = t * t * t;
+-					float invt = 1 - t;
+-					float invtpow2 = invt * invt;
+-					float invtpow3 = invt * invt * invt;
++					float maxaccel1 = fabs(2*cy2) + fabs(6*cy3);
++					float maxaccel2 = fabs(2*cx2) + fabs(6*cx3);
+ 
+-					x = (        invtpow3 * x0
+-						+ 3 * t     * invtpow2 * x1
+-						+ 3 * tpow2 * invt     * x2 
+-						+     tpow3            * x3);
+-					y = (        invtpow3 * y0 
+-						+ 3 * t     * invtpow2 * y1
+-						+ 3 * tpow2 * invt     * y2 
+-						+     tpow3            * y3);
++					float maxaccel = maxaccel1 > maxaccel2 ? maxaccel1 : maxaccel2;
++					float h = 1.0;
+ 
++					if(maxaccel > 8.0) h = sqrt((8.0) / maxaccel);
++					segments = int(1/h);
++				}
++
++				for(int j = 0; j <= segments; j++)
++				{
++					float t = (float)j / segments;
++					x = cx0 + t*(cx1 + t*(cx2 + t*cx3));
++					y = cy0 + t*(cy1 + t*(cy2 + t*cy3));
+ 
+ 					if(j > 0 || first_point)
+ 					{
+@@ -1267,6 +1294,10 @@
+ 		glEndList();
+  		glCallList(display_list);
+  		glDeleteLists(display_list, 1);
++		gluDeleteTess(tesselator);
++
++		delete vertex_cache;
++		vertex_cache = 0;
+ 
+ 		glColor4f(1, 1, 1, 1);
+ 

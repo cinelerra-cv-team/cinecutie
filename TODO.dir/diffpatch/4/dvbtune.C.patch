@@ -1,0 +1,13 @@
+--- cinecutie/dvbtune.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/dvbtune.C	2010-02-19 22:19:11.948570683 +0100
+@@ -19,8 +19,8 @@
+  * 
+  */
+ 
+-#include "../../guicast/bcwindowbase.inc"
+-#include "../../guicast/clip.h"
++#include "bcwindowbase.inc"
++#include "clip.h"
+ #include "condition.h"
+ #include "devicedvbinput.inc"
+ #include "dvbtune.h"

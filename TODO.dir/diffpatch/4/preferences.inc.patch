@@ -1,0 +1,11 @@
+--- cinecutie/preferences.inc	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/preferences.inc	2010-02-19 22:19:11.988570758 +0100
+@@ -23,7 +23,7 @@
+ #define PREFERENCES_INC
+ 
+ // Run-time configuration directory
+-#define BCASTDIR "~/.bcast/"
++#define BCASTDIR "~/.ccutie/"
+ #define BACKUP_PATH BCASTDIR "backup.xml"
+ #define DEAMON_PORT 400
+ 

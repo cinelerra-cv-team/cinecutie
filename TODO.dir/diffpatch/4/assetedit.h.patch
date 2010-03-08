@@ -1,0 +1,150 @@
+--- cinecutie/assetedit.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/assetedit.h	2010-02-19 22:19:11.848575688 +0100
+@@ -33,6 +33,9 @@
+ #include "thread.h"
+ 
+ 
++class AssetEditTCStartTextBox;
++class AssetEditReelNumber;
++class AssetEditReelName;
+ class AssetEditByteOrderHILO;
+ class AssetEditByteOrderLOHI;
+ class AssetEditPath;
+@@ -65,7 +68,7 @@
+ 	AssetEditWindow(MWindow *mwindow, AssetEdit *asset_edit);
+ 	~AssetEditWindow();
+ 
+-	void create_objects();
++	int create_objects();
+ 	Asset *asset;
+ 	AssetEditPathText *path_text;
+ 	AssetEditPath *path_button;
+@@ -85,9 +88,9 @@
+ 		AssetEditWindow *fwindow, 
+ 		BC_TextBox *textbox, 
+ 		int y, 
+-		const char *text, 
+-		const char *window_title = _(PROGRAM_NAME " Path"), 
+-		const char *window_caption = _("Select a file"));
++		char *text, 
++		char *window_title = _(PROGRAM_NAME " Path"), 
++		char *window_caption = _("Select a file"));
+ 	~AssetEditPath();
+ 	
+ 	AssetEditWindow *fwindow;
+@@ -147,6 +150,75 @@
+ 	AssetEditWindow *fwindow;
+ };
+ 
++class Interlaceautofix : public BC_CheckBox
++{
++public:
++	Interlaceautofix(MWindow *mwindow,AssetEditWindow *fwindow, int x, int y);
++	~Interlaceautofix();
++	int handle_event();
++
++	void showhideotherwidgets();
++
++	AssetEditWindow* fwindow;
++	MWindow *mwindow;
++
++	BC_TextBox *ilacemode_textbox;
++	BC_ListBox *ilacemode_listbox;
++	BC_TextBox *ilacefixmethod_textbox;
++	BC_ListBox *ilacefixmethod_listbox;
++private:
++  	char string[BCTEXTLEN];
++};
++
++class AssetEditILaceautofixoption : public BC_TextBox
++{
++public:
++	AssetEditILaceautofixoption(AssetEditWindow *fwindow, char *text, int thedefault, int x, int y, int w);
++
++	int handle_event();
++	int thedefault;
++	AssetEditWindow *fwindow;
++};
++
++class AssetEditILacemode : public BC_TextBox
++{
++public:
++	AssetEditILacemode(AssetEditWindow *fwindow, char *text, int thedefault, int x, int y, int w);
++	int handle_event();
++	int thedefault;	
++	AssetEditWindow *fwindow;
++};
++
++class AssetEditInterlacemodePulldown : public BC_ListBox
++{
++public:
++	AssetEditInterlacemodePulldown(MWindow *mwindow, 
++				BC_TextBox *output_text, 
++				int *output_value,
++				ArrayList<BC_ListBoxItem*> *data,
++				Interlaceautofix *fixoption_chkbox,
++				int x,
++				int y);
++	int handle_event();
++	char* interlacemode_to_text();
++	MWindow *mwindow;
++	BC_TextBox *output_text;
++	int *output_value;
++	Interlaceautofix *fixoption_chkbox;
++private:
++  	char string[BCTEXTLEN];
++};
++
++class AssetEditILacefixmethod : public BC_TextBox
++{
++public:
++	AssetEditILacefixmethod(AssetEditWindow *fwindow, char *text, int thedefault, int x, int y, int w);
++	
++	int handle_event();
++	int thedefault;
++	AssetEditWindow *fwindow;
++};
++
+ class AssetEditHeader : public BC_TextBox
+ {
+ public:
+@@ -187,4 +259,39 @@
+ 	AssetEditWindow *fwindow;
+ };
+ 
++class AssetEditReelName : public BC_TextBox
++{
++public:
++	AssetEditReelName(AssetEditWindow *fwindow, int x, int y);
++	~AssetEditReelName();
++
++	int handle_event();
++	
++	AssetEditWindow *fwindow;
++};
++
++class AssetEditReelNumber : public BC_TextBox
++{
++public:
++	AssetEditReelNumber(AssetEditWindow *fwindow, int x, int y);
++	~AssetEditReelNumber();
++	
++	int handle_event();
++	
++	AssetEditWindow *fwindow;
++};
++
++class AssetEditTCStartTextBox : public BC_TextBox
++{
++public:
++	AssetEditTCStartTextBox(AssetEditWindow *fwindow, int value, int x, int y, int multiplier);
++	~AssetEditTCStartTextBox();
++	int handle_event();
++	
++	AssetEditWindow *fwindow;
++// Multiplier is the # of frames for whatever unit of time this is.
++// fps dependent, and unit dependent
++	int multiplier;
++	int previous;
++};
+ #endif

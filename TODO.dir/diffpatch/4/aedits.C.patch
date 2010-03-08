@@ -1,0 +1,11 @@
+--- cinecutie/aedits.C	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/aedits.C	2010-02-19 22:19:11.838575648 +0100
+@@ -28,7 +28,7 @@
+ 
+ 
+ AEdits::AEdits(EDL *edl, Track *track)
+- : Edits(edl, track)
++ : Edits(edl, track, create_edit())
+ {
+ }
+ 

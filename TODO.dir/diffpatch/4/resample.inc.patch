@@ -1,0 +1,12 @@
+--- cinecutie/resample.inc	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/resample.inc	2010-02-19 22:19:11.998570756 +0100
+@@ -23,7 +23,8 @@
+ #define RESAMPLE_INC
+ 
+ class Resample;
++class Resample_float;
+ 
+-#define RESAMPLE_CHUNKSIZE 0x40000
++#define RESAMPLE_CHUNKSIZE 0x10000
+ 
+ #endif

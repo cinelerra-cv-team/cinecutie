@@ -1,0 +1,11 @@
+--- cinecutie/confirmquit.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/confirmquit.h	2010-02-19 22:19:11.868576808 +0100
+@@ -35,7 +35,7 @@
+ 	ConfirmQuitWindow(MWindow *mwindow);
+ 	~ConfirmQuitWindow();
+ 
+-	void create_objects(char *string);
++	int create_objects(char *string);
+ 
+ 	MWindow *mwindow;
+ };

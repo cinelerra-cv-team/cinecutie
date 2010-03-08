@@ -1,0 +1,148 @@
+--- cinecutie/renderfarmclient.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/renderfarmclient.C	2010-02-19 22:19:11.998570756 +0100
+@@ -174,7 +174,7 @@
+     		}
+ 			else
+ 			{
+-printf("RenderFarmClient::main_loop: Session started from %s\n", inet_ntoa(clientname.sin_addr));
++//printf("RenderFarmClient::main_loop: Session started from %s\n", inet_ntoa(clientname.sin_addr));
+ 				RenderFarmClientThread *thread = 
+ 					new RenderFarmClientThread(this);
+ 				thread->main_loop(new_socket_fd);
+@@ -193,7 +193,7 @@
+     		}
+ 			else
+ 			{
+-printf("RenderFarmClient::main_loop: Session started from %s\n", clientname.sun_path);
++//printf("RenderFarmClient::main_loop: Session started from %s\n", clientname.sun_path);
+ 				RenderFarmClientThread *thread = 
+ 					new RenderFarmClientThread(this);
+ 				thread->main_loop(new_socket_fd);
+@@ -264,17 +264,13 @@
+ 
+ int RenderFarmClientThread::write_socket(char *data, int len)
+ {
+-//printf("RenderFarmClientThread::write_socket 1\n");
+-	int result = write(socket_fd, data, len);
+-//printf("RenderFarmClientThread::write_socket 10\n");
+-	return result;
++	return write(socket_fd, data, len);
+ }
+ 
+ int RenderFarmClientThread::read_socket(char *data, int len)
+ {
+ 	int bytes_read = 0;
+ 	int offset = 0;
+-//printf("RenderFarmClientThread::read_socket 1\n");
+ 	watchdog->begin_request();
+ 	while(len > 0 && bytes_read >= 0)
+ 	{
+@@ -291,7 +287,6 @@
+ 		}
+ 	}
+ 	watchdog->end_request();
+-//printf("RenderFarmClientThread::read_socket 10\n");
+ 
+ 	return offset;
+ }
+@@ -370,7 +365,7 @@
+ 	exit(1);
+ }
+ 
+-void RenderFarmClientThread::lock(const char *location)
++void RenderFarmClientThread::lock(char *location)
+ {
+ 	mutex_lock->lock(location);
+ }
+@@ -524,6 +519,10 @@
+ 	package->video_end = READ_INT32(data_ptr);
+ 	data_ptr += 4;
+ 	package->use_brender = READ_INT32(data_ptr);
++	data_ptr += 4;
++	package->audio_do = READ_INT32(data_ptr);
++	data_ptr += 4;
++	package->video_do = READ_INT32(data_ptr);
+ 
+ 	delete [] data;
+ 	unlock();
+@@ -578,12 +577,16 @@
+ 
+ // Get command to run
+ 	int command;
++SET_TRACE
+ 	lock("RenderFarmClientThread::run");
++SET_TRACE
+ 	get_command(socket_fd, &command);
++SET_TRACE
+ 	unlock();
+ 
+ //printf("RenderFarmClientThread::run command=%d\n", command);
+ 
++SET_TRACE
+ 	switch(command)
+ 	{
+ 		case RENDERFARM_TUNER:
+@@ -640,19 +643,20 @@
+ 	edl = new EDL;
+ 	edl->create_objects();
+ 
++//printf("RenderFarmClientThread::run 3\n");
++
++
+ 
+ 
+ 
+ 
+ 
+-//printf("RenderFarmClientThread::run 3\n");
+ 	read_preferences(socket_fd, preferences);
+-//printf("RenderFarmClientThread::run 4\n");
++//printf("RenderFarmClientThread::run 3\n");
+ 	read_asset(socket_fd, default_asset);
+-//printf("RenderFarmClientThread::run 5\n");
++//printf("RenderFarmClientThread::run 3\n");
+ 	read_edl(socket_fd, edl, preferences);
+ //edl->dump();
+-//printf("RenderFarmClientThread::run 6\n");
+ 
+ 
+ 
+@@ -660,17 +664,18 @@
+ 
+ 
+ 
++//printf("RenderFarmClientThread::run 4\n");
+ 
+ 	package_renderer.initialize(0,
+ 			edl, 
+ 			preferences, 
+ 			default_asset,
+ 			client->plugindb);
++//printf("RenderFarmClientThread::run 5\n");
+ 
+ // Read packages
+ 	while(1)
+ 	{
+-//printf("RenderFarmClientThread::run 5\n");
+ 		result = read_package(socket_fd, package);
+ //printf("RenderFarmClientThread::run 6 %d\n", result);
+ 
+@@ -737,6 +742,7 @@
+ 	join();
+ }
+ 
++
+ void RenderFarmKeepalive::run()
+ {
+ 	while(!done)
+@@ -746,10 +752,8 @@
+ 		disable_cancel();
+ 		if(!done)
+ 		{
+-//printf("RenderFarmKeepalive::run 1\n");
+ // watchdog thread kills this if it gets stuck
+ 			client_thread->ping_server();
+-//printf("RenderFarmKeepalive::run 10\n");
+ 		}
+ 	}
+ }

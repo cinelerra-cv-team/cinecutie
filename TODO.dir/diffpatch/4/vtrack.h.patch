@@ -1,0 +1,11 @@
+--- cinecutie/vtrack.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/vtrack.h	2010-02-19 22:19:12.028571315 +0100
+@@ -42,7 +42,7 @@
+ 	VTrack(EDL *edl, Tracks *tracks);
+ 	~VTrack();
+ 
+-	void create_objects();
++	int create_objects();
+ 	int load_defaults(BC_Hash *defaults);
+ 	void set_default_title();
+ 	PluginSet* new_plugins();

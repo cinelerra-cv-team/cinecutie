@@ -1,0 +1,38 @@
+--- cinecutie/playbackprefs.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/playbackprefs.h	2010-02-19 22:19:11.978570999 +0100
+@@ -44,6 +44,7 @@
+ class PlaybackSoftwareTimer;
+ class PlaybackViewFollows;
+ class PlaybackWhiteBalanceRaw;
++class TimecodeOffset;
+ class VideoAsynchronous;
+ 
+ #include "adeviceprefs.h"
+@@ -58,7 +59,7 @@
+ 	PlaybackPrefs(MWindow *mwindow, PreferencesWindow *pwindow);
+ 	~PlaybackPrefs();
+ 
+-	void create_objects();
++	int create_objects();
+ //	int set_strategy(int strategy);
+ 	int get_buffer_bytes();
+ 
+@@ -253,6 +254,18 @@
+ 	PlaybackPrefs *playback;
+ };
+ 
++class TimecodeOffset : public BC_TextBox
++{
++	public:
++		TimecodeOffset(int x, int y, PreferencesWindow *pwindow,
++			       PlaybackPrefs *playback, char *text, int unit);
++		int handle_event();
++		int unit;
++		PlaybackPrefs *playback;
++		PreferencesWindow *pwindow;
++};
++
++
+ class PlaybackSubtitle : public BC_CheckBox
+ {
+ public:

@@ -1,0 +1,61 @@
+--- cinecutie/channeledit.C	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/channeledit.C	2010-02-19 22:19:11.868576808 +0100
+@@ -220,7 +220,7 @@
+ 	delete scan_confirm_thread;
+ }
+ 
+-void ChannelEditWindow::create_objects()
++int ChannelEditWindow::create_objects()
+ {
+ 	int x = 10, y = 10, i;
+ 	char string[1024];
+@@ -269,6 +269,7 @@
+ 		channel_picker);
+ 	picture_thread = new ChannelEditPictureThread(channel_picker, this);
+ 	show_window();
++	return 0;
+ }
+ 
+ int ChannelEditWindow::close_event()
+@@ -501,7 +502,6 @@
+ ChannelEditSelect::ChannelEditSelect(ChannelEditWindow *window, int x, int y)
+  : BC_GenericButton(x, y, _("Select"))
+ {
+-	this->window = window;
+ }
+ ChannelEditSelect::~ChannelEditSelect()
+ {
+@@ -1008,7 +1008,7 @@
+ ChannelEditEditWindow::~ChannelEditEditWindow()
+ {
+ }
+-void ChannelEditEditWindow::create_objects(Channel *channel)
++int ChannelEditEditWindow::create_objects(Channel *channel)
+ {
+ 	this->new_channel = channel;
+ 	Channel *channel_usage = channel_picker->get_channel_usage();
+@@ -1092,6 +1092,7 @@
+ 	add_subwindow(new BC_CancelButton(this));
+ 	show_window();
+ SET_TRACE
++	return 0;
+ }
+ 
+ ChannelEditEditTitle::ChannelEditEditTitle(int x, 
+@@ -1457,7 +1458,7 @@
+ 	return result;
+ }
+ 
+-void ChannelEditPictureWindow::create_objects()
++int ChannelEditPictureWindow::create_objects()
+ {
+ 	int x = 10, y = 10;
+ 	int x1 = 110, x2 = 145;
+@@ -1544,6 +1545,7 @@
+ 
+ 	y += pad;
+ 	add_subwindow(new BC_OKButton(this));
++	return 0;
+ }
+ 
+ 

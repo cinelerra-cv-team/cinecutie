@@ -1,0 +1,11 @@
+--- cinecutie/jpegwrapper.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/jpegwrapper.h	2010-02-19 22:19:11.968571001 +0100
+@@ -28,7 +28,7 @@
+ extern "C" {
+ #endif
+ 
+-#include "jpeglib.h"
++#include <jpeglib.h>
+ 
+ #ifdef __cplusplus
+ }

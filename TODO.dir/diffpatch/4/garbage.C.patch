@@ -1,0 +1,11 @@
+--- cinecutie/garbage.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/garbage.C	2010-02-19 22:19:11.958569362 +0100
+@@ -28,7 +28,7 @@
+ Garbage *Garbage::garbage = 0;
+ 
+ 
+-GarbageObject::GarbageObject(const char *title)
++GarbageObject::GarbageObject(char *title)
+ {
+ 	Garbage::garbage->add_object(this);
+ 	users = 0;

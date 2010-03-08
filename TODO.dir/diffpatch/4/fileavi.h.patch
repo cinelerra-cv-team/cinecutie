@@ -1,0 +1,38 @@
+--- cinecutie/fileavi.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/fileavi.h	2010-02-19 22:19:11.948570683 +0100
+@@ -29,7 +29,7 @@
+ 
+ #ifdef USE_AVIFILE
+ #include "avifile.h"
+-#include <vector.h>
++#include <vector>
+ #endif
+ 
+ //class IAviWriteFile;
+@@ -138,7 +138,7 @@
+ 
+ 	static int calculate_w(int format);
+ 	static int calculate_h(int format);
+-	void create_objects();
++	int create_objects();
+ 	int close_event();
+ 	int generate_codeclist();
+ 	void update_codecs();
+@@ -192,14 +192,14 @@
+ 
+ 	static int calculate_w(int format);
+ 	static int calculate_h(int format);
+-	void create_objects();
++	int create_objects();
+ 	int close_event();
+ 	int generate_codeclist();
+ 	void generate_attributelist();
+ 	void update_attribute(int recursive);
+ // Get text associated with current attribute
+-	const char* get_current_attribute_text();
+-	const char* get_current_attribute_value();
++	char* get_current_attribute_text();
++	char* get_current_attribute_value();
+ 	void set_current_attribute(char *text);
+ 	void reset();
+ 

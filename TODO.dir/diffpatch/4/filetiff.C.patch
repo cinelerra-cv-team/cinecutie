@@ -1,0 +1,78 @@
+--- cinecutie/filetiff.C	2008-10-11 17:46:25.000000000 +0200
++++ /home/user/cinecutie/cinecutie/filetiff.C	2010-02-19 22:19:11.958569362 +0100
+@@ -23,8 +23,10 @@
+ #include "edit.h"
+ #include "file.h"
+ #include "filetiff.h"
++#include "interlacemodes.h"
+ #include "language.h"
+ #include "vframe.h"
++#include "mainerror.h"
+ 
+ #include <stdint.h>
+ #include <string.h>
+@@ -96,7 +98,7 @@
+ 	return 0;
+ }
+ 
+-const char* FileTIFF::compression_to_str(int value)
++char* FileTIFF::compression_to_str(int value)
+ {
+ 	switch(value)
+ 	{
+@@ -111,7 +113,7 @@
+ 	}
+ }
+ 
+-const char* FileTIFF::cmodel_to_str(int value)
++char* FileTIFF::cmodel_to_str(int value)
+ {
+ 	switch(value)
+ 	{
+@@ -147,14 +149,14 @@
+ 
+ 	if(!(stream = TIFFOpen(path, "rb")))
+ 	{
+-		fprintf(stderr, "FileTIFF::read_frame_header failed from %s\n", asset->path);
++		eprintf("Error while opening \"%s\" for reading. \n%m\n", asset->path);
+ 		return 1;
+ 	}
+ 
+ 	char *ptr = 0;
+ 	TIFFGetField(stream, TIFFTAG_MODEL, &ptr);
+ //printf("FileTIFF::read_frame_header 1 %s\n", ptr);
+-	if(ptr && !strcmp(ptr, "Canon EOS-1DS"))
++	if(ptr && !strcmp(ptr, "Canon EOS-1DS"))       // FIXME: Does this have a purpose?
+ 	{
+ 		printf("FileTIFF::read_frame_header: got a %s.\n",
+ 			ptr);
+@@ -196,6 +198,7 @@
+ //printf("FileTIFF::read_frame_header %d %d %d\n", bitspersample, components, asset->tiff_cmodel);
+ 	TIFFClose(stream);
+ 
++	asset->interlace_mode = BC_ILACE_MODE_NOTINTERLACED;
+ 
+ 	return result;
+ }
+@@ -595,11 +598,10 @@
+ {
+ }
+ 
+-void TIFFConfigVideo::create_objects()
++int TIFFConfigVideo::create_objects()
+ {
+ 	int x = 10, y = 10;
+ 
+-	lock_window("TIFFConfigVideo::create_objects");
+ 	add_subwindow(new BC_Title(x, y, "Colorspace:"));
+ 	TIFFColorspace *menu1;
+ 	add_subwindow(menu1 = new TIFFColorspace(this, x + 150, y, 200));
+@@ -611,7 +613,7 @@
+ 	menu2->create_objects();
+ 
+ 	add_subwindow(new BC_OKButton(this));
+-	unlock_window();
++	return 0;
+ }
+ 
+ int TIFFConfigVideo::close_event()

@@ -1,0 +1,11 @@
+--- cinecutie/vdevicev4l.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/vdevicev4l.C	2010-02-19 22:19:12.018571035 +0100
+@@ -163,7 +163,7 @@
+ 
+ 		capture_frame_number = 0;
+ 
+-		if((long)capture_buffer < 0)
++		if(capture_buffer == MAP_FAILED)
+ 		{
+ // Use read instead.
+ 			perror("VDeviceV4L::v4l_init mmap");

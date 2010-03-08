@@ -1,0 +1,34 @@
+--- cinecutie/confirmquit.C	2008-10-11 17:46:25.000000000 +0200
++++ /home/user/cinecutie/cinecutie/confirmquit.C	2010-02-19 22:19:11.868576808 +0100
+@@ -30,7 +30,7 @@
+ 
+ 
+ ConfirmQuitWindow::ConfirmQuitWindow(MWindow *mwindow)
+- : BC_Window(PROGRAM_NAME ": Confirm Quit", 
++ : BC_Window(PROGRAM_NAME ": Question", 
+  	mwindow->gui->get_abs_cursor_x(1), 
+ 	mwindow->gui->get_abs_cursor_y(1), 
+ 	375, 
+@@ -43,12 +43,11 @@
+ {
+ }
+ 
+-void ConfirmQuitWindow::create_objects(char *string)
++int ConfirmQuitWindow::create_objects(char *string)
+ {
+ 	int x = 10, y = 10;
+ 	BC_Title *title;
+ 
+-	lock_window("ConfirmQuitWindow::create_objects");
+ 	add_subwindow(title = new BC_Title(x, y, string));
+ 	y += title->get_h();
+ 	add_subwindow(title = new BC_Title(x, y, _("( Answering ""No"" will destroy changes )")));
+@@ -56,7 +55,7 @@
+ 	add_subwindow(new ConfirmQuitYesButton(mwindow, this));
+ 	add_subwindow(new ConfirmQuitNoButton(mwindow, this));
+ 	add_subwindow(new ConfirmQuitCancelButton(mwindow, this));
+-	unlock_window();
++	return 0;
+ }
+ 
+ ConfirmQuitYesButton::ConfirmQuitYesButton(MWindow *mwindow, 

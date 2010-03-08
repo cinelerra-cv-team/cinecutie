@@ -1,0 +1,137 @@
+--- cinecutie/filethread.C	2008-07-26 03:56:57.000000000 +0200
++++ /home/user/cinecutie/cinecutie/filethread.C	2010-02-19 22:19:11.958569362 +0100
+@@ -103,9 +103,6 @@
+ 
+ void FileThread::delete_objects()
+ {
+-	for(int i = 0; i < MAX_READ_FRAMES; i++)
+-		delete read_frames[i];
+-
+ 	if(output_lock)
+ 	{
+ 		for(int i = 0; i < ring_buffers; i++)
+@@ -179,7 +176,6 @@
+ 			local_total_frames = total_frames;
+ 			local_frame = read_frames[local_total_frames];
+ 			local_layer = layer;
+-			local_frame->valid = 0;
+ 			frame_lock->unlock();
+ 
+ // Read frame
+@@ -210,7 +206,7 @@
+ 				}
+ 
+ // Read it
+-//printf("FileThread::run position=%lld supported_colormodel=%d\n", local_position, supported_colormodel);
++//printf("FileThread::run %lld\n", local_position);
+ 				file->read_frame(local_frame->frame, 1);
+ 				local_frame->position = local_position;
+ 				local_frame->layer = local_layer;
+@@ -222,7 +218,6 @@
+ 				FileThreadFrame *old_frame = read_frames[total_frames];
+ 				read_frames[local_total_frames] = old_frame;
+ 				read_frames[total_frames++] = local_frame;
+-				local_frame->valid = 1;
+ 				frame_lock->unlock();
+ 
+ // Que the user
+@@ -490,8 +485,6 @@
+ 		Thread::join();
+ 
+ 		total_frames = 0;
+-		for(int i = 0; i < MAX_READ_FRAMES; i++)
+-			read_frames[i]->valid = 0;
+ 		this->start_position = position;
+ 	}
+ 	else
+@@ -547,8 +540,7 @@
+ 			if(local_frame->position == read_position &&
+ 				local_frame->layer == layer &&
+ 				local_frame->frame &&
+-				local_frame->frame->equal_stacks(frame) &&
+-				local_frame->valid)
++				local_frame->frame->equal_stacks(frame))
+ 			{
+ 				got_it = 1;
+ 				number = i;
+@@ -568,41 +560,28 @@
+ 
+ 	if(got_it)
+ 	{
+-// printf("FileThread::read_frame 1 color_model=%d disable_read=%d\n", 
+-// frame->get_color_model(), 
+-// disable_read);
+ // Copy image
+-		if(frame->get_color_model() != local_frame->frame->get_color_model() ||
+-			frame->get_w() != local_frame->frame->get_w() ||
+-			frame->get_h() != local_frame->frame->get_h())
+-		{
+-			cmodel_transfer(frame->get_rows(), 
+-				local_frame->frame->get_rows(),
+-				frame->get_y(),
+-				frame->get_u(),
+-				frame->get_v(),
+-				local_frame->frame->get_y(),
+-				local_frame->frame->get_u(),
+-				local_frame->frame->get_v(),
+-				0, 
+-				0, 
+-				local_frame->frame->get_w(), 
+-				local_frame->frame->get_h(),
+-				0, 
+-				0, 
+-				frame->get_w(), 
+-				frame->get_h(),
+-				local_frame->frame->get_color_model(), 
+-				frame->get_color_model(),
+-				0,
+-				local_frame->frame->get_w(),
+-				frame->get_w());
+-		}
+-		else
+-		{
+-			frame->copy_from(local_frame->frame);
+-		}
+-
++		cmodel_transfer(frame->get_rows(), 
++			local_frame->frame->get_rows(),
++			frame->get_y(),
++			frame->get_u(),
++			frame->get_v(),
++			local_frame->frame->get_y(),
++			local_frame->frame->get_u(),
++			local_frame->frame->get_v(),
++			0, 
++			0, 
++			local_frame->frame->get_w(), 
++			local_frame->frame->get_h(),
++			0, 
++			0, 
++			frame->get_w(), 
++			frame->get_h(),
++			local_frame->frame->get_color_model(), 
++			frame->get_color_model(),
++			0,
++			local_frame->frame->get_w(),
++			frame->get_w());
+ // Can't copy stacks because the stack is needed by the plugin requestor.
+ 		frame->copy_params(local_frame->frame);
+ 
+@@ -631,15 +610,14 @@
+ 	}
+ 	else
+ 	{
+-// printf("FileThread::read_frame 2 color_model=%d disable_read=%d\n", 
++// printf("FileThread::read_frame 1 color_model=%d disable_read=%d\n", 
+ // frame->get_color_model(), 
+ // disable_read);
+ // Use traditional read function
+ 		file->set_video_position(read_position, -1, 1);
+ 		file->set_layer(layer, 1);
+ 		read_position++;
+-		int result = file->read_frame(frame, 1);
+-		return result;
++		return file->read_frame(frame, 1);
+ 	}
+ //printf("FileThread::read_frame 100\n");
+ }

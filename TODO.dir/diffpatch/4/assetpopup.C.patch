@@ -1,0 +1,12 @@
+--- cinecutie/assetpopup.C	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/assetpopup.C	2010-02-19 22:19:11.848575688 +0100
+@@ -79,7 +79,8 @@
+ 
+ 	gui->collect_assets();
+ 	mwindow->paste_assets(mwindow->edl->local_session->get_selectionstart(1), 
+-		mwindow->edl->tracks->first);
++		mwindow->edl->tracks->first,
++		0);   // do not overwrite
+ 
+ 	gui->unlock_window();
+ 	mwindow->gui->unlock_window();

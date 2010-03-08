@@ -1,0 +1,36 @@
+--- cinecutie/timebar.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/timebar.h	2010-02-19 22:19:12.008571675 +0100
+@@ -26,6 +26,7 @@
+ #include "guicast.h"
+ #include "filexml.inc"
+ #include "labels.inc"
++#include "labeledit.inc"
+ #include "mwindow.inc"
+ #include "recordlabel.inc"
+ #include "testobject.h"
+@@ -63,6 +64,8 @@
+ 	static int get_y(MWindow *mwindow, TimeBar *timebar);
+ 	void reposition();
+ 
++	Label *label;
++	int button_press_event();
+ 	MWindow *mwindow;
+ 	VWindowGUI *gui;
+ 	TimeBar *timebar;
+@@ -122,13 +125,15 @@
+ 		int h);
+ 	virtual ~TimeBar();
+ 
+-	void create_objects();
++	int create_objects();
+ 	int update_defaults();
+ 	int button_press_event();
+ 	int button_release_event();
+ 	int cursor_motion_event();
+ 	int repeat_event(int64_t duration);
+ 
++	LabelEdit *label_edit;
++
+ // Synchronize label, in/out, presentation display with master EDL
+ 	void update(int do_range = 1, int do_others = 1);
+ 	virtual void draw_time();

@@ -1,0 +1,11 @@
+--- cinecutie/recordwindow.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/recordwindow.h	2010-02-19 22:19:11.988570758 +0100
+@@ -42,7 +42,7 @@
+ 	RecordWindow(MWindow *mwindow, Record *record, int w, int h);
+ 	~RecordWindow();
+ 
+-	void create_objects();
++	int create_objects();
+ 
+ 	MWindow *mwindow;
+ 	FormatTools *format_tools;

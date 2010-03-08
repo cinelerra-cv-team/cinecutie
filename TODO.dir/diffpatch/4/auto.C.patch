@@ -1,0 +1,14 @@
+--- cinecutie/auto.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/auto.C	2010-02-19 22:19:11.858573208 +0100
+@@ -69,6 +69,11 @@
+ 	this->position = that->position;
+ }
+ 
++int Auto::interpolate_from(Auto *a1, Auto *a2, int64_t position)
++{
++	copy_from(a1);
++	return 0;
++}
+ 
+ void Auto::load(FileXML *xml)
+ {

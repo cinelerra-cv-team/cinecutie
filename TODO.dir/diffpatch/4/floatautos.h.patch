@@ -1,0 +1,26 @@
+--- cinecutie/floatautos.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/floatautos.h	2010-02-19 22:19:11.958569362 +0100
+@@ -53,15 +53,22 @@
+ 		int direction,
+ 		FloatAuto* &previous,
+ 		FloatAuto* &next);
++	void get_fade_automation(double &slope,
++		double &intercept,
++		int64_t input_position,
++		int64_t &slope_len,
++		int direction);
+ 	void get_extents(float *min, 
+ 		float *max,
+ 		int *coords_undefined,
+ 		int64_t unit_start,
+ 		int64_t unit_end);
+ 
+-	void set_automation_mode(int64_t start, int64_t end, int mode);
++	void straighten(int64_t start, int64_t end);
+ 
+ 	void dump();
++	Auto* add_auto(int64_t position, float value);
++	Auto* append_auto();
+ 	Auto* new_auto();
+ 	float default_;
+ };

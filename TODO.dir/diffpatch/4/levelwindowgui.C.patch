@@ -1,0 +1,22 @@
+--- cinecutie/levelwindowgui.C	2008-10-11 17:46:25.000000000 +0200
++++ /home/user/cinecutie/cinecutie/levelwindowgui.C	2010-02-19 22:19:11.968571001 +0100
+@@ -52,9 +52,8 @@
+ 	delete panel;
+ }
+ 
+-void LevelWindowGUI::create_objects()
++int LevelWindowGUI::create_objects()
+ {
+-	lock_window("LevelWindowGUI::create_objects");
+ 	mwindow->theme->draw_lwindow_bg(this);
+ 	panel = new MeterPanel(mwindow, 
+ 		this, 
+@@ -64,7 +63,7 @@
+ 		mwindow->edl->session->audio_channels,
+ 		1);
+ 	panel->create_objects();
+-	unlock_window();
++	return 0;
+ }
+ 
+ 

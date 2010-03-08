@@ -1,0 +1,31 @@
+--- cinecutie/auto.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/auto.h	2010-02-19 22:19:11.858573208 +0100
+@@ -45,10 +45,10 @@
+ 	virtual Auto& operator=(Auto &that);
+ 	virtual int operator==(Auto &that);
+ 	virtual void copy_from(Auto *that);
+-	virtual void copy(int64_t start, 
+-		int64_t end, 
+-		FileXML *file, 
+-		int default_only);
++	/* for interpolation creation */
++	/* if not possible, copy from a1 and return 0*/ 	
++	virtual int interpolate_from(Auto *a1, Auto *a2, int64_t position); 
++	virtual void copy(int64_t start, int64_t end, FileXML *file, int default_only);
+ 
+ 	virtual void load(FileXML *file);
+ 
+@@ -66,13 +66,6 @@
+ // Units native to the track
+ 	int is_default;
+ 	int64_t position;
+-// Calculation to use for floats
+-	int mode;
+-	enum
+-	{
+-		BEZIER,
+-		LINEAR
+-	}; 
+ 
+ private:
+ 	virtual int value_to_str(char *string, float value) {};

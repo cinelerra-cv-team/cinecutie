@@ -1,0 +1,124 @@
+--- cinecutie/canvas.C	2008-10-15 02:02:26.000000000 +0200
++++ /home/user/cinecutie/cinecutie/canvas.C	2010-02-19 22:19:11.868576808 +0100
+@@ -92,7 +92,7 @@
+ 	cursor_inside = 0;
+ }
+ 
+-void Canvas::lock_canvas(const char *location)
++void Canvas::lock_canvas(char *location)
+ {
+ 	canvas_lock->lock(location);
+ }
+@@ -657,7 +657,7 @@
+ }
+ 
+ 
+-void Canvas::create_objects(EDL *edl)
++int Canvas::create_objects(EDL *edl)
+ {
+ 	view_x = x;
+ 	view_y = y;
+@@ -665,9 +665,7 @@
+ 	view_h = h;
+ 	get_scrollbars(edl, view_x, view_y, view_w, view_h);
+ 
+-	subwindow->unlock_window();
+ 	create_canvas();
+-	subwindow->lock_window("Canvas::create_objects");
+ 
+ 	subwindow->add_subwindow(canvas_menu = new CanvasPopup(this));
+ 	canvas_menu->create_objects();
+@@ -675,6 +673,7 @@
+ 	subwindow->add_subwindow(fullscreen_menu = new CanvasFullScreenPopup(this));
+ 	fullscreen_menu->create_objects();
+ 
++	return 0;
+ }
+ 
+ int Canvas::button_press_event()
+@@ -739,27 +738,28 @@
+ void Canvas::create_canvas()
+ {
+ 	int video_on = 0;
++SET_TRACE
+ 	lock_canvas("Canvas::create_canvas");
++SET_TRACE
+ 
+ 
+ 	if(!get_fullscreen())
+-// Enter windowed
+ 	{
+-
++SET_TRACE
+ 		if(canvas_fullscreen)
+ 		{
+ 			video_on = canvas_fullscreen->get_video_on();
+ 			canvas_fullscreen->stop_video();
+ 		}
+-
++SET_TRACE
+ 
+ 		if(canvas_fullscreen)
+ 		{
+-			canvas_fullscreen->lock_window("Canvas::create_canvas 2");
+ 			canvas_fullscreen->hide_window();
+-			canvas_fullscreen->unlock_window();
++//			delete canvas_fullscreen;
++//			canvas_fullscreen = 0;
+ 		}
+-
++SET_TRACE
+ 
+ 		if(!canvas_subwindow)
+ 		{
+@@ -769,18 +769,18 @@
+ 				view_w, 
+ 				view_h));
+ 		}
+-
++SET_TRACE
+ 	}
+ 	else
+-// Enter fullscreen
+ 	{
+-
+ 		if(canvas_subwindow)
+ 		{
+ 			video_on = canvas_subwindow->get_video_on();
+ 			canvas_subwindow->stop_video();
+-		}
+ 
++//			delete canvas_subwindow;
++//			canvas_subwindow = 0;
++		}
+ 
+ 		if(!canvas_fullscreen)
+ 		{
+@@ -790,23 +790,15 @@
+ 		}
+ 		else
+ 		{
+-			canvas_fullscreen->reposition_window(subwindow->get_root_x(0), 
+-				subwindow->get_root_y(0));
+ 			canvas_fullscreen->show_window();
+ 		}
+-
+-	}
+-
+-
+-	if(!video_on)
+-	{
+-		get_canvas()->lock_window("Canvas::create_canvas 1");
+-		draw_refresh();
+-		get_canvas()->unlock_window();
+ 	}
++SET_TRACE
+ 
++	if(!video_on) draw_refresh();
++SET_TRACE
+ 	if(video_on) get_canvas()->start_video();
+-
++SET_TRACE
+ 	unlock_canvas();
+ }
+ 

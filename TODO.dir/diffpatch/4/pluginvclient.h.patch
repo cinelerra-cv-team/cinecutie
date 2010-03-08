@@ -1,0 +1,31 @@
+--- cinecutie/pluginvclient.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/pluginvclient.h	2010-02-19 22:19:11.988570758 +0100
+@@ -128,8 +128,8 @@
+ // For aggregation, this does case sensitive compares with the
+ // the stack in the frame object.
+ // Only possible for video because VFrame stores the effect stacks.
+-	int next_effect_is(const char *title);
+-	int prev_effect_is(const char *title);
++	int next_effect_is(char *title);
++	int prev_effect_is(char *title);
+ 
+ // Called by user to allocate the temporary for the current process_buffer.  
+ // It may be deleted after the process_buffer to conserve memory.
+@@ -137,8 +137,6 @@
+ // Called by PluginServer after process_buffer to delete the temp if it's too
+ // large.
+ 	void age_temp();
+-// Get the temporary created by new_temp.  Only valid if it occurs after new_temp
+-// in the same process_buffer call.
+ 	VFrame* get_temp();
+ 
+ // Frame rate relative to EDL
+@@ -185,7 +183,7 @@
+ 	float aspect_w;
+ 	float aspect_h;  
+ 
+-// Temp
++// Tempo
+ 	VFrame *temp;
+ };
+ 

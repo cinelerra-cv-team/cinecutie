@@ -1,0 +1,27 @@
+--- cinecutie/CHANGELOG	2008-07-10 02:51:32.000000000 +0200
++++ /home/user/cinecutie/cinecutie/CHANGELOG	2010-02-19 22:19:11.828574968 +0100
+@@ -717,13 +717,13 @@
+ experiencing a CVS erasing filesystem crash we moved forward on the
+ folding of all code into a single repository.  Moved quicktime,
+ libmpeg3, xmovie, mix2000, and 2 mpeg multiplexing tools into the
+-cinelerra tree and renamed the one gigantic tree hvirtual.  The upside
++cinecutie tree and renamed the one gigantic tree hvirtual.  The upside
+ is Cinelerra compilation only requires exporting CFLAGS instead of
+ hunting down 5 packages and exporting CFLAGS.  The downside is the one
+ guy who uses Quicktime has to download a bigger package through his
+ bankrupt ISP's refurbished 1998 reissued cable modem.
+ 
+-Mind you everything except cinelerra and plugins will remain
++Mind you everything except cinecutie and plugins will remain
+ independant of each other.
+ 
+ While it may work for servers ext3 isn't suitable for desktops which
+@@ -1159,7 +1159,7 @@
+ merged.
+ 
+ 
+-cinelerra-loop-patch*
++cinecutie-loop-patch*
+ 
+ The bugs in loops and audio positioning were fixed another way.
+ 

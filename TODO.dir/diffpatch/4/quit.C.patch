@@ -1,0 +1,15 @@
+--- cinecutie/quit.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/quit.C	2010-02-19 22:19:11.988570758 +0100
+@@ -44,10 +44,10 @@
+ { 
+ 	this->mwindow = mwindow; 
+ }
+-
+-void Quit::create_objects(Save *save)
++int Quit::create_objects(Save *save)
+ { 
+ 	this->save = save; 
++	return 0;
+ }
+ 
+ int Quit::handle_event() 

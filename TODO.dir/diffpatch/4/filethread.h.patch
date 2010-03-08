@@ -1,0 +1,10 @@
+--- cinecutie/filethread.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/filethread.h	2010-02-19 22:19:11.958569362 +0100
+@@ -45,7 +45,6 @@
+ 	int64_t position;
+ 	int layer;
+ 	VFrame *frame;
+-	int valid;
+ };
+ 
+ class FileThread : public Thread

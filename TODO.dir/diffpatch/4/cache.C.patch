@@ -1,0 +1,34 @@
+--- cinecutie/cache.C	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/cache.C	2010-02-19 22:19:11.868576808 +0100
+@@ -231,9 +231,9 @@
+ 	{
+ 		memory_usage = get_memory_usage(1);
+ 		
+-//printf("CICache::age 3 %p %lld %lld\n", this, memory_usage, preferences->cache_size);
+ 		if(memory_usage > preferences->cache_size)
+ 		{
++//printf("CICache::age 3 %p %lld %lld\n", this, memory_usage, preferences->cache_size);
+ 			result = delete_oldest();
+ 		}
+ 		prev_memory_usage = memory_usage;
+@@ -295,9 +295,9 @@
+ 
+ 	if(oldest)
+ 	{
+-// Got the oldest file.  Try requesting cache purge from it.
++// Got the oldest file.  Try requesting cache purge.
+ 
+-		if(!oldest->file || (oldest->file->purge_cache() && total() > 1))
++		if(!oldest->file || oldest->file->purge_cache())
+ 		{
+ 
+ // Delete the file if cache already empty and not checked out.
+@@ -319,7 +319,7 @@
+ 	else
+ 	{
+ 		total_lock->unlock();
+-// nothing was old enough to delete or only 1 file
++// nothing was old enough to delete
+ 		return 1;   
+ 	}
+ }

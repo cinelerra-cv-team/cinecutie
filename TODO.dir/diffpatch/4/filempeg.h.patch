@@ -1,0 +1,49 @@
+--- cinecutie/filempeg.h	2010-02-19 23:43:08.978578518 +0100
++++ /home/user/cinecutie/cinecutie/filempeg.h	2010-02-19 22:19:11.958569362 +0100
+@@ -26,7 +26,7 @@
+ #include "condition.inc"
+ #include "file.inc"
+ #include "filebase.h"
+-#include "lame/lame.h"
++#include <lame/lame.h>
+ #include "libmpeg3.h"
+ #include "thread.h"
+ 
+@@ -89,6 +89,8 @@
+ 
+ 	int read_frame(VFrame *frame);
+ 	int read_samples(double *buffer, int64_t len);
++	int read_samples_float(float *buffer, int64_t len);
++	int prefer_samples_float();
+ 
+ 	int64_t get_memory_usage();
+ 
+@@ -97,8 +99,8 @@
+ 	int colormodel_supported(int colormodel);
+ // This file can copy frames directly from the asset
+ 	int can_copy_from(Edit *edit, int64_t position); 
+-	static const char *strtocompression(char *string);
+-	static const char *compressiontostr(char *string);
++	static char *strtocompression(char *string);
++	static char *compressiontostr(char *string);
+ 
+ 
+ private:
+@@ -198,7 +200,7 @@
+ 	MPEGConfigAudio(BC_WindowBase *parent_window, Asset *asset);
+ 	~MPEGConfigAudio();
+ 
+-	void create_objects();
++	int create_objects();
+ 	int close_event();
+ 
+ 	BC_WindowBase *parent_window;
+@@ -343,7 +345,7 @@
+ 		Asset *asset);
+ 	~MPEGConfigVideo();
+ 
+-	void create_objects();
++	int create_objects();
+ 	int close_event();
+ 	void delete_cmodel_objs();
+ 	void reset_cmodel();

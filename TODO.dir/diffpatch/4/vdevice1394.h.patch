@@ -1,0 +1,16 @@
+--- cinecutie/vdevice1394.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/vdevice1394.h	2010-02-19 22:19:12.018571035 +0100
+@@ -33,7 +33,6 @@
+ #include "vdevicebase.h"
+ 
+ 
+-#ifdef HAVE_FIREWIRE
+ 
+ 
+ 
+@@ -65,5 +64,3 @@
+ };
+ 
+ #endif
+-
+-#endif

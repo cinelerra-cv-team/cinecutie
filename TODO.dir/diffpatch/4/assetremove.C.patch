@@ -1,0 +1,16 @@
+--- cinecutie/assetremove.C	2008-10-15 02:02:26.000000000 +0200
++++ /home/user/cinecutie/cinecutie/assetremove.C	2010-02-19 22:19:11.848575688 +0100
+@@ -43,13 +43,11 @@
+ void AssetRemoveWindow::create_objects()
+ {
+ 	int x = 10, y = 10;
+-	lock_window("AssetRemoveWindow::create_objects");
+ 	add_subwindow(new BC_Title(x, y, _("Permanently remove from disk?")));
+ 	add_subwindow(new BC_OKButton(this));
+ 	add_subwindow(new BC_CancelButton(this));
+ 	show_window();
+ 	flush();
+-	unlock_window();
+ }
+ 
+ 

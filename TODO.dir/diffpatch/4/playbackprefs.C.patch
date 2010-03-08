@@ -1,0 +1,61 @@
+--- cinecutie/playbackprefs.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/playbackprefs.C	2010-02-19 22:19:11.978570999 +0100
+@@ -50,7 +50,7 @@
+ 	delete video_device;
+ }
+ 
+-void PlaybackPrefs::create_objects()
++int PlaybackPrefs::create_objects()
+ {
+ 	int x, y, x2;
+ 	char string[BCTEXTLEN];
+@@ -217,6 +217,20 @@
+ //	y += 30;
+ //	add_subwindow(new PlaybackDeblock(pwindow, 10, y));
+ 
++	add_subwindow(new BC_Title(x, y, _("Timecode offset:"), MEDIUMFONT, BLACK));
++	sprintf(string, "%d", pwindow->thread->edl->session->timecode_offset[3]);
++	add_subwindow(new TimecodeOffset(x + 120, y, pwindow, this, string, 3));
++	add_subwindow(new BC_Title(x + 152, y, _(":"), MEDIUMFONT, BLACK));
++	sprintf(string, "%d", pwindow->thread->edl->session->timecode_offset[2]);
++	add_subwindow(new TimecodeOffset(x + 160, y, pwindow, this, string, 2));
++	add_subwindow(new BC_Title(x + 192, y, _(":"), MEDIUMFONT, BLACK));
++	sprintf(string, "%d", pwindow->thread->edl->session->timecode_offset[1]);
++	add_subwindow(new TimecodeOffset(x + 200, y, pwindow, this, string, 1));
++	add_subwindow(new BC_Title(x + 232, y, _(":"), MEDIUMFONT, BLACK));
++	sprintf(string, "%d", pwindow->thread->edl->session->timecode_offset[0]);
++	add_subwindow(new TimecodeOffset(x + 240, y, pwindow, this, string, 0));
++
++	y += 35;
+ 	add_subwindow(vdevice_title = new BC_Title(x, y, _("Video Driver:")));
+ 	video_device = new VDevicePrefs(x + vdevice_title->get_w() + 10, 
+ 		y, 
+@@ -229,6 +243,7 @@
+ 
+ SET_TRACE	
+ 
++	return 0;
+ }
+ 
+ 
+@@ -602,6 +617,20 @@
+ 
+ 
+ 
++TimecodeOffset::TimecodeOffset(int x, int y, PreferencesWindow *pwindow, 
++      PlaybackPrefs *playback, char *text, int unit)
++ : BC_TextBox(x, y, 30, 1, text)
++{
++   this->pwindow = pwindow;
++   this->playback = playback;
++	this->unit = unit;
++}
++
++int TimecodeOffset::handle_event()
++{
++	pwindow->thread->edl->session->timecode_offset[unit] = atol(get_text());
++	return 1;
++}
+ 
+ 
+ 

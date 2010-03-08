@@ -1,0 +1,12 @@
+--- cinecutie/renderengine.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/renderengine.h	2010-02-19 22:19:11.998570756 +0100
+@@ -120,7 +120,8 @@
+ // Lock out interrupts before and after renderengine is active
+ 	Mutex *interrupt_lock;
+ 
+-
++// Show the timecode on the video
++	int show_tc;
+ 
+ 	int done;
+ 	AudioDevice *audio;

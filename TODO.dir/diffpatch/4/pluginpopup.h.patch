@@ -1,0 +1,56 @@
+--- cinecutie/pluginpopup.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/pluginpopup.h	2010-02-19 22:19:11.988570758 +0100
+@@ -28,15 +28,12 @@
+ class PluginPopupOut;
+ class PluginPopupOn;
+ class PluginPopupShow;
+-class PluginPresets;
+ 
+ #include "guicast.h"
+ #include "mwindow.inc"
+ #include "mwindowgui.inc"
+ #include "plugin.inc"
+ #include "plugindialog.inc"
+-#include "presets.inc"
+-#include "presetsgui.inc"
+ 
+ 
+ 
+@@ -55,10 +52,6 @@
+ 	Plugin *plugin;
+ 
+ 
+-#if 0
+-	PresetsThread *thread;
+-#endif
+-
+ 
+ 
+ 
+@@ -66,9 +59,10 @@
+ 
+ 	PluginPopupChange *change;
+ 	PluginPopupDetach *detach;
++//	PluginPopupIn *in;
++//	PluginPopupOut *out;
+ 	PluginPopupShow *show;
+ 	PluginPopupOn *on;
+-	PluginPresets *presets;
+ };
+ 
+ class PluginPopupAttach : public BC_MenuItem
+@@ -177,14 +171,5 @@
+ 	PluginPopup *popup;
+ };
+ 
+-class PluginPresets : public BC_MenuItem
+-{
+-public:
+-	PluginPresets(MWindow *mwindow, PluginPopup *popup);
+-	int handle_event();
+-	MWindow *mwindow;
+-	PluginPopup *popup;
+-};
+-
+ 
+ #endif

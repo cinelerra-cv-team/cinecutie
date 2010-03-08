@@ -1,0 +1,417 @@
+--- cinecutie/editpanel.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/editpanel.C	2010-02-19 22:19:11.948570683 +0100
+@@ -44,6 +44,7 @@
+ #include "trackcanvas.h"
+ #include "transportque.h"
+ #include "zoombar.h"
++#include "manualgoto.h"
+ 
+ 
+ 
+@@ -62,6 +63,7 @@
+ 	int use_paste, 
+ 	int use_undo,
+ 	int use_fit,
++	int use_locklabels,
+ 	int use_labels,
+ 	int use_toclip,
+ 	int use_meters,
+@@ -82,6 +84,7 @@
+ 	this->subwindow = subwindow;
+ 	this->use_fit = use_fit;
+ 	this->use_labels = use_labels;
++	this->use_locklabels = use_locklabels;
+ 	this->use_toclip = use_toclip;
+ 	this->use_meters = use_meters;
+ 	this->is_mwindow = is_mwindow;
+@@ -95,10 +98,7 @@
+ 	keyframe = 0;
+ 	fit = 0;
+ 	fit_autos = 0;
+-	prevlabel = 0;
+-	nextlabel = 0;
+-	prevedit = 0;
+-	nextedit = 0;
++	locklabels = 0;
+ }
+ 
+ EditPanel::~EditPanel()
+@@ -117,6 +117,7 @@
+ 	if(arrow) arrow->update(new_editing_mode == EDITING_ARROW);
+ 	if(ibeam) ibeam->update(new_editing_mode == EDITING_IBEAM);
+ 	if(keyframe) keyframe->update(mwindow->edl->session->auto_keyframes);
++	if(locklabels) locklabels->set_value(mwindow->edl->session->labels_follow_edits);
+ 	subwindow->flush();
+ }
+ 
+@@ -131,6 +132,8 @@
+ 	if(use_keyframe)
+ 		delete keyframe;
+ 
++	if(use_locklabels)
++		delete locklabels;
+ 
+ 	if(inpoint) delete inpoint;
+ 	if(outpoint) delete outpoint;
+@@ -148,8 +151,6 @@
+ 		delete labelbutton;
+ 		delete prevlabel;
+ 		delete nextlabel;
+-		delete prevedit;
+-		delete nextedit;
+ 	}
+ 
+ 	if(use_fit) 
+@@ -162,11 +163,6 @@
+ 		delete undo;
+ 		delete redo;
+ 	}
+-	
+-	prevlabel = 0;
+-	nextlabel = 0;
+-	prevedit = 0; 
+-	nextedit = 0;
+ }
+ 
+ void EditPanel::create_buttons()
+@@ -181,15 +177,25 @@
+ 		x1 += arrow->get_w();
+ 		subwindow->add_subwindow(ibeam = new IBeamButton(mwindow, this, x1, y1));
+ 		x1 += ibeam->get_w();
++		x1 += mwindow->theme->toggle_margin;
+ 	}
+ 
+ 	if(use_keyframe)
+ 	{
+ 		subwindow->add_subwindow(keyframe = new KeyFrameButton(mwindow, x1, y1));
+ 		x1 += keyframe->get_w();
+-		x1 += mwindow->theme->toggle_margin;
+ 	}
+ 
++	if(use_locklabels)
++	{
++		subwindow->add_subwindow(locklabels = new LockLabelsButton(mwindow, 
++			x1, 
++			y1));
++		x1 += locklabels->get_w();
++	}
++	if(use_keyframe || use_locklabels)
++		x1 += mwindow->theme->toggle_margin;
++
+ // Mandatory
+ 	subwindow->add_subwindow(inpoint = new EditInPoint(mwindow, this, x1, y1));
+ 	x1 += inpoint->get_w();
+@@ -268,23 +274,6 @@
+ 		x1 += nextlabel->get_w();
+ 	}
+ 
+-// all windows except VWindow since it's only implemented in MWindow.
+-	if(use_cut)
+-	{
+-		subwindow->add_subwindow(prevedit = new EditPrevEdit(mwindow, 
+-			this, 
+-			x1, 
+-			y1,
+-			is_mwindow));
+-		x1 += prevedit->get_w();
+-		subwindow->add_subwindow(nextedit = new EditNextEdit(mwindow, 
+-			this, 
+-			x1, 
+-			y1,
+-			is_mwindow));
+-		x1 += nextedit->get_w();
+-	}
+-
+ 	if(use_fit)
+ 	{
+ 		subwindow->add_subwindow(fit = new EditFit(mwindow, this, x1, y1));
+@@ -300,6 +289,9 @@
+ 		subwindow->add_subwindow(redo = new EditRedo(mwindow, this, x1, y1));
+ 		x1 += redo->get_w();
+ 	}
++	subwindow->add_subwindow(mangoto = new EditManualGoto(mwindow, this, x1, y1));
++	x1 += mangoto->get_w();
++
+ SET_TRACE
+ }
+ 
+@@ -358,57 +350,6 @@
+ 
+ 
+ 
+-void EditPanel::prev_edit()
+-{
+-	int shift_down = subwindow->shift_down();
+-	if(is_mwindow)
+-	{
+-		mwindow->gui->unlock_window();
+-	}
+-	else
+-		subwindow->unlock_window();
+-
+-	mwindow->gui->mbuttons->transport->handle_transport(STOP, 1, 0, 0);
+-
+-	if(!is_mwindow)
+-		subwindow->lock_window("EditPanel::prev_edit 1");
+-
+-	mwindow->gui->lock_window("EditPanel::prev_edit 2");
+-
+-	mwindow->prev_edit_handle(shift_down);
+-
+-	if(!is_mwindow)
+-		mwindow->gui->unlock_window();
+-}
+-
+-void EditPanel::next_edit()
+-{
+-	int shift_down = subwindow->shift_down();
+-	if(is_mwindow)
+-	{
+-		mwindow->gui->unlock_window();
+-	}
+-	else
+-		subwindow->unlock_window();
+-
+-	mwindow->gui->mbuttons->transport->handle_transport(STOP, 1, 0, 0);
+-
+-	if(!is_mwindow)
+-		subwindow->lock_window("EditPanel::next_edit 1");
+-
+-	mwindow->gui->lock_window("EditPanel::next_edit 2");
+-
+-	mwindow->next_edit_handle(shift_down);
+-
+-	if(!is_mwindow)
+-		mwindow->gui->unlock_window();
+-}
+-
+-
+-
+-
+-
+-
+ 
+ void EditPanel::reposition_buttons(int x, int y)
+ {
+@@ -422,15 +363,24 @@
+ 		x1 += arrow->get_w();
+ 		ibeam->reposition_window(x1, y1);
+ 		x1 += ibeam->get_w();
++		x1 += mwindow->theme->toggle_margin;
+ 	}
+ 
+ 	if(use_keyframe)
+ 	{
+ 		keyframe->reposition_window(x1, y1);
+ 		x1 += keyframe->get_w();
+-		x1 += mwindow->theme->toggle_margin;
+ 	}
+ 
++	if(use_locklabels)
++	{
++		locklabels->reposition_window(x1,y1);
++		x1 += locklabels->get_w();
++	}
++
++	if(use_keyframe || use_locklabels)
++		x1 += mwindow->theme->toggle_margin;
++
+ 	inpoint->reposition_window(x1, y1);
+ 	x1 += inpoint->get_w();
+ 	outpoint->reposition_window(x1, y1);
+@@ -492,18 +442,6 @@
+ 		x1 += nextlabel->get_w();
+ 	}
+ 
+-	if(prevedit) 
+-	{
+-		prevedit->reposition_window(x1, y1);
+-		x1 += prevedit->get_w();
+-	}
+-	
+-	if(nextedit)
+-	{
+-		nextedit->reposition_window(x1, y1);
+-		x1 += nextedit->get_w();
+-	}
+-
+ 	if(use_fit)
+ 	{
+ 		fit->reposition_window(x1, y1);
+@@ -519,13 +457,17 @@
+ 		redo->reposition_window(x1, y1);
+ 		x1 += redo->get_w();
+ 	}
++	
++	mangoto->reposition_window(x1, y1);
++	x1 += mangoto->get_w();
+ }
+ 
+ 
+ 
+-void EditPanel::create_objects()
++int EditPanel::create_objects()
+ {
+ 	create_buttons();
++	return 0;
+ }
+ 
+ int EditPanel::get_w()
+@@ -678,64 +620,6 @@
+ 	return 1;
+ }
+ 
+-
+-
+-EditNextEdit::EditNextEdit(MWindow *mwindow, 
+-	EditPanel *panel, 
+-	int x, 
+-	int y,
+-	int is_mwindow)
+- : BC_Button(x, y, mwindow->theme->get_image_set("nextedit"))
+-{
+-	this->mwindow = mwindow;
+-	this->panel = panel;
+-	this->is_mwindow = is_mwindow;
+-	set_tooltip(_("Next edit ( alt -> )"));
+-}
+-EditNextEdit::~EditNextEdit()
+-{
+-}
+-int EditNextEdit::keypress_event()
+-{
+-	if(get_keypress() == RIGHT && alt_down())
+-		return handle_event();
+-	return 0;
+-}
+-int EditNextEdit::handle_event()
+-{
+-	panel->next_edit();
+-	return 1;
+-}
+-
+-EditPrevEdit::EditPrevEdit(MWindow *mwindow, 
+-	EditPanel *panel, 
+-	int x, 
+-	int y,
+-	int is_mwindow)
+- : BC_Button(x, y, mwindow->theme->get_image_set("prevedit"))
+-{
+-	this->mwindow = mwindow;
+-	this->panel = panel;
+-	this->is_mwindow = is_mwindow;
+-	set_tooltip(_("Previous edit (alt <- )"));
+-}
+-EditPrevEdit::~EditPrevEdit()
+-{
+-}
+-int EditPrevEdit::keypress_event()
+-{
+-	if(get_keypress() == LEFT && alt_down())
+-		return handle_event();
+-	return 0;
+-}
+-int EditPrevEdit::handle_event()
+-{
+-	panel->prev_edit();
+-	return 1;
+-}
+-
+-
+-
+ EditLift::EditLift(MWindow *mwindow, EditPanel *panel, int x, int y)
+  : BC_Button(x, y, mwindow->theme->lift_data)
+ {
+@@ -818,6 +702,35 @@
+ 	return 0;
+ }
+ 
++EditManualGoto::EditManualGoto(MWindow *mwindow, EditPanel *panel, int x, int y)
++ : BC_Button(x, y, mwindow->theme->get_image_set("goto"))
++{
++	this->mwindow = mwindow;
++	this->panel = panel;
++	mangoto = new ManualGoto(mwindow, panel->subwindow);
++	set_tooltip(_("Manual goto ( g )"));
++}
++EditManualGoto::~EditManualGoto()
++{
++	delete mangoto;
++}
++int EditManualGoto::handle_event()
++{
++	mangoto->open_window();
++	return 1;
++}
++
++int EditManualGoto::keypress_event()
++{
++	if(get_keypress() == 'g')
++	{
++		handle_event();
++		return 1;
++	}
++	return 0;
++}
++
++
+ EditSplice::EditSplice(MWindow *mwindow, EditPanel *panel, int x, int y)
+  : BC_Button(x, y, mwindow->theme->splice_data)
+ {
+@@ -1100,23 +1013,28 @@
+ {
+ 	this->mwindow = mwindow;
+ 	this->panel = panel;
+-	set_tooltip(_("Fit autos to display ( Alt + f )"));
++	set_tooltip(_("Fit all autos to display ( Alt + f )"));
+ }
+ EditFitAutos::~EditFitAutos()
+ {
+ }
+ int EditFitAutos::keypress_event()
+ {
+-	if(alt_down() && get_keypress() == 'f') 
++	if(!ctrl_down() && alt_down() && get_keypress() == 'f') 
+ 	{
+-		handle_event();
++		mwindow->fit_autos(1);
++		return 1;
++	}
++	if(ctrl_down() && alt_down() && get_keypress() == 'f') 
++	{
++		mwindow->fit_autos(0);
+ 		return 1;
+ 	}
+ 	return 0;
+ }
+ int EditFitAutos::handle_event()
+ {
+-	mwindow->fit_autos();
++	mwindow->fit_autos(1);
+ 	return 1;
+ }
+ 
+@@ -1202,3 +1120,23 @@
+ }
+ 
+ 
++LockLabelsButton::LockLabelsButton(MWindow *mwindow, int x, int y)
++ : BC_Toggle(x, 
++ 	y, 
++	mwindow->theme->get_image_set("locklabels"),
++	mwindow->edl->session->labels_follow_edits,
++	"",
++	0,
++	0,
++	0)
++{
++	this->mwindow = mwindow;
++	set_tooltip(_("Lock labels from moving"));
++}
++
++int LockLabelsButton::handle_event()
++{
++	mwindow->set_labels_follow_edits(get_value());
++	return 1;
++}
++

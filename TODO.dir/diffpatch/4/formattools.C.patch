@@ -1,0 +1,324 @@
+--- cinecutie/formattools.C	2008-08-10 22:24:08.000000000 +0200
++++ /home/user/cinecutie/cinecutie/formattools.C	2010-02-19 22:19:11.958569362 +0100
+@@ -20,8 +20,6 @@
+  */
+ 
+ #include "asset.h"
+-#include "bcsignals.h"
+-#include "clip.h"
+ #include "guicast.h"
+ #include "file.h"
+ #include "formattools.h"
+@@ -33,6 +31,7 @@
+ #include "theme.h"
+ #include "videodevice.inc"
+ #include <string.h>
++#include "pipe.h"
+ 
+ 
+ FormatTools::FormatTools(MWindow *mwindow,
+@@ -51,11 +50,13 @@
+ 	channels_tumbler = 0;
+ 	path_textbox = 0;
+ 	path_button = 0;
+-	w = window->get_w();
++	path_recent = 0;
++	w = 0;
+ }
+ 
+ FormatTools::~FormatTools()
+ {
++	delete path_recent;
+ 	delete path_button;
+ 	delete path_textbox;
+ 	delete format_button;
+@@ -67,7 +68,7 @@
+ 	if(channels_tumbler) delete channels_tumbler;
+ }
+ 
+-void FormatTools::create_objects(int &init_x, 
++int FormatTools::create_objects(int &init_x, 
+ 						int &init_y, 
+ 						int do_audio,    // Include support for audio
+ 						int do_video,   // Include support for video
+@@ -117,10 +118,17 @@
+ 		}
+ 	}
+ 
++//printf("FormatTools::create_objects 1\n");
+ 	if(!recording)
+ 	{
+ 		window->add_subwindow(path_textbox = new FormatPathText(x, y, this));
+-		x += path_textbox->get_w() + 5;
++		x += 305;
++		path_recent = new BC_RecentList("PATH", mwindow->defaults,
++					path_textbox, 10, x, y, 300, 100);
++		window->add_subwindow(path_recent);
++		path_recent->load_items(FILE_FORMAT_PREFIX(asset->format));
++
++		x += 18;
+ 		window->add_subwindow(path_button = new BrowseButton(
+ 			mwindow,
+ 			window,
+@@ -133,16 +141,13 @@
+ 			0));
+ 
+ // Set w for user.
+-		w = MAX(w, 305);
+-//		w = x + path_button->get_w() + 5;
+-		x -= path_textbox->get_w() + 5;
++		w = x + path_button->get_w() + 5;
++		x -= 305;
++
+ 		y += 35;
+ 	}
+ 	else
+-	{
+-//		w = x + 305;
+-		w = 305;
+-	}
++		w = x + 305;
+ 
+ 	window->add_subwindow(format_title = new BC_Title(x, y, _("File Format:")));
+ 	x += 90;
+@@ -161,7 +166,7 @@
+ 	y += format_button->get_h() + 10;
+ 	if(do_audio)
+ 	{
+-		window->add_subwindow(audio_title = new BC_Title(x, y, _("Audio:"), LARGEFONT, RED));
++		window->add_subwindow(audio_title = new BC_Title(x, y, _("Audio:"), LARGEFONT,  BC_WindowBase::get_resources()->audiovideo_color));
+ 		x += 80;
+ 		window->add_subwindow(aparams_button = new FormatAParams(mwindow, this, x, y));
+ 		x += aparams_button->get_w() + 10;
+@@ -193,7 +198,7 @@
+ 	{
+ 
+ //printf("FormatTools::create_objects 8\n");
+-		window->add_subwindow(video_title = new BC_Title(x, y, _("Video:"), LARGEFONT, RED));
++		window->add_subwindow(video_title = new BC_Title(x, y, _("Video:"), LARGEFONT,  BC_WindowBase::get_resources()->audiovideo_color));
+ 		x += 80;
+ 		if(prompt_video_compression)
+ 		{
+@@ -229,6 +234,7 @@
+ //printf("FormatTools::create_objects 12\n");
+ 
+ 	init_y = y;
++	return 0;
+ }
+ 
+ void FormatTools::update_driver(int driver)
+@@ -261,7 +267,7 @@
+ 			}
+ 			else
+ 				format_text->update(File::formattostr(asset->format));
+-			locked_compressor = (char*)QUICKTIME_DVSD;
++			locked_compressor = QUICKTIME_DVSD;
+ 			strcpy(asset->vcodec, QUICKTIME_DVSD);
+ 			audio_switch->update(asset->audio_data);
+ 			video_switch->update(asset->video_data);
+@@ -277,7 +283,7 @@
+ 			}
+ 			else
+ 				format_text->update(File::formattostr(asset->format));
+-			locked_compressor = (char*)QUICKTIME_MJPA;
++			locked_compressor = QUICKTIME_MJPA;
+ 			audio_switch->update(asset->audio_data);
+ 			video_switch->update(asset->video_data);
+ 			break;
+@@ -306,7 +312,7 @@
+ 
+ void FormatTools::update_extension()
+ {
+-	const char *extension = File::get_tag(asset->format);
++	char *extension = File::get_tag(asset->format);
+ 	if(extension)
+ 	{
+ 		char *ptr = strrchr(asset->path, '.');
+@@ -348,17 +354,8 @@
+ 
+ void FormatTools::close_format_windows()
+ {
+-// This is done in ~file
+-	if(aparams_thread && aparams_thread->running())
+-	{
+-		aparams_thread->file->close_window();
+-		aparams_thread->join();
+-	}
+-	if(vparams_thread && vparams_thread->running())
+-	{
+-		vparams_thread->file->close_window();
+-		vparams_thread->join();
+-	}
++	if(aparams_thread) aparams_thread->file->close_window();
++	if(vparams_thread) vparams_thread->file->close_window();
+ }
+ 
+ int FormatTools::get_w()
+@@ -366,11 +363,6 @@
+ 	return w;
+ }
+ 
+-void FormatTools::set_w(int w)
+-{
+-	this->w = w;
+-}
+-
+ void FormatTools::reposition_window(int &init_x, int &init_y)
+ {
+ 	int x = init_x;
+@@ -379,9 +371,9 @@
+ 	if(path_textbox) 
+ 	{
+ 		path_textbox->reposition_window(x, y);
+-		x += path_textbox->get_w() + 5;
++		x += 305;
+ 		path_button->reposition_window(x, y);
+-		x -= path_textbox->get_w() + 5;
++		x -= 305;
+ 		y += 35;
+ 	}
+ 
+@@ -506,10 +498,6 @@
+ 	format->set_audio_options(); 
+ }
+ 
+-
+-
+-
+-
+ FormatVParams::FormatVParams(MWindow *mwindow, FormatTools *format, int x, int y)
+  : BC_Button(x, y, mwindow->theme->get_image_set("wrench"))
+ { 
+@@ -525,50 +513,21 @@
+ }
+ 
+ 
+-
+-
+-
+ FormatAThread::FormatAThread(FormatTools *format)
+  : Thread()
+ { 
+ 	this->format = format; 
+ 	file = new File;
+-	joined = 1;
+ }
+ 
+ FormatAThread::~FormatAThread() 
+ {
+-	if(!joined)
+-	{
+-		delete file;
+-		join();
+-	}
+-	else
+-	{
+-		delete file;
+-	}
+-}
+-
+-void FormatAThread::start()
+-{
+-	if(!joined)
+-	{
+-		join();
+-	}
+-
+-	joined = 0;
+-	Thread::start();
++	delete file;
+ }
+ 
+-
+ void FormatAThread::run()
+ {
+-	file->get_options(format->window, 
+-		format->plugindb, 
+-		format->asset, 
+-		1, 
+-		0,
+-		0);
++	file->get_options(format, 1, 0);
+ }
+ 
+ 
+@@ -579,59 +538,23 @@
+ {
+ 	this->format = format;
+ 	file = new File;
+-	joined = 1;
+ }
+ 
+ FormatVThread::~FormatVThread() 
+ {
+-	if(!joined)
+-	{
+-		delete file;
+-		join();
+-	}
+-	else
+-	{
+-		delete file;
+-	}
+-}
+-
+-void FormatVThread::start()
+-{
+-	if(!joined)
+-	{
+-		join();
+-	}
+-
+-	joined = 0;
+-	Thread::start();
++	delete file;
+ }
+ 
+ void FormatVThread::run()
+ {
+-	file->get_options(format->window, 
+-		format->plugindb, 
+-		format->asset, 
+-		0, 
+-		1, 
+-		format->locked_compressor);
++	file->get_options(format, 0, 1);
+ }
+ 
+-
+-
+-
+-
+ FormatPathText::FormatPathText(int x, int y, FormatTools *format)
+- : BC_TextBox(x, 
+- 	y, 
+-	format->w - 
+-		format->mwindow->theme->get_image_set("wrench")[0]->get_w() - 
+-		x - 10, 
+-	1, 
+-	format->asset->path) 
++ : BC_TextBox(x, y, 300, 1, format->asset->path) 
+ {
+ 	this->format = format; 
+ }
+-
+ FormatPathText::~FormatPathText() 
+ {
+ }
+@@ -694,12 +617,15 @@
+ 	if(get_selection(0, 0) >= 0)
+ 	{
+ 		int new_format = File::strtoformat(format->plugindb, get_selection(0, 0)->get_text());
+-//		if(new_format != format->asset->format)
++		if(new_format != format->asset->format)
+ 		{
+ 			format->asset->format = new_format;
+ 			format->format_text->update(get_selection(0, 0)->get_text());
+ 			format->update_extension();
+ 			format->close_format_windows();
++			if (format->path_recent)
++				format->path_recent->load_items
++					(FILE_FORMAT_PREFIX(format->asset->format));
+ 		}
+ 	}
+ 	return 1;

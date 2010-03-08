@@ -1,0 +1,92 @@
+--- cinecutie/filelist.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/filelist.C	2010-02-19 22:19:11.948570683 +0100
+@@ -24,11 +24,13 @@
+ #include "file.h"
+ #include "filelist.h"
+ #include "guicast.h"
++#include "interlacemodes.h"
+ #include "mutex.h"
+ #include "mwindow.inc"
+ #include "render.h"
+ #include "renderfarmfsserver.inc"
+ #include "vframe.h"
++#include "mainerror.h"
+ 
+ #include <ctype.h>
+ #include <errno.h>
+@@ -40,16 +42,16 @@
+ 
+ FileList::FileList(Asset *asset, 
+ 	File *file, 
+-	const char *list_prefix,
+-	const char *file_extension, 
++	char *list_prefix,
++	char *file_extension, 
+ 	int frame_type,
+ 	int list_type)
+  : FileBase(asset, file)
+ {
+ 	reset_parameters();
+ 	asset->video_data = 1;
+-	this->list_prefix = (char*)list_prefix;
+-	this->file_extension = (char*)file_extension;
++	this->list_prefix = list_prefix;
++	this->file_extension = file_extension;
+ 	this->frame_type = frame_type;
+ 	this->list_type = list_type;
+ 	table_lock = new Mutex("FileList::table_lock");
+@@ -230,6 +232,7 @@
+ 		}while(!feof(stream) && (string[0] == '#' || string[0] == ' '));
+ 		asset->height = atol(string);
+ 
++		asset->interlace_mode = BC_ILACE_MODE_UNDETECTED;  // May be good to store the info in the list?
+ 		asset->layers = 1;
+ 		asset->audio_data = 0;
+ 		asset->video_data = 1;
+@@ -287,7 +290,7 @@
+ 
+ 		if(!(in = fopen(string, "rb")))
+ 		{
+-			fprintf(stderr, "FileList::read_frame %s: %s\n", string, strerror(errno));
++			eprintf("Error while opening \"%s\" for reading. \n%m\n", string);
+ 		}
+ 		else
+ 		{
+@@ -351,7 +354,7 @@
+ 			}
+ 			else
+ 			{
+-				fprintf(stderr, "FileList::read_frame %s: %s\n", asset->path, strerror(errno));
++				eprintf("Error while opening \"%s\" for reading. \n%m\n", asset->path);
+ 				result = 1;
+ 			}
+ 		}
+@@ -425,7 +428,7 @@
+ 				}
+ 				else
+ 				{
+-					printf("FileList::write_frames %s: %s\n", path, strerror(errno));
++					eprintf("Error while opening \"%s\" for writing. \n%m\n", asset->path);
+ 					return_value++;
+ 				}
+ 			}
+@@ -492,7 +495,7 @@
+ 
+ 
+ 
+-	char *path = (char*)"";
++	char *path = "";
+ 	char output[BCTEXTLEN];
+ 	if(file->current_frame >= path_list.total || !asset->use_header)
+ 	{
+@@ -599,9 +602,7 @@
+ //printf("FrameWriterUnit::process_package 2 %s\n", ptr->path);
+ 	if(!(file = fopen(ptr->path, "wb")))
+ 	{
+-		printf("FrameWriterUnit::process_package %s: %s\n",
+-			ptr->path,
+-			strerror(errno));
++		eprintf("Error while opening \"%s\" for writing. \n%m\n", ptr->path);
+ 		return;
+ 	}
+ //printf("FrameWriterUnit::process_package 3");

@@ -1,0 +1,28 @@
+--- cinecutie/edit.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/edit.C	2010-02-19 22:19:11.948570683 +0100
+@@ -81,7 +81,7 @@
+ 	user_title[0] = 0;
+ }
+ 
+-int Edit::copy(int64_t start, int64_t end, FileXML *file, const char *output_path)
++int Edit::copy(int64_t start, int64_t end, FileXML *file, char *output_path)
+ {
+ // variables
+ //printf("Edit::copy 1\n");
+@@ -156,6 +156,8 @@
+ 				file->tag.set_title("FILE");
+ 				file->tag.set_property("SRC", stored_path);
+ 				file->append_tag();
++				file->tag.set_title("/FILE");
++				file->append_tag();
+ 			}
+ 
+ 			if(transition)
+@@ -189,7 +191,6 @@
+ void Edit::insert_transition(char *title)
+ {
+ //printf("Edit::insert_transition this=%p title=%p title=%s\n", this, title, title);
+-	detach_transition();
+ 	transition = new Transition(edl, 
+ 		this, 
+ 		title, 

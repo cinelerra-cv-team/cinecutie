@@ -1,0 +1,11 @@
+--- cinecutie/confirmsave.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/confirmsave.h	2010-02-19 22:19:11.878577328 +0100
+@@ -49,7 +49,7 @@
+ 	ConfirmSaveWindow(MWindow *mwindow, ArrayList<BC_ListBoxItem*> *list);
+ 	~ConfirmSaveWindow();
+ 
+-	void create_objects();
++	int create_objects();
+ 	int resize_event(int w, int h);
+ 
+ 	ArrayList<BC_ListBoxItem*> *list;

@@ -1,0 +1,11 @@
+--- cinecutie/savefile.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/savefile.h	2010-02-19 22:19:11.998570756 +0100
+@@ -40,7 +40,7 @@
+ public:
+ 	Save(MWindow *mwindow);
+ 	int handle_event();
+-	void create_objects(SaveAs *saveas);
++	int create_objects(SaveAs *saveas);
+ 	int save_before_quit();
+ 	
+ 	int quit_now;

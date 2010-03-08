@@ -1,0 +1,16 @@
+--- cinecutie/batch.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/batch.h	2010-02-19 22:19:11.858573208 +0100
+@@ -37,11 +37,11 @@
+ 	Batch(MWindow *mwindow, Record *record);
+ 	~Batch();
+ 
+-	void create_objects();
++	int create_objects();
+ 	static char* mode_to_text(int record_mode);
+ 	static int text_to_mode(char *text);
+ 	Asset* get_current_asset();
+-	const char* get_source_text();
++	char* get_source_text();
+ 	Channel* get_current_channel_struct();
+ 	void calculate_news();
+ 	void create_default_path();

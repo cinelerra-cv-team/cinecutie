@@ -1,0 +1,113 @@
+--- cinecutie/filecr2.C	2008-07-29 00:57:25.000000000 +0200
++++ /home/user/cinecutie/cinecutie/filecr2.C	2010-02-19 22:19:11.948570683 +0100
+@@ -38,7 +38,7 @@
+ extern float **dcraw_data;
+ extern int dcraw_alpha;
+ extern float dcraw_matrix[9];
+-int dcraw_main (int argc, const char **argv);
++int dcraw_main (int argc, char **argv);
+ }
+ 
+ 
+@@ -52,7 +52,6 @@
+ 
+ FileCR2::~FileCR2()
+ {
+-//printf("FileCR2::~FileCR2\n");
+ 	close_file();
+ }
+ 
+@@ -69,13 +68,11 @@
+ 
+ 	strcpy(string, asset->path);
+ 
+-	const char *argv[4] =
+-	{
+-		"dcraw",
+-		"-i",
+-		string,
+-		0
+-	};
++	char *argv[4];
++	argv[0] = "dcraw";
++	argv[1] = "-i";
++	argv[2] = string;
++	argv[3] = 0;
+ 
+ 	int result = dcraw_main(argc, argv);
+ 
+@@ -89,12 +86,11 @@
+ 	cr2_mutex.lock("FileCR2::check_sig");
+ 
+ 	int argc = 3;
+-	const char *argv[4] = 
++	char *argv[3] = 
+ 	{
+ 		"dcraw",
+ 		"-i",
+-		asset->path,
+-		0
++		asset->path
+ 	};
+ 
+ 	int result = dcraw_main(argc, argv);
+@@ -122,8 +118,6 @@
+ 
+ int FileCR2::read_frame(VFrame *frame)
+ {
+-//printf("FileCR2::read_frame\n");
+-
+ 	cr2_mutex.lock("FileCR2::read_frame");
+ 	if(frame->get_color_model() == BC_RGBA_FLOAT)
+ 		dcraw_alpha = 1;
+@@ -145,22 +139,22 @@
+ // output to stdout
+ 	int argc = 0;
+ 	char *argv[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+-	argv[argc++] = (char*)"dcraw";
++	argv[argc++] = "dcraw";
+ // write to stdout
+-	argv[argc++] = (char*)"-c";
++	argv[argc++] = "-c";
+ // Use camera white balance.  
+ // Before 2006, DCraw had no Canon white balance.
+ // In 2006 DCraw seems to support Canon white balance.
+ // Still no gamma support.
+ // Need to toggle this in preferences because it defeats dark frame subtraction.
+ 	if(file->white_balance_raw)
+-		argv[argc++] = (char*)"-w";
++		argv[argc++] = "-w";
+ 	if(!file->interpolate_raw)
+ 	{
+ // Trying to do everything but interpolate doesn't work because convert_to_rgb
+ // doesn't work with bayer patterns.
+ // Use document mode and hack dcraw to apply white balance in the write_ function.
+-		argv[argc++] = (char*)"-d";
++		argv[argc++] = "-d";
+ 	}
+ 
+ 	argv[argc++] = asset->path;
+@@ -168,14 +162,8 @@
+ 	dcraw_data = (float**)frame->get_rows();
+ 
+ //Timer timer;
+-	int result = dcraw_main(argc, (const char**) argv);
++	int result = dcraw_main(argc, argv);
+ 
+-// This was only used by the bayer interpolate plugin, which itself created
+-// too much complexity to use effectively.
+-// It required bypassing the cache any time a plugin parameter changed 
+-// to store the color matrix from dcraw in the frame stack along with the new
+-// plugin parameters.  The cache couldn't know if a parameter in the stack came
+-// from dcraw or a plugin & replace it.
+ 	char string[BCTEXTLEN];
+ 	sprintf(string, 
+ 		"%f %f %f %f %f %f %f %f %f\n",
+@@ -192,6 +180,7 @@
+ 
+ 	frame->get_params()->update("DCRAW_MATRIX", string);
+ 
++// printf("FileCR2::read_frame\n");
+ // frame->dump_params();
+ 
+ 	cr2_mutex.unlock();

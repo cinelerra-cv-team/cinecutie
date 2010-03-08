@@ -1,0 +1,11 @@
+--- cinecutie/formatpresets.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/formatpresets.h	2010-02-19 22:19:11.958569362 +0100
+@@ -43,7 +43,7 @@
+ 
+ 	void create_objects();
+ 	FormatPresetItem* find_preset(EDL *edl);
+-	const char* get_preset_text(EDL *edl);
++	char* get_preset_text(EDL *edl);
+ 
+ // New preset selected
+ 	virtual int handle_event();

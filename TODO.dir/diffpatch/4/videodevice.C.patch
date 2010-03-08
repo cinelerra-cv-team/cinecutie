@@ -1,0 +1,99 @@
+--- cinecutie/videodevice.C	2010-02-20 00:32:24.848576207 +0100
++++ /home/user/cinecutie/cinecutie/videodevice.C	2010-02-19 22:19:12.018571035 +0100
+@@ -27,15 +27,18 @@
+ #include "channeldb.h"
+ #include "chantables.h"
+ #include "file.inc"
+-#include "config.h"
+ #include "mutex.h"
++#include "mwindow.h"
+ #include "picture.h"
+ #include "playbackconfig.h"
+ #include "playbackengine.h"
+ #include "preferences.h"
++#include "quicktime.h"
+ #include "recordconfig.h"
+ #include "recordmonitor.h"
++#ifdef HAVE_FIREWIRE
+ #include "vdevice1394.h"
++#endif
+ #include "vdevicebuz.h"
+ #include "vdevicedvb.h"
+ #include "vdevicev4l.h"
+@@ -278,23 +281,23 @@
+ 
+ static char* get_channeldb_path(VideoInConfig *vconfig_in)
+ {
+-	char *path = (char*)"";
++	char *path = "";
+ 	switch(vconfig_in->driver)
+ 	{
+ 		case VIDEO4LINUX:
+-			path = (char*)"channels_v4l";
++			path = "channels_v4l";
+ 			break;
+ 		case VIDEO4LINUX2:
+-			path = (char*)"channels_v4l2";
++			path = "channels_v4l2";
+ 			break;
+ 		case VIDEO4LINUX2JPEG:
+-			path = (char*)"channels_v4l2jpeg";
++			path = "channels_v4l2jpeg";
+ 			break;
+ 		case CAPTURE_BUZ:
+-			path = (char*)"channels_buz";
++			path = "channels_buz";
+ 			break;
+ 		case CAPTURE_DVB:
+-			path = (char*)"channels_dvb";
++			path = "channels_dvb";
+ 			break;
+ 	}
+ 	return path;
+@@ -364,7 +367,7 @@
+ }
+ 
+ 
+-const char* VideoDevice::drivertostr(int driver)
++char* VideoDevice::drivertostr(int driver)
+ {
+ 	switch(driver)
+ 	{
+@@ -395,12 +398,14 @@
+ 		case CAPTURE_BUZ:
+ 			return CAPTURE_BUZ_TITLE;
+ 			break;
++#ifdef HAVE_FIREWIRE
+ 		case CAPTURE_FIREWIRE:
+ 			return CAPTURE_FIREWIRE_TITLE;
+ 			break;
+ 		case CAPTURE_IEC61883:
+ 			return CAPTURE_IEC61883_TITLE;
+ 			break;
++#endif
+ 	}
+ 	return "";
+ }
+@@ -666,11 +671,13 @@
+ 			output_base = new VDeviceX11(this, output);
+ 			break;
+ 
++#ifdef HAVE_FIREWIRE
+ 		case PLAYBACK_DV1394:
+ 		case PLAYBACK_FIREWIRE:
+ 		case PLAYBACK_IEC61883:
+ 			output_base = new VDevice1394(this);
+ 			break;
++#endif
+ 	}
+ //printf("VideoDevice::open_output 2 %d\n", out_config->driver);
+ 
+@@ -727,7 +734,7 @@
+ 
+ int VideoDevice::write_buffer(VFrame *output, EDL *edl)
+ {
+-
++//printf("VideoDevice::write_buffer 1 %p\n", output_base);
+ 	if(output_base) return output_base->write_buffer(output, edl);
+ 	return 1;
+ }

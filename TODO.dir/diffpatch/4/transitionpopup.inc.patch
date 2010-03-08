@@ -1,0 +1,11 @@
+--- cinecutie/transitionpopup.inc	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/transitionpopup.inc	2010-02-19 22:19:12.018571035 +0100
+@@ -22,8 +22,6 @@
+ #ifndef TRANSITIONPOPUP_INC
+ #define TRANSITIONPOPUP_INC
+ 
+-class TransitionLengthThread;
+ class TransitionPopup;
+ 
+-
+ #endif

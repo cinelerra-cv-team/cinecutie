@@ -1,0 +1,367 @@
+--- cinecutie/zoombar.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/zoombar.C	2010-02-19 22:19:12.028571315 +0100
+@@ -19,7 +19,6 @@
+  * 
+  */
+ 
+-#include "apatchgui.inc"
+ #include "clip.h"
+ #include "edl.h"
+ #include "edlsession.h"
+@@ -31,11 +30,11 @@
+ #include "mainsession.h"
+ #include "mtimebar.h"
+ #include "preferences.h"
++#include "patchbay.h"
+ #include "theme.h"
+ #include "trackcanvas.h"
+ #include "tracks.h"
+ #include "units.h"
+-#include "vpatchgui.inc"
+ #include "zoombar.h"
+ 
+ 
+@@ -59,7 +58,7 @@
+ 	delete track_zoom;
+ }
+ 
+-void ZoomBar::create_objects()
++int ZoomBar::create_objects()
+ {
+ 	int x = 3;
+ 	int y = get_h() / 2 - 
+@@ -70,33 +69,38 @@
+ 	sample_zoom->set_menu_images(mwindow->theme->get_image_set("zoombar_menu", 0));
+ 	sample_zoom->set_tumbler_images(mwindow->theme->get_image_set("zoombar_tumbler", 0));
+ 	sample_zoom->create_objects();
++	sample_zoom->zoom_text->set_tooltip(_("Duration visible in the timeline"));
++	sample_zoom->zoom_tumbler->set_tooltip(_("Duration visible in the timeline"));
+ 	x += sample_zoom->get_w();
+ 	amp_zoom = new AmpZoomPanel(mwindow, this, x, y);
+ 	amp_zoom->set_menu_images(mwindow->theme->get_image_set("zoombar_menu", 0));
+ 	amp_zoom->set_tumbler_images(mwindow->theme->get_image_set("zoombar_tumbler", 0));
+ 	amp_zoom->create_objects();
++	amp_zoom->zoom_text->set_tooltip(_("Audio waveform scale"));
++	amp_zoom->zoom_tumbler->set_tooltip(_("Audio waveform scale"));
+ 	x += amp_zoom->get_w();
+ 	track_zoom = new TrackZoomPanel(mwindow, this, x, y);
+ 	track_zoom->set_menu_images(mwindow->theme->get_image_set("zoombar_menu", 0));
+ 	track_zoom->set_tumbler_images(mwindow->theme->get_image_set("zoombar_tumbler", 0));
+ 	track_zoom->create_objects();
++	track_zoom->zoom_text->set_tooltip(_("Height of tracks in the timeline"));
++	track_zoom->zoom_tumbler->set_tooltip(_("Height of tracks in the timeline"));
+ 	x += track_zoom->get_w() + 10;
+ 
+-#define DEFAULT_TEXT "000.00 - 000.00"
+-	add_subwindow(auto_zoom_popup = new AutoZoomPopup(
++	add_subwindow(auto_type = new AutoTypeMenu(mwindow, this, x, y));
++	auto_type->create_objects();
++	x += auto_type->get_w() + 10;
++#define DEFAULT_TEXT "000.00 to 000.00"
++	add_subwindow(auto_zoom = new AutoZoom(mwindow, this, x, y, 0));
++	x += auto_zoom->get_w();
++	add_subwindow(auto_zoom_text = new ZoomTextBox(
+ 		mwindow, 
+ 		this, 
+ 		x, 
+ 		y,
+-		get_text_width(MEDIUMFONT, DEFAULT_TEXT) + 20));
+-	auto_zoom_popup->create_objects();
+-	x += auto_zoom_popup->get_w() + 5;
+-// 	add_subwindow(auto_zoom_text = new BC_Title(
+-// 		x, 
+-// 		get_h() / 2 - BC_Title::calculate_h(this, "0") / 2, 
+-// 		DEFAULT_TEXT));
+-// 	x += auto_zoom_text->get_w() + 5;
+-	add_subwindow(auto_zoom = new AutoZoom(mwindow, this, x, y));
++		DEFAULT_TEXT));
++	x += auto_zoom_text->get_w() + 5;
++	add_subwindow(auto_zoom = new AutoZoom(mwindow, this, x, y, 1));
+ 	update_autozoom();
+ 	x += auto_zoom->get_w() + 5;
+ 
+@@ -115,6 +119,7 @@
+ 
+ 	add_subwindow(zoom_value = new BC_Title(x, 100, _("--"), MEDIUMFONT, BLACK));
+ 	update();
++	return 0;
+ }
+ 
+ 
+@@ -132,8 +137,12 @@
+ 		mwindow->theme->mzoom_h);
+ 
+ 	draw_top_background(get_parent(), 0, 0, get_w(), get_h());
+-// 	int x = 3, y = 1;
+-// 	sample_zoom->reposition_window(x, y);
++ 	int x = 3, y = 1;
++	if (sample_zoom) delete sample_zoom;
++	sample_zoom = new SampleZoomPanel(mwindow, this, x, y);
++	sample_zoom->set_menu_images(mwindow->theme->get_image_set("zoombar_menu", 0));
++	sample_zoom->set_tumbler_images(mwindow->theme->get_image_set("zoombar_tumbler", 0));
++	sample_zoom->create_objects();
+ // 	x += sample_zoom->get_w();
+ // 	amp_zoom->reposition_window(x, y);
+ // 	x += amp_zoom->get_w();
+@@ -162,11 +171,26 @@
+ void ZoomBar::update_autozoom()
+ {
+ 	char string[BCTEXTLEN];
+-	sprintf(string, "%0.02f - %0.02f\n", 
+-		mwindow->edl->local_session->automation_min, 
+-		mwindow->edl->local_session->automation_max);
+-//	auto_zoom_text->update(string);
+-	auto_zoom_popup->set_text(string);
++	switch (mwindow->edl->local_session->zoombar_showautotype) {
++	case AUTOGROUPTYPE_AUDIO_FADE:
++	case AUTOGROUPTYPE_VIDEO_FADE:
++		sprintf(string, "%0.01f to %0.01f\n", 
++			mwindow->edl->local_session->automation_mins[mwindow->edl->local_session->zoombar_showautotype],
++			mwindow->edl->local_session->automation_maxs[mwindow->edl->local_session->zoombar_showautotype]);
++		break;
++	case AUTOGROUPTYPE_ZOOM:
++		sprintf(string, "%0.03f to %0.03f\n", 
++			mwindow->edl->local_session->automation_mins[mwindow->edl->local_session->zoombar_showautotype],
++			mwindow->edl->local_session->automation_maxs[mwindow->edl->local_session->zoombar_showautotype]);
++		break;
++	case AUTOGROUPTYPE_X:
++	case AUTOGROUPTYPE_Y:
++		sprintf(string, "%0.0f to %.0f\n", 
++			mwindow->edl->local_session->automation_mins[mwindow->edl->local_session->zoombar_showautotype],
++			mwindow->edl->local_session->automation_maxs[mwindow->edl->local_session->zoombar_showautotype]);
++		break;
++	}
++	auto_zoom_text->update(string);
+ }
+ 
+ int ZoomBar::update()
+@@ -394,74 +418,156 @@
+ 
+ 
+ 
+-AutoZoom::AutoZoom(MWindow *mwindow, ZoomBar *zoombar, int x, int y)
++AutoZoom::AutoZoom(MWindow *mwindow, ZoomBar *zoombar, int x, int y, int changemax)
+  : BC_Tumbler(x,
+  	y,
+  	mwindow->theme->get_image_set("zoombar_tumbler"))
+ {
+ 	this->mwindow = mwindow;
+ 	this->zoombar = zoombar;
++	this->changemax = changemax;
++	if (changemax)
++		set_tooltip(_("Automation range maximum"));
++	else
++		set_tooltip(_("Automation range minimum"));
+ }
+ 
+ int AutoZoom::handle_up_event()
+ {
+-	mwindow->expand_autos();
++	mwindow->change_currentautorange(mwindow->edl->local_session->zoombar_showautotype,1,changemax);
++
++	mwindow->gui->zoombar->update_autozoom();
++	mwindow->gui->canvas->draw_overlays();
++	mwindow->gui->patchbay->update();
++	mwindow->gui->canvas->flash();
+ 	return 1;
+ }
+ 
+ int AutoZoom::handle_down_event()
+ {
+-	mwindow->shrink_autos();
++	mwindow->change_currentautorange(mwindow->edl->local_session->zoombar_showautotype,0,changemax);
++
++	mwindow->gui->zoombar->update_autozoom();
++	mwindow->gui->canvas->draw_overlays();
++	mwindow->gui->patchbay->update();
++	mwindow->gui->canvas->flash();
+ 	return 1;
+ }
+ 
+ 
+ 
+-
+-
+-
+-
+-AutoZoomPopup::AutoZoomPopup(MWindow *mwindow, 
+-	ZoomBar *zoombar, 
+-	int x, 
+-	int y,
+-	int w)
+- : BC_PopupMenu(x,
+- 	y,
+-	w,
+-	"",
+-	1,
+-	mwindow->theme->get_image_set("zoombar_menu", 0))
++AutoTypeMenu::AutoTypeMenu(MWindow *mwindow, ZoomBar *zoombar, int x, int y)
++	: BC_PopupMenu(x, y, 120,to_text(mwindow->edl->local_session->zoombar_showautotype), 1)
+ {
+ 	this->mwindow = mwindow;
+ 	this->zoombar = zoombar;
++	set_tooltip(_("Automation Type"));
+ }
+ 
+-void AutoZoomPopup::create_objects()
++void AutoTypeMenu::create_objects()
+ {
+-	char string[BCTEXTLEN];
++	add_item(new BC_MenuItem(to_text(AUTOGROUPTYPE_AUDIO_FADE)));
++	add_item(new BC_MenuItem(to_text(AUTOGROUPTYPE_VIDEO_FADE)));
++	add_item(new BC_MenuItem(to_text(AUTOGROUPTYPE_ZOOM)));
++	add_item(new BC_MenuItem(to_text(AUTOGROUPTYPE_X)));
++	add_item(new BC_MenuItem(to_text(AUTOGROUPTYPE_Y)));
++}
+ 
+-	sprintf(string, "0 - %d", MAX_VIDEO_FADE);
+-	add_item(new BC_MenuItem(string));
++char* AutoTypeMenu::to_text(int mode)
++{
++	switch(mode)
++	{
++	case AUTOGROUPTYPE_AUDIO_FADE:
++		return _("Audio Fade:");
++	case AUTOGROUPTYPE_VIDEO_FADE:
++		return _("Video Fade:");
++	case AUTOGROUPTYPE_ZOOM:
++		return _("Zoom:");
++	case AUTOGROUPTYPE_X:
++		return _("X:");
++	case AUTOGROUPTYPE_Y:
++		return _("Y:");
++	default:
++		return _("??");
++	}
++}
+ 
+-	sprintf(string, "%d - %d", INFINITYGAIN, MAX_AUDIO_FADE);
+-	add_item(new BC_MenuItem(string));
++int AutoTypeMenu::from_text(char *text)
++{
++	if(!strcmp(text, to_text(AUTOGROUPTYPE_AUDIO_FADE)))
++		return AUTOGROUPTYPE_AUDIO_FADE;
++	if(!strcmp(text, to_text(AUTOGROUPTYPE_VIDEO_FADE)))
++		return AUTOGROUPTYPE_VIDEO_FADE;
++	if(!strcmp(text, to_text(AUTOGROUPTYPE_ZOOM)))
++		return AUTOGROUPTYPE_ZOOM;
++	if(!strcmp(text, to_text(AUTOGROUPTYPE_X)))
++		return AUTOGROUPTYPE_X;
++	if(!strcmp(text, to_text(AUTOGROUPTYPE_Y)))
++		return AUTOGROUPTYPE_Y;
+ }
+ 
+-int AutoZoomPopup::handle_event()
++int AutoTypeMenu::handle_event()
+ {
+-	if(!strcmp(get_text(), get_item(0)->get_text()))
+-		mwindow->zoom_autos(0, MAX_VIDEO_FADE);
+-	else
+-	if(!strcmp(get_text(), get_item(1)->get_text()))
+-		mwindow->zoom_autos(INFINITYGAIN, MAX_AUDIO_FADE);
+-	return 1;
++	mwindow->edl->local_session->zoombar_showautotype = from_text(this->get_text());
++	this->zoombar->update_autozoom();
++}
++
++
++ZoomTextBox::ZoomTextBox(MWindow *mwindow, ZoomBar *zoombar, int x, int y, char *text)
++ : BC_TextBox(x, y, 130, 1, text)
++{
++	this->mwindow = mwindow;
++	this->zoombar = zoombar;
++	set_tooltip(_("Automation range"));
+ }
+ 
++int ZoomTextBox::button_press_event()
++{
++	if (!(get_buttonpress() == 4 || get_buttonpress() == 5)) {
++		BC_TextBox::button_press_event();
++		return 0;
++	}
++	if (!is_event_win()) return 0;
+ 
++	int changemax = 1;
++	if (get_relative_cursor_x() < get_w()/2)
++		changemax = 0;
+ 
++	// increment
++	if (get_buttonpress() == 4)
++		mwindow->change_currentautorange(mwindow->edl->local_session->zoombar_showautotype, 1, changemax);
++
++	// decrement
++	if (get_buttonpress() == 5)
++		mwindow->change_currentautorange(mwindow->edl->local_session->zoombar_showautotype, 0, changemax);
+ 
++	mwindow->gui->zoombar->update_autozoom();
++	mwindow->gui->canvas->draw_overlays();
++	mwindow->gui->patchbay->update();
++	mwindow->gui->canvas->flash();
++	return 1;
++}
+ 
++int ZoomTextBox::handle_event()
++{
++	float min, max;
++	if (sscanf(this->get_text(),"%f to%f",&min, &max) == 2)
++	{
++		AUTOMATIONVIEWCLAMPS(min, mwindow->edl->local_session->zoombar_showautotype);
++		AUTOMATIONVIEWCLAMPS(max, mwindow->edl->local_session->zoombar_showautotype);
++		if (max > min) 
++		{
++			mwindow->edl->local_session->automation_mins[mwindow->edl->local_session->zoombar_showautotype] = min;
++			mwindow->edl->local_session->automation_maxs[mwindow->edl->local_session->zoombar_showautotype] = max;
++			mwindow->gui->zoombar->update_autozoom();
++			mwindow->gui->canvas->draw_overlays();
++			mwindow->gui->patchbay->update();
++			mwindow->gui->canvas->flash();
++		}
++	}
++	// TODO: Make the text turn red when it's a bad range..
++	return 0;
++}
+ 
+ 
+ 
+@@ -472,6 +578,7 @@
+ {
+ 	this->mwindow = mwindow;
+ 	this->zoombar = zoombar;
++	set_tooltip(_("Selection start time"));
+ }
+ 
+ int FromTextBox::handle_event()
+@@ -486,6 +593,8 @@
+ 
+ int FromTextBox::update_position(double new_position)
+ {
++	new_position += mwindow->edl->session->get_frame_offset() / 
++						 mwindow->edl->session->frame_rate;;
+ 	Units::totext(string, 
+ 		new_position, 
+ 		mwindow->edl->session->time_format, 
+@@ -507,6 +616,7 @@
+ {
+ 	this->mwindow = mwindow;
+ 	this->zoombar = zoombar;
++	set_tooltip(_("Selection length"));
+ }
+ 
+ int LengthTextBox::handle_event()
+@@ -540,6 +650,7 @@
+ {
+ 	this->mwindow = mwindow;
+ 	this->zoombar = zoombar;
++	set_tooltip(_("Selection end time"));
+ }
+ 
+ int ToTextBox::handle_event()
+@@ -554,6 +665,8 @@
+ 
+ int ToTextBox::update_position(double new_position)
+ {
++	new_position += mwindow->edl->session->get_frame_offset() /
++						 mwindow->edl->session->frame_rate;
+ 	Units::totext(string, 
+ 		new_position, 
+ 		mwindow->edl->session->time_format, 

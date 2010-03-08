@@ -1,0 +1,48 @@
+--- cinecutie/mainerror.C	2008-10-15 02:02:26.000000000 +0200
++++ /home/user/cinecutie/cinecutie/mainerror.C	2010-02-19 22:19:11.968571001 +0100
+@@ -64,7 +64,6 @@
+ 
+ void MainErrorGUI::create_objects()
+ {
+-	lock_window("MainErrorGUI::create_objects");
+ SET_TRACE
+ 
+ 	BC_Button *button;
+@@ -91,7 +90,6 @@
+ SET_TRACE
+ 	show_window();
+ SET_TRACE
+-	unlock_window();
+ }
+ 
+ int MainErrorGUI::resize_event(int w, int h)
+@@ -141,9 +139,9 @@
+ 	return gui;
+ }
+ 
+-void MainError::append_error(const char *string)
++void MainError::append_error(char *string)
+ {
+-	char *in_ptr = (char*)string;
++	char *in_ptr = string;
+ 	char string2[BCTEXTLEN];
+ 	int first_line = 1;
+ 	while(*in_ptr)
+@@ -173,7 +171,7 @@
+ 	}
+ }
+ 
+-void MainError::show_error_local(const char *string)
++void MainError::show_error_local(char *string)
+ {
+ SET_TRACE
+ // assume user won't get to closing the GUI here
+@@ -217,7 +215,7 @@
+ }
+ 
+ 
+-void MainError::show_error(const char *string)
++void MainError::show_error(char *string)
+ {
+ 	if(main_error)
+ 		main_error->show_error_local(string);

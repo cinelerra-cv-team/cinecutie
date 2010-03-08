@@ -1,0 +1,470 @@
+adeviceprefs.inc called by audioalsa.h recordprefs.h vdeviceprefs.h  
+
+aedits.inc called by aedit.h
+  
+amodule.inc called by amodule.h apluginarray.h 
+ 
+apatchgui.inc called by apatchgui.C apatchgui.h panauto.C trackcanvas.C  
+
+aplugin.inc called by amodule.h  
+
+arender.inc called by renderengine.h virtualaconsole.h virtualanode.h  
+
+assetedit.inc called by assetpopup.h awindow.h  
+
+asset.inc called by assetedit.h assets.h awindowgui.h batch.h batchrender.h cachebase.h cache.h confirmsave.h edit.h edits.h edl.h exportedl.h fileavi.h filebase.h fileffmpeg.h fileformat.h file.h formattools.h indexfile.h indexthread.h mainindexes.h mainsession.h menuaeffects.h menueffects.h menuveffects.h mwindow.h preferences.h record.h renderfarmclient.h renderfarm.h render.h resourcepixmap.C threadindexer.h trackcanvas.h track.h vdevicebase.h videodevice.h vwindowgui.h vwindow.h  
+
+assetpopup.inc called by awindowgui.h  
+
+assetremove.inc called by awindow.h  
+
+assets.inc called by asset.h assetpopup.h assets.h awindowgui.h edits.h edl.h 
+fileavi.h filebase.h fileformat.h formatcheck.h formatwindow.h mainsession.h mwindow.h new.h packagedispatcher.h packagerenderer.h recordengine.h record.h vdevicebase.h videodevice.h  
+
+atrack.inc called by aautomation.C aedits.h apatchgui.h arender.h automation.C  
+
+attachmentpoint.inc called by module.h pluginserver.h  
+
+audio1394.inc called by audiodevice.h videodevice.h  
+
+audioalsa.inc called by audiodevice.h  
+
+audioconfig.inc called by audiodevice.h preferences.h  
+
+audiodevice.inc called by adeviceprefs.C audioconfig.C audiodevice.h audioesound.h 
+
+device1394output.h iec61883output.h mwindow.h playbackconfig.h playbackengine.h 
+
+playbackprefs.C preferences.C preferencesthread.C recordaudio.h recordconfig.C 
+
+recordengine.h record.h renderengine.h videodevice.h  
+
+audiodvb.inc called by audiodevice.h  
+
+audioesound.inc called by audiodevice.h  
+
+audiooss.inc called by audiodevice.h  
+
+autoconf.inc called by atrack.h automation.h edl.h edlsession.h track.h vtrack.h 
+vtransition.h  
+
+auto.inc called by apatchgui.h attachmentpoint.h auto.h cwindowgui.h cwindow.h 
+cwindowtool.h floatautos.h mainsession.h maskauto.h maskautos.h maskengine.h panautos.h patchgui.h playback3d.h pluginserver.h trackcanvas.h vdevicex11.h virtualnode.h vpatchgui.h vtransition.h  
+
+automation.inc called by automation.h floatautos.C gwindowgui.h intautos.C maskautos.C panautos.C track.h  
+
+autos.inc called by amodule.h atrack.h attachmentpoint.h auto.h automation.h cwindowgui.h cwindow.h floatauto.h intauto.h maskauto.h maskengine.h panauto.h playback3d.h pluginserver.h pluginset.h trackcanvas.h track.h vdevicex11.h virtualnode.h vmodule.h vtrack.h vtransition.h  
+
+awindowgui.inc called by assetpopup.h assets.C awindowgui.C awindow.h awindowmenu.h edl.C newfolder.h theme.h  
+awindow.inc called by assetedit.h awindowgui.h clipedit.h labeledit.h manualgoto.h mwindow.h  
+
+awindowmenu.inc called by assetpopup.h awindowgui.h  
+
+batch.inc called by assets.h record.h  
+
+batchrender.inc called by batchrender.h mwindow.h render.h theme.h  
+
+bitspopup.inc called by adeviceprefs.h assetedit.h fileflac.h fileformat.h filemov.h filempeg.h filesndfile.h  
+
+brender.inc called by brender.h mwindow.h renderfarm.h  
+
+browsebutton.inc called by batchrender.h recordgui.h  
+
+cache.inc called by cache.h commonrender.h exportedl.h file.C file.h module.h mwindow.h packagerenderer.h playbackengine.h pluginarray.h preferences.C renderengine.h render.h vedit.h  
+
+canvas.inc called by canvastools.h edithandles.h keyframehandles.h mwindowgui.h playback3d.h playbackengine.h renderengine.h resourcepixmap.h theme.h track.h tracks.h transitionhandles.h transportque.h vdevicex11.h videodevice.h  
+
+channeldb.inc called by channeledit.h channelpicker.h mwindow.h playbackengine.h record.h renderengine.h videodevice.h  
+
+channeledit.inc called by channelpicker.h  
+
+channel.inc called by batch.h channeldb.h channeledit.h channelpicker.h devicedvbinput.h mwindow.h recordengine.h record.h renderengine.h vdevicebase.h vdevicebuz.h videodevice.h  
+
+channelpicker.inc called by channeledit.h recordmonitor.h vdeviceprefs.h  
+
+clipedit.inc called by awindow.h vwindow.h  
+
+commonrender.inc called by module.h virtualconsole.h  
+
+compresspopup.inc called by compresspopup.h  
+
+cpanel.inc called by cwindowgui.h  
+
+cplayback.inc called by cwindow.h  
+
+cropvideo.inc called by cropvideo.h  
+
+ctimebar.inc called by cwindowgui.h  
+
+ctracking.inc called by cwindow.h  
+
+cursor.inc called by mwindowgui.h tracks.h  
+
+cwindowgui.inc called by apanel.h cpanel.h ctimebar.h cwindow.h cwindowtool.h 
+theme.h  
+
+cwindow.inc called by cplayback.h ctracking.h cwindowgui.h mwindow.h  
+
+cwindowtool.inc called by cwindowgui.h  
+
+dcoffset.inc called by audiodevice.h  
+
+deleteallindexes.inc called by interfaceprefs.h  
+
+device1394input.inc called by audio1394.h vdevice1394.h  
+
+device1394output.inc called by audio1394.h audiodevice.h vdevice1394.h 
+videodevice.h  
+
+devicedvbinput.inc called by audiodvb.h devicedvbinput.C dvbtune.C mwindow.C 
+mwindow.h tunerserver.C vdevicedvb.C vdevicedvb.h  
+
+drivesync.inc called by recordthread.h  
+
+dvbtune.inc called by dvbtune.h  
+
+edithandles.inc called by edithandles.C trackcanvas.h  
+
+edit.inc called by assetpopup.h awindow.h canvastools.h channelpicker.h edithandles.h editpopup.h exportedl.h filebase.h file.h indexfile.h mainsession.h mwindow.h packagerenderer.h render.h resourcepixmap.h timebar.h trackcanvas.h track.h transition.h transitionhandles.h vmodule.h vrender.h vtrack.h vwindow.h  
+
+editpanel.inc called by manualgoto.h  
+
+editpopup.inc called by mwindowgui.h  
+
+edits.inc called by aedit.h edit.h edl.h mainsession.h track.h vedit.h  
+
+edl.inc called by aautomation.h aedits.h amodule.h apluginarray.h aplugin.h apluginset.h assetpopup.h assets.h atrack.h auto.h automation.h autos.h awindowgui.h awindowmenu.h batch.h brender.h cache.h canvas.h clipedit.h cpanel.h edit.h editpanel.h edits.h edl.h edlsession.h floatauto.h floatautos.h formatpresets.h intauto.h intautos.h labeledit.h labels.h localsession.h mainsession.h manualgoto.h maskautos.h menuaeffects.h menuveffects.h module.h mwindow.h new.h overlayframe.C packagedispatcher.h packagerenderer.h panauto.h panautos.h playbackengine.h playtransport.h pluginarray.h pluginautos.h plugin.h pluginserver.h pluginset.h preferencesthread.h record.h renderfarmclient.h renderfarm.h setformat.h sharedlocation.h timebar.h track.h tracks.h transportque.h vautomation.h vdevicebase.h vdevicex11.h vedits.h videodevice.h vmodule.h vpluginarray.h vplugin.h vpluginset.h vtrack.h vwindow.h  
+
+edlsession.inc called by edl.h pluginclient.h  
+
+exportedl.inc called by mwindow.h  
+
+fadeengine.inc called by virtualvnode.h  
+
+fileavi.inc called by fileavi.C  
+
+filebase.inc called by file.h  
+
+file.inc called by asset.h batch.h cache.h exportedl.h fileavi.h filebase.h filedv.h fileexr.h fileffmpeg.h fileflac.h fileformat.h filegif.h file.h filejpeg.h filejpeglist.h filelist.h filemov.h filempeg.h fileogg.h filepng.h filethread.h filetiff.h filevorbis.h fileyuv.h formatpopup.C formattools.h indexfile.h indexthread.h labels.h main.C mainindexes.h mainmenu.h mwindow.C new.h packagerenderer.h pluginarray.h preferences.C quit.h recordaudio.h recordengine.h record.h recordthread.h recordvideo.h render.h resample.h savefile.h tracks.h vdevice1394.C vdevicebuz.C vdevicedvb.C vdevicelml.C videodevice.C  
+
+filelist.inc called by filebase.h filelist.h  
+
+filethread.inc called by file.h record.h virtualaconsole.h virtualanode.h  
+
+filexml.inc called by aedit.h aedits.h amodule.h asset.h assets.h atrack.h attachmentpoint.h autoconf.h auto.h automation.h autos.h batchrender.h channel.h edit.h edits.h edl.h edlsession.h file.h floatautos.h intauto.h keyframe.h keyframes.h labels.h localsession.h module.h mwindow.h new.h panauto.h patchbay.h patch.h pluginautos.h plugin.h recordengine.h record.h sharedlocation.h timebar.h track.h tracks.h transition.h vmodule.h vtrack.h vtransition.h  
+
+floatauto.inc called by apatchgui.h attachmentpoint.h cwindowgui.h cwindow.h floatautos.h pluginserver.h trackcanvas.h virtualnode.h vpatchgui.h  
+floatautos.inc called by amodule.h atrack.h attachmentpoint.h cwindowgui.h floatauto.h pluginserver.h trackcanvas.h track.h virtualnode.h vmodule.h vtrack.h vtransition.h  
+
+formatpopup.inc called by formatpopup.h render.h  
+
+formatpresets.inc called by formatpresets.h  
+
+formattools.inc called by performanceprefs.h record.h recordprefs.h render.h  
+
+formatwindow.inc called by file.h  
+
+framecache.inc called by file.h mwindow.h  
+
+garbage.inc called by garbage.h  
+
+gwindowgui.inc called by gwindow.h  
+
+gwindow.inc called by mwindow.h  
+
+iec61883input.inc called by audio1394.h vdevice1394.h  
+
+iec61883output.inc called by audio1394.h vdevice1394.h  
+
+indexfile.inc called by indexthread.h mainindexes.h  
+
+indexthread.inc called by indexfile.h  
+
+intauto.inc called by patchgui.h  
+
+intautos.inc called by intauto.h track.h  
+
+keyframe.inc called by keyframepopup.h keyframes.h pluginarray.h plugin.h pluginserver.h pluginset.h trackcanvas.h track.h  
+
+keyframepopup.inc called by mwindowgui.h  
+
+keyframes.inc called by keyframe.h plugin.h  
+
+labeledit.inc called by awindow.h timebar.h  
+
+labelnavigate.inc called by mbuttons.h  
+
+labels.inc called by edl.h labels.h recordlabel.h timebar.h  
+
+levelwindowgui.inc called by levelwindow.h theme.h  
+
+levelwindow.inc called by levelwindowgui.h mwindow.h  
+
+loadfile.inc called by main.C mainmenu.h mwindow.C  
+
+loadmode.inc called by loadfile.h loadmode.h menueffects.h mwindow.h recordgui.h record.h render.h  
+
+localsession.inc called by edl.h  
+
+mainclock.inc called by cwindowgui.h mwindowgui.h vwindowgui.h  
+
+maincursor.inc called by mwindowgui.h  
+
+mainerror.inc called by mainerror.h mwindow.h  
+
+mainindexes.inc called by mwindow.h  
+
+mainmenu.inc called by loadfile.h menueffects.h mwindowgui.h savefile.h viewmenu.h  
+
+mainprogress.inc called by indexfile.h mainprogress.h mwindow.h pluginclient.h pluginserver.h render.h  
+
+mainsession.inc called by mainsession.h mwindow.h  
+
+mainundo.inc called by mwindow.h  
+
+manualgoto.inc called by editpanel.h  
+
+maskauto.inc called by cwindowgui.h cwindowtool.h maskauto.h maskautos.h maskengine.h playback3d.h vdevicex11.h  
+
+maskautos.inc called by maskauto.h maskengine.h playback3d.h vdevicex11.h  
+
+maskengine.inc called by virtualvnode.h vmodule.h  
+
+mbuttons.inc called by labelnavigate.h mbuttons.h mwindowgui.h theme.h  
+
+menuaeffects.inc called by mainmenu.h  
+
+menueffects.inc called by pluginserver.h  
+
+menuveffects.inc called by mainmenu.h  
+
+messages.inc called by attachmentpoint.h keyframe.h messages.h transition.h  
+meterpanel.inc called by editpanel.h levelwindowgui.h recordmonitor.h  
+
+module.inc called by amodule.h apluginarray.h autoconf.h automation.h commonrender.h mainmenu.h module.h patch.h pluginarray.h plugin.h pluginserver.h pluginset.h track.h virtualconsole.h vpluginarray.h  
+mtimebar.inc called by mwindowgui.h  
+
+mwindowgui.inc called by editpopup.h fileformat.h keyframepopup.h mainclock.h maincursor.h mainmenu.h mainprogress.h mbuttons.h mtimebar.h mwindow.h patchbay.h pluginpopup.h samplescroll.h statusbar.h theme.h trackcanvas.h tracking.h trackscroll.h transitionpopup.h zoombar.h  
+
+mwindow.inc called by aedits.h apanel.h assetpopup.h assetremove.h attachmentpoint.h audiodevice.h awindowgui.h awindow.h awindowmenu.h batch.h batchrender.h brender.h browsebutton.h canvas.h canvastools.h channelpicker.h clipedit.h commonrender.h confirmquit.h confirmsave.h cpanel.h cropvideo.h ctracking.h cwindowgui.h cwindow.h cwindowtool.h deleteallindexes.h devicedvbinput.h edit.h edithandles.h editpanel.h editpopup.h exportedl.h featheredits.h fileac3.C fileavi.C filedv.C fileexr.C fileflac.C fileformat.h filejpeg.C filejpeglist.C filelist.C filemov.C filempeg.C fileogg.C filepng.C filepng.C.orig filesndfile.C filetga.C filevorbis.C formatcheck.C formatpresets.h formattools.h gwindowgui.h gwindow.h indexfile.h indexthread.h interfaceprefs.h keyframehandles.h keyframepopup.h labeledit.h labelnavigate.h labels.h levelwindowgui.h levelwindow.h loadfile.h loadmode.h mainclock.h maincursor.h mainerror.h mainindexes.h mainmenu.h mainprogress.h mainsession.h mainundo.h manualgoto.h mbuttons.h menuaeffects.h menueffects.h menuveffects.h meterpanel.h mwindowgui.h mwindow.h newfolder.h new.h packagedispatcher.h packagerenderer.h patchbay.h patchgui.h patch.h performanceprefs.h picture.h playabletracks.h playback3d.h playbackengine.h playbackprefs.h playtransport.h pluginarray.h plugindialog.h pluginpopup.h pluginserver.h plugintoggles.h preferencesthread.h question.h quit.h recordaudio.h recordengine.h recordgui.h record.h recordprefs.h recordvideo.h recordwindow.h renderengine.h renderfarm.h render.h renderprofiles.h resizetrackthread.h resourcepixmap.h resourcethread.h samplescroll.h savefile.h scale.h setformat.h splashgui.C statusbar.h theme.h threadindexer.h threadloader.h timebar.h tipwindow.h trackcanvas.h tracking.h trackscroll.h transition.h transitionhandles.h vedits.h videodevice.h videowindow.h viewer.h viewmenu.h virtualnode.h vrender.h vtracking.h vtransition.h vwindowgui.h vwindow.h zoombar.h zoompanel.h  
+
+newfolder.inc called by awindowgui.h  
+
+new.inc called by formatpresets.h mainmenu.h mwindow.h newpresets.h theme.h  
+
+overlayframe.inc called by edlsession.C filebase.h overlayframe.h patchbay.h playback3d.C playbackprefs.C pluginclient.h theme.h vautomation.C vmodule.h vpatchgui.C vrender.h  
+
+packagedispatcher.inc called by brender.h renderfarm.h render.h  
+
+packagerenderer.inc called by packagedispatcher.h  
+
+panauto.inc called by apatchgui.h panautos.h  
+
+panautos.inc called by atrack.h panauto.h  
+
+patchbay.inc called by mwindowgui.h mwindow.h patchbay.h patchgui.h patch.h theme.h  
+
+patchgui.inc called by apatchgui.C apatchgui.h panauto.C patchbay.h trackcanvas.C vpatchgui.h  
+
+patch.inc called by module.h patch.h track.h  
+
+picture.inc called by channeledit.h channelpicker.h record.h vdevicebase.h videodevice.h  
+
+playabletracks.inc called by packagerenderer.h render.h virtualconsole.h  
+
+playback3d.inc called by mwindow.h  
+
+playbackconfig.inc called by adeviceprefs.h audiooss.h edlsession.h packagerenderer.h playbackconfig.h recordconfig.h vdeviceprefs.h  
+
+playbackengine.inc called by ctracking.h mwindow.h playtransport.h recordengine.h record.h renderengine.h tracking.h vtracking.h  
+
+playtransport.inc called by playtransport.h  
+
+pluginaclientlad.inc called by pluginaclientlad.h pluginserver.h  
+
+pluginarray.inc called by menueffects.h module.h  
+
+pluginautos.inc called by pluginset.h  
+
+pluginclient.inc called by playback3d.h pluginserver.h vdevicex11.h  
+
+plugindialog.inc called by editpopup.h keyframepopup.h mainmenu.h pluginpopup.h  
+
+plugin.inc called by amodule.h attachmentpoint.h edit.h keyframepopup.h mainsession.h module.h mwindow.h plugindialog.h plugin.h pluginpopup.h pluginserver.h pluginset.h plugintoggles.h trackcanvas.h track.h transitionpopup.h virtualanode.h virtualnode.h virtualvnode.h  
+
+pluginpopup.inc called by mwindowgui.h plugin.h  
+
+pluginserver.inc called by apluginarray.h asset.h assets.h attachmentpoint.h awindowgui.h cache.h file.h formatpopup.h mainsession.h menuaeffects.h menueffects.h menuveffects.h module.h mwindow.h packagerenderer.h pluginarray.h pluginclient.h plugin.h pluginserver.h renderengine.h renderfarmclient.h renderfarm.h tracks.h virtualnode.h vpluginarray.h  
+pluginset.inc called by aplugin.h mainsession.h module.h mwindow.h plugin.h track.h vplugin.h  
+
+plugintoggles.inc called by trackcanvas.h  
+
+preferences.inc called by audiodevice.h batchrender.h brender.h cache.h channeldb.C edl.h file.h indexfile.h mwindow.h packagedispatcher.h packagerenderer.h playbackengine.h pluginserver.h preferences.h preferencesthread.h recordmonitor.h renderengine.h renderfarmclient.h renderfarm.h render.h transportque.h videodevice.h  
+
+preferencesthread.inc called by adeviceprefs.h deleteallindexes.h mwindow.h preferencesthread.h theme.h vdeviceprefs.h  
+
+question.inc called by recordgui.h  
+
+quit.inc called by mainmenu.h  
+
+recordableatracks.inc called by apluginarray.h pluginarray.h  
+
+recordablevtracks.inc called by vpluginarray.h  
+
+recordaudio.inc called by recordengine.h recordthread.h  
+
+recordconfig.inc called by adeviceprefs.h devicedvbinput.h edlsession.h vdeviceprefs.h  
+
+recordengine.inc called by record.h  
+
+recordgui.inc called by audiodevice.h dcoffset.h recordaudio.h recordengine.h recordgui.h record.h recordmonitor.h recordvideo.h theme.h  
+
+record.inc called by batch.h channelpicker.h mainmenu.h mbuttons.h recordaudio.h recordengine.h recordgui.h record.h recordmonitor.h recordthread.h recordtransport.h recordvideo.h recordwindow.h  
+
+recordlabel.inc called by batch.h edl.h labels.h mwindow.h recordengine.h timebar.h  
+
+recordmonitor.inc called by channelpicker.h recordgui.h record.h recordmonitor.h theme.h videodevice.h  
+
+recordprefs.inc called by recordprefs.h  
+
+recordthread.inc called by recordaudio.h recordengine.h record.h  
+
+recordtransport.inc called by recordgui.h recordmonitor.h  
+
+recordvideo.inc called by recordengine.h recordthread.h  
+
+recordwindow.inc called by record.h  
+
+removethread.inc called by mwindow.h  
+
+renderengine.inc called by attachmentpoint.h commonrender.h module.h packagerenderer.h playabletracks.h playbackengine.h plugin.h track.h virtualconsole.h virtualvnode.h vrender.h  
+
+renderfarmclient.inc called by dvbtune.h renderfarmclient.h renderfarmfsclient.h renderfarm.h tunerserver.h  
+
+renderfarmfsclient.inc called by renderfarmclient.h renderfarmfsclient.h  
+
+renderfarmfsserver.inc called by filelist.C renderfarmfsserver.h renderfarm.h  
+
+renderfarm.inc called by brender.h renderfarmclient.h renderfarmfsserver.h renderfarm.h tunerserver.C  
+
+render.inc called by batchrender.h brender.h mainmenu.h menueffects.inc module.h mwindow.h renderengine.h renderfarm.h render.h renderprofiles.h theme.h virtualaconsole.h virtualanode.h virtualconsole.h virtualvconsole.h virtualvnode.h  
+
+renderprofiles.inc called by render.h renderprofiles.h  
+
+resample.inc called by file.h filevorbis.h  
+
+resizetrackthread.inc called by editpopup.h  
+
+resourcepixmap.inc called by indexfile.h resourcethread.h theme.h trackcanvas.h  
+
+resourcethread.inc called by trackcanvas.h  
+
+samplescroll.inc called by mwindowgui.h  
+
+savefile.inc called by quit.h savefile.h  
+
+scale.inc called by scale.h  
+
+setformat.inc called by formatpresets.h newpresets.h setformat.h theme.h  
+
+sharedlocation.inc called by amodule.h edl.h module.h mwindow.h pluginset.h track.h vmodule.h  
+
+sighandler.inc called by mwindow.h  
+
+splashgui.inc called by mwindow.h  
+
+statusbar.inc called by mwindowgui.h theme.h  
+
+strategies.inc called by edits.C filebase.h vdevicebuz.C vdevicelml.C vdevicex11.C vrender.C  
+
+stringfile.inc called by labels.h  
+
+theme.inc called by edl.h mwindow.h pluginclient.h pluginserver.h track.h  
+
+threadindexer.inc called by tracks.h  
+
+threadloader.inc called by mainmenu.h mwindow.h  
+
+timebar.inc called by cwindowgui.h labels.h mwindowgui.h mwindow.h theme.h timebar.h vwindowgui.h  
+
+tipwindow.inc called by mwindow.h tipwindow.h  
+
+trackcanvas.inc called by canvastools.h edithandles.h keyframehandles.h mwindowgui.h resourcepixmap.h theme.h track.h tracks.h transitionhandles.h  
+
+track.inc called by aautomation.C aautomation.h aedits.h amodule.h apanel.h apatchgui.h apluginarray.h arender.h automation.C automation.h autos.h commonrender.h cwindowgui.h cwindow.h edit.h edits.h intautos.h keyframehandles.h mainsession.h maskautos.h module.h mwindow.h packagerenderer.h panautos.h patchgui.h pluginarray.h pluginautos.h pluginserver.h pluginset.h recordablevtracks.h render.h resizetrackthread.h trackcanvas.h vautomation.h vedits.h virtualconsole.h virtualnode.h virtualvconsole.h vmodule.h vpatchgui.h vpluginarray.h  
+
+tracking.inc called by cwindow.h mwindow.h playbackengine.h vwindow.h  
+
+trackscroll.inc called by mwindowgui.h  
+
+tracks.inc called by apluginarray.h edl.h indexfile.h mwindow.h packagerenderer.h pluginarray.h recordableatracks.h recordablevtracks.h render.h trackcanvas.h track.h virtualconsole.h vpluginarray.h  
+
+transitionhandles.inc called by trackcanvas.h  
+
+transition.inc called by edit.h edits.h mwindow.h plugindialog.h track.h tracks.h transitionpopup.h virtualnode.h  
+
+transitionpopup.inc called by mwindowgui.h  
+
+transportque.inc called by automation.C autos.C avc1394control.C avc1394control.h edits.C edl.C floatautos.C maskautos.C mwindow.h packagerenderer.h panautos.C playback3d.C playbackengine.h pluginclient.C renderengine.h render.h track.C tracks.C transportque.h vautomation.C vtrack.C vwindow.h  
+
+tunerserver.inc called by tunerserver.h  
+
+vdevice1394.inc called by audio1394.h audiodevice.h videodevice.h  
+
+vdevicebase.inc called by videodevice.h  
+
+vdevicebuz.inc called by vdevicebuz.h videodevice.h  
+
+vdevicedvb.inc called by audiodvb.h  
+
+vdevicelml.inc called by videodevice.h  
+
+vdeviceprefs.inc called by channelpicker.h recordprefs.h vdeviceprefs.h  
+
+vdevicev4l2.inc called by vdevicev4l2.h vdevicev4l2jpeg.h  
+
+vdevicev4l2jpeg.inc called by vdevicev4l2jpeg.h  
+
+vdevicev4l.inc called by videodevice.h  
+
+vdevicex11.inc called by videodevice.h  
+
+vedit.inc called by vmodule.h vtrack.h  
+
+vedits.inc called by vedit.h  
+
+videoconfig.inc called by preferences.h videodevice.h  
+
+videodevice.inc called by audiodevice.h device1394output.h filedv.C fileffmpeg.C filejpeg.C filemov.C filempeg.C fileogg.C filepng.C filepng.C.orig filethread.C formattools.C iec61883output.h mwindow.C packagerenderer.h playbackconfig.C playbackprefs.C pluginserver.h preferences.C recordconfig.C recordengine.h record.h recordmonitor.C recordmonitor.h recordvideo.h recordwindow.C renderengine.h vdevicebase.h vdeviceprefs.C vdevicev4l2.h vdevicev4l2jpeg.h vdevicev4l.h videoconfig.C virtualvconsole.h  
+
+videowindowgui.inc called by videowindow.h  
+
+videowindow.inc called by mwindow.h videodevice.h videowindowgui.h  
+
+viewmenu.inc called by mainmenu.h  
+
+virtualconsole.inc called by commonrender.h virtualnode.h  
+
+virtualnode.inc called by attachmentpoint.h plugin.h pluginserver.h virtualconsole.h  
+
+vmodule.inc called by vpluginarray.h  
+
+vpatchgui.inc called by trackcanvas.C vpatchgui.h  
+
+vplayback.inc called by vwindow.h  
+
+vrender.inc called by renderengine.h virtualvconsole.h virtualvnode.h  
+
+vtimebar.inc called by vwindowgui.h  
+
+vtrack.inc called by recordablevtracks.h vedits.h virtualvconsole.h vpatchgui.h  
+
+vtracking.inc called by vwindow.h  
+
+vwindowgui.inc called by theme.h timebar.h vtimebar.h vwindow.h  
+
+vwindow.inc called by clipedit.h labeledit.h manualgoto.h mwindow.h vplayback.h vtracking.h vwindowgui.h  
+
+wavecache.inc called by mwindow.h  
+
+zoombar.inc called by mwindowgui.h theme.h  

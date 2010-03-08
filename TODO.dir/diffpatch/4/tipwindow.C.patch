@@ -1,0 +1,14 @@
+--- cinecutie/tipwindow.C	2008-08-02 03:09:02.000000000 +0200
++++ /home/user/cinecutie/cinecutie/tipwindow.C	2010-02-19 22:19:12.008571675 +0100
+@@ -32,10 +32,8 @@
+ 
+ 
+ // Table of tips of the day
+-static const char *tips[] = 
++static char *tips[] = 
+ {
+-	N_("Shift-click on a curve keyframe to snap it to the neighboring values."),
+-
+ 	N_("When configuring slow effects, disable playback for the track.  After configuring it,\n"
+ 	"re-enable playback to process a single frame."),
+ 

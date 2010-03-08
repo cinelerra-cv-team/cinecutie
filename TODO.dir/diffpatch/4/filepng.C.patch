@@ -1,0 +1,51 @@
+--- cinecutie/filepng.C	2008-10-11 17:46:25.000000000 +0200
++++ /home/user/cinecutie/cinecutie/filepng.C	2010-02-19 22:19:11.958569362 +0100
+@@ -23,11 +23,13 @@
+ #include "edit.h"
+ #include "file.h"
+ #include "filepng.h"
++#include "interlacemodes.h"
+ #include "language.h"
+ #include "mwindow.inc"
+ #include "quicktime.h"
+ #include "vframe.h"
+ #include "videodevice.inc"
++#include "mainerror.h"
+ 
+ #include <png.h>
+ 
+@@ -147,7 +149,7 @@
+ 
+ 	if(!(stream = fopen(path, "rb")))
+ 	{
+-		perror("FilePNG::read_frame_header");
++		eprintf("Error while opening \"%s\" for reading. \n%m\n", asset->path);
+ 		return 1;
+ 	}
+ 
+@@ -163,6 +165,9 @@
+ 
+ 	asset->width = png_get_image_width(png_ptr, info_ptr);
+ 	asset->height = png_get_image_height(png_ptr, info_ptr);
++	
++	asset->interlace_mode = BC_ILACE_MODE_NOTINTERLACED;
++
+ 	color_type = png_get_color_type(png_ptr, info_ptr);
+ 	color_depth = png_get_bit_depth(png_ptr,info_ptr);
+ 	
+@@ -446,13 +451,12 @@
+ {
+ }
+ 
+-void PNGConfigVideo::create_objects()
++int PNGConfigVideo::create_objects()
+ {
+ 	int x = 10, y = 10;
+-	lock_window("PNGConfigVideo::create_objects");
+ 	add_subwindow(new PNGUseAlpha(this, x, y));
+ 	add_subwindow(new BC_OKButton(this));
+-	unlock_window();
++	return 0;
+ }
+ 
+ int PNGConfigVideo::close_event()

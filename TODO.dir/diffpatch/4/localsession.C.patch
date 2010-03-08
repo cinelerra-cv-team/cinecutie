@@ -1,0 +1,176 @@
+--- cinecutie/localsession.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/localsession.C	2010-02-19 22:19:11.968571001 +0100
+@@ -19,15 +19,33 @@
+  * 
+  */
+ 
++#include "automation.h"
+ #include "clip.h"
+ #include "bchash.h"
+ #include "edl.h"
+ #include "filexml.h"
+-#include "floatauto.h"
+ #include "localsession.h"
+ 
+ 
++static char *xml_autogrouptypes_titlesmax[] = 
++{
++	"AUTOGROUPTYPE_AUDIO_FADE_MAX",
++	"AUTOGROUPTYPE_VIDEO_FADE_MAX",
++	"AUTOGROUPTYPE_ZOOM_MAX",
++	"AUTOGROUPTYPE_X_MAX",
++	"AUTOGROUPTYPE_Y_MAX",
++	"AUTOGROUPTYPE_INT255_MAX"
++};
+ 
++static char *xml_autogrouptypes_titlesmin[] = 
++{
++	"AUTOGROUPTYPE_AUDIO_FADE_MIN",
++	"AUTOGROUPTYPE_VIDEO_FADE_MIN",
++	"AUTOGROUPTYPE_ZOOM_MIN",
++	"AUTOGROUPTYPE_X_MIN",
++	"AUTOGROUPTYPE_Y_MIN",
++	"AUTOGROUPTYPE_INT255_MIN"
++};
+ 
+ 
+ LocalSession::LocalSession(EDL *edl)
+@@ -44,14 +62,31 @@
+ 	loop_playback = 0;
+ 	loop_start = 0;
+ 	loop_end = 0;
+-	zoom_sample = 0;
++	zoom_sample = 16384;
+ 	zoom_y = 0;
+ 	zoom_track = 0;
+ 	view_start = 0;
+ 	track_start = 0;
+-	automation_min = -10;
+-	automation_max = 10;
+-	floatauto_type = Auto::BEZIER;
++
++	automation_mins[AUTOGROUPTYPE_AUDIO_FADE] = -80;
++	automation_maxs[AUTOGROUPTYPE_AUDIO_FADE] = 6;
++
++	automation_mins[AUTOGROUPTYPE_VIDEO_FADE] = 0;
++	automation_maxs[AUTOGROUPTYPE_VIDEO_FADE] = 100;
++
++	automation_mins[AUTOGROUPTYPE_ZOOM] = 0.001;
++	automation_maxs[AUTOGROUPTYPE_ZOOM] = 4;
++
++	automation_mins[AUTOGROUPTYPE_X] = -100;
++	automation_maxs[AUTOGROUPTYPE_X] = 100;
++
++	automation_mins[AUTOGROUPTYPE_Y] = -100;
++	automation_maxs[AUTOGROUPTYPE_Y] = 100;
++
++	automation_mins[AUTOGROUPTYPE_INT255] = 0;
++	automation_maxs[AUTOGROUPTYPE_INT255] = 255;
++
++	zoombar_showautotype = AUTOGROUPTYPE_AUDIO_FADE;
+ 	red = green = blue = 0;
+ }
+ 
+@@ -80,9 +115,10 @@
+ 	preview_end = that->preview_end;
+ 	red = that->red;
+ 	green = that->green;
+-	automation_min = that->automation_min;
+-	automation_max = that->automation_max;
+-	floatauto_type = that->floatauto_type;
++	for (int i = 0; i < AUTOGROUPTYPE_COUNT; i++) {
++		automation_mins[i] = that->automation_mins[i];
++		automation_maxs[i] = that->automation_maxs[i];
++	}
+ 	blue = that->blue;
+ }
+ 
+@@ -118,9 +154,15 @@
+ 	file->tag.set_property("RED", red);
+ 	file->tag.set_property("GREEN", green);
+ 	file->tag.set_property("BLUE", blue);
+-	file->tag.set_property("AUTOMATION_MIN", automation_min);
+-	file->tag.set_property("AUTOMATION_MAX", automation_max);
+-	file->tag.set_property("FLOATAUTO_TYPE", floatauto_type);
++
++	for (int i = 0; i < AUTOGROUPTYPE_COUNT; i++) {
++		if (!Automation::autogrouptypes_fixedrange[i]) {
++			file->tag.set_property(xml_autogrouptypes_titlesmin[i],automation_mins[i]);
++			file->tag.set_property(xml_autogrouptypes_titlesmax[i],automation_maxs[i]);
++		}
++	}
++	file->append_tag();
++	file->tag.set_title("/LOCALSESSION");
+ 	file->append_tag();
+ 	file->append_newline();
+ 	file->append_newline();
+@@ -143,8 +185,7 @@
+ {
+ 	if(load_flags & LOAD_SESSION)
+ 	{
+-// moved to EDL::load_xml for paste to fill silence.
+-//		clipboard_length = 0;
++		clipboard_length = 0;
+ // Overwritten by MWindow::load_filenames	
+ 		file->tag.get_property("CLIP_TITLE", clip_title);
+ 		file->tag.get_property("CLIP_NOTES", clip_notes);
+@@ -164,9 +205,13 @@
+ 		red = file->tag.get_property("RED", red);
+ 		green = file->tag.get_property("GREEN", green);
+ 		blue = file->tag.get_property("BLUE", blue);
+-		automation_min = file->tag.get_property("AUTOMATION_MIN", automation_min);
+-		automation_max = file->tag.get_property("AUTOMATION_MAX", automation_max);
+-		floatauto_type = file->tag.get_property("FLOATAUTO_TYPE", floatauto_type);
++
++		for (int i = 0; i < AUTOGROUPTYPE_COUNT; i++) {
++			if (!Automation::autogrouptypes_fixedrange[i]) {
++				automation_mins[i] = file->tag.get_property(xml_autogrouptypes_titlesmin[i],automation_mins[i]);
++				automation_maxs[i] = file->tag.get_property(xml_autogrouptypes_titlesmax[i],automation_maxs[i]);
++			}
++		}
+ 	}
+ 
+ 
+@@ -201,15 +246,20 @@
+ 	selectionend = defaults->get("SELECTIONEND", selectionend);
+ //	track_start = defaults->get("TRACK_START", 0);
+ //	view_start = defaults->get("VIEW_START", 0);
+-	zoom_sample = defaults->get("ZOOM_SAMPLE", 1);
++	zoom_sample = defaults->get("ZOOM_SAMPLE", 16384);
+ 	zoom_y = defaults->get("ZOOMY", 64);
+ 	zoom_track = defaults->get("ZOOM_TRACK", 64);
+ 	red = defaults->get("RED", 0.0);
+ 	green = defaults->get("GREEN", 0.0);
+ 	blue = defaults->get("BLUE", 0.0);
+-	automation_min = defaults->get("AUTOMATION_MIN", automation_min);
+-	automation_max = defaults->get("AUTOMATION_MAX", automation_max);
+-	floatauto_type = defaults->get("FLOATAUTO_TYPE", floatauto_type);
++
++	for (int i = 0; i < AUTOGROUPTYPE_COUNT; i++) {
++		if (!Automation::autogrouptypes_fixedrange[i]) {
++			automation_mins[i] = defaults->get(xml_autogrouptypes_titlesmin[i], automation_mins[i]);
++			automation_maxs[i] = defaults->get(xml_autogrouptypes_titlesmax[i], automation_maxs[i]);
++		}
++	}
++
+ 	return 0;
+ }
+ 
+@@ -228,9 +278,14 @@
+ 	defaults->update("RED", red);
+ 	defaults->update("GREEN", green);
+ 	defaults->update("BLUE", blue);
+-	defaults->update("AUTOMATION_MIN", automation_min);
+-	defaults->update("AUTOMATION_MAX", automation_max);
+-	defaults->update("FLOATAUTO_TYPE", floatauto_type);
++
++	for (int i = 0; i < AUTOGROUPTYPE_COUNT; i++) {
++		if (!Automation::autogrouptypes_fixedrange[i]) {
++			defaults->update(xml_autogrouptypes_titlesmin[i], automation_mins[i]);
++			defaults->update(xml_autogrouptypes_titlesmax[i], automation_maxs[i]);
++		}
++	}
++
+ 	return 0;
+ }
+ 

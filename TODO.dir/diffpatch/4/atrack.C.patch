@@ -1,0 +1,17 @@
+--- cinecutie/atrack.C	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/atrack.C	2010-02-19 22:19:11.848575688 +0100
+@@ -98,12 +98,13 @@
+ 	return 0;
+ }
+ 
+-void ATrack::create_objects()
++int ATrack::create_objects()
+ {
+ 	Track::create_objects();
+ 	automation = new AAutomation(edl, this);
+ 	automation->create_objects();
+ 	edits = new AEdits(edl, this);
++	return 0;
+ }
+ 
+ int ATrack::vertical_span(Theme *theme)

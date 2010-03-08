@@ -1,0 +1,34 @@
+--- cinecutie/mainsession.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/mainsession.h	2010-02-19 22:19:11.968571001 +0100
+@@ -70,8 +70,6 @@
+ 	int ccanvas_highlighted;
+ // Current drag operation
+ 	int current_operation;
+-// Free drag enabled
+-	int free_drag;
+ // Item being dragged
+ 	ArrayList <PluginServer*> *drag_pluginservers;
+ 	Plugin *drag_plugin;
+@@ -101,8 +99,6 @@
+ 	long drag_start_position;
+ // Records for redrawing brender position in timebar
+ 	double brender_end;
+-// Position of cursor in CWindow output.  Used by ruler.
+-	int cwindow_output_x, cwindow_output_y;
+ 
+ // Show controls in CWindow
+ 	int cwindow_controls;
+@@ -140,13 +136,7 @@
+ 	int afolders_w;
+ 	int show_vwindow, show_awindow, show_cwindow, show_gwindow, show_lwindow;
+ 	int plugindialog_w, plugindialog_h;
+-	int presetdialog_w, presetdialog_h;
+-	int keyframedialog_w, keyframedialog_h;
+-	int keyframedialog_column1;
+-	int keyframedialog_column2;
+-	int keyframedialog_all;
+ 	int menueffect_w, menueffect_h;
+-	int transitiondialog_w, transitiondialog_h;
+ 
+ 	int cwindow_fullscreen;
+ 	int rwindow_fullscreen;

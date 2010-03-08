@@ -1,0 +1,144 @@
+--- cinecutie/editpanel.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/editpanel.h	2010-02-19 22:19:11.948570683 +0100
+@@ -25,6 +25,7 @@
+ #include "guicast.h"
+ #include "meterpanel.inc"
+ #include "mwindow.inc"
++#include "manualgoto.inc"
+ 
+ class EditPanel;
+ 
+@@ -126,6 +127,18 @@
+ 	EditPanel *panel;
+ };
+ 
++class EditManualGoto : public BC_Button
++{
++public:
++	EditManualGoto(MWindow *mwindow, EditPanel *panel, int x, int y);
++	~EditManualGoto();
++	int handle_event();
++	int keypress_event();
++	MWindow *mwindow;
++	EditPanel *panel;
++	ManualGoto *mangoto;
++};
++
+ class EditCut : public BC_Button
+ {
+ public:
+@@ -301,42 +314,6 @@
+ 	int is_mwindow;
+ };
+ 
+-class EditPrevEdit : public BC_Button
+-{
+-public:
+-	EditPrevEdit(MWindow *mwindow, 
+-		EditPanel *panel, 
+-		int x, 
+-		int y,
+-		int is_mwindow);
+-	~EditPrevEdit();
+-
+-	int keypress_event();
+-	int handle_event();
+-
+-	MWindow *mwindow;
+-	EditPanel *panel;
+-	int is_mwindow;
+-};
+-
+-class EditNextEdit : public BC_Button
+-{
+-public:
+-	EditNextEdit(MWindow *mwindow, 
+-		EditPanel *panel, 
+-		int x, 
+-		int y,
+-		int is_mwindow);
+-	~EditNextEdit();
+-
+-	int keypress_event();
+-	int handle_event();
+-
+-	MWindow *mwindow;
+-	EditPanel *panel;
+-	int is_mwindow;
+-};
+-
+ 
+ class ArrowButton : public BC_Toggle
+ {
+@@ -364,6 +341,14 @@
+ 	MWindow *mwindow;
+ };
+ 
++class LockLabelsButton : public BC_Toggle
++{
++public:
++	LockLabelsButton(MWindow *mwindow, int x, int y);
++	int handle_event();
++	MWindow *mwindow;
++};
++
+ 
+ class EditPanel
+ {
+@@ -383,6 +368,7 @@
+ 		int use_paste, 
+ 		int use_undo,
+ 		int use_fit, 
++		int use_locklabels,
+ 		int use_labels,
+ 		int use_toclip,
+ 		int use_meters,
+@@ -395,7 +381,7 @@
+ 	void delete_buttons();
+ 	void create_buttons();
+ 	void reposition_buttons(int x, int y);
+-	void create_objects();
++	int create_objects();
+ 	int get_w();
+ 	virtual void copy_selection();
+ 	virtual void splice_selection();
+@@ -408,8 +394,6 @@
+ 	virtual void toggle_label();
+ 	virtual void prev_label();
+ 	virtual void next_label();
+-	virtual void prev_edit();
+-	virtual void next_edit();
+ 
+ 	MWindow *mwindow;
+ 	BC_WindowBase *subwindow;
+@@ -426,6 +410,7 @@
+ 	int use_undo;
+ 	int use_fit;
+ 	int use_copy;
++	int use_locklabels;
+ 	int use_labels;
+ 	int use_toclip;
+ 	int use_meters;
+@@ -444,20 +429,20 @@
+ 	EditLift *lift;
+ 	EditExtract *extract;
+ 	EditToClip *clip;
++	EditManualGoto *mangoto;
+ 	EditCut *cut;
+ 	EditCopy *copy;
+ 	EditPaste *paste;
+ 	EditLabelbutton *labelbutton;
+ 	EditPrevLabel *prevlabel;
+ 	EditNextLabel *nextlabel;
+-	EditPrevEdit *prevedit;
+-	EditNextEdit *nextedit;
+ 	EditUndo *undo;
+ 	EditRedo *redo;
+ 	MeterShow *meters;
+ 	ArrowButton *arrow;
+ 	IBeamButton *ibeam;
+ 	KeyFrameButton *keyframe;
++	LockLabelsButton *locklabels;
+ };
+ 
+ #endif

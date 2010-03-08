@@ -1,0 +1,10 @@
+--- cinecutie/new.inc	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/new.inc	2010-02-19 22:19:11.978570999 +0100
+@@ -23,6 +23,7 @@
+ #define NEW_INC
+ 
+ class ColormodelItem;
++class InterlacemodeItem;
+ class New;
+ class NewWindow;
+ 

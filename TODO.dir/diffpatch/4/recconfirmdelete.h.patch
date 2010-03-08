@@ -1,0 +1,11 @@
+--- cinecutie/recconfirmdelete.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/recconfirmdelete.h	2010-02-19 22:19:11.988570758 +0100
+@@ -31,7 +31,7 @@
+ 	RecConfirmDelete(MWindow *mwindow);
+ 	~RecConfirmDelete();
+ 	
+-	void create_objects(char *string);
++	int create_objects(char *string);
+ };
+ 
+ 

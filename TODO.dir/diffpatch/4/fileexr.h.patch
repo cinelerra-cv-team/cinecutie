@@ -1,0 +1,20 @@
+--- cinecutie/fileexr.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/fileexr.h	2010-02-19 22:19:11.948570683 +0100
+@@ -58,7 +58,7 @@
+ 		PXR24
+ 	};
+ 
+-	static const char* compression_to_str(int compression);
++	static char* compression_to_str(int compression);
+ 	static int str_to_compression(char *string);
+ 	static int compression_to_exr(int compression);
+ 
+@@ -87,7 +87,7 @@
+ 	EXRConfigVideo(BC_WindowBase *parent_window, Asset *asset);
+ 	~EXRConfigVideo();
+ 
+-	void create_objects();
++	int create_objects();
+ 	int close_event();
+ 
+ 	BC_WindowBase *parent_window;

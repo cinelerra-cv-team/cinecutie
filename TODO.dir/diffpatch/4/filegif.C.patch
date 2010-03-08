@@ -1,0 +1,34 @@
+--- cinecutie/filegif.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/filegif.C	2010-02-19 22:19:11.948570683 +0100
+@@ -22,6 +22,7 @@
+ #include "assets.h"
+ #include "file.h"
+ #include "filetiff.h"
++#include "interlacemodes.h"
+ #include "vframe.h"
+ 
+ 
+@@ -87,12 +88,13 @@
+ 
+ 	if(!(stream = GIFOpen(asset->path, "r")))
+ 	{
+-		perror("FileGIF::read_header");
++		eprintf("Error while opening \"%s\" for reading. \n%m\n", asset->path);
+ 		return 1;
+ 	}
+ 	
+ 	GIFGetField(stream, GIFTAG_IMAGEWIDTH, &(asset->width));
+ 	GIFGetField(stream, GIFTAG_IMAGELENGTH, &(asset->height));
++	asset->interlacemode = BC_ILACE_MODE_NOTINTERLACED;
+ 	asset->layers = 1;
+ 
+ 	GIFClose(stream);
+@@ -117,7 +119,7 @@
+ 
+ 		if(!(stream = GIFOpen(asset->path, "r")))
+ 		{
+-			perror("FileGIF::read_raw");
++			eprintf("Error while opening \"%s\" for writing. \n%m\n", asset->path);
+ 			return 1;
+ 		}
+ 

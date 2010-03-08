@@ -1,0 +1,11 @@
+--- cinecutie/compresspopup.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/compresspopup.h	2010-02-19 22:19:11.868576808 +0100
+@@ -32,7 +32,7 @@
+ 	CompressPopup(int x, int y, int use_dv, char *output);
+ 	~CompressPopup();
+ 
+-	void create_objects();
++	int create_objects();
+ 
+ 	int add_items();         // add initial items
+ 	char format[256];           // current setting 

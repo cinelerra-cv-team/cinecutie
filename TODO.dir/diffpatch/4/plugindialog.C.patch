@@ -1,0 +1,363 @@
+--- cinecutie/plugindialog.C	2008-10-11 17:46:25.000000000 +0200
++++ /home/user/cinecutie/cinecutie/plugindialog.C	2010-02-19 22:19:11.988570758 +0100
+@@ -19,10 +19,8 @@
+  * 
+  */
+ 
+-#include "bcsignals.h"
+ #include "condition.h"
+ #include "edl.h"
+-#include "edlsession.h"
+ #include "language.h"
+ #include "localsession.h"
+ #include "mainsession.h"
+@@ -41,31 +39,49 @@
+ 
+ 
+ PluginDialogThread::PluginDialogThread(MWindow *mwindow)
+- : BC_DialogThread()
++ : Thread()
+ {
+ 	this->mwindow = mwindow;
++	window = 0;
+ 	plugin = 0;
++	Thread::set_synchronous(0);
++	window_lock = new Mutex("PluginDialogThread::window_lock");
++	completion = new Condition(1, "PluginDialogThread::completion");
+ }
+ 
+ PluginDialogThread::~PluginDialogThread()
+ {
++	if(window)
++	{
++		window->set_done(1);
++		completion->lock("PluginDialogThread::~PluginDialogThread");
++		completion->unlock();
++	}
++	delete window_lock;
++	delete completion;
+ }
+ 
+ void PluginDialogThread::start_window(Track *track,
+ 	Plugin *plugin, 
+-	const char *title,
+-	int is_mainmenu,
+-	int data_type)
++	char *title)
+ {
+-	if(!BC_DialogThread::is_running())
++	if(Thread::running())
++	{
++		window_lock->lock("PluginDialogThread::start_window");
++		if(window)
++		{
++			window->lock_window("PluginDialogThread::start_window");
++			window->raise_window();
++			window->flush();
++			window->unlock_window();
++		}
++		window_lock->unlock();
++	}
++	else
+ 	{
+-// At this point, the caller should hold the main window mutex.
+-//		mwindow->gui->lock_window("PluginDialogThread::start_window");
+ 		this->track = track;
+-		this->data_type = data_type;
++		this->data_type = track->data_type;
+ 		this->plugin = plugin;
+-		this->is_mainmenu = is_mainmenu;
+-		single_standalone = mwindow->edl->session->single_standalone;
+ 
+ 		if(plugin)
+ 		{
+@@ -82,34 +98,35 @@
+ 		}
+ 
+ 		strcpy(this->window_title, title);
+-		mwindow->gui->unlock_window();
+-
+-		BC_DialogThread::start();
+-		mwindow->gui->lock_window("PluginDialogThread::start_window");
++		completion->lock("PluginDialogThread::start_window");
++		Thread::start();
+ 	}
+ }
+ 
+-BC_Window* PluginDialogThread::new_gui()
++
++int PluginDialogThread::set_dialog(Transition *transition, char *title)
+ {
+-	mwindow->gui->lock_window("PluginDialogThread::new_gui");
+-	int x = mwindow->gui->get_abs_cursor_x(0) - 
+-		mwindow->session->plugindialog_w / 2;
+-	int y = mwindow->gui->get_abs_cursor_y(0) - 
+-		mwindow->session->plugindialog_h / 2;
+-	plugin_type = 0;
+-	PluginDialog *window = new PluginDialog(mwindow, 
+-		this, 
+-		window_title, 
+-		x, 
+-		y);
+-	window->create_objects();
+-	mwindow->gui->unlock_window();
+-	return window;
++	return 0;
+ }
+ 
+-void PluginDialogThread::handle_done_event(int result)
++void PluginDialogThread::run()
+ {
+-	PluginDialog *window = (PluginDialog*)BC_DialogThread::get_gui();
++	int result = 0;
++
++	plugin_type = 0;
++ 	int x = mwindow->gui->get_abs_cursor_x(1) - mwindow->session->plugindialog_w / 2;
++	int y = mwindow->gui->get_abs_cursor_y(1) - mwindow->session->plugindialog_h / 2;
++
++	window_lock->lock("PluginDialogThread::run 1");	
++	window = new PluginDialog(mwindow, this, window_title, x, y);
++	window->create_objects();
++	window_lock->unlock();
++
++	result = window->run_window();
++
++
++	window_lock->lock("PluginDialogThread::run 2");
++
+ 	if(window->selected_available >= 0)
+ 	{
+ 		window->attach_new(window->selected_available);
+@@ -124,55 +141,46 @@
+ 	{
+ 		window->attach_module(window->selected_modules);
+ 	}
+-	mwindow->edl->session->single_standalone = single_standalone;
+-}
+ 
+-void PluginDialogThread::handle_close_event(int result)
+-{
++
++
++
++	delete window;
++	window = 0;
++	window_lock->unlock();
++
++	completion->unlock();
++
++// Done at closing
+ 	if(!result)
+ 	{
++
++
+ 		if(plugin_type)
+ 		{
+ 			mwindow->gui->lock_window("PluginDialogThread::run 3");
+ 
+ 
+-			mwindow->undo->update_undo_before();
+-			if(is_mainmenu)
++			if(plugin)
+ 			{
+-				mwindow->insert_effect(plugin_title, 
++				plugin->change_plugin(plugin_title,
+ 					&shared_location,
+-					data_type,
+-					plugin_type,
+-					single_standalone);
++					plugin_type);
+ 			}
+ 			else
+ 			{
+-				if(plugin)
+-				{
+-					if(mwindow->edl->tracks->plugin_exists(plugin))
+-					{
+-						plugin->change_plugin(plugin_title,
+-							&shared_location,
+-							plugin_type);
+-					}
+-				}
+-				else
+-				{
+-					if(mwindow->edl->tracks->track_exists(track))
+-					{
+-						mwindow->insert_effect(plugin_title, 
+-										&shared_location,
+-										track,
+-										0,
+-										0,
+-										0,
+-										plugin_type);
+-					}
+-				}
++				mwindow->insert_effect(plugin_title, 
++								&shared_location,
++								track,
++								0,
++								0,
++								0,
++								plugin_type);
+ 			}
++
+ 			
+ 			mwindow->save_backup();
+-			mwindow->undo->update_undo_after(_("attach effect"), LOAD_EDITS | LOAD_PATCHES);
++			mwindow->undo->update_undo(_("attach effect"), LOAD_EDITS | LOAD_PATCHES);
+ 			mwindow->restart_brender();
+ 			mwindow->update_plugin_states();
+ 			mwindow->sync_parameters(CHANGE_EDL);
+@@ -200,7 +208,7 @@
+ 
+ PluginDialog::PluginDialog(MWindow *mwindow, 
+ 	PluginDialogThread *thread, 
+-	const char *window_title,
++	char *window_title,
+ 	int x,
+ 	int y)
+  : BC_Window(window_title, 
+@@ -216,13 +224,18 @@
+ {
+ 	this->mwindow = mwindow;  
+ 	this->thread = thread;
+-	single_standalone = 0;
++//	standalone_attach = 0;
++//	shared_attach = 0;
++//	module_attach = 0;
++//	standalone_change = 0;
++//	shared_change = 0;
++//	module_change = 0;
++	inoutthru = 0;
+ }
+ 
+ PluginDialog::~PluginDialog()
+ {
+ 	int i;
+-	lock_window("PluginDialog::~PluginDialog");
+ 	standalone_data.remove_all_objects();
+ 	
+ 	shared_data.remove_all_objects();
+@@ -233,20 +246,28 @@
+ 
+ 	module_locations.remove_all_objects();
+ 
++//	delete title;
++//	delete detach;
+ 	delete standalone_list;
+ 	delete shared_list;
+ 	delete module_list;
+-	unlock_window();
++// 	if(standalone_attach) delete standalone_attach;
++// 	if(shared_attach) delete shared_attach;
++// 	if(module_attach) delete module_attach;
++// 	if(standalone_change) delete standalone_change;
++// 	if(shared_change) delete shared_change;
++// 	if(module_change) delete module_change;
++//	delete in;
++//	delete out;
+ }
+ 
+-void PluginDialog::create_objects()
++int PluginDialog::create_objects()
+ {
+ 	int use_default = 1;
+ 	char string[BCTEXTLEN];
+ 	int module_number;
+ 	mwindow->theme->get_plugindialog_sizes();
+ 
+-	lock_window("PluginDialog::create_objects");
+  	if(thread->plugin)
+ 	{
+ 		strcpy(string, thread->plugin->title);
+@@ -272,13 +293,11 @@
+ 		plugindb);
+ 
+ 	mwindow->edl->get_shared_plugins(thread->track,
+-		&plugin_locations,
+-		thread->is_mainmenu,
+-		thread->data_type);
++		&plugin_locations);
++
+ 	mwindow->edl->get_shared_tracks(thread->track,
+-		&module_locations,
+-		thread->is_mainmenu,
+-		thread->data_type);
++		&module_locations);
++
+ 
+ 
+ 
+@@ -394,23 +413,12 @@
+ // 
+ 
+ 
+-// Add option for the menu invocation
+-// 	add_subwindow(file_title = new BC_Title(
+-// 		mwindow->theme->menueffect_file_x, 
+-// 		mwindow->theme->menueffect_file_y, 
+-// 		_("One standalone effect is attached to the first track.\n"
+-// 		"Shared effects are attached to the remaining tracks.")));
+-
+-	if(thread->is_mainmenu)
+-		add_subwindow(single_standalone = new PluginDialogSingle(this, 
+-			mwindow->theme->plugindialog_new_x + BC_OKButton::calculate_w() + 10, 
+-			mwindow->theme->plugindialog_new_y + 
+-				mwindow->theme->plugindialog_new_h +
+-				get_text_height(MEDIUMFONT)));
+ 
+ 
+ 
+ 	add_subwindow(new BC_OKButton(this));
++
++
+ 	add_subwindow(new BC_CancelButton(this));
+ 
+ 	selected_available = -1;
+@@ -419,7 +427,7 @@
+ 	
+ 	show_window();
+ 	flush();
+-	unlock_window();
++	return 0;
+ }
+ 
+ int PluginDialog::resize_event(int w, int h)
+@@ -475,14 +483,6 @@
+ // 	else
+ // 		module_change->reposition_window(mwindow->theme->plugindialog_moduleattach_x,
+ // 			mwindow->theme->plugindialog_moduleattach_y);
+-
+-
+-	if(single_standalone)
+-		single_standalone->reposition_window(mwindow->theme->plugindialog_new_x, 
+-			mwindow->theme->plugindialog_new_y + 
+-				mwindow->theme->plugindialog_new_h +
+-				get_text_height(MEDIUMFONT));
+-
+ 	flush();
+ }
+ 
+@@ -763,22 +763,6 @@
+ }
+ 
+ 
+-PluginDialogSingle::PluginDialogSingle(PluginDialog *dialog, int x, int y)
+- : BC_CheckBox(x, 
+- 	y, 
+-	dialog->thread->single_standalone, 
+-	_("Attach single standlone and share others"))
+-{
+-	this->dialog = dialog;
+-}
+-
+-int PluginDialogSingle::handle_event()
+-{
+-	dialog->thread->single_standalone = get_value();
+-	return 1;
+-}
+-
+-
+ // PluginDialogAttachModule::PluginDialogAttachModule(MWindow *mwindow, 
+ // 	PluginDialog *dialog, 
+ // 	int x, 

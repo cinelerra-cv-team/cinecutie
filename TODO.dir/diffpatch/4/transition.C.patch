@@ -1,0 +1,29 @@
+--- cinecutie/transition.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/transition.C	2010-02-19 22:19:12.018571035 +0100
+@@ -83,7 +83,7 @@
+ 
+ 
+ 
+-Transition::Transition(EDL *edl, Edit *edit, const char *title, long unit_length)
++Transition::Transition(EDL *edl, Edit *edit, char *title, long unit_length)
+  : Plugin(edl, (PluginSet*)edit->edits, title)
+ {
+ 	this->edit = edit;
+@@ -163,6 +163,8 @@
+ 	{
+ 		file->tag.set_title("ON");
+ 		file->append_tag();
++		file->tag.set_title("/ON");
++		file->append_tag();
+ 	}
+ 	keyframes->copy(0, 0, file, 1, 0);
+ 	file->tag.set_title("/TRANSITION");
+@@ -220,7 +222,7 @@
+ 	return 0;
+ }
+ 
+-const char* Transition::default_title()
++char* Transition::default_title()
+ {
+ 	return "Transition";
+ }

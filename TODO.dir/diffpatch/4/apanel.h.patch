@@ -1,0 +1,11 @@
+--- cinecutie/apanel.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/apanel.h	2010-02-19 22:19:11.838575648 +0100
+@@ -40,7 +40,7 @@
+ 	APanel(MWindow *mwindow, CWindowGUI *subwindow, int x, int y, int w, int h);
+ 	~APanel();
+ 
+-	void create_objects();
++	int create_objects();
+ 
+ 	MWindow *mwindow;
+ 	CWindowGUI *subwindow;

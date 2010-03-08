@@ -1,0 +1,103 @@
+--- cinecutie/mainmenu.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/mainmenu.h	2010-02-19 22:19:11.968571001 +0100
+@@ -35,7 +35,6 @@
+ class ShowCWindow;
+ class ShowLWindow;
+ class Undo;
+-class KeyframeType;
+ 
+ #include "arraylist.h"
+ #include "guicast.h"
+@@ -63,14 +62,13 @@
+ public:
+ 	MainMenu(MWindow *mwindow, MWindowGUI *gui);
+ 	~MainMenu();
+-	void create_objects();
++	int create_objects();
+ 	int load_defaults(BC_Hash *defaults);
+ 	int save_defaults(BC_Hash *defaults);
+ 
+ // most recent loads
+ 	int add_load(char *path);
+ 	int init_loads(BC_Hash *defaults);
+-	int save_loads(BC_Hash *defaults);
+ 
+ // most recent effects
+ 	int init_aeffects(BC_Hash *defaults);
+@@ -91,10 +89,9 @@
+ 	MenuAEffects *aeffects;
+ 	MenuVEffects *veffects;
+ 
+-// for previous document loader
+ 	Load *load_file;
++	BC_RecentList *recent_load;
+ 	LoadPrevious *load[TOTAL_LOADS];
+-	int total_loads;
+ 
+ 
+ 	RecordMenuItem *record;
+@@ -109,7 +106,6 @@
+ 	int total_veffects;
+ 	BC_Menu *filemenu, *audiomenu, *videomenu;      // needed by most recents
+ 
+-	KeyframeType *keyframe_type;
+ 	LabelsFollowEdits *labels_follow_edits;
+ 	PluginsFollowEdits *plugins_follow_edits;
+ 	CursorOnFrames *cursor_on_frames;
+@@ -143,7 +139,7 @@
+ public:
+ 	Undo(MWindow *mwindow);
+ 	int handle_event();
+-	int update_caption(const char *new_caption = "");
++	int update_caption(char *new_caption = "");
+ 	MWindow *mwindow;
+ };
+ 
+@@ -186,7 +182,7 @@
+ public:
+ 	Redo(MWindow *mwindow);
+ 	int handle_event();
+-	int update_caption(const char *new_caption = "");
++	int update_caption(char *new_caption = "");
+ 	MWindow *mwindow;
+ };
+ 
+@@ -262,23 +258,6 @@
+ 	MWindow *mwindow;
+ };
+ 
+-class BendKeyframes : public BC_MenuItem
+-{
+-public:
+-	BendKeyframes(MWindow *mwindow);
+-	int handle_event();
+-	MWindow *mwindow;
+-};
+-
+-class KeyframeType : public BC_MenuItem
+-{
+-public:
+-	KeyframeType(MWindow *mwindow, int type);
+-	int handle_event();
+-	MWindow *mwindow;
+-	int new_type;
+-};
+-
+ class CutDefaultKeyframe : public BC_MenuItem
+ {
+ public:
+@@ -335,14 +314,6 @@
+ 	MWindow *mwindow;
+ };
+ 
+-class DetachTransitions : public BC_MenuItem
+-{
+-public:
+-	DetachTransitions(MWindow *mwindow);
+-	int handle_event();
+-	MWindow *mwindow;
+-};
+-
+ class MuteSelection : public BC_MenuItem
+ {
+ public:

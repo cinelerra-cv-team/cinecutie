@@ -1,0 +1,11 @@
+--- cinecutie/apatchgui.h	2008-07-21 21:14:00.000000000 +0200
++++ /home/user/cinecutie/cinecutie/apatchgui.h	2010-02-19 22:19:11.838575648 +0100
+@@ -39,7 +39,7 @@
+ 	APatchGUI(MWindow *mwindow, PatchBay *patchbay, ATrack *track, int x, int y);
+ 	~APatchGUI();
+ 
+-	void create_objects();
++	int create_objects();
+ 	int reposition(int x, int y);
+ 	int update(int x, int y);
+ 	void synchronize_fade(float value_change);

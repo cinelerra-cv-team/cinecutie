@@ -1,0 +1,19 @@
+--- cinecutie/vedit.C	2008-07-26 03:56:57.000000000 +0200
++++ /home/user/cinecutie/cinecutie/vedit.C	2010-02-19 22:19:12.018571035 +0100
+@@ -87,14 +87,14 @@
+ 		file->set_video_position(input_position - startproject + startsource, edl->session->frame_rate);
+ 		if(use_cache) file->set_cache_frames(use_cache);
+ 		result = file->read_frame(video_out);
+-
+ 		if(use_cache) file->set_cache_frames(0);
+ 
+ 		cache->check_in(asset);
+ 	}
+ 	else
+ 		result = 1;
+-
++	
++//for(int i = 0; i < video_out->get_w() * 3 * 20; i++) video_out->get_rows()[0][i] = 128;
+ 	return result;
+ }
+ 

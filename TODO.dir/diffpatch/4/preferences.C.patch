@@ -1,0 +1,96 @@
+--- cinecutie/preferences.C	2008-08-06 20:45:37.000000000 +0200
++++ /home/user/cinecutie/cinecutie/preferences.C	2010-02-19 22:19:11.988570758 +0100
+@@ -34,10 +34,7 @@
+ #include "theme.h"
+ #include "videoconfig.h"
+ #include "videodevice.inc"
+-
+ #include <string.h>
+-#include <unistd.h>
+-
+ 
+ //#define CLAMP(x, y, z) (x) = ((x) < (y) ? (y) : ((x) > (z) ? (z) : (x)))
+ 
+@@ -46,7 +43,7 @@
+ 
+ 
+ 
+-extern void get_exe_path(char *result);
++
+ 
+ 
+ 
+@@ -58,11 +55,6 @@
+ 	FileSystem fs;
+ 
+ 	preferences_lock = new Mutex("Preferences::preferences_lock");
+-
+-
+-
+-	get_exe_path(plugin_dir);
+-
+ 	sprintf(index_directory, BCASTDIR);
+ 	if(strlen(index_directory))
+ 		fs.complete_path(index_directory);
+@@ -158,6 +150,7 @@
+ 	index_size = that->index_size;
+ 	index_count = that->index_count;
+ 	use_thumbnails = that->use_thumbnails;
++	strcpy(global_plugin_dir, that->global_plugin_dir);
+ 	strcpy(theme, that->theme);
+ 
+ 	use_tipwindow = that->use_tipwindow;
+@@ -199,12 +192,12 @@
+ 		fs.add_end_slash(index_directory);
+ 	}
+ 	
+-// 	if(strlen(global_plugin_dir))
+-// 	{
+-// 		fs.complete_path(global_plugin_dir);
+-// 		fs.add_end_slash(global_plugin_dir);
+-// 	}
+-// 
++	if(strlen(global_plugin_dir))
++	{
++		fs.complete_path(global_plugin_dir);
++		fs.add_end_slash(global_plugin_dir);
++	}
++
+ 	boundaries();
+ }
+ 
+@@ -270,12 +263,12 @@
+ 	index_count = defaults->get("INDEX_COUNT", index_count);
+ 	use_thumbnails = defaults->get("USE_THUMBNAILS", use_thumbnails);
+ 
+-//	sprintf(global_plugin_dir, PLUGIN_DIR);
++	sprintf(global_plugin_dir, PLUGIN_DIR);
+ //	defaults->get("GLOBAL_PLUGIN_DIR", global_plugin_dir);
+-//	if(getenv("GLOBAL_PLUGIN_DIR"))
+-//	{
+-//		strcpy(global_plugin_dir, getenv("GLOBAL_PLUGIN_DIR"));
+-//	}
++	if(getenv("GLOBAL_PLUGIN_DIR"))
++	{
++		strcpy(global_plugin_dir, getenv("GLOBAL_PLUGIN_DIR"));
++	}
+ 
+ 	strcpy(theme, DEFAULT_THEME);
+ 	defaults->get("THEME", theme);
+@@ -418,6 +411,7 @@
+ 	char *new_item = new char[strlen(text) + 1];
+ 	strcpy(new_item, text);
+ 	renderfarm_nodes.append(new_item);
++	renderfarm_nodes.set_array_delete();
+ 	renderfarm_ports.append(port);
+ 	renderfarm_enabled.append(enabled);
+ 	renderfarm_rate.append(rate);
+@@ -579,7 +573,7 @@
+ 	return result;
+ }
+ 
+-const char* Preferences::get_node_hostname(int number)
++char* Preferences::get_node_hostname(int number)
+ {
+ 	int total = 0;
+ 	for(int i = 0; i < renderfarm_nodes.total; i++)

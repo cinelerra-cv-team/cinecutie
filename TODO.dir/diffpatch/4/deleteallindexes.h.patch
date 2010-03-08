@@ -1,0 +1,11 @@
+--- cinecutie/deleteallindexes.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/deleteallindexes.h	2010-02-19 22:19:11.938570804 +0100
+@@ -45,7 +45,7 @@
+ 	ConfirmDeleteAllIndexes(MWindow *mwindow, char *string);
+ 	~ConfirmDeleteAllIndexes();
+ 	
+-	void create_objects();
++	int create_objects();
+ 	char *string;
+ };
+ 

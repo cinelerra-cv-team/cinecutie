@@ -1,0 +1,11 @@
+--- cinecutie/mbuttons.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/mbuttons.h	2010-02-19 22:19:11.968571001 +0100
+@@ -55,7 +55,7 @@
+ 	MButtons(MWindow *mwindow, MWindowGUI *gui);
+ 	~MButtons();
+ 
+-	void create_objects();
++	int create_objects();
+ 	int resize_event();
+ 	int keypress_event();
+ 	void update();

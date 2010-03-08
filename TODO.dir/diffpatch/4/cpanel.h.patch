@@ -1,0 +1,36 @@
+--- cinecutie/cpanel.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/cpanel.h	2010-02-19 22:19:11.878577328 +0100
+@@ -33,7 +33,7 @@
+ 	CPanel(MWindow *mwindow, CWindowGUI *subwindow, int x, int y, int w, int h);
+ 	~CPanel();
+ 
+-	void create_objects();
++	int create_objects();
+ 	void reposition_buttons(int x, int y);
+ 	void set_operation(int value);
+ 
+@@ -55,16 +55,6 @@
+ 	CPanel *gui;
+ };
+ 
+-class CPanelRuler : public BC_Toggle
+-{
+-public:
+-	CPanelRuler(MWindow *mwindow, CPanel *gui, int x, int y);
+-	~CPanelRuler();
+-	int handle_event();
+-	MWindow *mwindow;
+-	CPanel *gui;
+-};
+-
+ class CPanelTitleSafe : public BC_Toggle
+ {
+ public:
+@@ -161,6 +151,7 @@
+ 	CPanelToolWindow(MWindow *mwindow, CPanel *gui, int x, int y);
+ 	~CPanelToolWindow();
+ 	int handle_event();
++	int set_shown(int shown);
+ 	MWindow *mwindow;
+ 	CPanel *gui;
+ };

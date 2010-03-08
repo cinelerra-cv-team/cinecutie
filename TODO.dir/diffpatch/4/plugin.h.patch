@@ -1,0 +1,53 @@
+--- cinecutie/plugin.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/plugin.h	2010-02-19 22:19:11.978570999 +0100
+@@ -48,13 +48,13 @@
+ // Plugin which belongs to a transition.
+ 	Plugin(EDL *edl, 
+ 		Track *track, 
+-		const char *title);
++		char *title);
+ // Called by  PluginSet::create_edit, PluginSet::insert_edit_after.
+ // Plugin can't take a track because it would get the edits pointer from 
+ // the track instead of the plugin set.
+ 	Plugin(EDL *edl, 
+ 		PluginSet *plugin_set, 
+-		const char *title);
++		char *title);
+ 	virtual ~Plugin();
+ 
+ 	virtual Plugin& operator=(Plugin& edit);
+@@ -96,7 +96,7 @@
+ 		int64_t end, 
+ 		FileXML *file, 
+ 		int default_only,
+-		int active_only);
++		int autos_only);
+ // For editing automation.  
+ // Returns the point to restart background rendering at.
+ // -1 means nothing changed.
+@@ -107,8 +107,8 @@
+ // Shift in time
+ 	void shift(int64_t difference);
+ 	void dump();
+-	KeyFrame* get_prev_keyframe(int64_t position,
+-		int direction);
++// Called by PluginClient sequence to get rendering parameters
++	KeyFrame* get_prev_keyframe(int64_t position, int direction);
+ 	KeyFrame* get_next_keyframe(int64_t position, int direction);
+ // If this is a standalone plugin fill its location in the result.
+ // If it's shared copy the shared location into the result
+@@ -116,13 +116,12 @@
+ // Get keyframes for editing with automatic creation if enabled.
+ // The direction is always assumed to be forward.
+ 	virtual KeyFrame* get_keyframe();
+-// Called by KeyFrameThread
+-	int keyframe_exists(KeyFrame *ptr);
+ 	int silence();
+ // Calculate title given plugin type.  Used by TrackCanvas::draw_plugins
+ 	void calculate_title(char *string, int use_nudge);
+ // Resolve objects pointed to by shared_location
+ 	Track* get_shared_track();
++//	Plugin* get_shared_plugin();
+ 
+ // Need to resample keyframes
+ 	void resample(double old_rate, double new_rate);

@@ -1,0 +1,17 @@
+--- cinecutie/pluginvclient.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/pluginvclient.C	2010-02-19 22:19:11.988570758 +0100
+@@ -278,12 +278,12 @@
+ 	return output[channel];
+ }
+ 
+-int PluginVClient::next_effect_is(const char *title)
++int PluginVClient::next_effect_is(char *title)
+ {
+ 	return !strcmp(title, output[0]->get_next_effect());
+ }
+ 
+-int PluginVClient::prev_effect_is(const char *title)
++int PluginVClient::prev_effect_is(char *title)
+ {
+ 	return !strcmp(title, output[0]->get_prev_effect());
+ }

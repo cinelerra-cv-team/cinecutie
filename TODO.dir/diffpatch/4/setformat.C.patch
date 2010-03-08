@@ -1,0 +1,91 @@
+--- cinecutie/setformat.C	2008-10-11 17:46:25.000000000 +0200
++++ /home/user/cinecutie/cinecutie/setformat.C	2010-02-19 22:19:11.998570756 +0100
+@@ -132,10 +132,6 @@
+ 	int new_channels = new_settings->session->audio_channels;
+ 	CLAMP(new_channels, 1, MAXCHANNELS);
+ 
+-
+-
+-	mwindow->undo->update_undo_before();
+-
+ 	memcpy(&mwindow->preferences->channel_positions[MAXCHANNELS * (new_channels - 1)],
+ 		new_settings->session->achannel_positions,
+ 		sizeof(int) * MAXCHANNELS);
+@@ -148,7 +144,7 @@
+ 	mwindow->edl->resample(old_samplerate, new_samplerate, TRACK_AUDIO);
+ 	mwindow->edl->resample(old_framerate, new_framerate, TRACK_VIDEO);
+ 	mwindow->save_backup();
+-	mwindow->undo->update_undo_after(_("set format"), LOAD_ALL);
++	mwindow->undo->update_undo(_("set format"), LOAD_ALL);
+ 
+ // Update GUIs
+ 	mwindow->restart_brender();
+@@ -219,6 +215,7 @@
+ 
+ 	window->aspect_w->update(new_settings->session->aspect_w);
+ 	window->aspect_h->update(new_settings->session->aspect_h);
++	window->interlace_pulldown->update(new_settings->session->interlace_mode);
+ 
+ 	window->canvas->draw();
+ }
+@@ -326,9 +323,9 @@
+ void SetFormatWindow::create_objects()
+ {
+ 	int x = 10, y = mwindow->theme->setformat_y1;
++	BC_TextBox *textbox;
+ 	BC_Title *title;
+ 
+-	lock_window("SetFormatWindow::create_objects");
+ 	mwindow->theme->draw_setformat_bg(this);
+ 
+ 
+@@ -348,11 +345,7 @@
+ 		_("Audio"), 
+ 		LARGEFONT));
+ 	y = mwindow->theme->setformat_y3;
+-	add_subwindow(new BC_Title(mwindow->theme->setformat_x1, 
+-		y,
+-		_("Samplerate:")));
+-
+-	y += mwindow->theme->setformat_margin;
++	
+ 	add_subwindow(new BC_Title(mwindow->theme->setformat_x1, 
+ 		y,
+ 		_("Samplerate:")));
+@@ -509,7 +502,24 @@
+ 		y));
+ 	x += 30;
+ 	add_subwindow(auto_aspect = new ScaleAspectAuto(x, y, thread));
++	y += mwindow->theme->setformat_margin;
+ 
++	// --------------------
++	add_subwindow(new BC_Title(mwindow->theme->setformat_x3, 
++		y, 
++		_("Interlace mode:")));
++	add_subwindow(textbox = new BC_TextBox(mwindow->theme->setformat_x4,
++		y,
++		140, 
++		1, 
++		""));
++	add_subwindow(interlace_pulldown = new InterlacemodePulldown(mwindow, 
++		textbox,
++		&(thread->new_settings->session->interlace_mode),
++		(ArrayList<BC_ListBoxItem*>*)&mwindow->interlace_project_modes,
++		mwindow->theme->setformat_x4 + textbox->get_w(), 
++		y)); 
++	y += mwindow->theme->setformat_margin;
+ 
+ 
+ 	BC_OKTextButton *ok;
+@@ -521,10 +531,9 @@
+ 		thread));
+ 	flash();
+ 	show_window();
+-	unlock_window();
+ }
+ 
+-const char* SetFormatWindow::get_preset_text()
++char* SetFormatWindow::get_preset_text()
+ {
+ 	return "";
+ }

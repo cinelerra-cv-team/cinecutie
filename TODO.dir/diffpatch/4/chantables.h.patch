@@ -1,0 +1,19 @@
+--- cinecutie/chantables.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/chantables.h	2010-02-19 22:19:11.868576808 +0100
+@@ -24,14 +24,14 @@
+ 
+ typedef struct
+ {
+-	const char *name;
++	char *name;
+ 	int   freq;
+ } CHANLIST;
+ 
+ 
+ typedef struct 
+ {
+-    const char             *name;
++    char             *name;
+     CHANLIST 		 *list;
+     int               count;
+ } CHANLISTS;

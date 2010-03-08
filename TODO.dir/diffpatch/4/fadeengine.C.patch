@@ -1,0 +1,11 @@
+--- cinecutie/fadeengine.C	2008-07-29 10:40:56.000000000 +0200
++++ /home/user/cinecutie/cinecutie/fadeengine.C	2010-02-19 22:19:11.948570683 +0100
+@@ -203,7 +203,7 @@
+ 	this->output = output;
+ 	this->input = input;
+ 	this->alpha = alpha;
+-
++	
+ // Sanity
+ 	if(alpha == 1)
+ 		output->copy_from(input);

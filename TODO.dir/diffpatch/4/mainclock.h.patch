@@ -1,0 +1,14 @@
+--- cinecutie/mainclock.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/mainclock.h	2010-02-19 22:19:11.968571001 +0100
+@@ -32,9 +32,11 @@
+ 	MainClock(MWindow *mwindow, int x, int y, int w);
+ 	~MainClock();
+ 	
++	void set_frame_offset(double value);
+ 	void update(double position);
+ 	
+ 	MWindow *mwindow;
++	double position_offset;
+ };
+ 
+ 

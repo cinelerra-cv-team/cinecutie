@@ -1,0 +1,20 @@
+--- cinecutie/recordgui.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/recordgui.h	2010-02-19 22:19:11.988570758 +0100
+@@ -83,7 +83,7 @@
+ 
+ 	void load_defaults();
+ 	void save_defaults();
+-	void create_objects();
++	int create_objects();
+ 	void flash_batch();
+ 	void update_batches();
+ 	void update_sources();
+@@ -131,7 +131,7 @@
+ 	RecordGUIMonitorAudio *monitor_audio;
+ 	RecordStartoverThread *startover_thread;
+ 	EndRecordThread *interrupt_thread;
+-	static const char *batch_titles[BATCH_COLUMNS];
++	static char *batch_titles[BATCH_COLUMNS];
+ 	int column_widths[BATCH_COLUMNS];
+ 	LoadMode *load_mode;
+ 	int flash_color;

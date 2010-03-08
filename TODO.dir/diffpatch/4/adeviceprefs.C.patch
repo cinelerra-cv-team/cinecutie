@@ -1,0 +1,51 @@
+--- cinecutie/adeviceprefs.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/adeviceprefs.C	2010-02-19 22:19:11.838575648 +0100
+@@ -446,9 +446,9 @@
+ 			if(driver == AUDIO_1394)
+ 				output_char = out_config->firewire_path;
+ 			break;
+-// Our version of raw1394 doesn't support changing the path
+ 		case MODERECORD:
+-			output_char = 0;
++			if(driver == AUDIO_DV1394 || driver == AUDIO_1394)
++				output_char = in_config->firewire_path;
+ 			break;
+ 	}
+ 
+@@ -562,9 +562,11 @@
+ 
+ 	if(!do_input) add_item(new ADriverItem(this, AUDIO_ESOUND_TITLE, AUDIO_ESOUND));
+ //	add_item(new ADriverItem(this, AUDIO_NAS_TITLE, AUDIO_NAS));
++#ifdef HAVE_FIREWIRE
+ 	if(!do_input) add_item(new ADriverItem(this, AUDIO_1394_TITLE, AUDIO_1394));
+ 	add_item(new ADriverItem(this, AUDIO_DV1394_TITLE, AUDIO_DV1394));
+ 	add_item(new ADriverItem(this, AUDIO_IEC61883_TITLE, AUDIO_IEC61883));
++#endif
+ 	add_item(new ADriverItem(this, AUDIO_DVB_TITLE, AUDIO_DVB));
+ }
+ 
+@@ -587,6 +589,7 @@
+ 		case AUDIO_ALSA:
+ 			sprintf(string, AUDIO_ALSA_TITLE);
+ 			break;
++#ifdef HAVE_FIREWIRE
+ 		case AUDIO_1394:
+ 			sprintf(string, AUDIO_1394_TITLE);
+ 			break;
+@@ -596,6 +599,7 @@
+ 		case AUDIO_IEC61883:
+ 			sprintf(string, AUDIO_IEC61883_TITLE);
+ 			break;
++#endif
+ 		case AUDIO_DVB:
+ 			sprintf(string, AUDIO_DVB_TITLE);
+ 			break;
+@@ -603,7 +607,7 @@
+ 	return string;
+ }
+ 
+-ADriverItem::ADriverItem(ADriverMenu *popup, const char *text, int driver)
++ADriverItem::ADriverItem(ADriverMenu *popup, char *text, int driver)
+  : BC_MenuItem(text)
+ {
+ 	this->popup = popup;

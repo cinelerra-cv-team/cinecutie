@@ -1,0 +1,10 @@
+--- cinecutie/amodule.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/amodule.C	2010-02-19 22:19:11.838575648 +0100
+@@ -142,6 +142,7 @@
+ 		input_position += track->nudge * 
+ 			sample_rate /
+ 			edl_rate;
++
+ 	AEdit *playable_edit;
+ 	int64_t start_project = input_position;
+ 	int64_t end_project = input_position + input_len;

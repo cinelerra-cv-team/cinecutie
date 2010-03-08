@@ -1,0 +1,26 @@
+--- cinecutie/plugintoggles.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/plugintoggles.C	2010-02-19 22:19:11.988570758 +0100
+@@ -19,7 +19,6 @@
+  * 
+  */
+ 
+-#include "language.h"
+ #include "mwindow.h"
+ #include "plugin.h"
+ #include "plugintoggles.h"
+@@ -36,7 +35,6 @@
+ 	this->mwindow = mwindow;
+ 	this->plugin = plugin;
+ 	in_use = 1;
+-	set_tooltip(_("On"));
+ }
+ 
+ int PluginOn::calculate_w(MWindow *mwindow)
+@@ -74,7 +72,6 @@
+ 	this->mwindow = mwindow;
+ 	this->plugin = plugin;
+ 	in_use = 1;
+-	set_tooltip(_("Show controls"));
+ }
+ 
+ int PluginShow::calculate_w(MWindow *mwindow)

@@ -1,0 +1,247 @@
+--- cinecutie/mwindow.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/mwindow.h	2010-02-19 22:19:11.978570999 +0100
+@@ -38,11 +38,11 @@
+ #include "devicedvbinput.inc"
+ #include "edit.inc"
+ #include "edl.inc"
++#include "exportedl.inc"
+ #include "filesystem.inc"
+ #include "filexml.inc"
+ #include "framecache.inc"
+ #include "gwindow.inc"
+-#include "keyframegui.inc"
+ #include "levelwindow.inc"
+ #include "loadmode.inc"
+ #include "mainerror.inc"
+@@ -110,7 +110,7 @@
+ 
+ 	int load_defaults();
+ 	int save_defaults();
+-	int set_filename(const char *filename);
++	int set_filename(char *filename);
+ // Total vertical pixels in timeline
+ 	int get_tracks_height();
+ // Total horizontal pixels in timeline
+@@ -130,7 +130,7 @@
+ // Takes the drag vectors from MainSession and
+ // pastes either assets or clips depending on which is full.
+ // Returns 1 if the vectors were full
+-	int paste_assets(double position, Track *dest_track);
++	int paste_assets(double position, Track *dest_track, int overwrite);
+ 	
+ // Insert the assets at a point in the EDL.  Called by menueffects,
+ // render, and CWindow drop but recording calls paste_edls directly for
+@@ -141,22 +141,24 @@
+ 		Track *first_track /* = 0 */,
+ 		RecordLabels *labels /* = 0 */,
+ 		int edit_labels,
+-		int edit_plugins);
++		int edit_plugins,
++		int overwrite);
+ 	int paste_edls(ArrayList<EDL*> *new_edls, 
+ 		int load_mode, 
+ 		Track *first_track /* = 0 */,
+ 		double current_position /* = -1 */,
+ 		int edit_labels,
+-		int edit_plugins);
++		int edit_plugins,
++		int overwrite);
+ // Reset everything for a load
+ 	void update_project(int load_mode);
+ // Fit selected time to horizontal display range
+ 	void fit_selection();
+ // Fit selected autos to the vertical display range
+-	void fit_autos();
+-	void expand_autos();
+-	void shrink_autos();
+-	void zoom_autos(float min, float max);
++	void fit_autos(int doall);
++	void change_currentautorange(int autogrouptype, int increment, int changemax);
++	void expand_autos(int changeall, int domin, int domax);
++	void shrink_autos(int changeall, int domin, int domax);
+ // move the window to include the cursor
+ 	void find_cursor();
+ // Append a plugindb with pointers to the master plugindb
+@@ -178,7 +180,11 @@
+ 		int load_mode = LOAD_REPLACE,
+ // Cause the project filename on the top of the window to be updated.
+ // Not wanted for loading backups.
+-		int update_filename = 1);
++		int update_filename = 1,
++		char *reel_name = "cin0000",
++		int reel_number = 0,
++		int overwrite_reel = 0);
++	
+ 
+ // Print out plugins which are referenced in the EDL but not loaded.
+ 	void test_plugins(EDL *new_edl, char *path);
+@@ -194,9 +200,9 @@
+ 	void prev_time_format();
+ 	void time_format_common();
+ 	int reposition_timebar(int new_pixel, int new_height);
+-	int expand_sample();
+-	int zoom_in_sample();
+-	int zoom_sample(int64_t zoom_sample);
++	int expand_sample(double fixed_sample = -1);    // fixed_sample is the sample that should hold fixed position on the screen after zooming, -1 = selection
++	int zoom_in_sample(double fixed_sample = -1);
++	int zoom_sample(int64_t zoom_sample, int64_t view_start = -1); // what's the supposed view start
+ 	void zoom_amp(int64_t zoom_amp);
+ 	void zoom_track(int64_t zoom_track);
+ 	int fit_sample();
+@@ -229,10 +235,9 @@
+ 	void show_plugin(Plugin *plugin);
+ 	void hide_plugin(Plugin *plugin, int lock);
+ 	void hide_plugins();
+-	void delete_plugin(PluginServer *plugin);
+ // Update plugins with configuration changes.
+ // Called by TrackCanvas::cursor_motion_event.
+-	void update_plugin_guis(int do_keyframe_guis = 1);
++	void update_plugin_guis();
+ 	void update_plugin_states();
+ 	void update_plugin_titles();
+ // Called by Attachmentpoint during playback.
+@@ -245,11 +250,6 @@
+ // they can run.
+ 	int plugin_gui_open(Plugin *plugin);
+ 
+-	void show_keyframe_gui(Plugin *plugin);
+-	void hide_keyframe_guis();
+-	void hide_keyframe_gui(Plugin *plugin);
+-	void update_keyframe_guis();
+-
+ 
+ // ============================= editing commands ========================
+ 
+@@ -293,6 +293,7 @@
+ 	void delete_track();
+ 	void delete_track(Track *track);
+ 	void delete_tracks();
++	void detach_transition(Transition *transition);
+ 	int feather_edits(int64_t feather_samples, int audio, int video);
+ 	int64_t get_feather(int audio, int video);
+ 	float get_aspect_ratio();
+@@ -311,15 +312,6 @@
+ // the drag_pluginservers array.
+ 	void insert_effects_cwindow(Track *dest_track);
+ 
+-// Attach new effect to all recordable tracks
+-// single_standalone - attach 1 standalone on the first track and share it with
+-// other tracks
+-	void insert_effect(char *title, 
+-		SharedLocation *shared_location, 
+-		int data_type,
+-		int plugin_type,
+-		int single_standalone);
+-
+ // This is called multiple times by the above functions.
+ // It can't sync parameters.
+ 	void insert_effect(char *title, 
+@@ -334,7 +326,8 @@
+ // Move edit to new position
+ 	void move_edits(ArrayList<Edit*> *edits,
+ 		Track *track,
+-		double position);
++		double position,
++		int behaviour);       // behaviour: 0 - old style (cut and insert elswhere), 1- new style - (clear and overwrite elsewere)
+ // Move effect to position
+ 	void move_effect(Plugin *plugin,
+ 		PluginSet *plugin_set,
+@@ -367,24 +360,10 @@
+ 				RecordLabels *new_labels);
+ 	void paste_silence();
+ 
+-// Detach single transition
+-	void detach_transition(Transition *transition);
+-// Detach all transitions in selection
+-	void detach_transitions();
+-// Attach dragged transition
+ 	void paste_transition();
+-// Attach transition to all edits in selection
+-	void paste_transitions(int track_type, char *title);
+-// Attach transition dragged onto CWindow
+ 	void paste_transition_cwindow(Track *dest_track);
+-// Attach default transition to single edit
+ 	void paste_audio_transition();
+ 	void paste_video_transition();
+-// Set length of single transition
+-	void set_transition_length(Transition *transition, double length);
+-// Set length in seconds of all transitions in active range
+-	void set_transition_length(double length);
+-	
+ 	void rebuild_indices();
+ // Asset removal from caches
+ 	void reset_caches();
+@@ -392,12 +371,12 @@
+ 	void remove_assets_from_project(int push_undo = 0);
+ 	void remove_assets_from_disk();
+ 	void resize_track(Track *track, int w, int h);
+-	
+-	void set_automation_mode(int mode);
+-	void set_keyframe_type(int mode);
+ 	void set_auto_keyframes(int value);
++	void set_labels_follow_edits(int value);
++
+ // Update the editing mode
+ 	int set_editing_mode(int new_editing_mode);
++	void toggle_editing_mode();
+ 	void set_inpoint(int is_mwindow);
+ 	void set_outpoint(int is_mwindow);
+ 	void splice(EDL *source);
+@@ -416,6 +395,7 @@
+ 	int copy_automation();
+ 	int paste_automation();
+ 	void clear_automation();
++	void straighten_automation();
+ 	int cut_default_keyframe();
+ 	int copy_default_keyframe();
+ // Use paste_automation to paste the default keyframe in other position.
+@@ -467,6 +447,10 @@
+ 
+ // Menu items
+ 	ArrayList<ColormodelItem*> colormodels;
++	ArrayList<InterlaceautofixoptionItem*> interlace_asset_autofixoptions;
++	ArrayList<InterlacemodeItem*>          interlace_project_modes;
++	ArrayList<InterlacemodeItem*>          interlace_asset_modes;
++	ArrayList<InterlacefixmethodItem*>     interlace_asset_fixmethods;
+ 
+ 	int reset_meters();
+ 
+@@ -480,10 +464,6 @@
+ 	ArrayList<PluginServer*> *plugindb;
+ // Currently visible plugins
+ 	ArrayList<PluginServer*> *plugin_guis;
+-// GUI Plugins to delete
+-	ArrayList<PluginServer*> *dead_plugins;
+-// Keyframe editors
+-	ArrayList<KeyFrameThread*> *keyframe_threads;
+ 
+ 
+ // Adjust sample position to line up with frames.
+@@ -494,6 +474,10 @@
+ 
+ 	BatchRenderThread *batch_render;
+ 	Render *render;
++
++ 	ExportEDL *exportedl;
++
++
+ // Master edl
+ 	EDL *edl;
+ // Main Window GUI
+@@ -512,8 +496,6 @@
+ 	LevelWindow *lwindow;
+ // Lock during creation and destruction of GUI
+ 	Mutex *plugin_gui_lock;
+-	Mutex *dead_plugin_lock;
+-	Mutex *keyframe_gui_lock;
+ // Lock during creation and destruction of brender so playback doesn't use it.
+ 	Mutex *brender_lock;
+ 
+@@ -530,6 +512,7 @@
+ // Initialize channel DB's for playback
+ 	void init_channeldb();
+ 	void init_render();
++	void init_exportedl();
+ // These three happen synchronously with each other
+ // Make sure this is called after synchronizing EDL's.
+ 	void init_brender();

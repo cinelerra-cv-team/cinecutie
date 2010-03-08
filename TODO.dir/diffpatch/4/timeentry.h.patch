@@ -1,0 +1,27 @@
+--- cinecutie/timeentry.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/timeentry.h	2010-02-19 22:19:12.008571675 +0100
+@@ -63,7 +63,7 @@
+ 	DayTumbler *day_tumbler;
+ 	TimeTextBox *time_text;
+ 	double *output;
+-	static const char *day_table[TOTAL_DAYS];
++	static char *day_table[TOTAL_DAYS];
+ 	int *output_day;
+ 	double *output_time;
+ 	int time_format;
+@@ -76,12 +76,12 @@
+ 		int x, 
+ 		int y, 
+ 		int w, 
+-		const char **table, 
++		char **table, 
+ 		int table_items,
+-		const char *text);
++		char *text);
+ 	int handle_event();
+ 	
+-	const char **table;
++	char **table;
+ 	TimeEntry *timeentry;
+ 	int table_items;
+ 	int current_item;

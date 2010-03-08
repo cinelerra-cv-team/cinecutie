@@ -1,0 +1,11 @@
+--- cinecutie/renderfarmclient.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/renderfarmclient.h	2010-02-19 22:19:11.998570756 +0100
+@@ -84,7 +84,7 @@
+ 	void read_string(char* &string);
+ 	void abort();
+ // Lock access to the socket during complete transactions
+-	void lock(const char *location);
++	void lock(char *location);
+ 	void unlock();
+ 
+ 

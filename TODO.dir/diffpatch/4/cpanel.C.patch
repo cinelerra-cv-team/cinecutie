@@ -1,0 +1,78 @@
+--- cinecutie/cpanel.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/cpanel.C	2010-02-19 22:19:11.878577328 +0100
+@@ -51,7 +51,7 @@
+ {
+ }
+ 
+-void CPanel::create_objects()
++int CPanel::create_objects()
+ {
+ 	int x = this->x, y = this->y;
+ 	subwindow->add_subwindow(operation[CWINDOW_PROTECT] = new CPanelProtect(mwindow, this, x, y));
+@@ -60,8 +60,6 @@
+ 	y += operation[CWINDOW_ZOOM]->get_h();
+ 	subwindow->add_subwindow(operation[CWINDOW_MASK] = new CPanelMask(mwindow, this, x, y));
+ 	y += operation[CWINDOW_MASK]->get_h();
+-	subwindow->add_subwindow(operation[CWINDOW_RULER] = new CPanelRuler(mwindow, this, x, y));
+-	y += operation[CWINDOW_RULER]->get_h();
+ 	subwindow->add_subwindow(operation[CWINDOW_CAMERA] = new CPanelCamera(mwindow, this, x, y));
+ 	y += operation[CWINDOW_CAMERA]->get_h();
+ 	subwindow->add_subwindow(operation[CWINDOW_PROJECTOR] = new CPanelProj(mwindow, this, x, y));
+@@ -73,6 +71,7 @@
+ 	subwindow->add_subwindow(operation[CWINDOW_TOOL_WINDOW] = new CPanelToolWindow(mwindow, this, x, y));
+ 	y += operation[CWINDOW_TOOL_WINDOW]->get_h();
+ 	subwindow->add_subwindow(operation[CWINDOW_TITLESAFE] = new CPanelTitleSafe(mwindow, this, x, y));
++	return 0;
+ }
+ 
+ void CPanel::reposition_buttons(int x, int y)
+@@ -164,30 +163,6 @@
+ }
+ 
+ 
+-
+-
+-CPanelRuler::CPanelRuler(MWindow *mwindow, CPanel *gui, int x, int y)
+- : BC_Toggle(x, 
+- 	y, 
+-	mwindow->theme->get_image_set("ruler"), 
+-	mwindow->edl->session->cwindow_operation == CWINDOW_RULER)
+-{
+-	this->mwindow = mwindow;
+-	this->gui = gui;
+-	set_tooltip(_("Ruler"));
+-}
+-CPanelRuler::~CPanelRuler()
+-{
+-}
+-int CPanelRuler::handle_event()
+-{
+-	gui->subwindow->set_operation(CWINDOW_RULER);
+-	return 1;
+-}
+-
+-
+-
+-
+ CPanelMagnify::CPanelMagnify(MWindow *mwindow, CPanel *gui, int x, int y)
+  : BC_Toggle(x, 
+  	y, 
+@@ -313,10 +288,16 @@
+ 
+ int CPanelToolWindow::handle_event()
+ {
+-	unlock_window();
+ 	mwindow->edl->session->tool_window = get_value();
+ 	gui->subwindow->tool_panel->update_show_window();
+-	lock_window("CPanelToolWindow::handle_event");
++	return 1;
++}
++
++int CPanelToolWindow::set_shown(int shown)
++{
++	set_value(shown);
++	mwindow->edl->session->tool_window = shown;
++	gui->subwindow->tool_panel->update_show_window();
+ 	return 1;
+ }
+ 

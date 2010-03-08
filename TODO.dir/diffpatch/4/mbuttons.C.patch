@@ -1,0 +1,27 @@
+--- cinecutie/mbuttons.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/mbuttons.C	2010-02-19 22:19:11.968571001 +0100
+@@ -55,7 +55,7 @@
+ 	delete edit_panel;
+ }
+ 
+-void MButtons::create_objects()
++int MButtons::create_objects()
+ {
+ 	int x = 3, y = 0;
+ 	BC_SubWindow *button;
+@@ -73,6 +73,7 @@
+ 	
+ 	x += edit_panel->get_w();
+ 	flash();
++	return 0;
+ }
+ 
+ int MButtons::resize_event()
+@@ -155,6 +156,7 @@
+ 		1,
+ 		1,
+ 		1,
++		1, // locklabels
+ 		1,
+ 		1,
+ 		0,

@@ -1,0 +1,11 @@
+--- cinecutie/trackscroll.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/trackscroll.h	2010-02-19 22:19:12.008571675 +0100
+@@ -33,7 +33,7 @@
+ 	TrackScroll(MWindow *mwindow, MWindowGUI *gui, int x, int y, int h);
+ 	~TrackScroll();
+ 
+-	void create_objects(int top, int bottom);
++	int create_objects(int top, int bottom);
+ 	int resize_event();
+ 	int flip_vertical(int top, int bottom);
+ 	int update();               // reflect new track view

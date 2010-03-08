@@ -1,0 +1,37 @@
+--- cinecutie/zoompanel.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/zoompanel.C	2010-02-19 22:19:12.028571315 +0100
+@@ -157,7 +157,7 @@
+ 	this->tumbler_images = data;
+ }
+ 
+-void ZoomPanel::create_objects()
++int ZoomPanel::create_objects()
+ {
+ 	subwindow->add_subwindow(zoom_text = new ZoomPopup(mwindow, 
+ 		this, 
+@@ -169,6 +169,7 @@
+ 		x, 
+ 		y));
+ 	calculate_menu();
++	return 0;
+ }
+ 
+ void ZoomPanel::reposition_window(int x, int y)
+@@ -194,7 +195,7 @@
+ 	return zoom_text->get_text();
+ }
+ 
+-void ZoomPanel::set_text(const char *text)
++void ZoomPanel::set_text(char *text)
+ {
+ 	zoom_text->set_text(text);
+ }
+@@ -205,7 +206,7 @@
+ 	zoom_text->set_text(value_to_text(value));
+ }
+ 
+-void ZoomPanel::update(const char *value)
++void ZoomPanel::update(char *value)
+ {
+ 	zoom_text->set_text(value);
+ }

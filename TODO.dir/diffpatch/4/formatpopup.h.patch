@@ -1,0 +1,11 @@
+--- cinecutie/formatpopup.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/formatpopup.h	2010-02-19 22:19:11.958569362 +0100
+@@ -37,7 +37,7 @@
+ 		int use_brender = 0); // Show formats useful in background rendering
+ 	~FormatPopup();
+ 
+-	void create_objects();
++	int create_objects();
+ 	virtual int handle_event();  // user copies text to value here
+ 	ArrayList<PluginServer*> *plugindb;
+ 	ArrayList<BC_ListBoxItem*> format_items;

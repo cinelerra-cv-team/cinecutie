@@ -1,0 +1,33 @@
+--- cinecutie/audio1394.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/audio1394.C	2010-02-19 22:19:11.848575688 +0100
+@@ -19,12 +19,6 @@
+  * 
+  */
+ 
+-#ifdef HAVE_FIREWIRE
+-
+-
+-
+-
+-
+ #include "audio1394.h"
+ #include "playbackconfig.h"
+ #include "device1394input.h"
+@@ -73,7 +67,8 @@
+ 			device->driver == AUDIO_1394)
+ 		{
+ 			input_thread = new Device1394Input;
+-			result = input_thread->open(device->in_config->firewire_port, 
++			result = input_thread->open(device->in_config->firewire_path,
++				device->in_config->firewire_port, 
+ 				device->in_config->firewire_channel, 
+ 				30,
+ 				device->in_channels,
+@@ -235,7 +230,3 @@
+ 		output_iec->interrupt();
+ 	return 0;
+ }
+-
+-
+-
+-#endif

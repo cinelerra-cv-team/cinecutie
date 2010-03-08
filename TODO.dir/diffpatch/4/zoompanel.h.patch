@@ -1,0 +1,20 @@
+--- cinecutie/zoompanel.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/zoompanel.h	2010-02-19 22:19:12.028571315 +0100
+@@ -71,14 +71,14 @@
+ 	int get_w();
+ 	void calculate_menu();
+ 	void update_menu();
+-	void create_objects();
++	int create_objects();
+ 	double get_value();
+ 	char* get_text();
+-	void set_text(const char *text);
++	void set_text(char *text);
+ 	char* value_to_text(double value, int use_table = 1);
+ 	double text_to_zoom(char *text, int use_table = 1);
+ 	void update(double value);
+-	void update(const char *value);
++	void update(char *value);
+ 	void reposition_window(int x, int y);
+ // Set images to be used
+ 	void set_menu_images(VFrame **data);

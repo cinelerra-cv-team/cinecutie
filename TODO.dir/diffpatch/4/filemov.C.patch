@@ -1,0 +1,20 @@
+--- cinecutie/filemov.C	2008-10-11 17:46:25.000000000 +0200
++++ /home/user/cinecutie/cinecutie/filemov.C	2010-02-19 22:19:11.958569362 +0100
+@@ -1106,7 +1106,7 @@
+ }
+ 
+ 
+-const char* FileMOV::strtocompression(char *string)
++char* FileMOV::strtocompression(char *string)
+ {
+ 	if(!strcasecmp(string, _(DIVX_NAME))) return QUICKTIME_DIVX;
+ 	if(!strcasecmp(string, _(H264_NAME))) return QUICKTIME_H264;
+@@ -1146,7 +1146,7 @@
+ 	return QUICKTIME_RAW;
+ }
+ 
+-const char* FileMOV::compressiontostr(char *string)
++char* FileMOV::compressiontostr(char *string)
+ {
+ 	if(match4(string, QUICKTIME_H263)) return _(H263_NAME);
+ 	if(match4(string, QUICKTIME_H264)) return _(H264_NAME);

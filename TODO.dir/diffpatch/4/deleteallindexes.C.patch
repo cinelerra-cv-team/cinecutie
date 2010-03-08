@@ -1,0 +1,37 @@
+--- cinecutie/deleteallindexes.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/deleteallindexes.C	2010-02-19 22:19:11.938570804 +0100
+@@ -50,7 +50,7 @@
+ 	start(); 
+ }
+ 
+-static int test_filter(char *string, const char *filter)
++static int test_filter(char *string, char *filter)
+ {
+ 	return (strlen(string) > strlen(filter) &&
+ 			!strcmp(string + strlen(string) - strlen(filter), filter));
+@@ -65,8 +65,8 @@
+ 	dir.update(pwindow->thread->preferences->index_directory);
+ 	dir.complete_path(string1);
+ // prepare filter
+-	const char *filter1 = ".idx";
+-	const char *filter2 = ".toc";
++	char *filter1 = ".idx";
++	char *filter2 = ".toc";
+ 
+ //	pwindow->disable_window();
+ 	sprintf(string, _("Delete all indexes in %s?"), string1);
+@@ -113,7 +113,7 @@
+ {
+ }
+ 	
+-void ConfirmDeleteAllIndexes::create_objects()
++int ConfirmDeleteAllIndexes::create_objects()
+ { 
+ 	int x = 10, y = 10;
+ 	add_subwindow(new BC_Title(x, y, string));
+@@ -122,4 +122,5 @@
+ 	add_subwindow(new BC_OKButton(x, y));
+ 	x = get_w() - 100;
+ 	add_subwindow(new BC_CancelButton(x, y));
++	return 0;
+ }

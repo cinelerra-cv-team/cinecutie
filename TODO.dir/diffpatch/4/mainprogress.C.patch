@@ -1,0 +1,13 @@
+--- cinecutie/mainprogress.C	2008-08-03 22:02:14.000000000 +0200
++++ /home/user/cinecutie/cinecutie/mainprogress.C	2010-02-19 22:19:11.968571001 +0100
+@@ -72,10 +72,8 @@
+ 	else
+ 	if(progress_bar)
+ 	{
+-		mwindow->gui->lock_window("MainProgressBar::stop_progress");
+ 		progress_bar->update(0);
+ 		mwindow->gui->statusbar->default_message();
+-		mwindow->gui->unlock_window();
+ 	}
+ }
+ 

@@ -1,0 +1,11 @@
+--- cinecutie/scale.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/scale.h	2010-02-19 22:19:11.998570756 +0100
+@@ -79,7 +79,7 @@
+ 	ScaleWindow(ScaleThread *thread);
+ 	~ScaleWindow();
+ 	
+-	void create_objects();
++	int create_objects();
+ 	ScaleThread *thread;
+ 	ScaleSizeText *dimension[4];
+ 	ScaleRatioText *ratio[4];

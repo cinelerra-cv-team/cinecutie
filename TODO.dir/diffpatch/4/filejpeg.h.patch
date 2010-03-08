@@ -1,0 +1,11 @@
+--- cinecutie/filejpeg.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/filejpeg.h	2010-02-19 22:19:11.948570683 +0100
+@@ -68,7 +68,7 @@
+ 	JPEGConfigVideo(BC_WindowBase *parent_window, Asset *asset);
+ 	~JPEGConfigVideo();
+ 
+-	void create_objects();
++	int create_objects();
+ 	int close_event();
+ 
+ 	BC_WindowBase *parent_window;

@@ -1,0 +1,11 @@
+--- cinecutie/iec61883input.h	2010-02-20 00:35:14.328581688 +0100
++++ /home/user/cinecutie/cinecutie/iec61883input.h	2010-02-19 22:19:11.958569362 +0100
+@@ -27,7 +27,7 @@
+ #ifdef HAVE_FIREWIRE
+ 
+ #include "condition.inc"
+-#include "libiec61883/iec61883.h"
++#include <libiec61883/iec61883.h>
+ #include "libdv.h"
+ #include "mutex.inc"
+ #include "thread.h"

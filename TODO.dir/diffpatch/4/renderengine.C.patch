@@ -1,0 +1,83 @@
+--- cinecutie/renderengine.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/renderengine.C	2010-02-19 22:19:11.998570756 +0100
+@@ -79,12 +79,15 @@
+ 		mwindow = playback_engine->mwindow;
+ 	else
+ 		mwindow = 0;
++	show_tc = 0;
++
+ 
+ 	input_lock = new Condition(1, "RenderEngine::input_lock");
+ 	start_lock = new Condition(1, "RenderEngine::start_lock");
+ 	output_lock = new Condition(1, "RenderEngine::output_lock");
+ 	interrupt_lock = new Mutex("RenderEngine::interrupt_lock");
+ 	first_frame_lock = new Condition(1, "RenderEngine::first_frame_lock");
++	reset_parameters();
+ }
+ 
+ RenderEngine::~RenderEngine()
+@@ -300,6 +303,16 @@
+ 		if(do_audio)
+ 		{
+ 			audio = new AudioDevice;
++			if (audio->open_output(config->aconfig, 
++				edl->session->sample_rate, 
++				adjusted_fragment_len,
++				edl->session->audio_channels,
++				edl->session->real_time_playback))
++			{
++				do_audio = 0;
++				delete audio;
++				audio = 0;
++			}
+ 		}
+ 
+ 		if(do_video)
+@@ -321,19 +334,9 @@
+ 
+ // Retool playback configuration
+ 		if(do_audio)
+-		{
+-			if(audio->open_output(config->aconfig, 
+-				edl->session->sample_rate, 
+-				adjusted_fragment_len,
+-				edl->session->audio_channels,
+-				edl->session->real_time_playback))
+-				do_audio = 0;
+-			else
+-			{
+-				audio->set_software_positioning(
+-					edl->session->playback_software_position);
+-				audio->start_playback();
+-			}
++		{	
++			audio->set_software_positioning(edl->session->playback_software_position);
++			audio->start_playback();
+ 		}
+ 
+ 		if(do_video)
+@@ -479,7 +482,9 @@
+ 	}
+ 	if(video)
+ 	{
++//printf("RenderEngine::interrupt_playback 3 %p\n", this);
+ 		video->interrupt_playback();
++//printf("RenderEngine::interrupt_playback 4 %p\n", this);
+ 	}
+ 	interrupt_lock->unlock();
+ }
+@@ -656,6 +661,14 @@
+ 	this->every_frame = every_frame;
+ 
+ 	vrender = new VRender(this);
++// 	vrender->arm_playback(current_sample, 
++// 							read_length, 
++// 							output_length, 
++// 							output_length, 
++// 							track_w,
++// 							track_h,
++// 							output_w,
++// 							output_h);
+ }
+ 
+ int RenderEngine::start_video()

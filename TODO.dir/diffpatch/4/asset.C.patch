@@ -1,0 +1,399 @@
+--- cinecutie/asset.C	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/asset.C	2010-02-19 22:19:11.848575688 +0100
+@@ -24,11 +24,14 @@
+ #include "assets.h"
+ #include "bchash.h"
+ #include "bcsignals.h"
++#include "clip.h"
+ #include "edl.h"
+ #include "file.h"
+ #include "filesystem.h"
+ #include "filexml.h"
+ #include "quicktime.h"
++#include "interlacemodes.h"
++
+ 
+ #include <stdio.h>
+ #include <string.h>
+@@ -95,7 +98,10 @@
+ 	strcpy(acodec, QUICKTIME_TWOS);
+ 	jpeg_quality = 100;
+ 	aspect_ratio = -1;
+-	
++	interlace_autofixoption = BC_ILACE_AUTOFIXOPTION_AUTO;
++	interlace_mode = BC_ILACE_MODE_UNDETECTED;
++	interlace_fixmethod = BC_ILACE_FIXMETHOD_NONE;
++
+ 	ampeg_bitrate = 256;
+ 	ampeg_derivative = 3;
+ 
+@@ -171,6 +177,12 @@
+ 
+ 	reset_index();
+ 	id = EDL::next_id();
++
++	pipe[0] = 0;
++	use_pipe = 0;
++
++	reset_timecode();
++
+ 	return 0;
+ }
+ 
+@@ -186,6 +198,17 @@
+ 	return 0;
+ }
+ 
++int Asset::reset_timecode()
++{
++	strcpy(reel_name, "cin0000");
++	reel_number = 0;
++	tcstart = 0;
++	tcend = 0;
++	tcformat = 0;
++	
++	return 0;
++}
++
+ void Asset::copy_from(Asset *asset, int do_index)
+ {
+ 	copy_location(asset);
+@@ -216,6 +239,9 @@
+ 	mp4a_quantqual = asset->mp4a_quantqual;
+ 	use_header = asset->use_header;
+ 	aspect_ratio = asset->aspect_ratio;
++	interlace_autofixoption = asset->interlace_autofixoption;
++	interlace_mode = asset->interlace_mode;
++	interlace_fixmethod = asset->interlace_fixmethod;
+ 
+ 	video_data = asset->video_data;
+ 	layers = asset->layers;
+@@ -297,6 +323,15 @@
+ 
+ 	tiff_cmodel = asset->tiff_cmodel;
+ 	tiff_compression = asset->tiff_compression;
++
++	strcpy(pipe, asset->pipe);
++	use_pipe = asset->use_pipe;
++
++	strcpy(reel_name, asset->reel_name);
++	reel_number = asset->reel_number;
++	tcstart = asset->tcstart;
++	tcend = asset->tcend;
++	tcformat = asset->tcformat;
+ }
+ 
+ int64_t Asset::get_index_offset(int channel)
+@@ -380,9 +415,17 @@
+ 	{
+ 		result = (layers == asset.layers && 
+ 			frame_rate == asset.frame_rate &&
++			asset.interlace_autofixoption == interlace_autofixoption &&
++			asset.interlace_mode    == interlace_mode &&
++			interlace_fixmethod     == asset.interlace_fixmethod &&
+ 			width == asset.width &&
+ 			height == asset.height &&
+-			!strcmp(vcodec, asset.vcodec));
++			!strcmp(vcodec, asset.vcodec) &&
++			strcmp(reel_name, asset.reel_name) == 0 &&
++			reel_number == asset.reel_number &&
++			tcstart == asset.tcstart &&
++			tcend == asset.tcend &&
++			tcformat == asset.tcformat);
+ 	}
+ 
+ 	return result;
+@@ -529,13 +572,20 @@
+ // 
+ // 	mp3_bitrate = file->tag.get_property("MP3_BITRATE", mp3_bitrate);
+ 
+-
++	if(!video_data)
++	{
++		tcstart = 0;
++		tcend = audio_length;
++		tcformat = 0;
++	}
+ 
+ 	return 0;
+ }
+ 
+ int Asset::read_video(FileXML *file)
+ {
++	char string[BCTEXTLEN];
++
+ 	if(file->tag.title_is("VIDEO")) video_data = 1;
+ 	height = file->tag.get_property("HEIGHT", height);
+ 	width = file->tag.get_property("WIDTH", width);
+@@ -548,6 +598,20 @@
+ 
+ 	video_length = file->tag.get_property("VIDEO_LENGTH", 0);
+ 
++	interlace_autofixoption = file->tag.get_property("INTERLACE_AUTOFIX",0);
++
++	ilacemode_to_xmltext(string, BC_ILACE_MODE_NOTINTERLACED);
++	interlace_mode = ilacemode_from_xmltext(file->tag.get_property("INTERLACE_MODE",string), BC_ILACE_MODE_NOTINTERLACED);
++
++	ilacefixmethod_to_xmltext(string, BC_ILACE_FIXMETHOD_NONE);
++	interlace_fixmethod = ilacefixmethod_from_xmltext(file->tag.get_property("INTERLACE_FIXMETHOD",string), BC_ILACE_FIXMETHOD_NONE);
++
++	file->tag.get_property("REEL_NAME", reel_name);
++	reel_number = file->tag.get_property("REEL_NUMBER", reel_number);
++	tcstart = file->tag.get_property("TCSTART", tcstart);
++	tcend = file->tag.get_property("TCEND", tcend);
++	tcformat = file->tag.get_property("TCFORMAT", tcformat);
++
+ 	return 0;
+ }
+ 
+@@ -601,7 +665,7 @@
+ 	return 0;
+ }
+ 
+-int Asset::write_index(const char *path, int data_bytes)
++int Asset::write_index(char *path, int data_bytes)
+ {
+ 	FILE *file;
+ 	if(!(file = fopen(path, "wb")))
+@@ -636,7 +700,6 @@
+ 	}
+ 
+ // Force reread of header
+-//printf("Asset::write_index\n");
+ 	index_status = INDEX_NOTTESTED;
+ //	index_status = INDEX_READY;
+ 	index_end = audio_length;
+@@ -649,7 +712,7 @@
+ 
+ int Asset::write(FileXML *file, 
+ 	int include_index, 
+-	const char *output_path)
++	char *output_path)
+ {
+ 	char new_path[BCTEXTLEN];
+ 	char asset_directory[BCTEXTLEN];
+@@ -693,6 +756,8 @@
+ 	file->tag.set_property("USE_HEADER", use_header);
+ 
+ 	file->append_tag();
++	file->tag.set_title("/FORMAT");
++	file->append_tag();
+ 	file->append_newline();
+ 
+ // Requiring data to exist caused batch render to lose settings.
+@@ -747,12 +812,19 @@
+ 
+ 
+ 	file->append_tag();
++	if(audio_data)
++	  file->tag.set_title("/AUDIO");
++	else
++          file->tag.set_title("/AUDIO_OMIT");
++	file->append_tag();
+ 	file->append_newline();
+ 	return 0;
+ }
+ 
+ int Asset::write_video(FileXML *file)
+ {
++	char string[BCTEXTLEN];
++
+ 	if(video_data)
+ 		file->tag.set_title("VIDEO");
+ 	else
+@@ -766,8 +838,26 @@
+ 
+ 	file->tag.set_property("VIDEO_LENGTH", video_length);
+ 
++	file->tag.set_property("INTERLACE_AUTOFIX", interlace_autofixoption);
+ 
++	ilacemode_to_xmltext(string, interlace_mode);
++	file->tag.set_property("INTERLACE_MODE", string);
+ 
++	ilacefixmethod_to_xmltext(string, interlace_fixmethod);
++	file->tag.set_property("INTERLACE_FIXMETHOD", string);
++
++
++	file->tag.set_property("REEL_NAME", reel_name);
++	file->tag.set_property("REEL_NUMBER", reel_number);
++	file->tag.set_property("TCSTART", tcstart);
++	file->tag.set_property("TCEND", tcend);
++	file->tag.set_property("TCFORMAT", tcformat);
++
++	file->append_tag();
++	if(video_data)
++		file->tag.set_title("/VIDEO");
++	else
++		file->tag.set_title("/VIDEO_OMIT");
+ 
+ 	file->append_tag();
+ 	file->append_newline();
+@@ -789,9 +879,13 @@
+ 			file->tag.set_title("OFFSET");
+ 			file->tag.set_property("FLOAT", index_offsets[i]);
+ 			file->append_tag();
++			file->tag.set_title("/OFFSET");
++			file->append_tag();
+ 			file->tag.set_title("SIZE");
+ 			file->tag.set_property("FLOAT", index_sizes[i]);
+ 			file->append_tag();
++			file->tag.set_title("/SIZE");
++			file->append_tag();
+ 		}
+ 	}
+ 
+@@ -805,9 +899,7 @@
+ 
+ 
+ 
+-const char* Asset::construct_param(const char *param, 
+-	const char *prefix, 
+-	char *return_value)
++char* Asset::construct_param(char *param, char *prefix, char *return_value)
+ {
+ 	if(prefix)
+ 		sprintf(return_value, "%s%s", prefix, param);
+@@ -820,7 +912,7 @@
+ #define GET_DEFAULT(x, y) defaults->get(construct_param(x, prefix, string), y);
+ 
+ void Asset::load_defaults(BC_Hash *defaults, 
+-	const char *prefix, 
++	char *prefix, 
+ 	int do_format,
+ 	int do_compression,
+ 	int do_path,
+@@ -886,6 +978,10 @@
+ 	jpeg_quality = GET_DEFAULT("JPEG_QUALITY", jpeg_quality);
+ 	aspect_ratio = GET_DEFAULT("ASPECT_RATIO", aspect_ratio);
+ 
++	interlace_autofixoption	= BC_ILACE_AUTOFIXOPTION_AUTO;
++	interlace_mode         	= BC_ILACE_MODE_UNDETECTED;
++	interlace_fixmethod    	= BC_ILACE_FIXMETHOD_UPONE;
++
+ // MPEG format information
+ 	vmpeg_iframe_distance = GET_DEFAULT("VMPEG_IFRAME_DISTANCE", vmpeg_iframe_distance);
+ 	vmpeg_pframe_distance = GET_DEFAULT("VMPEG_PFRAME_DISTANCE", vmpeg_pframe_distance);
+@@ -917,6 +1013,14 @@
+ 	divx_fix_bitrate = GET_DEFAULT("DIVX_FIX_BITRATE", divx_fix_bitrate);
+ 	divx_use_deblocking = GET_DEFAULT("DIVX_USE_DEBLOCKING", divx_use_deblocking);
+ 
++	theora_fix_bitrate = GET_DEFAULT("THEORA_FIX_BITRATE", theora_fix_bitrate);
++	theora_bitrate = GET_DEFAULT("THEORA_BITRATE", theora_bitrate);
++	theora_quality = GET_DEFAULT("THEORA_QUALITY", theora_quality);
++	theora_sharpness = GET_DEFAULT("THEORA_SHARPNESS", theora_sharpness);
++	theora_keyframe_frequency = GET_DEFAULT("THEORA_KEYFRAME_FREQUENCY", theora_keyframe_frequency);
++	theora_keyframe_force_frequency = GET_DEFAULT("THEORA_FORCE_KEYFRAME_FEQUENCY", theora_keyframe_force_frequency);
++
++
+ 	ms_bitrate = GET_DEFAULT("MS_BITRATE", ms_bitrate);
+ 	ms_bitrate_tolerance = GET_DEFAULT("MS_BITRATE_TOLERANCE", ms_bitrate_tolerance);
+ 	ms_interlaced = GET_DEFAULT("MS_INTERLACED", ms_interlaced);
+@@ -931,10 +1035,20 @@
+ 	exr_compression = GET_DEFAULT("EXR_COMPRESSION", exr_compression);
+ 	tiff_cmodel = GET_DEFAULT("TIFF_CMODEL", tiff_cmodel);
+ 	tiff_compression = GET_DEFAULT("TIFF_COMPRESSION", tiff_compression);
++
++	// this extra 'FORMAT_' prefix is just here for legacy reasons
++	use_pipe = GET_DEFAULT("FORMAT_YUV_USE_PIPE", use_pipe);
++	GET_DEFAULT("FORMAT_YUV_PIPE", pipe);
++
++	GET_DEFAULT("REEL_NAME", reel_name);
++	reel_number = GET_DEFAULT("REEL_NUMBER", reel_number);
++	tcstart = GET_DEFAULT("TCSTART", tcstart);
++	tcend = GET_DEFAULT("TCEND", tcend);
++	tcformat = GET_DEFAULT("TCFORMAT", tcformat);
+ }
+ 
+ void Asset::save_defaults(BC_Hash *defaults, 
+-	const char *prefix,
++	char *prefix,
+ 	int do_format,
+ 	int do_compression,
+ 	int do_path,
+@@ -1036,6 +1150,9 @@
+ 		UPDATE_DEFAULT("EXR_COMPRESSION", exr_compression);
+ 		UPDATE_DEFAULT("TIFF_CMODEL", tiff_cmodel);
+ 		UPDATE_DEFAULT("TIFF_COMPRESSION", tiff_compression);
++
++		UPDATE_DEFAULT("FORMAT_YUV_USE_PIPE", use_pipe);
++		UPDATE_DEFAULT("FORMAT_YUV_PIPE", pipe);
+ 	}
+ 
+ 	if(do_bits)
+@@ -1045,6 +1162,12 @@
+ 		UPDATE_DEFAULT("SIGNED", signed_);
+ 		UPDATE_DEFAULT("BYTE_ORDER", byte_order);
+ 	}
++
++	UPDATE_DEFAULT("REEL_NAME", reel_name);
++	UPDATE_DEFAULT("REEL_NUMBER", reel_number);
++	UPDATE_DEFAULT("TCSTART", tcstart);
++	UPDATE_DEFAULT("TCEND", tcend);
++	UPDATE_DEFAULT("TCFORMAT", tcformat);
+ }
+ 
+ 
+@@ -1061,6 +1184,21 @@
+ 	return 0;
+ }
+ 
++double Asset::total_length_framealigned(double fps) 
++{
++	if (video_data && audio_data) {
++		double aud = floor(( (double)audio_length / sample_rate) * fps) / fps;
++		double vid = floor(( (double)video_length / frame_rate) * fps) / fps;
++		return MIN(aud,vid);
++	}
++	
++	if (audio_data)
++		return (double)audio_length / sample_rate;
++	
++	if (video_data)
++		return (double)video_length / frame_rate;
++}
++
+ void Asset::update_index(Asset *asset)
+ {
+ //printf("Asset::update_index 1 %d\n", index_status);
+@@ -1092,6 +1230,24 @@
+ 	index_buffer = asset->index_buffer;    // pointer
+ }
+ 
++int Asset::set_timecode(char *tc, int format, int end)
++{
++	int hr, min, sec;
++
++	hr = ((int) tc[0] - 48) * 10 + (int) tc[1] - 48;
++	min = ((int) tc[3] - 48) * 10 + (int) tc[4] - 48;
++	sec = ((int) tc[6] - 48) * 10 + (int) tc[7] - 48;
++	
++	// This needs to be modified to handle drop-frame
++	
++	if(end)
++		tcend = (int64_t) (((hr * 3600) + (min * 60) + sec) * frame_rate);
++	else
++		tcstart = (int64_t) (((hr * 3600) + (min * 60) + sec) * frame_rate);
++
++	tcformat = format;
++	return 0;
++}
+ 
+ int Asset::dump()
+ {
+@@ -1102,9 +1258,14 @@
+ 	printf("   audio_data %d channels %d samplerate %d bits %d byte_order %d signed %d header %d dither %d acodec %c%c%c%c\n",
+ 		audio_data, channels, sample_rate, bits, byte_order, signed_, header, dither, acodec[0], acodec[1], acodec[2], acodec[3]);
+ 	printf("   audio_length %lld\n", audio_length);
+-	printf("   video_data %d layers %d framerate %f width %d height %d vcodec %c%c%c%c aspect_ratio %f\n",
+-		video_data, layers, frame_rate, width, height, vcodec[0], vcodec[1], vcodec[2], vcodec[3], aspect_ratio);
++	char string[BCTEXTLEN];
++	ilacemode_to_xmltext(string, interlace_mode);
++	printf("   video_data %d layers %d framerate %f width %d height %d vcodec %c%c%c%c aspect_ratio %f interlace_mode %s\n",
++	       video_data, layers, frame_rate, width, height, vcodec[0], vcodec[1], vcodec[2], vcodec[3], aspect_ratio, string);
+ 	printf("   video_length %lld \n", video_length);
++	printf("   reel_name %s reel_number %i tcstart %d tcend %d tcf %d\n",
++		reel_name, reel_number, tcstart, tcend, tcformat);
++	
+ 	return 0;
+ }
+ 

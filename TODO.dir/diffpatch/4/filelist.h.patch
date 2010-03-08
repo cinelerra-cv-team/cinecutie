@@ -1,0 +1,13 @@
+--- cinecutie/filelist.h	2008-07-21 21:14:01.000000000 +0200
++++ /home/user/cinecutie/cinecutie/filelist.h	2010-02-19 22:19:11.958569362 +0100
+@@ -42,8 +42,8 @@
+ public:
+ 	FileList(Asset *asset, 
+ 		File *file, 
+-		const char *list_prefix,
+-		const char *file_extension, 
++		char *list_prefix,
++		char *file_extension, 
+ 		int frame_type,
+ 		int list_type);
+ 	virtual ~FileList();

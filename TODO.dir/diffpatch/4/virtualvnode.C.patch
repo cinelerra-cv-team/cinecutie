@@ -1,0 +1,116 @@
+--- cinecutie/virtualvnode.C	2008-07-29 10:40:56.000000000 +0200
++++ /home/user/cinecutie/cinecutie/virtualvnode.C	2010-02-19 22:19:12.018571035 +0100
+@@ -19,6 +19,7 @@
+  * 
+  */
+ 
++#include "asset.h"
+ #include "automation.h"
+ #include "bcsignals.h"
+ #include "clip.h"
+@@ -36,6 +37,7 @@
+ #include "mwindow.h"
+ #include "module.h"
+ #include "overlayframe.h"
++#include "playabletracks.h"
+ #include "plugin.h"
+ #include "preferences.h"
+ #include "renderengine.h"
+@@ -275,7 +277,7 @@
+ 				track->automation->autos[AUTOMATION_FADE],
+ 				direction);
+ 
+-	render_mask(output_temp, start_position_project, use_opengl);
++	render_mask(output_temp, start_position_project, frame_rate, use_opengl);
+ 
+ 
+ // overlay on the final output
+@@ -306,6 +308,12 @@
+ //printf("VirtualVNode::render_as_module\n");
+ //output_temp->dump_stacks();
+ 
++	Edit *edit = 0;
++	if(renderengine->show_tc)
++		renderengine->vrender->insert_timecode(edit,
++			start_position,
++			output_temp);
++
+ 	return 0;
+ }
+ 
+@@ -335,7 +343,7 @@
+ 		next);
+ 
+ 
+-//	CLAMP(intercept, 0, 100);
++	CLAMP(intercept, 0, 100);
+ 
+ 
+ // Can't use overlay here because overlayer blends the frame with itself.
+@@ -358,13 +366,14 @@
+ 
+ void VirtualVNode::render_mask(VFrame *output_temp,
+ 	int64_t start_position_project,
++	double frame_rate,
+ 	int use_opengl)
+ {
+ 	MaskAutos *keyframe_set = 
+ 		(MaskAutos*)track->automation->autos[AUTOMATION_MASK];
+ 
+ 	Auto *current = 0;
+-//	MaskAuto *default_auto = (MaskAuto*)keyframe_set->default_auto;
++	MaskAuto *default_auto = (MaskAuto*)keyframe_set->default_auto;
+ 	MaskAuto *keyframe = (MaskAuto*)keyframe_set->get_prev_auto(start_position_project, 
+ 		PLAY_FORWARD,
+ 		current);
+@@ -380,13 +389,13 @@
+ //printf("VirtualVNode::render_mask 1 %d %d\n", total_points, keyframe->value);
+ // Ignore certain masks
+ 	if(total_points <= 2 || 
+-		(keyframe->value == 0 && keyframe->mode == MASK_SUBTRACT_ALPHA))
++		(keyframe->value == 0 && default_auto->mode == MASK_SUBTRACT_ALPHA))
+ 	{
+ 		return;
+ 	}
+ 
+ // Fake certain masks
+-	if(keyframe->value == 0 && keyframe->mode == MASK_MULTIPLY_ALPHA)
++	if(keyframe->value == 0 && default_auto->mode == MASK_MULTIPLY_ALPHA)
+ 	{
+ 		output_temp->clear_frame();
+ 		return;
+@@ -399,16 +408,20 @@
+ 			start_position_project,
+ 			keyframe_set, 
+ 			keyframe,
+-			keyframe);
++			default_auto);
+ 	}
+ 	else
+ 	{
+ // Revert to software
++		int direction = renderengine->command->get_direction();
++		double edl_rate = renderengine->edl->session->frame_rate;
+ 		masker->do_mask(output_temp, 
+ 			start_position_project,
++			frame_rate,
++			edl_rate,
+ 			keyframe_set, 
+-			keyframe,
+-			keyframe);
++			direction,
++			0);
+ 	}
+ }
+ 
+@@ -427,8 +440,8 @@
+ 		frame_rate);
+ 	VRender *vrender = ((VirtualVConsole*)vconsole)->vrender;
+ 	if(vconsole->debug_tree) 
+-		printf("  VirtualVNode::render_projector input=%p output=%p cmodel=%d title=%s\n", 
+-			input, output, output->get_color_model(), track->title);
++		printf("  VirtualVNode::render_projector input=%p output=%p title=%s\n", 
++			input, output, track->title);
+ 
+ 	if(output)
+ 	{

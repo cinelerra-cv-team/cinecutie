@@ -1,0 +1,19 @@
+--- cinecutie/filejpeglist.C	2008-10-11 17:46:25.000000000 +0200
++++ /home/user/cinecutie/cinecutie/filejpeglist.C	2010-02-19 22:19:11.948570683 +0100
+@@ -167,7 +167,7 @@
+ int JPEGConfigVideo::create_objects()
+ {
+ 	int x = 10, y = 10;
+-	lock_window("JPEGConfigVideo::create_objects");
++
+ 	add_subwindow(new BC_Title(x, y, _("Quality:")));
+ 	add_subwindow(new BC_ISlider(x + 80, 
+ 		y,
+@@ -182,7 +182,6 @@
+ 		&asset->quality));
+ 
+ 	add_subwindow(new BC_OKButton(this));
+-	unlock_window();
+ 	return 0;
+ }
+ 
