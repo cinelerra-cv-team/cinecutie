@@ -72,11 +72,11 @@ char* BC_Resources::small_fontset = "6x12,*";
 char* BC_Resources::medium_fontset = "7x14,*";
 char* BC_Resources::large_fontset = "8x16,*";
 
-char* BC_Resources::small_font_xft = N_("-*-Sans-*-r-*-*-10-*-*-*-*-*-*-*");
+char* BC_Resources::small_font_xft = N_("Sans-7");
 char* BC_Resources::small_font_xft2 = N_("-verdana-*-*-*-*-*-*-*-*-*-*-*-*");
-char* BC_Resources::medium_font_xft = N_("-*-Sans-*-r-*-*-12-*-*-*-*-*-*-*");
+char* BC_Resources::medium_font_xft = N_("Sans-9");
 char* BC_Resources::medium_font_xft2 = N_("-verdana-*-*-*-*-*-*-*-*-*-*-*-*");
-char* BC_Resources::large_font_xft = N_("-*-Sans-bold-r-*-*-16-*-*-*-*-*-*-*");
+char* BC_Resources::large_font_xft = N_("Sans-12");
 char* BC_Resources::large_font_xft2 = N_("-verdana-*-*-*-*-*-*-*-*-*-*-*-*");
 
 suffix_to_type_t BC_Resources::suffix_to_type[] = 

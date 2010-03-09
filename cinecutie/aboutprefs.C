@@ -114,7 +114,7 @@ mpeg3_release());
 "Stefan de Konink, "
 "Nathan Kurz, "
 "Greg Mekkes, "
-"Eric Seigne\n"
+"Eric Seigne,\n"
 "Joe Stewart, "
 "Dan Streetman, "
 "Gustavo Iñiguez, "

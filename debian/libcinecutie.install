@@ -1,4 +1,5 @@
 usr/lib/libcinecutie.so.?*
+usr/lib/libsw*.so*
 usr/lib/libmpeg3cc-*.so*
 usr/lib/libquicktimecc-*.so*
 usr/lib/libav*.so*

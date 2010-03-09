@@ -1,3 +1,16 @@
+cinecutie (1.0.0-007rc2) karmic; urgency=low
+
+  * fixed packages issue, sorry!
+
+ -- Paolo Rampino <akir4d@gmail.com>  Tue, 09 Mar 2010 14:08:43 +0100
+
+cinecutie (1.0.0-006rc2) karmic; urgency=low
+
+  * Added support for many other video format
+  * lots of fixes
+
+ -- Paolo Rampino <akir4d@gmail.com>  Tue, 09 Mar 2010 00:29:46 +0100
+
 cinecutie (1.0.0-005rc) karmic; urgency=low
 
   * Added support for many video format

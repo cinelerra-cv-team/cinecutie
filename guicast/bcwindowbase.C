@@ -246,9 +246,9 @@ int BC_WindowBase::initialize()
 #ifdef HAVE_LIBXXF86VM
     vm_switched = 0;
 #endif
-	largefont_xft = 0;
-	mediumfont_xft = 0;
-	smallfont_xft = 0;
+//	largefont_xft = 0;
+//	mediumfont_xft = 0;
+//	smallfont_xft = 0;
 // Need these right away since put_event is called before run_window sometimes.
 	event_lock = new Mutex("BC_WindowBase::event_lock");
 	event_condition = new Condition(0, "BC_WindowBase::event_condition");

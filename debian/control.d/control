@@ -16,12 +16,12 @@ Build-depends: debhelper (>> 4), automake, autogen, libglu1-mesa-dev, libglut3-d
  libopenexr-dev (>= 1.1.1), libxxf86vm-dev (>=6.8.2), fftw3-dev,
  libsndfile1-dev, libiec61883-dev (>= 1.0.0), libx264-dev,
  libfaac-dev (>= 1.24), libx11-dev, libxext-dev, libxft-dev,
- libxv-dev, fftw3-dev, libmp4v2-dev, libavcodec-dev, libavfilter-dev, libavformat-dev, libdc1394-22-dev, libdirac-dev, libgsm1-dev, libopenjpeg-dev, libimlib2-dev, libschroedinger-dev, libspeex-dev, libxvmc-dev
+ libxv-dev, fftw3-dev, libmp4v2-dev, libdc1394-22-dev | libdc1394-13-dev | libdc1394-dev, libdirac-dev, libgsm1-dev, libopenjpeg-dev, libimlib2-dev, libschroedinger-dev, libspeex-dev, libxvmc-dev
 
 Package: cinecutie
 Section: video
 Architecture: any
-Depends: ${shlibs:Depends}, libcinecutie (= ${Source-Version})
+Depends: ${shlibs:Depends}, libcinecutie (= ${Source-Version}), mjpegtools
 Conflicts: cinecutie-xt
 Replaces: cinecutie-xt
 Description: An audio/video authoring tool

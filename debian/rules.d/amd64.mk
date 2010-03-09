@@ -1,6 +1,6 @@
-CFLAGS=-O0 -msse2 -pipe
+CFLAGS=-O2 -msse2 -pipe
 CXXFLAGS=$(CFLAGS)
 CONFFLAGS= --with-pic --enable-opengl
-CFLAGSXT=-O0 -mssse3 -pipe
+CFLAGSXT=-O3 -mssse3 -pipe
 CXXFLAGSXT=$(CFLAGSXT)
 CONFFLAGSXT= --with-pic --enable-opengl

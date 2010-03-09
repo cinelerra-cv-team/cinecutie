@@ -1,4 +1,4 @@
-CFLAGS=-O0 -pipe
+CFLAGS=-O2 -pipe
 CXXFLAGS=$(CFLAGS)
 CONFFLAGS=--enable-opengl
 CFLAGSXT=-O3 -pipe
