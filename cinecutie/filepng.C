@@ -55,8 +55,11 @@ int FilePNG::check_sig(Asset *asset)
 		char test[16];
 		fread(test, 16, 1, stream);
 		fclose(stream);
-
+#ifdef HAVE_NEW_PNG
+		if(png_sig_cmp((unsigned char*)test, 0, 8))
+#else
 		if(png_check_sig((unsigned char*)test, 8))
+#endif
 		{
 //printf("FilePNG::check_sig 1\n");
 			return 1;

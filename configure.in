@@ -195,6 +195,10 @@ AC_SUBST(LIBDV_CFLAGS)
 AC_SUBST(LIBDV_LIBS)
 
 PKG_CHECK_MODULES(PNG,libpng,[libpng=yes],:)
+PKG_CHECK_MODULES(PNG14,libpng14 >= 1.4.0,[libnewpng=yes],:)
+if test "x$libnewpng" = "xyes"; then
+AC_DEFINE([HAVE_NEW_PNG], [1], [Needed to compile with libpng 1.4])
+fi
 
 AC_CHECK_HEADER(jpeglib.h,[libjpegh=yes])
 AC_CHECK_LIB(jpeg,jpeg_start_decompress,[libjpeg=yes])
@@ -559,6 +563,7 @@ if test "x$OBJDUMP" = "x"; then :; else
 fi
 AC_SUBST(OBJCOPYTARGET, $octarget)
 AC_SUBST(OBJCOPYARCH, $ocarch)
+
 
 ############## END of .png TO .o CONVERSION
 

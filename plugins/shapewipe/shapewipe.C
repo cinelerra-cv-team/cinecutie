@@ -386,7 +386,11 @@ int ShapeWipeMain::read_pattern_image(int new_frame_width, int new_frame_height)
 	}
 
 	png_ptr = png_create_read_struct(PNG_LIBPNG_VER_STRING,
+#ifdef HAVE_PNG_14
+		NULL, NULL, NULL);
+#else
 		png_voidp_NULL, png_error_ptr_NULL, png_error_ptr_NULL);
+#endif
 
 	if (!png_ptr)
 	{
@@ -399,14 +403,22 @@ int ShapeWipeMain::read_pattern_image(int new_frame_width, int new_frame_height)
 	info_ptr = png_create_info_struct(png_ptr);
 	if (!info_ptr)
 	{
+#ifdef HAVE_PNG_14
+		png_destroy_read_struct(&png_ptr, NULL, NULL);
+#else
 		png_destroy_read_struct(&png_ptr, png_infopp_NULL, png_infopp_NULL);
+#endif
 		return 1;
 	}
 
 	end_info = png_create_info_struct(png_ptr);
 	if (!end_info)
 	{
+#ifdef HAVE_NEW_PNG
+		png_destroy_read_struct(&png_ptr, &info_ptr, NULL);
+#else
 		png_destroy_read_struct(&png_ptr, &info_ptr, png_infopp_NULL);
+#endif
 		return 1;
 	}
 
