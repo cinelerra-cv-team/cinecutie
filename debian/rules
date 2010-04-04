@@ -2,8 +2,7 @@
 # Made with the aid of debmake, by Christoph Lameter,
 # based on the sample debian/rules file for GNU hello by Ian Jackson.
 include /usr/share/dpatch/dpatch.make
-package=hvirtual
-export DH_COMPAT=4
+package=cinecutie
 
 CONFFLAGS=""
 CONFFLAGSXT=""
@@ -70,7 +69,9 @@ binary-build:
 	chmod -x debian/tmp/usr/lib/cinecutie/*
 	chmod +x debian/tmp/usr/lib/cinecutie/fonts
 	chmod -x debian/tmp/usr/lib/cinecutie/fonts/*
-	dh_install --sourcedir=debian/tmp --autodest
+	chmod +x debian/tmp/usr/lib/cinecutie/shapewipe
+	chmod -x debian/tmp/usr/lib/cinecutie/shapewipe/*
+	-dh_install --sourcedir=debian/tmp --autodest
 	dh_installdocs -XCVS
 	dh_installchangelogs -a
 	dh_installman

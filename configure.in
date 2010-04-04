@@ -463,7 +463,7 @@ else
 	ff_conf_args="--disable-ffmpeg --prefix=$prefix --incdir=/opt/cinecutie/conflicts/include \ 
 		--mandir=/opt/cinecutie/conflicts/share/man --disable-ffserver --disable-ffplay \
 		--disable-static --enable-shared --enable-libtheora --enable-libspeex --enable-libopenjpeg \
-	        --enable-swscale --enable-libfaad --enable-libx264 --disable-vhook --enable-gpl --build-suffix=-cinecutie"
+	        --enable-swscale --enable-libfaad --disable-vhook --enable-gpl --build-suffix=-cinecutie"
 
 	if test "x$enable_mmx" = "xno"; then
 		ff_conf_args="$ff_conf_args --disable-mmx"
